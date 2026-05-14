@@ -12,934 +12,1780 @@
         }
         
         :root {
-            --primary: #FF6B6B;
-            --primary-light: #FFE4E4;
-            --secondary: #4ECDC4;
-            --dark: #2C3E50;
-            --light: #F7F9FC;
-            --text: #333;
-            --text-light: #666;
-            --wechat-bg: #EDEDED;
-            --wechat-green: #07C160;
+            --primary: #10a37f;
+            --primary-hover: #0d8a6a;
+            --bg-dark: #212121;
+            --bg-sidebar: #171717;
+            --bg-chat: #212121;
+            --bg-input: #2f2f2f;
+            --bg-hover: #2f2f2f;
+            --text-primary: #ececec;
+            --text-secondary: #b4b4b4;
+            --text-muted: #8e8e8e;
+            --border-color: #2f2f2f;
+            --accent: #10a37f;
+            --warning: #f59e0b;
+            --danger: #ef4444;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
         }
         
-        .page-header {
-            text-align: center;
-            color: white;
-            margin-bottom: 2rem;
-        }
-        
-        .page-header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .page-header p {
-            opacity: 0.9;
-        }
-        
-        .back-link {
-            color: white;
-            text-decoration: none;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        
-        /* 小程序框架 */
-        .miniprogram-container {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .phone-frame {
-            width: 375px;
-            background: #1a1a1a;
-            border-radius: 50px;
-            padding: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            position: relative;
-        }
-        
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 25px;
-            background: #1a1a1a;
-            border-radius: 15px;
-            z-index: 10;
-        }
-        
-        .phone-screen {
-            width: 351px;
-            height: 700px;
-            background: var(--wechat-bg);
-            border-radius: 38px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .screen-title {
-            color: white;
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        /* 小程序顶部 */
-        .mp-header {
-            background: white;
-            padding: 12px 16px;
+        /* 顶部导航 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #eee;
+            padding: 0 16px;
+            z-index: 100;
         }
         
-        .mp-header-left {
+        .nav-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
         
-        .mp-back {
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-        
-        .mp-title {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        .mp-header-right {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .mp-header-btn {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-        
-        /* 首页 */
-        .home-content {
-            padding: 16px;
-            height: calc(100% - 50px);
-            overflow-y: auto;
-        }
-        
-        /* AI 助手卡片 */
-        .ai-card {
-            background: linear-gradient(135deg, var(--primary) 0%, #FF8E8E 100%);
-            border-radius: 16px;
-            padding: 20px;
-            color: white;
-            margin-bottom: 16px;
-        }
-        
-        .ai-avatar {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 12px;
-        }
-        
-        .ai-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-        
-        .ai-card p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .ai-input-box {
-            background: rgba(255,255,255,0.2);
-            border-radius: 24px;
-            padding: 12px 16px;
-            margin-top: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .ai-input-box input {
+        .menu-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             background: transparent;
             border: none;
-            color: white;
-            flex: 1;
-            outline: none;
-        }
-        
-        .ai-input-box input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .ai-send-btn {
-            background: white;
-            color: var(--primary);
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            color: var(--text-secondary);
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            transition: background 0.2s;
         }
         
-        /* 提醒卡片 */
-        .reminder-section {
-            margin-bottom: 16px;
+        .menu-btn:hover {
+            background: var(--bg-hover);
         }
         
-        .reminder-title {
-            font-size: 14px;
-            color: var(--text-light);
-            margin-bottom: 8px;
+        .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .nav-right {
             display: flex;
             align-items: center;
-            gap: 4px;
-        }
-        
-        .reminder-card {
-            background: white;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 8px;
-        }
-        
-        .reminder-card.birthday {
-            border-left: 4px solid var(--primary);
-        }
-        
-        .reminder-card.stock {
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .reminder-card.price {
-            border-left: 4px solid #FFB347;
-        }
-        
-        .reminder-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .reminder-type {
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 4px;
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-        
-        .reminder-type.stock {
-            background: #E4F9F5;
-            color: var(--secondary);
-        }
-        
-        .reminder-date {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-        
-        .reminder-content {
-            font-size: 15px;
-            color: var(--text);
-        }
-        
-        .reminder-action {
-            display: flex;
             gap: 8px;
-            margin-top: 12px;
         }
         
-        .reminder-btn {
+        .new-chat-btn {
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 13px;
+            background: var(--primary);
+            color: white;
             border: none;
+            font-size: 14px;
             cursor: pointer;
+            transition: background 0.2s;
         }
         
-        .reminder-btn.primary {
-            background: var(--primary);
-            color: white;
+        .new-chat-btn:hover {
+            background: var(--primary-hover);
         }
         
-        .reminder-btn.secondary {
-            background: var(--light);
-            color: var(--text);
-        }
-        
-        /* 功能入口 */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .feature-item {
-            background: white;
-            border-radius: 12px;
-            padding: 16px 8px;
-            text-align: center;
-        }
-        
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 1.2rem;
-        }
-        
-        .feature-name {
-            font-size: 12px;
-            color: var(--text);
-        }
-        
-        /* 对话页面 */
-        .chat-content {
-            padding: 16px;
-            height: calc(100% - 100px);
+        /* 侧边栏 */
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 260px;
+            height: calc(100vh - 56px);
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            padding: 12px;
             overflow-y: auto;
+            transform: translateX(0);
+            transition: transform 0.3s;
+            z-index: 90;
         }
         
-        .chat-message {
-            display: flex;
-            gap: 8px;
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar-section {
             margin-bottom: 16px;
         }
         
-        .chat-message.user {
-            flex-direction: row-reverse;
+        .sidebar-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        .chat-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
+        .chat-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            color: var(--text-secondary);
         }
         
-        .chat-avatar.user {
-            background: var(--secondary);
+        .chat-item:hover {
+            background: var(--bg-hover);
         }
         
-        .chat-bubble {
-            max-width: 70%;
-            background: white;
-            border-radius: 16px;
-            padding: 12px 16px;
+        .chat-item.active {
+            background: var(--bg-hover);
+            color: var(--text-primary);
         }
         
-        .chat-message.user .chat-bubble {
-            background: var(--primary);
-            color: white;
+        .chat-icon {
+            font-size: 1.1rem;
         }
         
-        .chat-text {
-            font-size: 15px;
-            line-height: 1.5;
+        .chat-title {
+            flex: 1;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .chat-time {
             font-size: 11px;
-            color: var(--text-light);
-            margin-top: 4px;
+            color: var(--text-muted);
         }
         
-        /* 商品推荐 */
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 12px;
-            margin-top: 8px;
+        /* 主内容区 */
+        .main-content {
+            margin-left: 260px;
+            margin-top: 56px;
+            min-height: calc(100vh - 56px);
+            transition: margin 0.3s;
         }
         
-        .product-img {
-            width: 100%;
-            height: 100px;
-            background: #f5f5f5;
-            border-radius: 8px;
+        .main-content.full {
+            margin-left: 0;
+        }
+        
+        /* 欢迎页 */
+        .welcome-page {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .product-info {
-            margin-top: 8px;
+        .welcome-logo {
+            font-size: 4rem;
+            margin-bottom: 24px;
         }
         
-        .product-name {
-            font-size: 14px;
-            color: var(--text);
-            font-weight: 500;
-        }
-        
-        .product-price {
-            font-size: 16px;
-            color: var(--primary);
+        .welcome-title {
+            font-size: 28px;
             font-weight: 600;
+            margin-bottom: 8px;
         }
         
-        .product-btn {
-            background: var(--primary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+        .welcome-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        
+        .suggestion-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .suggestion-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .suggestion-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--text-muted);
+        }
+        
+        .suggestion-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .suggestion-desc {
             font-size: 12px;
-            border: none;
-            margin-top: 8px;
-            display: inline-block;
+            color: var(--text-muted);
         }
         
-        /* 输入框 */
-        .chat-input-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 12px 16px;
+        /* 聊天页面 */
+        .chat-page {
             display: flex;
-            gap: 8px;
-            align-items: center;
-            border-top: 1px solid #eee;
+            flex-direction: column;
+            height: calc(100vh - 56px);
         }
         
-        .chat-input {
+        .chat-messages {
             flex: 1;
-            background: var(--light);
-            border-radius: 20px;
-            padding: 10px 16px;
-            border: none;
-            font-size: 15px;
+            overflow-y: auto;
+            padding: 20px;
         }
         
-        .chat-send {
-            background: var(--primary);
-            color: white;
+        .message {
+            max-width: 768px;
+            margin: 0 auto 24px;
+            display: flex;
+            gap: 16px;
+        }
+        
+        .message-avatar {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
+            flex-shrink: 0;
         }
         
-        /* 个人中心 */
-        .profile-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 24px 16px;
-            color: white;
+        .message-avatar.assistant {
+            background: linear-gradient(135deg, #10a37f 0%, #1a7f64 100%);
         }
         
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
+        .message-avatar.user {
+            background: #5c46d9;
+        }
+        
+        .message-content {
+            flex: 1;
+            padding-top: 6px;
+        }
+        
+        .message-role {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .message-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+        
+        .message-text p {
+            margin-bottom: 12px;
+        }
+        
+        /* 商品卡片 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .product-card {
+            background: var(--bg-input);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        
+        .product-image {
+            height: 120px;
+            background: linear-gradient(135deg, #2f2f2f 0%, #1a1a1a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            margin-bottom: 12px;
         }
         
-        .profile-name {
-            font-size: 20px;
-            font-weight: 600;
+        .product-info {
+            padding: 12px;
         }
         
-        .profile-desc {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-top: 4px;
+        .product-name {
+            font-size: 13px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.4;
         }
         
-        .profile-stats {
-            display: flex;
-            gap: 16px;
-            margin-top: 16px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-num {
-            font-size: 20px;
-            font-weight: 600;
-        }
-        
-        .stat-label {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-        
-        .profile-section {
-            padding: 16px;
-        }
-        
-        .section-title {
+        .product-price {
             font-size: 16px;
             font-weight: 600;
-            margin-bottom: 12px;
+            color: #f59e0b;
         }
         
-        .family-card {
-            background: white;
+        .product-original-price {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 4px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .product-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .product-btn.primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .product-btn.secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        /* 输入区域 */
+        .input-area {
+            padding: 16px 20px 24px;
+            background: var(--bg-dark);
+        }
+        
+        .input-container {
+            max-width: 768px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .input-box {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 12px 52px 12px 16px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            min-height: 52px;
+        }
+        
+        .input-box:focus-within {
+            border-color: var(--text-muted);
+        }
+        
+        .input-textarea {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 15px;
+            resize: none;
+            max-height: 200px;
+            line-height: 1.5;
+        }
+        
+        .input-textarea::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .send-btn {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        
+        .send-btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .send-btn:disabled {
+            background: var(--bg-hover);
+            color: var(--text-muted);
+        }
+        
+        .input-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        /* 提醒卡片 */
+        .reminder-banner {
+            background: linear-gradient(135deg, #f59e0b20 0%, #f59e0b10 100%);
+            border: 1px solid #f59e0b40;
             border-radius: 12px;
             padding: 16px;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
         
-        .family-avatar {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .family-info h4 {
-            font-size: 15px;
-            color: var(--text);
-        }
-        
-        .family-info p {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-        
-        .family-badge {
-            background: var(--primary);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-        }
-        
-        /* 底部导航 */
-        .tab-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 8px 0;
-            border-top: 1px solid #eee;
-        }
-        
-        .tab-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .tab-icon {
+        .reminder-icon {
             font-size: 1.5rem;
         }
         
-        .tab-label {
-            font-size: 11px;
-            color: var(--text-light);
+        .reminder-content {
+            flex: 1;
         }
         
-        .tab-item.active .tab-label {
+        .reminder-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .reminder-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .reminder-action {
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: #f59e0b;
+            color: white;
+            border: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        /* 快捷操作栏 */
+        .quick-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .quick-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background: var(--bg-hover);
+            border-color: var(--text-muted);
+        }
+        
+        /* 页面标签 */
+        .page-tabs {
+            display: flex;
+            gap: 4px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+        
+        .page-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .page-tab:hover {
+            background: var(--bg-hover);
+        }
+        
+        .page-tab.active {
+            background: var(--bg-input);
+            color: var(--text-primary);
+        }
+        
+        /* 页面容器 */
+        .page-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            margin-bottom: 24px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .page-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        /* 数据卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .stat-card {
+            background: var(--bg-input);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* 列表项 */
+        .list-section {
+            margin-bottom: 24px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .section-action {
+            font-size: 14px;
             color: var(--primary);
+            cursor: pointer;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .list-item:hover {
+            background: var(--bg-hover);
+        }
+        
+        .list-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--bg-hover);
+        }
+        
+        .list-info {
+            flex: 1;
+        }
+        
+        .list-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .list-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .list-meta {
+            text-align: right;
+        }
+        
+        .list-value {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .list-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .badge-warning {
+            background: #f59e0b20;
+            color: #f59e0b;
+        }
+        
+        .badge-success {
+            background: #10a37f20;
+            color: #10a37f;
+        }
+        
+        .badge-danger {
+            background: #ef444420;
+            color: #ef4444;
+        }
+        
+        /* 设置页面 */
+        .settings-section {
+            margin-bottom: 32px;
+        }
+        
+        .settings-title {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        
+        .settings-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .settings-label {
+            font-size: 15px;
+        }
+        
+        .settings-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .toggle {
+            width: 44px;
+            height: 24px;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .toggle.active {
+            background: var(--primary);
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+        
+        .toggle.active::after {
+            transform: translateX(20px);
+        }
+        
+        /* 商品详情页 */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 24px;
+        }
+        
+        .product-gallery {
+            background: var(--bg-input);
+            border-radius: 16px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+        
+        .product-detail-info {
+            padding: 20px 0;
+        }
+        
+        .product-detail-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .product-detail-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+        
+        .product-detail-original {
+            font-size: 16px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        
+        .product-tags {
+            display: flex;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        
+        .product-tag {
+            padding: 6px 12px;
+            background: var(--bg-input);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .product-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .buy-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .buy-btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .buy-btn.primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .buy-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .suggestion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* 导航说明 */
         .nav-hint {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            margin-top: 2rem;
-            text-align: center;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            z-index: 1000;
         }
         
         .nav-hint a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            padding: 8px 16px;
+            background: var(--bg-input);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            z-index: 101;
+        }
+        
+        /* 打字动画 */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+        
+        /* 日期选择器 */
+        .date-picker {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .date-option {
+            padding: 8px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .date-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .date-option.selected {
+            background: var(--primary);
+            border-color: var(--primary);
             color: white;
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back-link">← 返回产品文档</a>
+    <a href="../index.html" class="back-link">← 返回文档</a>
     
-    <div class="page-header">
-        <h1>📱 小程序基础界面 Demo</h1>
-        <p>展示贴心购小程序的核心界面设计</p>
-    </div>
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+            <span class="nav-title">🛒 贴心购</span>
+        </div>
+        <div class="nav-right">
+            <button class="new-chat-btn" onclick="showWelcome()">+ 新对话</button>
+        </div>
+    </nav>
     
-    <div class="miniprogram-container">
-        <!-- 首页 -->
-        <div>
-            <div class="phone-frame">
-                <div class="phone-screen">
-                    <!-- 顶部 -->
-                    <div class="mp-header">
-                        <div class="mp-header-left">
-                            <span class="mp-back">←</span>
-                            <span class="mp-title">贴心购</span>
-                        </div>
-                        <div class="mp-header-right">
-                            <div class="mp-header-btn">⚙️</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 内容 -->
-                    <div class="home-content">
-                        <!-- AI助手卡片 -->
-                        <div class="ai-card">
-                            <div class="ai-avatar">🛒</div>
-                            <h3>小购在等你~</h3>
-                            <p>有什么想买的吗？或者想聊聊？</p>
-                            <div class="ai-input-box">
-                                <input placeholder="说点什么..." />
-                                <div class="ai-send-btn">→</div>
-                            </div>
-                        </div>
-                        
-                        <!-- 提醒 -->
-                        <div class="reminder-section">
-                            <div class="reminder-title">🔔 近期提醒</div>
-                            
-                            <div class="reminder-card birthday">
-                                <div class="reminder-header">
-                                    <span class="reminder-type">生日提醒</span>
-                                    <span class="reminder-date">3天后</span>
-                                </div>
-                                <div class="reminder-content">老婆生日快到了，礼物准备好了吗？</div>
-                                <div class="reminder-action">
-                                    <button class="reminder-btn primary">看看礼物</button>
-                                    <button class="reminder-btn secondary">稍后提醒</button>
-                                </div>
-                            </div>
-                            
-                            <div class="reminder-card stock">
-                                <div class="reminder-header">
-                                    <span class="reminder-type stock">补货提醒</span>
-                                    <span class="reminder-date">今天</span>
-                                </div>
-                                <div class="reminder-content">牛奶快喝完了，要不要补货？</div>
-                                <div class="reminder-action">
-                                    <button class="reminder-btn primary">帮我买</button>
-                                    <button class="reminder-btn secondary">暂不需要</button>
-                                </div>
-                            </div>
-                            
-                            <div class="reminder-card price">
-                                <div class="reminder-header">
-                                    <span class="reminder-type" style="background:#FFF3E0;color:#FFB347">降价提醒</span>
-                                    <span class="reminder-date">刚刚</span>
-                                </div>
-                                <div class="reminder-content">你关注的咖啡机降价了！原价¥299，现价¥199</div>
-                                <div class="reminder-action">
-                                    <button class="reminder-btn primary">去看看</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 功能入口 -->
-                        <div class="reminder-title">🛍️ 快捷入口</div>
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">🎁</div>
-                                <div class="feature-name">送礼推荐</div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">📦</div>
-                                <div class="feature-name">囤货清单</div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">💰</div>
-                                <div class="feature-name">价格监控</div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">📋</div>
-                                <div class="feature-name">购物历史</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 底部导航 -->
-                    <div class="tab-bar">
-                        <div class="tab-item active">
-                            <span class="tab-icon">🏠</span>
-                            <span class="tab-label">首页</span>
-                        </div>
-                        <div class="tab-item">
-                            <span class="tab-icon">💬</span>
-                            <span class="tab-label">对话</span>
-                        </div>
-                        <div class="tab-item">
-                            <span class="tab-icon">🛍️</span>
-                            <span class="tab-label">商城</span>
-                        </div>
-                        <div class="tab-item">
-                            <span class="tab-icon">👤</span>
-                            <span class="tab-label">我的</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-label">今天</div>
+            <div class="chat-item active">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">帮我买个生日礼物</span>
             </div>
-            <p class="screen-title">首页 - AI助手入口+提醒</p>
+            <div class="chat-item">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">牛奶补货提醒</span>
+            </div>
         </div>
         
-        <!-- 对话页 -->
-        <div>
-            <div class="phone-frame">
-                <div class="phone-screen">
-                    <!-- 顶部 -->
-                    <div class="mp-header">
-                        <div class="mp-header-left">
-                            <span class="mp-back">←</span>
-                            <span class="mp-title">小购助手</span>
-                        </div>
-                        <div class="mp-header-right">
-                            <div class="mp-header-btn">+</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 对话内容 -->
-                    <div class="chat-content">
-                        <!-- AI消息 -->
-                        <div class="chat-message">
-                            <div class="chat-avatar">🛒</div>
-                            <div class="chat-bubble">
-                                <div class="chat-text">嘿！有什么想买的吗？或者想聊聊？</div>
-                                <div class="chat-time">10:30</div>
-                            </div>
-                        </div>
-                        
-                        <!-- 用户消息 -->
-                        <div class="chat-message user">
-                            <div class="chat-avatar user">我</div>
-                            <div class="chat-bubble">
-                                <div class="chat-text">帮我买牛奶</div>
-                                <div class="chat-time">10:31</div>
-                            </div>
-                        </div>
-                        
-                        <!-- AI推荐 -->
-                        <div class="chat-message">
-                            <div class="chat-avatar">🛒</div>
-                            <div>
-                                <div class="chat-bubble">
-                                    <div class="chat-text">好的！根据你的偏好，这几款比较适合你~</div>
-                                </div>
-                                
-                                <!-- 商品卡片 -->
-                                <div class="product-card">
-                                    <div class="product-img">🥛</div>
-                                    <div class="product-info">
-                                        <div class="product-name">伊利纯牛奶 250ml*12盒</div>
-                                        <div class="product-price">¥29.9</div>
-                                        <span class="product-btn">加入购物车</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="product-card">
-                                    <div class="product-img">🥛</div>
-                                    <div class="product-info">
-                                        <div class="product-name">蒙牛纯牛奶 250ml*24盒</div>
-                                        <div class="product-price">¥49.9</div>
-                                        <span class="product-btn">加入购物车</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 用户选择 -->
-                        <div class="chat-message user">
-                            <div class="chat-avatar user">我</div>
-                            <div class="chat-bubble">
-                                <div class="chat-text">第一个，买2份</div>
-                                <div class="chat-time">10:32</div>
-                            </div>
-                        </div>
-                        
-                        <!-- AI确认 -->
-                        <div class="chat-message">
-                            <div class="chat-avatar">🛒</div>
-                            <div class="chat-bubble">
-                                <div class="chat-text">好的！伊利纯牛奶 24盒，¥59.8。帮你下单？</div>
-                                <div class="chat-time">10:32</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 输入框 -->
-                    <div class="chat-input-bar">
-                        <input class="chat-input" placeholder="说点什么..." />
-                        <div class="chat-send">→</div>
-                    </div>
-                </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">昨天</div>
+            <div class="chat-item">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">咖啡机降价了</span>
             </div>
-            <p class="screen-title">对话页 - AI推荐商品</p>
+            <div class="chat-item">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">纸巾还有多少</span>
+            </div>
         </div>
         
-        <!-- 个人中心 -->
-        <div>
-            <div class="phone-frame">
-                <div class="phone-screen">
-                    <!-- 个人信息头部 -->
-                    <div class="profile-header">
-                        <div class="profile-avatar">👨</div>
-                        <div class="profile-name">靑枫</div>
-                        <div class="profile-desc">贴心购 · 使用30天</div>
-                        <div class="profile-stats">
-                            <div class="stat-item">
-                                <div class="stat-num">28</div>
-                                <div class="stat-label">购物次数</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-num">3</div>
-                                <div class="stat-label">家人档案</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-num">5</div>
-                                <div class="stat-label">囤货追踪</div>
-                            </div>
-                        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">过去7天</div>
+            <div class="chat-item">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">添加家人信息</span>
+            </div>
+            <div class="chat-item">
+                <span class="chat-icon">💬</span>
+                <span class="chat-title">买咖啡豆</span>
+            </div>
+        </div>
+        
+        <div class="sidebar-section">
+            <div class="sidebar-label">功能</div>
+            <div class="chat-item" onclick="showPage('reminders')">
+                <span class="chat-icon">🔔</span>
+                <span class="chat-title">提醒中心</span>
+            </div>
+            <div class="chat-item" onclick="showPage('orders')">
+                <span class="chat-icon">📦</span>
+                <span class="chat-title">我的订单</span>
+            </div>
+            <div class="chat-item" onclick="showPage('stock')">
+                <span class="chat-icon">📋</span>
+                <span class="chat-title">囤货清单</span>
+            </div>
+            <div class="chat-item" onclick="showPage('price')">
+                <span class="chat-icon">💰</span>
+                <span class="chat-title">价格监控</span>
+            </div>
+            <div class="chat-item" onclick="showPage('family')">
+                <span class="chat-icon">❤️</span>
+                <span class="chat-title">家人档案</span>
+            </div>
+            <div class="chat-item" onclick="showPage('settings')">
+                <span class="chat-icon">⚙️</span>
+                <span class="chat-title">设置</span>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- 主内容区 -->
+    <main class="main-content" id="main">
+        <!-- 欢迎页 -->
+        <div class="welcome-page" id="welcomePage">
+            <div class="welcome-logo">🛒</div>
+            <h1 class="welcome-title">贴心购</h1>
+            <p class="welcome-subtitle">你的私人购物管家，记住你的每个需求</p>
+            
+            <!-- 提醒横幅 -->
+            <div class="reminder-banner" style="width: 100%; max-width: 600px; margin-bottom: 32px;">
+                <span class="reminder-icon">🎁</span>
+                <div class="reminder-content">
+                    <div class="reminder-title">老婆生日还有3天</div>
+                    <div class="reminder-desc">礼物准备好了吗？我来帮你选</div>
+                </div>
+                <button class="reminder-action">去选礼物</button>
+            </div>
+            
+            <div class="suggestion-grid">
+                <div class="suggestion-card" onclick="startChat('帮我买个生日礼物')">
+                    <div class="suggestion-title">🎁 买个生日礼物</div>
+                    <div class="suggestion-desc">帮老婆选个生日礼物</div>
+                </div>
+                <div class="suggestion-card" onclick="startChat('牛奶快没了，帮我补货')">
+                    <div class="suggestion-title">🥛 囤货补货</div>
+                    <div class="suggestion-desc">牛奶快喝完了</div>
+                </div>
+                <div class="suggestion-card" onclick="startChat('最近有什么好价？')">
+                    <div class="suggestion-title">💰 好价推荐</div>
+                    <div class="suggestion-desc">看看最近有什么优惠</div>
+                </div>
+                <div class="suggestion-card" onclick="startChat('记录家人信息')">
+                    <div class="suggestion-title">❤️ 家人档案</div>
+                    <div class="suggestion-desc">添加家人的生日和喜好</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 聊天页 -->
+        <div class="chat-page" id="chatPage" style="display: none;">
+            <div class="chat-messages" id="chatMessages">
+                <!-- 消息会动态插入 -->
+            </div>
+            
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-box">
+                        <textarea class="input-textarea" placeholder="说点什么..." rows="1" id="chatInput"></textarea>
                     </div>
-                    
-                    <!-- 家人档案 -->
-                    <div class="profile-section">
-                        <div class="section-title">❤️ 家人档案</div>
-                        
-                        <div class="family-card">
-                            <div class="family-avatar">👩</div>
-                            <div class="family-info">
-                                <h4>老婆</h4>
-                                <p>生日：3月17日</p>
-                            </div>
-                            <span class="family-badge">3天后生日</span>
-                        </div>
-                        
-                        <div class="family-card">
-                            <div class="family-avatar">👦</div>
-                            <div class="family-info">
-                                <h4>大侄子</h4>
-                                <p>生日：3月18日 · 喜欢奥特曼</p>
-                            </div>
-                        </div>
-                        
-                        <div class="family-card">
-                            <div class="family-avatar">👴</div>
-                            <div class="family-info">
-                                <h4>大姑丈</h4>
-                                <p>生日：3月26日</p>
-                            </div>
-                        </div>
+                    <button class="send-btn" onclick="sendMessage()">➤</button>
+                </div>
+                <p class="input-hint">贴心购可能会犯错，请核实重要信息</p>
+            </div>
+        </div>
+        
+        <!-- 提醒中心页 -->
+        <div class="page-container" id="remindersPage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">🔔 提醒中心</h1>
+                <p class="page-subtitle">所有待处理的提醒都在这里</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">待处理提醒</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">本周提醒</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">本月提醒</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">即将到期</div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">生日提醒</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #f59e0b20;">🎁</div>
+                    <div class="list-info">
+                        <div class="list-title">老婆生日</div>
+                        <div class="list-desc">3月17日 · 还有3天</div>
                     </div>
-                    
-                    <!-- 囤货追踪 -->
-                    <div class="profile-section">
-                        <div class="section-title">📦 囤货追踪</div>
-                        
-                        <div class="family-card">
-                            <div class="family-avatar" style="background:#E4F9F5">🥛</div>
-                            <div class="family-info">
-                                <h4>牛奶</h4>
-                                <p>预计5天后喝完</p>
-                            </div>
-                            <span class="family-badge" style="background:var(--secondary)">待补货</span>
-                        </div>
-                        
-                        <div class="family-card">
-                            <div class="family-avatar" style="background:#E4F9F5">🧻</div>
-                            <div class="family-info">
-                                <h4>纸巾</h4>
-                                <p>库存充足</p>
-                            </div>
-                        </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">待处理</span>
                     </div>
-                    
-                    <!-- 底部导航 -->
-                    <div class="tab-bar">
-                        <div class="tab-item">
-                            <span class="tab-icon">🏠</span>
-                            <span class="tab-label">首页</span>
-                        </div>
-                        <div class="tab-item">
-                            <span class="tab-icon">💬</span>
-                            <span class="tab-label">对话</span>
-                        </div>
-                        <div class="tab-item">
-                            <span class="tab-icon">🛍️</span>
-                            <span class="tab-label">商城</span>
-                        </div>
-                        <div class="tab-item active">
-                            <span class="tab-icon">👤</span>
-                            <span class="tab-label">我的</span>
-                        </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #f59e0b20;">🎁</div>
+                    <div class="list-info">
+                        <div class="list-title">大侄子生日</div>
+                        <div class="list-desc">3月18日 · 还有4天 · 喜欢奥特曼</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">待处理</span>
                     </div>
                 </div>
             </div>
-            <p class="screen-title">个人中心 - 记忆系统展示</p>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">补货提醒</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #10a37f20;">🥛</div>
+                    <div class="list-info">
+                        <div class="list-title">牛奶</div>
+                        <div class="list-desc">预计今天喝完</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-danger">紧急</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #10a37f20;">☕</div>
+                    <div class="list-info">
+                        <div class="list-title">咖啡豆</div>
+                        <div class="list-desc">预计5天后用完</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-success">充足</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">降价提醒</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #ef444420;">☕</div>
+                    <div class="list-info">
+                        <div class="list-title">咖啡机降价了</div>
+                        <div class="list-desc">从 ¥299 降到 ¥199</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-danger">-33%</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        
+        <!-- 我的订单页 -->
+        <div class="page-container" id="ordersPage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">📦 我的订单</h1>
+                <p class="page-subtitle">查看所有购物记录</p>
+            </div>
+            
+            <div class="page-tabs">
+                <button class="page-tab active">全部</button>
+                <button class="page-tab">待付款</button>
+                <button class="page-tab">待发货</button>
+                <button class="page-tab">待收货</button>
+                <button class="page-tab">已完成</button>
+            </div>
+            
+            <div class="list-section">
+                <div class="list-item">
+                    <div class="list-icon">🥛</div>
+                    <div class="list-info">
+                        <div class="list-title">伊利纯牛奶 250ml*12盒 x2</div>
+                        <div class="list-desc">2026-05-12 下单</div>
+                    </div>
+                    <div class="list-meta">
+                        <div class="list-value">¥59.8</div>
+                        <span class="list-badge badge-success">已完成</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">☕</div>
+                    <div class="list-info">
+                        <div class="list-title">咖啡豆 500g</div>
+                        <div class="list-desc">2026-05-10 下单</div>
+                    </div>
+                    <div class="list-meta">
+                        <div class="list-value">¥89.0</div>
+                        <span class="list-badge badge-warning">配送中</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">🧻</div>
+                    <div class="list-info">
+                        <div class="list-title">维达抽纸 24包</div>
+                        <div class="list-desc">2026-05-08 下单</div>
+                    </div>
+                    <div class="list-meta">
+                        <div class="list-value">¥39.9</div>
+                        <span class="list-badge badge-success">已完成</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 囤货清单页 -->
+        <div class="page-container" id="stockPage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">📋 囤货清单</h1>
+                <p class="page-subtitle">追踪家里的囤货，智能提醒补货</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">在追踪</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #f59e0b;">2</div>
+                    <div class="stat-label">需要补货</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">¥320</div>
+                    <div class="stat-label">本月节省</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15天</div>
+                    <div class="stat-label">平均周期</div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">需要补货</span>
+                    <span class="section-action">+ 添加商品</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #ef444420;">🥛</div>
+                    <div class="list-info">
+                        <div class="list-title">牛奶</div>
+                        <div class="list-desc">库存：0 · 预计今天喝完</div>
+                    </div>
+                    <div class="list-meta">
+                        <button class="quick-btn" style="background: var(--primary); color: white;">立即购买</button>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #f59e0b20;">☕</div>
+                    <div class="list-info">
+                        <div class="list-title">咖啡豆</div>
+                        <div class="list-desc">库存：200g · 预计5天后用完</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">库存低</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">库存充足</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #10a37f20;">🧻</div>
+                    <div class="list-info">
+                        <div class="list-title">纸巾</div>
+                        <div class="list-desc">库存：18包 · 预计30天后用完</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-success">充足</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #10a37f20;">🧴</div>
+                    <div class="list-info">
+                        <div class="list-title">洗衣液</div>
+                        <div class="list-desc">库存：2瓶 · 预计45天后用完</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-success">充足</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 价格监控页 -->
+        <div class="page-container" id="pricePage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">💰 价格监控</h1>
+                <p class="page-subtitle">关注商品降价，第一时间通知你</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">关注商品</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #10a37f;">3</div>
+                    <div class="stat-label">正在降价</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">¥156</div>
+                    <div class="stat-label">已帮你省</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">28</div>
+                    <div class="stat-label">降价次数</div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">正在降价 🔥</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #ef444420;">☕</div>
+                    <div class="list-info">
+                        <div class="list-title">德龙咖啡机</div>
+                        <div class="list-desc">原价 ¥299 → 现价 ¥199</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-danger">-33%</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #f59e0b20;">🎧</div>
+                    <div class="list-info">
+                        <div class="list-title">AirPods Pro 2</div>
+                        <div class="list-desc">原价 ¥1899 → 现价 ¥1549</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">-19%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">全部关注</span>
+                    <span class="section-action">+ 添加关注</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">📱</div>
+                    <div class="list-info">
+                        <div class="list-title">iPhone 15 Pro</div>
+                        <div class="list-desc">当前 ¥7999 · 历史最低 ¥7699</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge" style="background: var(--bg-hover);">观望中</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">👟</div>
+                    <div class="list-info">
+                        <div class="list-title">Nike Air Max</div>
+                        <div class="list-desc">当前 ¥899 · 历史最低 ¥699</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge" style="background: var(--bg-hover);">观望中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 家人档案页 -->
+        <div class="page-container" id="familyPage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">❤️ 家人档案</h1>
+                <p class="page-subtitle">记录家人的喜好，送礼不再纠结</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">家人档案</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">礼物记录</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">即将生日</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">送礼成功率</div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">家人列表</span>
+                    <span class="section-action">+ 添加家人</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #f59e0b20;">👩</div>
+                    <div class="list-info">
+                        <div class="list-title">老婆</div>
+                        <div class="list-desc">生日：3月17日 · 喜欢护肤品、香薰、巧克力</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">3天后生日</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #3b82f620;">👦</div>
+                    <div class="list-info">
+                        <div class="list-title">大侄子</div>
+                        <div class="list-desc">生日：3月18日 · 小学1年级 · 喜欢奥特曼、乐高</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge badge-warning">4天后生日</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon" style="background: #10a37f20;">👴</div>
+                    <div class="list-info">
+                        <div class="list-title">大姑丈</div>
+                        <div class="list-desc">生日：3月26日 · 喜欢茶叶、保健品</div>
+                    </div>
+                    <div class="list-meta">
+                        <span class="list-badge" style="background: var(--bg-hover);">12天后</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-section">
+                <div class="section-header">
+                    <span class="section-title">送礼记录</span>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">🎁</div>
+                    <div class="list-info">
+                        <div class="list-title">老婆生日礼物</div>
+                        <div class="list-desc">2025-03-17 · Godiva 巧克力礼盒</div>
+                    </div>
+                    <div class="list-meta">
+                        <div class="list-value">¥399</div>
+                        <span class="list-badge badge-success">喜欢</span>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-icon">🎁</div>
+                    <div class="list-info">
+                        <div class="list-title">大侄子生日礼物</div>
+                        <div class="list-desc">2025-03-18 · 奥特曼手办套装</div>
+                    </div>
+                    <div class="list-meta">
+                        <div class="list-value">¥199</div>
+                        <span class="list-badge badge-success">很喜欢</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置页 -->
+        <div class="page-container" id="settingsPage" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">⚙️ 设置</h1>
+                <p class="page-subtitle">个性化你的贴心购</p>
+            </div>
+            
+            <div class="settings-section">
+                <div class="settings-title">通知设置</div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">生日提醒</div>
+                        <div class="settings-desc">提前7天、3天、1天提醒</div>
+                    </div>
+                    <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">补货提醒</div>
+                        <div class="settings-desc">库存不足时自动提醒</div>
+                    </div>
+                    <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">降价提醒</div>
+                        <div class="settings-desc">关注商品降价时通知</div>
+                    </div>
+                    <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <div class="settings-title">偏好设置</div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">消息推送</div>
+                        <div class="settings-desc">接收微信消息推送</div>
+                    </div>
+                    <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">智能推荐</div>
+                        <div class="settings-desc">基于购买历史推荐商品</div>
+                    </div>
+                    <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">省钱模式</div>
+                        <div class="settings-desc">优先推荐优惠商品</div>
+                    </div>
+                    <div class="toggle" onclick="this.classList.toggle('active')"></div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <div class="settings-title">账号</div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">绑定淘宝账号</div>
+                        <div class="settings-desc">已绑定：靑枫</div>
+                    </div>
+                    <span style="color: var(--primary);">解绑</span>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">数据导出</div>
+                        <div class="settings-desc">导出购物记录和家人档案</div>
+                    </div>
+                    <span style="color: var(--primary);">导出</span>
+                </div>
+                
+                <div class="settings-item">
+                    <div>
+                        <div class="settings-label">清除数据</div>
+                        <div class="settings-desc">清除所有本地数据</div>
+                    </div>
+                    <span style="color: #ef4444;">清除</span>
+                </div>
+            </div>
+        </div>
+    </main>
     
     <div class="nav-hint">
-        <p>下一步：查看 <a href="cases.html">关键交互 Case</a> 了解核心用户场景</p>
+        查看更多场景：<a href="cases.html">关键交互 Case Demo</a>
     </div>
+    
+    <script>
+        // 页面控制
+        function showWelcome() {
+            document.getElementById('welcomePage').style.display = 'flex';
+            document.getElementById('chatPage').style.display = 'none';
+            document.getElementById('remindersPage').style.display = 'none';
+            document.getElementById('ordersPage').style.display = 'none';
+            document.getElementById('stockPage').style.display = 'none';
+            document.getElementById('pricePage').style.display = 'none';
+            document.getElementById('familyPage').style.display = 'none';
+            document.getElementById('settingsPage').style.display = 'none';
+            document.querySelector('.nav-hint').style.display = 'block';
+        }
+        
+        function showPage(page) {
+            document.getElementById('welcomePage').style.display = 'none';
+            document.getElementById('chatPage').style.display = 'none';
+            document.getElementById('remindersPage').style.display = 'none';
+            document.getElementById('ordersPage').style.display = 'none';
+            document.getElementById('stockPage').style.display = 'none';
+            document.getElementById('pricePage').style.display = 'none';
+            document.getElementById('familyPage').style.display = 'none';
+            document.getElementById('settingsPage').style.display = 'none';
+            document.getElementById(page + 'Page').style.display = 'block';
+            document.querySelector('.nav-hint').style.display = 'none';
+        }
+        
+        function startChat(message) {
+            document.getElementById('welcomePage').style.display = 'none';
+            document.getElementById('chatPage').style.display = 'flex';
+            document.querySelector('.nav-hint').style.display = 'none';
+            
+            // 添加用户消息
+            addMessage('user', message);
+            
+            // 模拟AI回复
+            setTimeout(() => {
+                if (message.includes('生日礼物')) {
+                    addMessage('assistant', '好的！老婆的生日还有3天呢~ 我记得她喜欢护肤品、香薰和巧克力。要不要我帮你推荐几个？', true);
+                    setTimeout(() => {
+                        addProducts([
+                            { name: '祖玛珑香薰蜡烛礼盒', price: '¥680', icon: '🕯️', discount: '-15%' },
+                            { name: '兰蔻小黑瓶精华肌底液', price: '¥1080', icon: '💎', discount: '' },
+                            { name: 'Godiva 巧克力礼盒', price: '¥399', icon: '🍫', discount: '-20%' }
+                        ]);
+                    }, 500);
+                } else if (message.includes('牛奶')) {
+                    addMessage('assistant', '好的！根据你之前的购买记录，你一般买伊利纯牛奶 250ml*12盒这款。要不要帮你下单？', true);
+                    setTimeout(() => {
+                        addProducts([
+                            { name: '伊利纯牛奶 250ml*12盒', price: '¥29.9', icon: '🥛', discount: '' },
+                            { name: '蒙牛纯牛奶 250ml*24盒', price: '¥49.9', icon: '🥛', discount: '' }
+                        ]);
+                    }, 500);
+                } else if (message.includes('好价')) {
+                    addMessage('assistant', '最近有几件你关注的商品正在降价：', true);
+                    setTimeout(() => {
+                        addProducts([
+                            { name: '德龙咖啡机', price: '¥199', icon: '☕', discount: '-33%', original: '¥299' },
+                            { name: 'AirPods Pro 2', price: '¥1549', icon: '🎧', discount: '-19%', original: '¥1899' }
+                        ]);
+                    }, 500);
+                } else {
+                    addMessage('assistant', '好的，你想记录哪位家人的信息呢？可以告诉我：\n\n• 姓名/称呼\n• 生日\n• 喜好\n\n我会帮你记住的~');
+                }
+            }, 800);
+        }
+        
+        function addMessage(role, content, isMarkdown = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            const avatarClass = role === 'user' ? 'user' : 'assistant';
+            const avatarIcon = role === 'user' ? '👤' : '🛒';
+            const roleName = role === 'user' ? '我' : '贴心购';
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar ${avatarClass}">${avatarIcon}</div>
+                <div class="message-content">
+                    <div class="message-role">${roleName}</div>
+                    <div class="message-text">${content.replace(/\n/g, '<br>')}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function addProducts(products) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const productsDiv = document.createElement('div');
+            productsDiv.className = 'message';
+            
+            let productsHtml = '<div class="product-grid">';
+            products.forEach(p => {
+                productsHtml += `
+                    <div class="product-card">
+                        <div class="product-image">${p.icon}</div>
+                        <div class="product-info">
+                            <div class="product-name">${p.name}</div>
+                            <div class="product-price">${p.price}</div>
+                            ${p.discount ? `<span class="list-badge badge-danger" style="margin-top: 4px;">${p.discount}</span>` : ''}
+                            <div class="product-actions">
+                                <button class="product-btn primary">加入购物车</button>
+                                <button class="product-btn secondary">详情</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            productsHtml += '</div>';
+            
+            productsDiv.innerHTML = `
+                <div class="message-avatar assistant">🛒</div>
+                <div class="message-content">
+                    ${productsHtml}
+                </div>
+            `;
+            
+            messagesContainer.appendChild(productsDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            input.value = '';
+            startChat(message);
+        }
+        
+        // 输入框自动调整高度
+        document.getElementById('chatInput').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+        });
+        
+        // 回车发送
+        document.getElementById('chatInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+        
+        // 侧边栏切换
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main');
+            sidebar.classList.toggle('hidden');
+            main.classList.toggle('full');
+        }
+        
+        // 响应式侧边栏
+        if (window.innerWidth <= 768) {
+            document.getElementById('sidebar').classList.add('hidden');
+            document.getElementById('main').classList.add('full');
+        }
+    </script>
 </body>
 </html>
