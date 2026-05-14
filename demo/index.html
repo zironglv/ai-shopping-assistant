@@ -13,12 +13,10 @@
         }
         
         :root {
-            /* 小程序配色 - 参考 ChatGPT 手机版 */
             --bg-primary: #FFFFFF;
             --bg-secondary: #F7F7F8;
             --bg-input: #F4F4F4;
             --bg-chat: #FFFFFF;
-            --bg-nav: #FFFFFF;
             --text-primary: #1A1A1A;
             --text-secondary: #6B6B6B;
             --text-muted: #9B9B9B;
@@ -26,16 +24,13 @@
             --accent-light: #E8F5F0;
             --border: #E5E5E5;
             --shadow: 0 2px 12px rgba(0,0,0,0.08);
-            
-            /* 微信小程序风格 */
             --wechat-green: #07C160;
-            --wechat-blue: #576B95;
             --wechat-red: #FA5151;
             --wechat-orange: #FA9D3B;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
             background: #1a1a1a;
             display: flex;
             justify-content: center;
@@ -76,7 +71,7 @@
             z-index: 10;
         }
         
-        /* 小程序屏幕 */
+        /* 小程序屏幕 - 无导航栏 */
         .mp-screen {
             width: 351px;
             height: 700px;
@@ -93,239 +88,209 @@
             font-size: 13px;
         }
         
-        /* ===== 小程序顶部导航栏 ===== */
-        .mp-navbar {
-            height: 44px;
-            background: var(--bg-nav);
+        /* ===== 顶部状态区（仅显示logo和功能入口） ===== */
+        .top-bar {
+            height: 56px;
+            background: var(--bg-primary);
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            border-bottom: 0.5px solid var(--border);
+            justify-content: space-between;
+            padding: 0 16px;
+            padding-top: 28px; /* 为刘海留空间 */
         }
         
-        .mp-navbar-title {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .mp-navbar-left {
-            position: absolute;
-            left: 16px;
+        .top-logo {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 8px;
         }
         
-        .mp-navbar-btn {
+        .top-logo-icon {
             width: 32px;
             height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: var(--text-primary);
-        }
-        
-        .mp-navbar-right {
-            position: absolute;
-            right: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        /* ===== 状态指示区（ChatGPT风格） ===== */
-        .mp-status-bar {
-            height: 32px;
-            background: var(--bg-secondary);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        
-        .mp-status-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        
-        /* ===== 底部 TabBar ===== */
-        .mp-tabbar {
-            height: 50px;
-            background: var(--bg-nav);
-            border-top: 0.5px solid var(--border);
-            display: flex;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding-bottom: 0; /* iPhone X 适配 */
-        }
-        
-        .mp-tabbar-item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-            font-size: 10px;
-            color: var(--text-muted);
-        }
-        
-        .mp-tabbar-item.active {
-            color: var(--accent);
-        }
-        
-        .mp-tabbar-icon {
-            font-size: 22px;
-        }
-        
-        /* ===== 主内容区 ===== */
-        .mp-content {
-            height: calc(100% - 44px - 50px);
-            overflow-y: auto;
-            background: var(--bg-primary);
-        }
-        
-        /* ===== 聊天页面 - ChatGPT手机版风格 ===== */
-        .chat-content {
-            height: calc(100% - 44px - 50px - 60px);
-            overflow-y: auto;
-            background: var(--bg-primary);
-        }
-        
-        /* 消息样式 */
-        .chat-message {
-            padding: 16px;
-            max-width: 100%;
-        }
-        
-        .message-user {
-            background: var(--accent-light);
-            margin: 8px 16px;
+            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%);
             border-radius: 16px;
-            padding: 12px 16px;
-            font-size: 15px;
-            line-height: 1.5;
-            color: var(--text-primary);
-        }
-        
-        .message-assistant {
-            padding: 16px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-primary);
-        }
-        
-        .message-assistant p {
-            margin-bottom: 12px;
-        }
-        
-        /* 商品卡片网格 */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 16px;
-        }
-        
-        .product-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        .product-img {
-            height: 100px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 1rem;
+            color: white;
         }
         
-        .product-info {
-            padding: 12px;
-        }
-        
-        .product-name {
-            font-size: 13px;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        
-        .product-price {
+        .top-logo-text {
             font-size: 16px;
             font-weight: 600;
-            color: var(--wechat-red);
+            color: var(--text-primary);
         }
         
-        .product-tag {
-            display: inline-block;
-            padding: 2px 6px;
-            background: var(--wechat-red);
-            color: white;
-            font-size: 11px;
-            border-radius: 4px;
-            margin-left: 4px;
-        }
-        
-        /* 输入框区域 - ChatGPT风格 */
-        .chat-input-area {
-            height: 60px;
-            background: var(--bg-nav);
-            border-top: 0.5px solid var(--border);
-            display: flex;
-            align-items: center;
-            padding: 8px 16px;
-            gap: 8px;
-            position: absolute;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-        }
-        
-        .chat-input-box {
-            flex: 1;
-            height: 40px;
-            background: var(--bg-input);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            font-size: 15px;
-            color: var(--text-muted);
-        }
-        
-        .chat-send-btn {
+        .top-menu-btn {
             width: 36px;
             height: 36px;
-            background: var(--accent);
+            background: var(--bg-secondary);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 16px;
+            font-size: 18px;
+            color: var(--text-secondary);
+            cursor: pointer;
         }
         
-        .chat-send-btn.disabled {
+        /* ===== 主内容区 ===== */
+        .mp-content {
+            height: calc(100% - 56px - 80px);
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+        
+        /* ===== 底部输入区（无Tab，纯输入框） ===== */
+        .input-area {
+            height: 80px;
+            background: var(--bg-primary);
+            border-top: 0.5px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .input-tools {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .input-tool-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .input-tool-btn:hover {
+            background: var(--bg-input);
+        }
+        
+        .input-tool-btn.active {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        
+        .input-box {
+            flex: 1;
+            min-height: 40px;
+            max-height: 120px;
+            background: var(--bg-input);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+        
+        .input-send-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .input-send-btn.disabled {
             background: var(--bg-input);
             color: var(--text-muted);
         }
         
-        /* ===== 欢迎页 - ChatGPT手机版风格 ===== */
+        .input-expand {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding-top: 8px;
+        }
+        
+        .expand-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        .expand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        /* ===== 侧边菜单 ===== */
+        .side-menu {
+            position: absolute;
+            top: 56px;
+            right: 0;
+            width: 200px;
+            background: var(--bg-primary);
+            border-radius: 16px 0 0 16px;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        
+        .side-menu.show {
+            display: block;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 0.5px solid var(--border);
+            cursor: pointer;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-icon {
+            font-size: 1.2rem;
+        }
+        
+        .menu-text {
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+        
+        /* ===== 欢迎页 ===== */
         .welcome-content {
-            height: calc(100% - 44px - 50px);
+            height: calc(100% - 56px - 80px);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -367,7 +332,7 @@
             border: 1px solid #FFD699;
             border-radius: 12px;
             padding: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -398,14 +363,6 @@
         .reminder-sub {
             font-size: 12px;
             color: var(--text-secondary);
-        }
-        
-        .reminder-btn {
-            padding: 8px 16px;
-            background: var(--wechat-orange);
-            color: white;
-            border-radius: 8px;
-            font-size: 13px;
         }
         
         /* 快捷入口网格 */
@@ -441,93 +398,88 @@
             margin-top: 4px;
         }
         
-        /* ===== 订单页面 ===== */
-        .order-tabs {
-            display: flex;
-            background: var(--bg-nav);
-            border-bottom: 0.5px solid var(--border);
-            padding: 0 16px;
+        /* ===== 聊天页面 ===== */
+        .chat-content {
+            height: calc(100% - 56px - 80px);
+            overflow-y: auto;
+            background: var(--bg-primary);
         }
         
-        .order-tab {
+        .chat-message {
+            padding: 16px;
+        }
+        
+        .message-user {
+            background: var(--accent-light);
+            margin: 8px 16px;
+            border-radius: 16px;
             padding: 12px 16px;
-            font-size: 14px;
-            color: var(--text-muted);
-            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
         }
         
-        .order-tab.active {
-            color: var(--accent);
-            font-weight: 500;
+        .message-assistant {
+            padding: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-primary);
         }
         
-        .order-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 16px;
-            right: 16px;
-            height: 2px;
-            background: var(--accent);
+        .message-assistant p {
+            margin-bottom: 12px;
         }
         
-        .order-list {
-            padding: 12px 16px;
+        /* 商品卡片 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 16px;
         }
         
-        .order-item {
+        .product-card {
             background: var(--bg-secondary);
             border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
+            overflow: hidden;
         }
         
-        .order-img {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            border-radius: 8px;
+        .product-img {
+            height: 100px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
         }
         
-        .order-info {
-            flex: 1;
+        .product-info {
+            padding: 12px;
         }
         
-        .order-name {
-            font-size: 14px;
-            font-weight: 500;
+        .product-name {
+            font-size: 13px;
             color: var(--text-primary);
             margin-bottom: 4px;
         }
         
-        .order-spec {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        
-        .order-status {
-            font-size: 12px;
-            color: var(--wechat-green);
-        }
-        
-        .order-price {
-            text-align: right;
-        }
-        
-        .order-amount {
+        .product-price {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--wechat-red);
         }
         
-        /* ===== 提醒中心页面 ===== */
+        .product-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            background: var(--wechat-red);
+            color: white;
+            font-size: 11px;
+            border-radius: 4px;
+            margin-left: 4px;
+        }
+        
+        /* ===== 提醒中心 ===== */
         .reminder-section {
             padding: 16px;
         }
@@ -537,9 +489,6 @@
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         
         .reminder-item {
@@ -599,7 +548,7 @@
             color: var(--wechat-green);
         }
         
-        /* ===== 囤货清单页面 ===== */
+        /* ===== 囤货清单 ===== */
         .stock-header {
             padding: 16px;
             background: var(--bg-secondary);
@@ -680,7 +629,180 @@
             background: var(--wechat-red);
         }
         
-        /* ===== 设置页面 ===== */
+        /* ===== 订单页 ===== */
+        .order-tabs {
+            display: flex;
+            background: var(--bg-secondary);
+            padding: 0 16px;
+        }
+        
+        .order-tab {
+            padding: 12px 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+            position: relative;
+        }
+        
+        .order-tab.active {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .order-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .order-list {
+            padding: 12px 16px;
+        }
+        
+        .order-item {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .order-img {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .order-info {
+            flex: 1;
+        }
+        
+        .order-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .order-spec {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .order-status {
+            font-size: 12px;
+            color: var(--wechat-green);
+            margin-top: 8px;
+        }
+        
+        .order-price {
+            text-align: right;
+        }
+        
+        .order-amount {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* ===== 价格监控 ===== */
+        .price-card {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .price-icon {
+            width: 48px;
+            height: 48px;
+            background: #576B95;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .price-info {
+            flex: 1;
+        }
+        
+        .price-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .price-change {
+            font-size: 13px;
+            color: var(--wechat-red);
+        }
+        
+        .price-badge {
+            padding: 6px 12px;
+            background: var(--wechat-red);
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        
+        /* ===== 家人档案 ===== */
+        .family-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .family-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .family-info {
+            flex: 1;
+        }
+        
+        .family-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .family-birthday {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .family-likes {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* ===== 设置 ===== */
         .settings-section {
             padding: 16px;
         }
@@ -720,7 +842,6 @@
             background: #E5E5EA;
             border-radius: 15px;
             position: relative;
-            transition: background 0.3s;
         }
         
         .settings-toggle.on {
@@ -749,104 +870,14 @@
             font-size: 14px;
         }
         
-        /* ===== 价格监控页面 ===== */
-        .price-card {
-            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-            border-radius: 12px;
-            padding: 16px;
-            margin: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .price-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--wechat-blue);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .price-info {
-            flex: 1;
-        }
-        
-        .price-name {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
-        .price-change {
-            font-size: 13px;
-            color: var(--wechat-red);
-        }
-        
-        .price-badge {
-            padding: 6px 12px;
-            background: var(--wechat-red);
-            color: white;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        
-        /* ===== 家人档案页面 ===== */
-        .family-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 16px;
-            margin: 16px 16px 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .family-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-        }
-        
-        .family-info {
-            flex: 1;
-        }
-        
-        .family-name {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
-        .family-birthday {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-        
-        .family-likes {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-        
-        /* ===== 商品详情页 ===== */
+        /* ===== 商品详情 ===== */
         .detail-gallery {
-            height: 300px;
+            height: 280px;
             background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8rem;
+            font-size: 7rem;
         }
         
         .detail-info {
@@ -900,41 +931,10 @@
             line-height: 1.6;
         }
         
-        .detail-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            padding: 16px;
-            background: var(--bg-nav);
-            border-top: 0.5px solid var(--border);
-        }
-        
-        .detail-btn {
-            flex: 1;
-            height: 44px;
-            border-radius: 22px;
-            font-size: 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-        }
-        
-        .detail-btn-cart {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-        
-        .detail-btn-buy {
-            background: var(--accent);
-            color: white;
-        }
-        
-        /* ===== 搜索页面 ===== */
+        /* ===== 搜索 ===== */
         .search-bar {
             padding: 12px 16px;
-            background: var(--bg-nav);
+            background: var(--bg-primary);
         }
         
         .search-input {
@@ -957,108 +957,10 @@
             color: var(--text-muted);
         }
         
-        .search-result {
-            padding: 16px;
-        }
-        
-        .result-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
-        }
-        
-        .result-img {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-        
-        .result-info {
-            flex: 1;
-        }
-        
-        .result-title {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-        
-        .result-shop {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-        
-        .result-price-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        
-        .result-price {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--wechat-red);
-        }
-        
-        .result-sales {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        
-        /* ===== 空状态 ===== */
-        .empty-state {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .empty-icon {
-            font-size: 4rem;
-            margin-bottom: 16px;
-        }
-        
-        .empty-text {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        
-        /* ===== 底部按钮 ===== */
-        .bottom-action {
-            position: absolute;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-            padding: 12px 16px;
-            background: var(--bg-nav);
-            border-top: 0.5px solid var(--border);
-        }
-        
-        .bottom-btn {
-            height: 44px;
-            background: var(--accent);
-            color: white;
-            border-radius: 22px;
-            font-size: 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
         /* ===== 添加按钮 ===== */
         .add-btn {
             position: absolute;
-            bottom: 66px;
+            bottom: 96px;
             right: 16px;
             width: 50px;
             height: 50px;
@@ -1101,6 +1003,52 @@
         .nav-hint a {
             color: var(--accent);
         }
+        
+        /* ===== 语音输入动画 ===== */
+        .voice-btn.recording {
+            background: var(--wechat-red);
+            color: white;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* ===== 图片预览 ===== */
+        .image-preview {
+            display: flex;
+            gap: 8px;
+            padding: 8px 0;
+        }
+        
+        .preview-thumb {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid var(--accent);
+        }
+        
+        .preview-remove {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 16px;
+            height: 16px;
+            background: var(--wechat-red);
+            border-radius: 8px;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -1110,20 +1058,47 @@
         <!-- ========== 1. 欢迎首页 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">👤</span>
+                <!-- 顶部状态栏 -->
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">🛒</div>
+                        <span class="top-logo-text">贴心购</span>
                     </div>
-                    <span class="mp-navbar-title">贴心购</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">🔔</span>
+                    <div class="top-menu-btn" onclick="this.nextElementSibling.classList.toggle('show')">☰</div>
+                    <div class="side-menu">
+                        <div class="menu-item">
+                            <span class="menu-icon">🏠</span>
+                            <span class="menu-text">首页</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">🔔</span>
+                            <span class="menu-text">提醒中心</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">📦</span>
+                            <span class="menu-text">我的订单</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">📋</span>
+                            <span class="menu-text">囤货清单</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">💰</span>
+                            <span class="menu-text">价格监控</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">❤️</span>
+                            <span class="menu-text">家人档案</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-icon">⚙️</span>
+                            <span class="menu-text">设置</span>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- 内容区 -->
                 <div class="welcome-content">
-                    <!-- Logo -->
                     <div class="welcome-logo">🛒</div>
                     <h1 class="welcome-title">贴心购</h1>
                     <p class="welcome-desc">你的私人购物管家<br>记住你的每个需求</p>
@@ -1135,7 +1110,14 @@
                             <div class="reminder-title">老婆生日还有3天</div>
                             <div class="reminder-sub">礼物准备好了吗？</div>
                         </div>
-                        <span class="reminder-btn">去选礼物</span>
+                    </div>
+                    
+                    <div class="reminder-card" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
+                        <div class="reminder-icon" style="background: var(--wechat-red);">🥛</div>
+                        <div class="reminder-text">
+                            <div class="reminder-title">牛奶库存不足</div>
+                            <div class="reminder-sub">预计今天喝完</div>
+                        </div>
                     </div>
                     
                     <!-- 快捷入口 -->
@@ -1163,61 +1145,59 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item active">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn voice-btn">🎤</div>
+                        </div>
+                        <div class="input-box">说点什么...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">🎁</div>
+                            <span>礼物</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">🥛</div>
+                            <span>补货</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">💰</div>
+                            <span>好价</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">🔍</div>
+                            <span>搜索</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">首页 - ChatGPT手机版风格欢迎页</div>
+            <div class="screen-label">首页 - 无顶部导航，底部为输入框+快捷入口</div>
         </div>
         
         <!-- ========== 2. 对话页面 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
-                        <span class="mp-navbar-btn">🏠</span>
+                <!-- 顶部状态栏 -->
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">🛒</div>
+                        <span class="top-logo-text">贴心购</span>
                     </div>
-                    <span class="mp-navbar-title">贴心购</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">+</span>
-                    </div>
-                </div>
-                
-                <!-- 状态指示 -->
-                <div class="mp-status-bar">
-                    <span class="mp-status-dot"></span>
-                    <span>在线 · 可随时询问</span>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
                 <!-- 聊天内容 -->
                 <div class="chat-content">
-                    <!-- 用户消息 -->
                     <div class="message-user">帮我买个老婆的生日礼物，她喜欢护肤品和香薰</div>
                     
-                    <!-- AI回复 -->
                     <div class="message-assistant">
                         <p>好的！老婆生日还有3天呢~ 我记得她喜欢护肤品、香薰和巧克力。</p>
                         <p>要不要我帮你推荐几个？这些都是她之前浏览过的：</p>
                         
-                        <!-- 商品推荐 -->
                         <div class="product-grid">
                             <div class="product-card">
                                 <div class="product-img">🕯️</div>
@@ -1250,10 +1230,8 @@
                         </div>
                     </div>
                     
-                    <!-- 用户追问 -->
                     <div class="message-user">香薰蜡烛看起来不错，帮我看看详情</div>
                     
-                    <!-- AI回复详情 -->
                     <div class="message-assistant">
                         <p>好的！这个祖玛珑香薰蜡烛礼盒包含了：</p>
                         <p>• 英国梨与小苍兰 70g<br>• 青柠罗勒与柑橘 70g<br>• 蓝风铃 70g</p>
@@ -1261,52 +1239,47 @@
                     </div>
                 </div>
                 
-                <!-- 输入框 -->
-                <div class="chat-input-area">
-                    <div class="chat-input-box">说点什么...</div>
-                    <div class="chat-send-btn disabled">➤</div>
-                </div>
-                
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">说点什么...</div>
+                        <div class="input-send-btn">➤</div>
                     </div>
-                    <div class="mp-tabbar-item active">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">🛒</div>
+                            <span>加入购物车</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">❤️</div>
+                            <span>关注降价</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">📦</div>
+                            <span>查看订单</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">对话页 - ChatGPT手机版聊天风格</div>
+            <div class="screen-label">对话页 - ChatGPT风格聊天 + 底部输入框</div>
         </div>
         
         <!-- ========== 3. 提醒中心 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">🔔</div>
+                        <span class="top-logo-text">提醒中心</span>
                     </div>
-                    <span class="mp-navbar-title">提醒中心</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">⚙️</span>
-                    </div>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 内容 -->
                 <div class="mp-content">
-                    <!-- 生日提醒 -->
                     <div class="reminder-section">
                         <div class="section-title">🎁 生日提醒</div>
                         
@@ -1329,7 +1302,6 @@
                         </div>
                     </div>
                     
-                    <!-- 补货提醒 -->
                     <div class="reminder-section">
                         <div class="section-title">🥛 补货提醒</div>
                         
@@ -1352,7 +1324,6 @@
                         </div>
                     </div>
                     
-                    <!-- 降价提醒 -->
                     <div class="reminder-section">
                         <div class="section-title">💰 降价提醒</div>
                         
@@ -1367,44 +1338,42 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">询问提醒相关...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">✅</div>
+                            <span>处理提醒</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">➕</div>
+                            <span>添加提醒</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">提醒中心 - 小程序列表页风格</div>
+            <div class="screen-label">提醒中心 - 功能页也支持底部输入</div>
         </div>
         
         <!-- ========== 4. 囤货清单 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">📋</div>
+                        <span class="top-logo-text">囤货清单</span>
                     </div>
-                    <span class="mp-navbar-title">囤货清单</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">📊</span>
-                    </div>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 统计头部 -->
                 <div class="stock-header">
                     <div class="stock-stats">
                         <div class="stock-stat">
@@ -1422,8 +1391,7 @@
                     </div>
                 </div>
                 
-                <!-- 内容 -->
-                <div class="mp-content" style="height: calc(100% - 44px - 50px - 80px); top: 80px;">
+                <div class="mp-content" style="height: calc(100% - 56px - 80px - 80px);">
                     <div class="stock-list">
                         <div class="section-title">⚠️ 需要补货</div>
                         
@@ -1472,61 +1440,48 @@
                                 <div class="stock-progress-bar" style="width: 70%;"></div>
                             </div>
                         </div>
-                        
-                        <div class="stock-item">
-                            <span class="stock-icon">🧹</span>
-                            <div class="stock-info">
-                                <div class="stock-name">洗洁精</div>
-                                <div class="stock-status">库存：1瓶 · 预计60天后用完</div>
-                            </div>
-                            <div class="stock-progress">
-                                <div class="stock-progress-bar" style="width: 80%;"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
                 <!-- 添加按钮 -->
                 <div class="add-btn">+</div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">拍照添加囤货...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">🛒</div>
+                            <span>立即购买</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">📷</div>
+                            <span>扫码添加</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">囤货清单 - 进度条可视化</div>
+            <div class="screen-label">囤货清单 - 拍照/扫码快速添加囤货</div>
         </div>
         
         <!-- ========== 5. 我的订单 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">📦</div>
+                        <span class="top-logo-text">我的订单</span>
                     </div>
-                    <span class="mp-navbar-title">我的订单</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">🔍</span>
-                    </div>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 订单标签 -->
                 <div class="order-tabs">
                     <div class="order-tab active">全部</div>
                     <div class="order-tab">待付款</div>
@@ -1535,8 +1490,7 @@
                     <div class="order-tab">已完成</div>
                 </div>
                 
-                <!-- 内容 -->
-                <div class="mp-content" style="height: calc(100% - 44px - 50px - 44px); top: 88px;">
+                <div class="mp-content" style="height: calc(100% - 56px - 80px - 44px);">
                     <div class="order-list">
                         <div class="order-item">
                             <div class="order-img">🥛</div>
@@ -1588,46 +1542,43 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">查询订单状态...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item active">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">🔍</div>
+                            <span>搜索订单</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">🛒</div>
+                            <span>再次购买</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">我的订单 - 小程序Tab页风格</div>
+            <div class="screen-label">我的订单 - 语音查询订单状态</div>
         </div>
         
         <!-- ========== 6. 价格监控 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">💰</div>
+                        <span class="top-logo-text">价格监控</span>
                     </div>
-                    <span class="mp-navbar-title">价格监控</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">+</span>
-                    </div>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 内容 -->
                 <div class="mp-content">
-                    <!-- 正在降价 -->
                     <div class="section-title" style="padding: 16px 16px 8px;">🔥 正在降价</div>
                     
                     <div class="price-card">
@@ -1648,7 +1599,6 @@
                         <span class="price-badge" style="background: var(--wechat-orange);">-19%</span>
                     </div>
                     
-                    <!-- 关注列表 -->
                     <div class="section-title" style="padding: 16px;">👀 关注列表</div>
                     
                     <div class="reminder-item">
@@ -1670,46 +1620,43 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">搜索商品关注降价...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">➕</div>
+                            <span>添加关注</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">🛒</div>
+                            <span>立即购买</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">价格监控 - 降价卡片突出展示</div>
+            <div class="screen-label">价格监控 - 搜索/拍照添加关注商品</div>
         </div>
         
         <!-- ========== 7. 家人档案 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">❤️</div>
+                        <span class="top-logo-text">家人档案</span>
                     </div>
-                    <span class="mp-navbar-title">家人档案</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">+</span>
-                    </div>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 内容 -->
                 <div class="mp-content">
-                    <!-- 家人列表 -->
                     <div class="section-title" style="padding: 16px 16px 8px;">❤️ 家人列表</div>
                     
                     <div class="family-card">
@@ -1741,7 +1688,6 @@
                         </div>
                     </div>
                     
-                    <!-- 送礼记录 -->
                     <div class="section-title" style="padding: 16px 16px 8px;">🎁 送礼记录</div>
                     
                     <div class="reminder-item">
@@ -1763,50 +1709,48 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 添加按钮 -->
+                <div class="add-btn">+</div>
+                
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">说点什么，我会帮你记下来...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon">➕</div>
+                            <span>添加家人</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">🎁</div>
+                            <span>送礼记录</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">家人档案 - 小程序卡片风格</div>
+            <div class="screen-label">家人档案 - 语音记录家人信息更方便</div>
         </div>
         
         <!-- ========== 8. 商品详情 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon" style="background: #f5f5f5; color: var(--text-primary);">←</div>
+                        <span class="top-logo-text">商品详情</span>
                     </div>
-                    <span class="mp-navbar-title">商品详情</span>
-                    <div class="mp-navbar-right">
-                        <span class="mp-navbar-btn">❤️</span>
-                        <span class="mp-navbar-btn">📤</span>
-                    </div>
+                    <div class="top-menu-btn">❤️</div>
                 </div>
                 
-                <!-- 内容 -->
-                <div class="mp-content" style="height: calc(100% - 44px - 50px - 60px);">
-                    <!-- 商品图片 -->
+                <div class="mp-content" style="height: calc(100% - 56px - 80px);">
                     <div class="detail-gallery">🕯️</div>
                     
-                    <!-- 商品信息 -->
                     <div class="detail-info">
                         <div class="detail-title">祖玛珑香薰蜡烛礼盒 英国梨与小苍兰系列</div>
                         
@@ -1827,47 +1771,46 @@
                     </div>
                 </div>
                 
-                <!-- 底部操作 -->
-                <div class="detail-actions">
-                    <div class="detail-btn-cart">加入购物车</div>
-                    <div class="detail-btn-buy">立即购买</div>
-                </div>
-                
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
+                <!-- 底部输入区（商品详情页的快捷操作） -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">询问商品详情...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                    <div class="input-expand">
+                        <div class="expand-btn">
+                            <div class="expand-icon" style="background: var(--accent-light); color: var(--accent);">🛒</div>
+                            <span>加入购物车</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon" style="background: var(--accent); color: white;">💳</div>
+                            <span>立即购买</span>
+                        </div>
+                        <div class="expand-btn">
+                            <div class="expand-icon">💰</div>
+                            <span>关注降价</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">商品详情 - 小程序标准详情页</div>
+            <div class="screen-label">商品详情 - 底部快捷操作按钮</div>
         </div>
         
         <!-- ========== 9. 设置页面 ========== -->
         <div class="phone-frame">
             <div class="mp-screen">
-                <!-- 导航栏 -->
-                <div class="mp-navbar">
-                    <div class="mp-navbar-left">
-                        <span class="mp-navbar-btn">←</span>
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">⚙️</div>
+                        <span class="top-logo-text">设置</span>
                     </div>
-                    <span class="mp-navbar-title">设置</span>
+                    <div class="top-menu-btn">☰</div>
                 </div>
                 
-                <!-- 内容 -->
                 <div class="mp-content">
                     <div class="settings-section">
                         <div class="settings-group">
@@ -1948,32 +1891,122 @@
                     </div>
                 </div>
                 
-                <!-- TabBar -->
-                <div class="mp-tabbar">
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">🏠</span>
-                        <span>首页</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">💬</span>
-                        <span>对话</span>
-                    </div>
-                    <div class="mp-tabbar-item">
-                        <span class="mp-tabbar-icon">📦</span>
-                        <span>订单</span>
-                    </div>
-                    <div class="mp-tabbar-item active">
-                        <span class="mp-tabbar-icon">⚙️</span>
-                        <span>设置</span>
+                <!-- 底部输入区 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box">设置偏好...</div>
+                        <div class="input-send-btn disabled">➤</div>
                     </div>
                 </div>
             </div>
-            <div class="screen-label">设置页 - 小程序开关风格</div>
+            <div class="screen-label">设置页 - 也可通过语音设置偏好</div>
+        </div>
+        
+        <!-- ========== 10. 语音输入状态 ========== -->
+        <div class="phone-frame">
+            <div class="mp-screen">
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">🛒</div>
+                        <span class="top-logo-text">贴心购</span>
+                    </div>
+                    <div class="top-menu-btn">☰</div>
+                </div>
+                
+                <div class="chat-content">
+                    <div class="message-user">帮我买个老婆的生日礼物</div>
+                    
+                    <div class="message-assistant">
+                        <p>好的！老婆生日还有3天呢~ 我记得她喜欢护肤品、香薰和巧克力。</p>
+                        <p>要不要我帮你推荐几个？</p>
+                    </div>
+                    
+                    <!-- 用户正在语音输入的提示 -->
+                    <div style="padding: 16px; text-align: center;">
+                        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">正在录音...</div>
+                        <div style="display: flex; justify-content: center; gap: 4px;">
+                            <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite;"></div>
+                            <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite 0.1s;"></div>
+                            <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite 0.2s;"></div>
+                        </div>
+                        <div style="font-size: 14px; color: var(--text-primary); margin-top: 12px;">"香薰蜡烛不错，帮我看看详情"</div>
+                    </div>
+                </div>
+                
+                <!-- 底部输入区 - 语音状态 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn">📷</div>
+                            <div class="input-tool-btn voice-btn recording">🎤</div>
+                        </div>
+                        <div class="input-box" style="color: var(--wechat-red);">正在录音，松开发送...</div>
+                        <div class="input-send-btn" style="background: var(--wechat-red);">⏹</div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-label">语音输入状态 - 录音动画提示</div>
+        </div>
+        
+        <!-- ========== 11. 图片输入状态 ========== -->
+        <div class="phone-frame">
+            <div class="mp-screen">
+                <div class="top-bar">
+                    <div class="top-logo">
+                        <div class="top-logo-icon">🛒</div>
+                        <span class="top-logo-text">贴心购</span>
+                    </div>
+                    <div class="top-menu-btn">☰</div>
+                </div>
+                
+                <div class="chat-content">
+                    <div class="message-user">
+                        我看到这个商品不错，帮我查查价格
+                        <div style="display: flex; gap: 8px; margin-top: 8px;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">☕</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-assistant">
+                        <p>这是 <strong>德龙咖啡机</strong>，我帮你查了一下：</p>
+                        <p>• 当前价格：¥299<br>• 历史最低：¥199<br>• 降幅记录：-33%</p>
+                        <p>要不要帮你关注降价？降到 ¥199 时我会通知你~</p>
+                    </div>
+                </div>
+                
+                <!-- 底部输入区 - 图片已添加 -->
+                <div class="input-area">
+                    <div class="input-row">
+                        <div class="input-tools">
+                            <div class="input-tool-btn active">📷</div>
+                            <div class="input-tool-btn">🎤</div>
+                        </div>
+                        <div class="input-box" style="flex: 1;">
+                            <div class="image-preview">
+                                <div style="width: 32px; height: 32px; background: var(--bg-secondary); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 2px solid var(--accent);">📷</div>
+                            </div>
+                        </div>
+                        <div class="input-send-btn">➤</div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-label">图片输入 - 拍照识别商品查价</div>
         </div>
     </div>
     
     <div class="nav-hint">
         查看更多交互场景：<a href="cases.html">关键交互 Case Demo</a>
     </div>
+    
+    <style>
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(3); }
+        }
+    </style>
 </body>
 </html>

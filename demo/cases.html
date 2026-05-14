@@ -104,127 +104,158 @@
             margin-bottom: 40px;
         }
         
-        /* 小程序导航栏 */
-        .mp-navbar {
-            height: 44px;
+        /* 顶部状态栏 */
+        .top-bar {
+            height: 56px;
             background: var(--bg-primary);
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            border-bottom: 0.5px solid var(--border);
+            justify-content: space-between;
+            padding: 0 16px;
+            padding-top: 28px;
         }
         
-        .mp-navbar-title {
-            font-size: 17px;
+        .top-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .top-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+        }
+        
+        .top-logo-text {
+            font-size: 16px;
             font-weight: 600;
             color: var(--text-primary);
         }
         
-        .mp-navbar-left {
-            position: absolute;
-            left: 16px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .mp-navbar-btn {
-            width: 32px;
-            height: 32px;
+        .top-menu-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: var(--text-primary);
+            color: var(--text-secondary);
         }
         
-        .mp-navbar-right {
-            position: absolute;
-            right: 16px;
-        }
-        
-        /* TabBar */
-        .mp-tabbar {
-            height: 50px;
+        /* 底部输入区 */
+        .input-area {
+            height: 80px;
             background: var(--bg-primary);
             border-top: 0.5px solid var(--border);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            padding: 8px 12px;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
         }
         
-        .mp-tabbar-item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            font-size: 10px;
-            color: var(--text-muted);
-        }
-        
-        .mp-tabbar-item.active {
-            color: var(--accent);
-        }
-        
-        .mp-tabbar-icon {
-            font-size: 22px;
-        }
-        
-        /* 内容区 */
-        .mp-content {
-            height: calc(100% - 44px - 50px);
-            overflow-y: auto;
-            background: var(--bg-primary);
-        }
-        
-        /* 聊天样式 */
-        .chat-content {
-            height: calc(100% - 44px - 50px - 60px);
-            overflow-y: auto;
-            background: var(--bg-primary);
-        }
-        
-        .chat-input-area {
-            height: 60px;
-            background: var(--bg-primary);
-            border-top: 0.5px solid var(--border);
+        .input-row {
             display: flex;
             align-items: center;
-            padding: 8px 16px;
             gap: 8px;
-            position: absolute;
-            bottom: 50px;
-            left: 0;
-            right: 0;
         }
         
-        .chat-input-box {
-            flex: 1;
-            height: 40px;
-            background: var(--bg-input);
-            border-radius: 20px;
+        .input-tools {
             display: flex;
-            align-items: center;
-            padding: 0 16px;
-            font-size: 15px;
-            color: var(--text-muted);
+            gap: 4px;
         }
         
-        .chat-send-btn {
+        .input-tool-btn {
             width: 36px;
             height: 36px;
-            background: var(--accent);
+            background: var(--bg-secondary);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        .input-box {
+            flex: 1;
+            min-height: 40px;
+            background: var(--bg-input);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+        
+        .input-send-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-size: 18px;
+        }
+        
+        .input-send-btn.disabled {
+            background: var(--bg-input);
+            color: var(--text-muted);
+        }
+        
+        .input-expand {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding-top: 8px;
+        }
+        
+        .expand-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        .expand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 16px;
+        }
+        
+        /* 主内容区 */
+        .mp-content {
+            height: calc(100% - 56px - 80px);
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+        
+        /* 聊天内容 */
+        .chat-content {
+            height: calc(100% - 56px - 80px);
+            overflow-y: auto;
+            background: var(--bg-primary);
         }
         
         .message-user {
@@ -427,69 +458,6 @@
             margin-top: 4px;
         }
         
-        /* 欢迎页 */
-        .welcome-content {
-            height: calc(100% - 44px - 50px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            background: var(--bg-primary);
-        }
-        
-        .welcome-logo {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%);
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .welcome-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-        
-        .welcome-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-        
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            width: 100%;
-            margin-top: 24px;
-        }
-        
-        .quick-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: left;
-        }
-        
-        .quick-icon {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-        
-        .quick-title {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
         /* 进度条 */
         .stock-progress {
             width: 60px;
@@ -543,6 +511,17 @@
             background: var(--accent);
             width: 24px;
         }
+        
+        /* 语音动画 */
+        .voice-btn.recording {
+            background: var(--wechat-red);
+            color: white;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(3); }
+        }
     </style>
 </head>
 <body>
@@ -563,33 +542,26 @@
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">←</span>
-                    <span class="mp-navbar-btn">🏠</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">贴心购</span>
-                <div class="mp-navbar-right">
-                    <span class="mp-navbar-btn">+</span>
-                </div>
+                <div class="top-menu-btn">☰</div>
             </div>
             
             <div class="chat-content">
-                <!-- 用户请求 -->
                 <div class="message-user">老婆生日快到了，帮我选个礼物</div>
                 
-                <!-- AI 分析 -->
                 <div class="message-assistant">
-                    <p>好的！我记得老婆的生日是3月17日，还有<strong>3天</strong>。</p>
+                    <p>好的！我记得老婆的生日是<strong>3月17日</strong>，还有<strong>3天</strong>。</p>
                     <p>根据她的喜好档案，她喜欢：</p>
                     <p>• 💄 护肤品（兰蔻、SK-II）<br>• 🕯️ 香薰蜡烛（祖玛珑）<br>• 🍫 巧克力（Godiva）</p>
                     <p>要不要我帮你推荐几个？</p>
                 </div>
                 
-                <!-- 用户确认 -->
                 <div class="message-user">香薰蜡烛不错，推荐几个吧</div>
                 
-                <!-- 商品推荐 -->
                 <div class="message-assistant">
                     <p>这是我找到的香薰蜡烛：</p>
                     <div class="product-grid">
@@ -611,27 +583,24 @@
                 </div>
             </div>
             
-            <div class="chat-input-area">
-                <div class="chat-input-box">说点什么...</div>
-                <div class="chat-send-btn">➤</div>
-            </div>
-            
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item active">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">🛒</div>
+                        <span>加入购物车</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">❤️</div>
+                        <span>关注降价</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -648,16 +617,17 @@
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">←</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">贴心购</span>
+                <div class="top-menu-btn">☰</div>
             </div>
             
             <div class="chat-content">
                 <!-- 提醒卡片 -->
-                <div class="reminder-card" style="margin: 16px; background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
+                <div class="reminder-card" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
                     <div class="reminder-icon" style="background: var(--wechat-red);">🥛</div>
                     <div class="reminder-text">
                         <div class="reminder-title">牛奶库存不足</div>
@@ -665,44 +635,38 @@
                     </div>
                 </div>
                 
-                <!-- AI 主动提醒 -->
                 <div class="message-assistant">
                     <p>牛奶快喝完了！根据你的购买记录，你一般买 <strong>伊利纯牛奶 250ml×12盒</strong>。</p>
                     <p>要不要帮你下单？上次买的 ¥29.9，现在还是这个价。</p>
                 </div>
                 
-                <!-- 用户确认 -->
                 <div class="message-user">好的，帮我买2盒</div>
                 
-                <!-- AI 执行 -->
                 <div class="message-assistant">
                     <p>好的！已经帮你下单了：</p>
                     <p>• 伊利纯牛奶 250ml×12盒 ×2<br>• 价格：¥59.8<br>• 预计明天送达</p>
-                    <p>已同步更新囤货清单，下次记得提前提醒我~</p>
+                    <p>已同步更新囤货清单~</p>
                 </div>
             </div>
             
-            <div class="chat-input-area">
-                <div class="chat-input-box">说点什么...</div>
-                <div class="chat-send-btn">➤</div>
-            </div>
-            
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item active">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">🛒</div>
+                        <span>立即购买</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">📋</div>
+                        <span>查看囤货清单</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -719,29 +683,25 @@
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">←</span>
-                    <span class="mp-navbar-btn">🏠</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">贴心购</span>
+                <div class="top-menu-btn">☰</div>
             </div>
             
             <div class="chat-content">
-                <!-- 用户日常对话 -->
                 <div class="message-user">大侄子说他很喜欢奥特曼，还说想生日收到奥特曼玩具</div>
                 
-                <!-- AI 自然回应 + 询问 -->
                 <div class="message-assistant">
                     <p>好的！那我帮你记下来：</p>
                     <p>✅ 大侄子喜欢奥特曼玩具</p>
                     <p>对了，大侄子生日是哪天呀？我帮你加到生日提醒里~</p>
                 </div>
                 
-                <!-- 用户回复 -->
                 <div class="message-user">3月18日，正好是老婆生日第二天</div>
                 
-                <!-- AI 记录确认 -->
                 <div class="message-assistant">
                     <p>好的，记录成功！</p>
                     <p>📝 <strong>大侄子档案更新</strong></p>
@@ -749,7 +709,6 @@
                     <p>我会提前提醒你准备礼物，放心~</p>
                 </div>
                 
-                <!-- 显示家人档案 -->
                 <div class="family-card" style="margin: 16px;">
                     <div class="family-avatar" style="background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);">👦</div>
                     <div class="family-info">
@@ -760,27 +719,24 @@
                 </div>
             </div>
             
-            <div class="chat-input-area">
-                <div class="chat-input-box">说点什么...</div>
-                <div class="chat-send-btn">➤</div>
-            </div>
-            
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么，我会帮你记下来...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item active">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">➕</div>
+                        <span>添加家人</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">❤️</div>
+                        <span>查看档案</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -792,11 +748,12 @@
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">←</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">贴心购</span>
+                <div class="top-menu-btn">☰</div>
             </div>
             
             <div class="chat-content">
@@ -809,14 +766,12 @@
                     </div>
                 </div>
                 
-                <!-- AI 详细说明 -->
                 <div class="message-assistant">
                     <p>好消息！你关注的<strong>德龙咖啡机</strong>降价了：</p>
                     <p>• 原价：¥299<br>• 现价：¥199<br>• 降幅：33%</p>
                     <p>这是历史最低价，要不要帮你下单？</p>
                 </div>
                 
-                <!-- 商品卡片 -->
                 <div class="product-grid">
                     <div class="product-card">
                         <div class="product-img">☕</div>
@@ -827,60 +782,152 @@
                     </div>
                 </div>
                 
-                <!-- 用户决定 -->
                 <div class="message-user">帮我下单吧</div>
                 
-                <!-- AI 确认 -->
                 <div class="message-assistant">
                     <p>好的！已下单：</p>
                     <p>✅ 德龙咖啡机 ¥199<br>✅ 预计明天送达<br>✅ 已移除价格监控</p>
                 </div>
             </div>
             
-            <div class="chat-input-area">
-                <div class="chat-input-box">说点什么...</div>
-                <div class="chat-send-btn">➤</div>
-            </div>
-            
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item active">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">🛒</div>
+                        <span>立即购买</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">💰</div>
+                        <span>继续观望</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="screen-label">降价主动通知 → 商品详情 → 用户决策 → 自动下单</div>
     </div>
     
-    <!-- ========== Case 5: 囤货清单状态 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 5: 囤货清单可视化</div>
+    <!-- ========== Case 5: 语音输入场景 ========== -->
+    <div class="case-tag" style="margin-top: 40px;">Case 5: 语音快速表达需求</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">←</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">囤货清单</span>
-                <div class="mp-navbar-right">
-                    <span class="mp-navbar-btn">+</span>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <!-- 用户语音输入的提示 -->
+                <div style="padding: 80px 16px; text-align: center;">
+                    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">正在录音...</div>
+                    <div style="display: flex; justify-content: center; gap: 4px; margin-bottom: 24px;">
+                        <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite;"></div>
+                        <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite 0.1s;"></div>
+                        <div style="width: 60px; height: 4px; background: var(--wechat-red); border-radius: 2px; animation: wave 0.5s infinite 0.2s;"></div>
+                    </div>
+                    <div style="font-size: 16px; color: var(--text-primary); margin-bottom: 12px;">"帮我买个老婆的生日礼物"</div>
+                    <div style="font-size: 13px; color: var(--text-muted);">松开按钮发送，长按继续录音</div>
                 </div>
             </div>
             
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn voice-btn recording">🎤</div>
+                    </div>
+                    <div class="input-box" style="color: var(--wechat-red);">正在录音，松开发送...</div>
+                    <div class="input-send-btn" style="background: var(--wechat-red);">⏹</div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">语音输入 - 快速表达需求，适合长辈和忙碌场景</div>
+    </div>
+    
+    <!-- ========== Case 6: 图片输入场景 ========== -->
+    <div class="case-tag" style="margin-top: 40px;">Case 6: 拍照识别商品</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">
+                    我看到这个商品不错，帮我查查价格
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">☕</div>
+                    </div>
+                </div>
+                
+                <div class="message-assistant">
+                    <p>这是 <strong>德龙咖啡机</strong>，我帮你查了一下：</p>
+                    <p>• 当前价格：¥299<br>• 历史最低：¥199<br>• 降幅记录：-33%</p>
+                    <p>要不要帮你关注降价？降到 ¥199 时我会通知你~</p>
+                </div>
+                
+                <div class="message-user">帮我关注一下降价</div>
+                
+                <div class="message-assistant">
+                    <p>好的！已添加关注：</p>
+                    <p>✅ 德龙咖啡机<br>✅ 目标价格：¥199<br>✅ 降价时自动通知你</p>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn active">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">💰</div>
+                        <span>关注降价</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">🛒</div>
+                        <span>加入购物车</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">图片输入 - 拍照识别商品，快速查价和关注</div>
+    </div>
+    
+    <!-- ========== Case 7: 囤货清单 ========== -->
+    <div class="case-tag" style="margin-top: 40px;">Case 7: 囤货清单可视化</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">📋</div>
+                    <span class="top-logo-text">囤货清单</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
             <div class="mp-content">
-                <!-- 需要补货 -->
                 <div style="padding: 16px;">
                     <div style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">⚠️ 需要补货</div>
                     
@@ -907,7 +954,6 @@
                     </div>
                 </div>
                 
-                <!-- 库存充足 -->
                 <div style="padding: 16px;">
                     <div style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">✅ 库存充足</div>
                     
@@ -946,47 +992,51 @@
                 </div>
             </div>
             
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">拍照添加囤货...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">🛒</div>
+                        <span>立即购买</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">📷</div>
+                        <span>扫码添加</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">➕</div>
+                        <span>手动添加</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="screen-label">进度条可视化库存状态，一目了然</div>
+        <div class="screen-label">囤货清单 - 进度条可视化 + 多种添加方式</div>
     </div>
     
-    <!-- ========== Case 6: 首页主动提醒 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 6: 首页主动提醒</div>
+    <!-- ========== Case 8: 首页主动提醒 ========== -->
+    <div class="case-tag" style="margin-top: 40px;">Case 8: 首页主动提醒展示</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
-            <div class="mp-navbar">
-                <div class="mp-navbar-left">
-                    <span class="mp-navbar-btn">👤</span>
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
                 </div>
-                <span class="mp-navbar-title">贴心购</span>
-                <div class="mp-navbar-right">
-                    <span class="mp-navbar-btn">🔔</span>
-                </div>
+                <div class="top-menu-btn">☰</div>
             </div>
             
-            <div class="welcome-content">
-                <div class="welcome-logo">🛒</div>
-                <h1 class="welcome-title">贴心购</h1>
-                <p class="welcome-desc">你的私人购物管家</p>
+            <div class="mp-content" style="display: flex; flex-direction: column; align-items: center; padding: 40px 20px;">
+                <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%); border-radius: 32px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 20px;">🛒</div>
+                <div style="font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">贴心购</div>
+                <div style="font-size: 14px; color: var(--text-secondary); text-align: center; margin-bottom: 32px;">你的私人购物管家</div>
                 
                 <!-- 生日提醒 -->
                 <div class="reminder-card">
@@ -1006,43 +1056,42 @@
                     </div>
                 </div>
                 
-                <!-- 快捷入口 -->
-                <div class="quick-grid">
-                    <div class="quick-card">
-                        <span class="quick-icon">🎁</span>
-                        <div class="quick-title">买个礼物</div>
-                    </div>
-                    <div class="quick-card">
-                        <span class="quick-icon">🥛</span>
-                        <div class="quick-title">囤货补货</div>
-                    </div>
-                    <div class="quick-card">
-                        <span class="quick-icon">💰</span>
-                        <div class="quick-title">好价推荐</div>
-                    </div>
-                    <div class="quick-card">
-                        <span class="quick-icon">❤️</span>
-                        <div class="quick-title">家人档案</div>
+                <!-- 降价提醒 -->
+                <div class="reminder-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-color: #93C5FD;">
+                    <div class="reminder-icon" style="background: var(--accent);">💰</div>
+                    <div class="reminder-text">
+                        <div class="reminder-title">咖啡机降价了</div>
+                        <div class="reminder-sub">降幅 33%</div>
                     </div>
                 </div>
             </div>
             
-            <div class="mp-tabbar">
-                <div class="mp-tabbar-item active">
-                    <span class="mp-tabbar-icon">🏠</span>
-                    <span>首页</span>
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">💬</span>
-                    <span>对话</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">📦</span>
-                    <span>订单</span>
-                </div>
-                <div class="mp-tabbar-item">
-                    <span class="mp-tabbar-icon">⚙️</span>
-                    <span>设置</span>
+                <div class="input-expand">
+                    <div class="expand-btn">
+                        <div class="expand-icon">🎁</div>
+                        <span>礼物</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">🥛</div>
+                        <span>补货</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">💰</div>
+                        <span>好价</span>
+                    </div>
+                    <div class="expand-btn">
+                        <div class="expand-icon">🔍</div>
+                        <span>搜索</span>
+                    </div>
                 </div>
             </div>
         </div>
