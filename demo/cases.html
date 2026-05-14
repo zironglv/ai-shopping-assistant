@@ -660,6 +660,193 @@
                 justify-content: flex-start;
             }
         }
+        
+        /* 新增场景样式 */
+        .chat-graph-card {
+            background: rgba(16, 163, 127, 0.1);
+            border: 1px solid rgba(16, 163, 127, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .graph-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .graph-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .graph-item:last-child {
+            border-bottom: none;
+        }
+        .graph-label {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .graph-value {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .graph-value.highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .chat-analysis-card {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .analysis-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 10px;
+        }
+        .analysis-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .analysis-name {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .analysis-save {
+            color: #10B981;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .analysis-total {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+            text-align: center;
+            color: #10B981;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .chat-compare-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .compare-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .compare-row.old {
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .compare-row.new {
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .compare-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .compare-price {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .compare-row.old .compare-price {
+            color: var(--red);
+            text-decoration: line-through;
+        }
+        .compare-row.new .compare-price {
+            color: var(--green);
+        }
+        .compare-tag {
+            font-size: 11px;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .compare-save {
+            text-align: center;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 500;
+            padding-top: 8px;
+        }
+        
+        .chat-price-alert {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 163, 127, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .alert-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .alert-prices {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .alert-old {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+        .alert-new {
+            color: #10B981;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .alert-save {
+            text-align: center;
+            background: rgba(16, 185, 129, 0.3);
+            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .highlight-bubble {
+            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%) !important;
+            color: white !important;
+        }
+        
+        .chat-action-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .chat-action-btn {
+            flex: 1;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .chat-action-btn.primary {
+            background: var(--accent);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -1980,200 +2167,9 @@
         </div>
     </div>
     
-    <style>
-        .chat-graph-card {
-            background: rgba(16, 163, 127, 0.1);
-            border: 1px solid rgba(16, 163, 127, 0.3);
-            border-radius: 12px;
-            padding: 12px;
-            margin: 8px 0;
-        }
-        .graph-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-        .graph-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .graph-item:last-child {
-            border-bottom: none;
-        }
-        .graph-label {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        .graph-value {
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-        .graph-value.highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .chat-analysis-card {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 12px;
-            padding: 12px;
-            margin: 8px 0;
-        }
-        .analysis-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #a78bfa;
-            margin-bottom: 10px;
-        }
-        .analysis-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .analysis-name {
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-        .analysis-save {
-            color: #10B981;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .analysis-total {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(255,255,255,0.2);
-            text-align: center;
-            color: #10B981;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .chat-compare-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 12px;
-            margin: 8px 0;
-        }
-        .compare-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px;
-            border-radius: 8px;
-            margin-bottom: 6px;
-        }
-        .compare-row.old {
-            background: rgba(239, 68, 68, 0.1);
-        }
-        .compare-row.new {
-            background: rgba(16, 185, 129, 0.1);
-        }
-        .compare-label {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-        .compare-price {
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .compare-row.old .compare-price {
-            color: var(--red);
-            text-decoration: line-through;
-        }
-        .compare-row.new .compare-price {
-            color: var(--green);
-        }
-        .compare-tag {
-            font-size: 11px;
-            background: var(--accent-light);
-            color: var(--accent);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        .compare-save {
-            text-align: center;
-            color: var(--green);
-            font-size: 13px;
-            font-weight: 500;
-            padding-top: 8px;
-        }
-        
-        .chat-price-alert {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 163, 127, 0.1) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 12px;
-            padding: 12px;
-            margin: 8px 0;
-        }
-        .alert-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
-        }
-        .alert-prices {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .alert-old {
-            color: var(--text-muted);
-            font-size: 13px;
-            text-decoration: line-through;
-        }
-        .alert-new {
-            color: #10B981;
-            font-size: 16px;
-            font-weight: 600;
-        }
-        .alert-save {
-            text-align: center;
-            background: rgba(16, 185, 129, 0.3);
-            color: white;
-            padding: 6px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        
-        .highlight-bubble {
-            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%) !important;
-            color: white !important;
-        }
-        
-        .chat-action-btns {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-        .chat-action-btn {
-            flex: 1;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .chat-action-btn.primary {
-            background: var(--accent);
-            color: white;
-        }
-    </style>
-    
     <div class="nav-hint">
         查看 <a href="index.html">基础界面 Demo</a> 了解完整页面结构
     </div>
-    
-</body>
-</html>
     
 </body>
 </html>
