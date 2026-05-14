@@ -61,6 +61,44 @@
             border-radius: 8px;
             font-size: 14px;
             z-index: 100;
+            text-decoration: none;
+        }
+        
+        /* 场景描述卡片 */
+        .scenario-card {
+            max-width: 400px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #333 100%);
+            border-radius: 16px;
+            padding: 20px;
+            color: white;
+        }
+        
+        .scenario-title {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .scenario-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        .scenario-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .scenario-tag {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            font-size: 12px;
+            color: #aaa;
         }
         
         /* 手机框架 */
@@ -74,18 +112,7 @@
             margin: 0 auto 20px;
         }
         
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 28px;
-            background: #000;
-            border-radius: 20px;
-            z-index: 10;
-        }
+        /* 刘海屏已移除 */
         
         .mp-screen {
             width: 351px;
@@ -112,7 +139,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 16px;
-            padding-top: 28px;
+            padding-top: 12px;
         }
         
         .top-logo {
@@ -151,14 +178,14 @@
             color: var(--text-secondary);
         }
         
-        /* 底部输入区 */
+        /* 底部输入区 - 无快捷导航 */
         .input-area {
-            height: 80px;
+            height: 56px;
             background: var(--bg-primary);
             border-top: 0.5px solid var(--border);
             display: flex;
-            flex-direction: column;
-            padding: 8px 12px;
+            align-items: center;
+            padding: 0 12px;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -169,6 +196,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            width: 100%;
         }
         
         .input-tools {
@@ -190,26 +218,26 @@
         
         .input-box {
             flex: 1;
-            min-height: 40px;
+            height: 36px;
             background: var(--bg-input);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
-            padding: 8px 16px;
+            padding: 0 16px;
             font-size: 15px;
             color: var(--text-muted);
         }
         
         .input-send-btn {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: var(--accent);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
         }
         
         .input-send-btn.disabled {
@@ -217,43 +245,16 @@
             color: var(--text-muted);
         }
         
-        .input-expand {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            padding-top: 8px;
-        }
-        
-        .expand-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-        
-        .expand-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-        
         /* 主内容区 */
         .mp-content {
-            height: calc(100% - 56px - 80px);
+            height: calc(100% - 56px - 56px);
             overflow-y: auto;
             background: var(--bg-primary);
         }
         
         /* 聊天内容 */
         .chat-content {
-            height: calc(100% - 56px - 80px);
+            height: calc(100% - 56px - 56px);
             overflow-y: auto;
             background: var(--bg-primary);
         }
@@ -512,6 +513,16 @@
             width: 24px;
         }
         
+        /* 步骤标签 */
+        .step-label {
+            text-align: center;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+        
         /* 语音动画 */
         .voice-btn.recording {
             background: var(--wechat-red);
@@ -521,6 +532,14 @@
         @keyframes wave {
             0%, 100% { transform: scaleY(1); }
             50% { transform: scaleY(3); }
+        }
+        
+        /* 分隔线 */
+        .case-divider {
+            max-width: 400px;
+            margin: 40px auto;
+            border-top: 1px solid #333;
+            padding-top: 40px;
         }
     </style>
 </head>
@@ -533,12 +552,113 @@
     </div>
     
     <!-- ========== Case 1: 生日礼物提醒 ========== -->
-    <div class="case-tag">Case 1: 生日礼物提醒流程</div>
+    <div class="case-divider">
+        <div class="case-tag">Case 1: 生日礼物提醒</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            用户记得老婆生日快到了，但不知道送什么。AI 记住了老婆的生日日期（3月17日）和喜好档案，主动提供礼物建议。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">家人档案</span>
+            <span class="scenario-tag">主动推荐</span>
+            <span class="scenario-tag">生日提醒</span>
+        </div>
+    </div>
+    
+    <!-- Step 1 -->
     <div class="step-flow">
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
         <div class="step-dot"></div>
     </div>
+    <div class="step-label">Step 1/3: 用户发起请求</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div style="padding: 60px 16px; text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 14px;">这是新对话的开始</div>
+                </div>
+                <div class="message-user">老婆生日快到了，帮我选个礼物</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">用户主动发起请求，AI 准备响应</div>
+    
+    <!-- Step 2 -->
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 2/3: AI 调用家人档案，推荐商品</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">老婆生日快到了，帮我选个礼物</div>
+                
+                <div class="message-assistant">
+                    <p>好的！我记得老婆的生日是<strong>3月17日</strong>，还有<strong>3天</strong>。</p>
+                    <p>根据她的喜好档案，她喜欢：</p>
+                    <p>• 💄 护肤品（兰蔻、SK-II）<br>• 🕯️ 香薰蜡烛（祖玛珑）<br>• 🍫 巧克力（Godiva）</p>
+                    <p>要不要我帮你推荐几个？</p>
+                </div>
+                
+                <div class="message-user">香薰蜡烛不错，推荐几个吧</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">AI 识别家人档案 → 展示喜好 → 用户确认品类</div>
+    
+    <!-- Step 3 -->
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+    </div>
+    <div class="step-label">Step 3/3: 展示商品，完成推荐</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -592,28 +712,35 @@
                     <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">🛒</div>
-                        <span>加入购物车</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">❤️</div>
-                        <span>关注降价</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="screen-label">Step 1: 用户请求 → AI识别家人档案 → 商品推荐</div>
     </div>
+    <div class="screen-label">展示商品卡片 → 用户可点击加入购物车</div>
     
     <!-- ========== Case 2: 补货提醒 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 2: 补货提醒流程</div>
+    <div class="case-divider">
+        <div class="case-tag">Case 2: 补货提醒</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            AI 根据用户的购买频率和消耗速度，主动提醒库存不足的商品，并提供一键补货选项。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">主动提醒</span>
+            <span class="scenario-tag">库存预测</span>
+            <span class="scenario-tag">一键补货</span>
+        </div>
+    </div>
+    
+    <!-- Step 1 -->
     <div class="step-flow">
-        <div class="step-dot"></div>
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
+        <div class="step-dot"></div>
     </div>
+    <div class="step-label">Step 1/3: AI 主动推送补货提醒</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -627,6 +754,102 @@
             
             <div class="chat-content">
                 <!-- 提醒卡片 -->
+                <div class="reminder-card" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
+                    <div class="reminder-icon" style="background: var(--wechat-red);">🥛</div>
+                    <div class="reminder-text">
+                        <div class="reminder-title">牛奶库存不足</div>
+                        <div class="reminder-sub">预计今天喝完，需要补货</div>
+                    </div>
+                </div>
+                
+                <div class="message-assistant">
+                    <p>牛奶快喝完了！根据你的购买记录，你一般买 <strong>伊利纯牛奶 250ml×12盒</strong>。</p>
+                    <p>要不要帮你下单？上次买的 ¥29.9，现在还是这个价。</p>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">AI 主动推送提醒 → 用户查看详情</div>
+    
+    <!-- Step 2 -->
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 2/3: 用户确认下单</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="reminder-card" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
+                    <div class="reminder-icon" style="background: var(--wechat-red);">🥛</div>
+                    <div class="reminder-text">
+                        <div class="reminder-title">牛奶库存不足</div>
+                        <div class="reminder-sub">预计今天喝完，需要补货</div>
+                    </div>
+                </div>
+                
+                <div class="message-assistant">
+                    <p>牛奶快喝完了！根据你的购买记录，你一般买 <strong>伊利纯牛奶 250ml×12盒</strong>。</p>
+                    <p>要不要帮你下单？上次买的 ¥29.9，现在还是这个价。</p>
+                </div>
+                
+                <div class="message-user">好的，帮我买2盒</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">用户确认数量 → AI 执行下单</div>
+    
+    <!-- Step 3 -->
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+    </div>
+    <div class="step-label">Step 3/3: 下单完成，更新库存</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
                 <div class="reminder-card" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); border-color: #FCA5A5;">
                     <div class="reminder-icon" style="background: var(--wechat-red);">🥛</div>
                     <div class="reminder-text">
@@ -658,28 +881,118 @@
                     <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">🛒</div>
-                        <span>立即购买</span>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">下单成功 → 库存同步更新</div>
+    
+    <!-- ========== Case 3: 家人信息记录 ========== -->
+    <div class="case-divider">
+        <div class="case-tag">Case 3: 家人信息自然记录</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            用户在对话中自然提到家人信息（如侄子喜欢奥特曼），AI 主动询问并完善档案，形成完整的家人喜好数据库。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">自然对话</span>
+            <span class="scenario-tag">主动询问</span>
+            <span class="scenario-tag">档案沉淀</span>
+        </div>
+    </div>
+    
+    <!-- Step 1 -->
+    <div class="step-flow">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 1/3: 用户自然透露信息</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div style="padding: 60px 16px; text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 14px;">这是新对话的开始</div>
+                </div>
+                <div class="message-user">大侄子说他很喜欢奥特曼，还说想生日收到奥特曼玩具</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
                     </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">📋</div>
-                        <span>查看囤货清单</span>
-                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
                 </div>
             </div>
         </div>
-        <div class="screen-label">Step 2: AI主动提醒 → 用户确认 → 自动下单 → 更新库存</div>
     </div>
+    <div class="screen-label">用户随意提到 → AI 识别关键信息</div>
     
-    <!-- ========== Case 3: 家人信息记录 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 3: 家人信息自然记录</div>
+    <!-- Step 2 -->
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 2/3: AI 主动询问，完善档案</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">大侄子说他很喜欢奥特曼，还说想生日收到奥特曼玩具</div>
+                
+                <div class="message-assistant">
+                    <p>好的！那我帮你记下来：</p>
+                    <p>✅ 大侄子喜欢奥特曼玩具</p>
+                    <p>对了，大侄子生日是哪天呀？我帮你加到生日提醒里~</p>
+                </div>
+                
+                <div class="message-user">3月18日，正好是老婆生日第二天</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">AI 记录喜好 → 主动询问生日</div>
+    
+    <!-- Step 3 -->
     <div class="step-flow">
         <div class="step-dot"></div>
         <div class="step-dot"></div>
         <div class="step-dot active"></div>
     </div>
+    <div class="step-label">Step 3/3: 档案形成，展示卡片</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -725,26 +1038,37 @@
                         <div class="input-tool-btn">📷</div>
                         <div class="input-tool-btn">🎤</div>
                     </div>
-                    <div class="input-box">说点什么，我会帮你记下来...</div>
+                    <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
-                </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">➕</div>
-                        <span>添加家人</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">❤️</div>
-                        <span>查看档案</span>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="screen-label">Step 3: 用户自然透露 → AI主动询问 → 形成完整档案</div>
     </div>
+    <div class="screen-label">档案完成 → 生日提醒自动设置</div>
     
     <!-- ========== Case 4: 价格监控 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 4: 价格监控降价提醒</div>
+    <div class="case-divider">
+        <div class="case-tag">Case 4: 价格监控降价提醒</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            用户关注的商品降价时，AI 主动推送通知，展示降价幅度和历史价格对比，提供一键购买选项。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">价格监控</span>
+            <span class="scenario-tag">降价提醒</span>
+            <span class="scenario-tag">快速决策</span>
+        </div>
+    </div>
+    
+    <div class="step-flow">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 1/2: 降价通知推送</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -758,6 +1082,63 @@
             
             <div class="chat-content">
                 <!-- 降价提醒 -->
+                <div class="reminder-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-color: #93C5FD;">
+                    <div class="reminder-icon" style="background: var(--accent);">💰</div>
+                    <div class="reminder-text">
+                        <div class="reminder-title">你关注的咖啡机降价了</div>
+                        <div class="reminder-sub">降幅 33%，现在 ¥199</div>
+                    </div>
+                </div>
+                
+                <div class="message-assistant">
+                    <p>好消息！你关注的<strong>德龙咖啡机</strong>降价了：</p>
+                    <p>• 原价：¥299<br>• 现价：¥199<br>• 降幅：33%</p>
+                    <p>这是历史最低价，要不要帮你下单？</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img">☕</div>
+                        <div class="product-info">
+                            <div class="product-name">德龙咖啡机</div>
+                            <div class="product-price">¥199 <span class="product-tag">-33%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">主动推送降价 → 展示价格对比</div>
+    
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+    </div>
+    <div class="step-label">Step 2/2: 用户确认下单</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
                 <div class="reminder-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-color: #93C5FD;">
                     <div class="reminder-icon" style="background: var(--accent);">💰</div>
                     <div class="reminder-text">
@@ -799,23 +1180,33 @@
                     <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">🛒</div>
-                        <span>立即购买</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">💰</div>
-                        <span>继续观望</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="screen-label">降价主动通知 → 商品详情 → 用户决策 → 自动下单</div>
+    </div>
+    <div class="screen-label">一键下单 → 自动移除监控</div>
+    
+    <!-- ========== Case 5: 语音输入 ========== -->
+    <div class="case-divider">
+        <div class="case-tag">Case 5: 语音快速表达需求</div>
     </div>
     
-    <!-- ========== Case 5: 语音输入场景 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 5: 语音快速表达需求</div>
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            用户忙碌时（如开车、做饭），可以通过语音快速表达需求，AI 识别语音内容并处理。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">语音输入</span>
+            <span class="scenario-tag">解放双手</span>
+            <span class="scenario-tag">快节奏</span>
+        </div>
+    </div>
+    
+    <div class="step-flow">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 1/2: 语音输入中</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -852,11 +1243,159 @@
                 </div>
             </div>
         </div>
-        <div class="screen-label">语音输入 - 快速表达需求，适合长辈和忙碌场景</div>
+    </div>
+    <div class="screen-label">按住麦克风录音 → 实时转文字</div>
+    
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+    </div>
+    <div class="step-label">Step 2/2: 语音识别完成，AI 响应</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">帮我买个老婆的生日礼物</div>
+                
+                <div class="message-assistant">
+                    <p>收到！老婆的生日是<strong>3月17日</strong>，还有<strong>3天</strong>。</p>
+                    <p>她喜欢香薰蜡烛、护肤品、巧克力，推荐几个？</p>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">语音转文字 → AI 快速响应</div>
+    
+    <!-- ========== Case 6: 图片输入 ========== -->
+    <div class="case-divider">
+        <div class="case-tag">Case 6: 拍照识别商品</div>
     </div>
     
-    <!-- ========== Case 6: 图片输入场景 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 6: 拍照识别商品</div>
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            用户看到喜欢的商品（线下/线上），拍照发给 AI，快速识别商品并查询价格、关注降价。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">图片识别</span>
+            <span class="scenario-tag">价格查询</span>
+            <span class="scenario-tag">比价</span>
+        </div>
+    </div>
+    
+    <div class="step-flow">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 1/3: 用户拍照发送</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">
+                    我看到这个商品不错，帮我查查价格
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">☕</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">拍照发送 → 等待 AI 识别</div>
+    
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+    </div>
+    <div class="step-label">Step 2/3: AI 识别并展示价格</div>
+    
+    <div class="phone-frame">
+        <div class="mp-screen">
+            <div class="top-bar">
+                <div class="top-logo">
+                    <div class="top-logo-icon">🛒</div>
+                    <span class="top-logo-text">贴心购</span>
+                </div>
+                <div class="top-menu-btn">☰</div>
+            </div>
+            
+            <div class="chat-content">
+                <div class="message-user">
+                    我看到这个商品不错，帮我查查价格
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">☕</div>
+                    </div>
+                </div>
+                
+                <div class="message-assistant">
+                    <p>这是 <strong>德龙咖啡机</strong>，我帮你查了一下：</p>
+                    <p>• 当前价格：¥299<br>• 历史最低：¥199<br>• 降幅记录：-33%</p>
+                    <p>要不要帮你关注降价？降到 ¥199 时我会通知你~</p>
+                </div>
+                
+                <div class="message-user">帮我关注一下降价</div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-row">
+                    <div class="input-tools">
+                        <div class="input-tool-btn">📷</div>
+                        <div class="input-tool-btn">🎤</div>
+                    </div>
+                    <div class="input-box">说点什么...</div>
+                    <div class="input-send-btn disabled">➤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-label">识别商品 → 展示价格历史</div>
+    
+    <div class="step-flow">
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot active"></div>
+    </div>
+    <div class="step-label">Step 3/3: 添加降价监控</div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -893,29 +1432,33 @@
             <div class="input-area">
                 <div class="input-row">
                     <div class="input-tools">
-                        <div class="input-tool-btn active">📷</div>
+                        <div class="input-tool-btn">📷</div>
                         <div class="input-tool-btn">🎤</div>
                     </div>
                     <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">💰</div>
-                        <span>关注降价</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">🛒</div>
-                        <span>加入购物车</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="screen-label">图片输入 - 拍照识别商品，快速查价和关注</div>
     </div>
+    <div class="screen-label">一键关注 → 降价自动提醒</div>
     
     <!-- ========== Case 7: 囤货清单 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 7: 囤货清单可视化</div>
+    <div class="case-divider">
+        <div class="case-tag">Case 7: 囤货清单可视化</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            展示用户囤货清单的库存状态，进度条可视化消耗情况，低库存自动提醒。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">库存管理</span>
+            <span class="scenario-tag">可视化</span>
+            <span class="scenario-tag">智能预测</span>
+        </div>
+    </div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -1001,27 +1544,27 @@
                     <div class="input-box">拍照添加囤货...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">🛒</div>
-                        <span>立即购买</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">📷</div>
-                        <span>扫码添加</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">➕</div>
-                        <span>手动添加</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="screen-label">囤货清单 - 进度条可视化 + 多种添加方式</div>
     </div>
+    <div class="screen-label">囤货清单 - 进度条可视化消耗情况</div>
     
     <!-- ========== Case 8: 首页主动提醒 ========== -->
-    <div class="case-tag" style="margin-top: 40px;">Case 8: 首页主动提醒展示</div>
+    <div class="case-divider">
+        <div class="case-tag">Case 8: 首页主动提醒</div>
+    </div>
+    
+    <div class="scenario-card">
+        <div class="scenario-title">📍 场景背景</div>
+        <div class="scenario-desc">
+            打开 APP 时，AI 主动展示重要提醒（生日、补货、降价），用户一目了然，无需主动询问。
+        </div>
+        <div class="scenario-tags">
+            <span class="scenario-tag">主动服务</span>
+            <span class="scenario-tag">首页聚合</span>
+            <span class="scenario-tag">待办提醒</span>
+        </div>
+    </div>
     
     <div class="phone-frame">
         <div class="mp-screen">
@@ -1075,27 +1618,10 @@
                     <div class="input-box">说点什么...</div>
                     <div class="input-send-btn disabled">➤</div>
                 </div>
-                <div class="input-expand">
-                    <div class="expand-btn">
-                        <div class="expand-icon">🎁</div>
-                        <span>礼物</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">🥛</div>
-                        <span>补货</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">💰</div>
-                        <span>好价</span>
-                    </div>
-                    <div class="expand-btn">
-                        <div class="expand-icon">🔍</div>
-                        <span>搜索</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="screen-label">首页主动展示重要提醒，用户一目了然</div>
     </div>
+    <div class="screen-label">首页主动展示重要提醒</div>
+    
 </body>
 </html>
