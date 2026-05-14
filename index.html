@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贴心购 - AI购物伴侣 产品设计</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B6B;
+            --primary-light: #FFE4E4;
+            --secondary: #4ECDC4;
+            --dark: #2C3E50;
+            --light: #F7F9FC;
+            --text: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* 导航 */
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .hero-tagline {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* 内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* 功能卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+        }
+        
+        /* 用户旅程 */
+        .journey-flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .journey-step {
+            background: var(--primary-light);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .journey-step.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .journey-arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        /* Demo 预览 */
+        .demo-preview {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        
+        /* 底部 */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer a {
+            color: var(--secondary);
+        }
+        
+        /* 标签 */
+        .tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+        
+        .tag.primary {
+            background: var(--primary);
+        }
+        
+        /* 表格 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th, .table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        
+        .table th {
+            background: var(--light);
+            font-weight: 600;
+        }
+        
+        /* 按钮 */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #E55A5A;
+        }
+        
+        .btn.secondary {
+            background: var(--secondary);
+        }
+        
+        /* Demo 跳转卡片 */
+        .demo-card {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .demo-link-card {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .demo-link-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .demo-link-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-link-card p {
+            opacity: 0.9;
+        }
+        
+        .demo-link-card.green {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        /* 架构图 */
+        .arch-diagram {
+            background: var(--light);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .arch-layer {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+        
+        .arch-layer-title {
+            position: absolute;
+            top: -0.75rem;
+            left: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+        }
+        
+        .arch-items {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .arch-item {
+            background: var(--primary-light);
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        /* 代码块 */
+        .code-block {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+        
+        /* 对比框 */
+        .compare-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .compare-bad {
+            background: #fee;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .compare-good {
+            background: #efe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <nav class="nav">
+        <div class="nav-logo">
+            🛒 贴心购
+        </div>
+        <div class="nav-links">
+            <a href="#overview">产品概述</a>
+            <a href="#features">核心功能</a>
+            <a href="#memory">记忆系统</a>
+            <a href="#journey">用户旅程</a>
+            <a href="demo/index.html">界面Demo</a>
+            <a href="demo/cases.html">交互Case</a>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <header class="hero">
+        <h1>🛒 贴心购 - AI购物伴侣</h1>
+        <p>不是搜索引擎，而是懂你的朋友。让你不再操心购物，我只为你着想。</p>
+        <div class="hero-tagline">「 记住你的每个需求，主动提醒每个时机 」</div>
+    </header>
+    
+    <div class="container">
+        <!-- 产品概述 -->
+        <section class="section" id="overview">
+            <h2 class="section-title">📋 产品概述</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>定位</h3>
+                    <p>用户的私人购物管家，懂你、主动、贴心</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>核心价值</h3>
+                    <p>"让你不再操心购物，我只为你着想"</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>差异化</h3>
+                    <p>不是搜索引擎，而是<strong>懂你的朋友</strong></p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">目标用户</h3>
+            <table class="table">
+                <tr>
+                    <th>用户类型</th>
+                    <th>特征</th>
+                    <th>核心痛点</th>
+                </tr>
+                <tr>
+                    <td>忙碌白领</td>
+                    <td>工作忙，没时间比价、记需求</td>
+                    <td>想买东西但总忘、不知买啥好</td>
+                </tr>
+                <tr>
+                    <td>家庭主妇/主夫</td>
+                    <td>管家购物，关注性价比、囤货</td>
+                    <td>家人需求多，容易遗漏</td>
+                </tr>
+                <tr>
+                    <td>送礼困难户</td>
+                    <td>不善送礼，怕送错</td>
+                    <td>不知买什么礼物、总错过日期</td>
+                </tr>
+                <tr>
+                    <td>囤货党</td>
+                    <td>喜欢囤货，关注优惠</td>
+                    <td>不知何时补货、错过好价</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- 核心功能 -->
+        <section class="section" id="features">
+            <h2 class="section-title">✨ 核心功能</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>对话层</h3>
+                    <p>语音/文字对话<br>图片识别商品<br>表情轻互动</p>
+                    <span class="tag primary">基础功能</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>记忆系统</h3>
+                    <p>用户档案<br>家人档案<br>购物历史<br>偏好洞察</p>
+                    <span class="tag">核心差异化</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>人格系统</h3>
+                    <p>贴心管家风格<br>有个性回应<br>主动关怀</p>
+                    <span class="tag">核心差异化</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>主动服务</h3>
+                    <p>重要日期提醒<br>补货提醒<br>价格监控<br>新品推荐</p>
+                    <span class="tag primary">关键功能</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>商城对接</h3>
+                    <p>商品搜索比价<br>直接下单<br>订单追踪<br>售后服务</p>
+                    <span class="tag primary">基础功能</span>
+                </div>
+            </div>
+            
+            <!-- Demo入口 -->
+            <div class="demo-card">
+                <a href="demo/index.html" class="demo-link-card">
+                    <h3>📱 基础界面 Demo</h3>
+                    <p>查看小程序的基础界面设计</p>
+                </a>
+                <a href="demo/cases.html" class="demo-link-card green">
+                    <h3>🎬 关键交互 Case</h3>
+                    <p>查看核心用户场景的交互流程</p>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 记忆系统 -->
+        <section class="section" id="memory">
+            <h2 class="section-title">🧠 Memory 记忆系统</h2>
+            
+            <p>借鉴 OpenClaw 的记忆系统，设计购物场景专属的记忆结构：</p>
+            
+            <div class="arch-diagram">
+                <div class="arch-layer">
+                    <span class="arch-layer-title">用户档案 PROFILE</span>
+                    <div class="arch-items">
+                        <div class="arch-item">基本信息</div>
+                        <div class="arch-item">家庭状况</div>
+                        <div class="arch-item">价格敏感度</div>
+                        <div class="arch-item">购物风格</div>
+                        <div class="arch-item">偏好品牌</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <span class="arch-layer-title">家人档案 FAMILY</span>
+                    <div class="arch-items">
+                        <div class="arch-item">重要日期</div>
+                        <div class="arch-item">偏好礼物</div>
+                        <div class="arch-item">健康状况</div>
+                        <div class="arch-item">年龄段</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <span class="arch-layer-title">囤货追踪 STOCK</span>
+                    <div class="arch-items">
+                        <div class="arch-item">消费周期</div>
+                        <div class="arch-item">补货提醒</div>
+                        <div class="arch-item">品牌偏好</div>
+                        <div class="arch-item">数量规格</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <span class="arch-layer-title">购物历史 HISTORY</span>
+                    <div class="arch-items">
+                        <div class="arch-item">购买记录</div>
+                        <div class="arch-item">消费模式</div>
+                        <div class="arch-item">反馈评价</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>数据示例</h3>
+            <pre class="code-block">
+{
+  "stock_items": [
+    {
+      "item": "牛奶",
+      "brand": "伊利",
+      "last_purchase_date": "2026-05-01",
+      "estimated_consumption_days": 14,
+      "reminder_days_before": 3,
+      "status": "tracking"
+    }
+  ]
+}</pre>
+        </section>
+        
+        <!-- Soul人格 -->
+        <section class="section" id="soul">
+            <h2 class="section-title">❤️ Soul 人格系统</h2>
+            
+            <h3>核心人格：贴心管家</h3>
+            <table class="table">
+                <tr>
+                    <th>特质</th>
+                    <th>表现</th>
+                    <th>示例</th>
+                </tr>
+                <tr>
+                    <td>关心但不烦人</td>
+                    <td>温柔提醒，不推销</td>
+                    <td>"牛奶快喝完了，要不要补货？"</td>
+                </tr>
+                <tr>
+                    <td>有主见</td>
+                    <td>给出建议而非问用户</td>
+                    <td>"我觉得这个牌子更适合你"</td>
+                </tr>
+                <tr>
+                    <td>懂分寸</td>
+                    <td>提醒存在，让用户决定</td>
+                    <td>"生日礼物准备好了吗？需要我帮你挑吗？"</td>
+                </tr>
+                <tr>
+                    <td>有个性</td>
+                    <td>像朋友而非机器人</td>
+                    <td>"嘿，牛奶快见底了吧？"</td>
+                </tr>
+            </table>
+            
+            <h3 style="margin-top: 1.5rem;">对话风格对比</h3>
+            <div class="compare-box">
+                <div class="compare-bad">
+                    <strong>❌ 机器人风格</strong><br>
+                    "您好，您的牛奶预计5天后喝完，建议购买。点击这里下单。"
+                </div>
+                <div class="compare-good">
+                    <strong>✅ 财心管家风格</strong><br>
+                    "嘿，牛奶快见底了吧？要不要我帮你补上？今天有好价~"
+                </div>
+            </div>
+        </section>
+        
+        <!-- 主动服务 -->
+        <section class="section" id="proactive">
+            <h2 class="section-title">🔔 主动服务机制</h2>
+            
+            <p>这是产品的<strong>核心差异化</strong>，需要设计触发条件、时机、频率：</p>
+            
+            <h3>1. 重要日期提醒</h3>
+            <table class="table">
+                <tr>
+                    <th>提醒时机</th>
+                    <th>内容</th>
+                    <th>示例</th>
+                </tr>
+                <tr>
+                    <td>前7天</td>
+                    <td>提醒准备</td>
+                    <td>"老婆生日还有一周，礼物准备了吗？"</td>
+                </tr>
+                <tr>
+                    <td>前3天</td>
+                    <td>确认+建议</td>
+                    <td>"生日快到了，要不要看看这几款礼物？"</td>
+                </tr>
+                <tr>
+                    <td>前1天</td>
+                    <td>最后提醒</td>
+                    <td>"明天生日了！礼物准备好了吗？"</td>
+                </tr>
+            </table>
+            
+            <h3 style="margin-top: 1.5rem;">2. 补货提醒</h3>
+            <table class="table">
+                <tr>
+                    <th>场景</th>
+                    <th>触发条件</th>
+                    <th>内容</th>
+                </tr>
+                <tr>
+                    <td>周期品</td>
+                    <td>购买后 N 天</td>
+                    <td>"牛奶快喝完了，要不要补货？"</td>
+                </tr>
+                <tr>
+                    <td>用户说"快没了"</td>
+                    <td>立即记录</td>
+                    <td>记录并设定提醒周期</td>
+                </tr>
+                <tr>
+                    <td>发现好价</td>
+                    <td>价格低于历史</td>
+                    <td>"你在囤的纸巾今天特价！"</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- 用户旅程 -->
+        <section class="section" id="journey">
+            <h2 class="section-title">🚀 用户旅程</h2>
+            
+            <h3>首次使用旅程</h3>
+            <div class="journey-flow">
+                <div class="journey-step active">进入小程序</div>
+                <span class="journey-arrow">→</span>
+                <div class="journey-step">欢迎介绍</div>
+                <span class="journey-arrow">→</span>
+                <div class="journey-step">建立档案</div>
+                <span class="journey-arrow">→</span>
+                <div class="journey-step">导入历史</div>
+                <span class="journey-arrow">→</span>
+                <div class="journey-step">设置偏好</div>
+                <span class="journey-arrow">→</span>
+                <div class="journey-step active">开始使用</div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">日常使用场景</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>场景A：主动找AI</h3>
+                    <p>用户打开 → AI打招呼<br>用户说需求 → 推荐下单</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>场景B：AI主动提醒</h3>
+                    <p>收到消息 → 点击进入<br>查看详情 → 决定购买</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👀</div>
+                    <h3>场景C：浏览商城</h3>
+                    <p>浏览商品 → AI关注行为<br>适时给建议</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- MVP规划 -->
+        <section class="section" id="mvp">
+            <h2 class="section-title">🎯 MVP规划</h2>
+            
+            <h3>第一阶段（核心验证）</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="tag primary">P0</span>
+                    <h3>对话购物</h3>
+                    <p>用户说出需求 → AI推荐 → 下单</p>
+                </div>
+                <div class="feature-card">
+                    <span class="tag primary">P0</span>
+                    <h3>基础记忆</h3>
+                    <p>记住用户说过的话<br>家人生日、偏好</p>
+                </div>
+                <div class="feature-card">
+                    <span class="tag primary">P0</span>
+                    <h3>日期提醒</h3>
+                    <p>生日、节日提醒<br>前7天/3天/1天</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 1.5rem;">第二阶段（增强体验）</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="tag">P1</span>
+                    <h3>补货追踪</h3>
+                    <p>周期品提醒<br>智能预测消费</p>
+                </div>
+                <div class="feature-card">
+                    <span class="tag">P1</span>
+                    <h3>价格监控</h3>
+                    <p>关注商品降价提醒</p>
+                </div>
+                <div class="feature-card">
+                    <span class="tag">P1</span>
+                    <h3>人格升级</h3>
+                    <p>多种风格可选<br>更个性化互动</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+        <p>贴心购 - AI购物伴侣 | 产品设计文档</p>
+        <p>
+            <a href="demo/index.html">界面Demo</a> |
+            <a href="demo/cases.html">交互Case</a>
+        </p>
+    </footer>
+</body>
+</html>
