@@ -1550,6 +1550,624 @@
         </div>
     </div>
     
+    <!-- Case 8: 聊天记忆+主动推荐 -->
+    <div class="case-section">
+        <div class="case-header">
+            <span class="case-tag">Case 8</span>
+            <span class="case-title">聊天记忆 + 主动推荐 - 耳机案例</span>
+        </div>
+        <div class="case-desc">
+            <span class="case-label">场景</span>
+            <span>用户之前聊过想买耳机，提到了200元预算、酷炫风格、降噪好等需求。几天后，管家主动推送找到的合适耳机。</span>
+        </div>
+        <div class="steps-row">
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-time">3天前</div>
+                            <div class="chat-bubble user">
+                                我想买个耳机，预算200左右
+                            </div>
+                            <div class="chat-bubble assistant">
+                                好的，200元左右的耳机。有什么偏好吗？比如用途、风格？
+                            </div>
+                            <div class="chat-bubble user">
+                                主要是通勤用，希望降噪好一点，风格酷炫一点
+                            </div>
+                            <div class="chat-bubble assistant">
+                                明白了！通勤用、降噪好、酷炫风格、200元预算，我记下了。有合适的我会通知你~
+                            </div>
+                            <div class="chat-time">今天</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">3天前的对话<br>管家记录用户偏好</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble assistant">
+                                🎧 找到一个很适合你的耳机！
+                            </div>
+                            <div class="chat-product-card">
+                                <div class="product-img" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; align-items: center; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#10a37f"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">QCY H3 Pro 主动降噪耳机</div>
+                                    <div class="product-price"><span class="price-current">¥199</span></div>
+                                </div>
+                            </div>
+                            <div class="chat-bubble assistant">
+                                <b>为什么推荐它：</b><br>
+                                ✅ 降噪深度-43dB，地铁通勤超安静<br>
+                                ✅ 赛博朋克RGB灯效，酷炫满分<br>
+                                ✅ 刚好199元，预算卡点<br>
+                                ✅ 50小时续航，一周充一次
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">今天主动推送<br>附上详细推荐理由</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble user">
+                                这个看着不错！下单吧
+                            </div>
+                            <div class="chat-bubble assistant">
+                                好的，已加入购物车~<br><br>
+                                对了，我记得你之前还说希望戴着舒服，这款蛋白皮耳罩好评率98%，应该不会夹耳朵。
+                            </div>
+                            <div class="chat-bubble user">
+                                太懂我了！👍
+                            </div>
+                            <div class="chat-bubble assistant">
+                                记住了你的偏好，下次找东西更快 😊
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">用户满意下单<br>管家展示记忆能力</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Case 9: 商品图谱 -->
+    <div class="case-section">
+        <div class="case-header">
+            <span class="case-tag" style="background: var(--blue);">Case 9</span>
+            <span class="case-title">商品图谱分析 - 放心决策</span>
+        </div>
+        <div class="case-desc">
+            <span class="case-label">场景</span>
+            <span>用户在选购商品时，管家展示丰富的商品图谱信息，让用户放心决策。</span>
+        </div>
+        <div class="steps-row">
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble user">
+                                帮我看看这几款降噪耳机哪个好
+                            </div>
+                            <div class="chat-bubble assistant">
+                                我来对比分析一下~稍等
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">用户提出需求<br>管家开始分析</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble assistant">
+                                对比结果来了！推荐第一款：
+                            </div>
+                            <div class="chat-product-card">
+                                <div class="product-img" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; align-items: center; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#10a37f"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">QCY H3 Pro</div>
+                                    <div class="product-price"><span class="price-current">¥199</span></div>
+                                </div>
+                            </div>
+                            <div class="chat-graph-card">
+                                <div class="graph-title">📊 商品图谱分析</div>
+                                <div class="graph-item"><span class="graph-label">降噪评分</span><span class="graph-value highlight">高于 99% 同价位耳机</span></div>
+                                <div class="graph-item"><span class="graph-label">用户好评</span><span class="graph-value">全网 12,847 人觉得降噪好</span></div>
+                                <div class="graph-item"><span class="graph-label">续航能力</span><span class="graph-value highlight">50小时，Top 5%</span></div>
+                                <div class="graph-item"><span class="graph-label">性价比</span><span class="graph-value">同配置最低价</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">展示商品图谱<br>数据支撑决策</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble user">
+                                这个"高于99%"是怎么算的？
+                            </div>
+                            <div class="chat-bubble assistant">
+                                我分析了全网 2,347 款 500 元以下的降噪耳机：<br><br>
+                                📈 降噪深度：这款-43dB，平均只有-28dB<br>
+                                📈 用户评价：降噪相关好评占比 89%<br>
+                                📈 专业评测：3家媒体都给了"同价位最佳降噪"<br><br>
+                                所以综合排名在前 1% 🏆
+                            </div>
+                            <div class="chat-bubble user">
+                                有理有据，放心买了
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">用户追问细节<br>管家展示分析过程</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Case 10: 企业版场景 -->
+    <div class="case-section">
+        <div class="case-header">
+            <span class="case-tag" style="background: var(--purple);">企业版</span>
+            <span class="case-title">一键导入 + 比价找同款 + 智能补货</span>
+        </div>
+        <div class="case-desc">
+            <span class="case-label">场景</span>
+            <span>企业采购场景：导入历史订单，管家自动分析找到同品质更低价格的商品，并智能提醒补货时机。</span>
+        </div>
+        <div class="steps-row">
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble assistant">
+                                欢迎使用企业版！<br>建议先导入历史采购数据，我可以帮你优化成本~
+                            </div>
+                            <div class="chat-bubble user">
+                                怎么导入？
+                            </div>
+                            <div class="chat-bubble assistant">
+                                支持多种方式：<br><br>
+                                📦 淘宝/天猫订单导出<br>
+                                📦 京东采购记录<br>
+                                📦 ERP系统对接<br>
+                                📦 Excel批量导入<br><br>
+                                选择平台授权即可
+                            </div>
+                            <div class="chat-action-btns">
+                                <div class="chat-action-btn">淘宝授权</div>
+                                <div class="chat-action-btn">京东授权</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">引导导入订单<br>多平台支持</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-time">导入完成</div>
+                            <div class="chat-bubble assistant">
+                                已导入 328 条采购记录<br>正在分析优化空间...
+                            </div>
+                            <div class="chat-analysis-card">
+                                <div class="analysis-title">💡 发现优化机会</div>
+                                <div class="analysis-item">
+                                    <span class="analysis-name">A4打印纸 (10箱/月)</span>
+                                    <span class="analysis-save">可省 ¥150/月</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="analysis-name">订书机套装</span>
+                                    <span class="analysis-save">可省 ¥45</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="analysis-name">办公椅 (批量)</span>
+                                    <span class="analysis-save">可省 ¥800</span>
+                                </div>
+                                <div class="analysis-total">预计可节省 ¥995/月</div>
+                            </div>
+                            <div class="chat-bubble assistant">
+                                要看看具体方案吗？
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">自动分析订单<br>发现省钱机会</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble assistant">
+                                📋 A4打印纸对比：
+                            </div>
+                            <div class="chat-compare-card">
+                                <div class="compare-row old">
+                                    <div class="compare-label">原供应商</div>
+                                    <div class="compare-price">¥500/箱</div>
+                                </div>
+                                <div class="compare-row new">
+                                    <div class="compare-label">推荐同款</div>
+                                    <div class="compare-price">¥450/箱</div>
+                                    <div class="compare-tag">同品质 同服务</div>
+                                </div>
+                                <div class="compare-save">每月省 ¥50，一年省 ¥600</div>
+                            </div>
+                            <div class="chat-bubble assistant">
+                                这款是同样的品牌规格，供应商不同，评价也很好~
+                            </div>
+                            <div class="chat-action-btns">
+                                <div class="chat-action-btn primary">立即切换</div>
+                                <div class="chat-action-btn">稍后再说</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">比价找同款<br>透明省钱理由</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Case 11: 智能补货 -->
+    <div class="case-section">
+        <div class="case-header">
+            <span class="case-tag" style="background: var(--purple);">企业版</span>
+            <span class="case-title">智能补货时机优化</span>
+        </div>
+        <div class="case-desc">
+            <span class="case-label">场景</span>
+            <span>用户设置补货周期，管家在后台持续监控价格，临近补货时主动提醒最佳购买时机。</span>
+        </div>
+        <div class="steps-row">
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble user">
+                                这个A4纸大概一个月补一次
+                            </div>
+                            <div class="chat-bubble assistant">
+                                收到！我记下了：<br><br>
+                                📦 A4打印纸 x 10箱<br>
+                                📅 补货周期：每月<br><br>
+                                我会持续监控价格，临近补货时提醒你最佳购买时机~
+                            </div>
+                            <div class="chat-bubble user">
+                                好的，麻烦了
+                            </div>
+                            <div class="chat-bubble assistant">
+                                不客气！省钱的事交给我 😊
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">用户设置补货周期<br>管家记录并监控</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-time">25天后</div>
+                            <div class="chat-bubble assistant highlight-bubble">
+                                🎉 好消息！A4纸现在超划算！
+                            </div>
+                            <div class="chat-price-alert">
+                                <div class="alert-title">📦 A4打印纸</div>
+                                <div class="alert-prices">
+                                    <div class="alert-old">平时 ¥450/箱</div>
+                                    <div class="alert-new">现在 ¥400/箱</div>
+                                </div>
+                                <div class="alert-save">提前5天降价，省 ¥500！</div>
+                            </div>
+                            <div class="chat-bubble assistant">
+                                临近你的补货周期了，现在正好有活动，比平时便宜10%！<br><br>
+                                要现在下单吗？还是按原计划等月底？
+                            </div>
+                            <div class="chat-action-btns">
+                                <div class="chat-action-btn primary">现在下单</div>
+                                <div class="chat-action-btn">月底再说</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">临近补货主动提醒<br>发现更好价格</div>
+            </div>
+            
+            <div class="phone-wrapper">
+                <div class="phone">
+                    <div class="phone-content chat-view">
+                        <div class="chat-header">
+                            <div class="chat-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                            <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                            <div class="chat-title">贴心购 · 企业版</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-bubble user">
+                                现在下单！
+                            </div>
+                            <div class="chat-bubble assistant">
+                                已下单 ✓<br><br>
+                                📦 10箱 A4打印纸<br>
+                                💰 实付 ¥4,000<br>
+                                💵 本单省 ¥500<br><br>
+                                预计明天送达~
+                            </div>
+                            <div class="chat-bubble user">
+                                太棒了！省下的钱请你喝咖啡 ☕
+                            </div>
+                            <div class="chat-bubble assistant">
+                                哈哈谢谢！这是我应该做的~<br>这个月累计帮你省了 ¥1,495 啦！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-desc">用户轻松下单<br>管家展示省钱成果</div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .chat-graph-card {
+            background: rgba(16, 163, 127, 0.1);
+            border: 1px solid rgba(16, 163, 127, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .graph-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .graph-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .graph-item:last-child {
+            border-bottom: none;
+        }
+        .graph-label {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .graph-value {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .graph-value.highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .chat-analysis-card {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .analysis-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 10px;
+        }
+        .analysis-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .analysis-name {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .analysis-save {
+            color: #10B981;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .analysis-total {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+            text-align: center;
+            color: #10B981;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .chat-compare-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .compare-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .compare-row.old {
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .compare-row.new {
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .compare-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .compare-price {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .compare-row.old .compare-price {
+            color: var(--red);
+            text-decoration: line-through;
+        }
+        .compare-row.new .compare-price {
+            color: var(--green);
+        }
+        .compare-tag {
+            font-size: 11px;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .compare-save {
+            text-align: center;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 500;
+            padding-top: 8px;
+        }
+        
+        .chat-price-alert {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 163, 127, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .alert-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .alert-prices {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .alert-old {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+        .alert-new {
+            color: #10B981;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .alert-save {
+            text-align: center;
+            background: rgba(16, 185, 129, 0.3);
+            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .highlight-bubble {
+            background: linear-gradient(135deg, var(--accent) 0%, #1a7f64 100%) !important;
+            color: white !important;
+        }
+        
+        .chat-action-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .chat-action-btn {
+            flex: 1;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .chat-action-btn.primary {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+    
     <div class="nav-hint">
         查看 <a href="index.html">基础界面 Demo</a> 了解完整页面结构
     </div>
