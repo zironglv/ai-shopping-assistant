@@ -4810,13 +4810,16 @@
             document.querySelectorAll('.status-menu').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    console.log('菜单按钮点击');
                     // menu-dropdown 在 status-icons 内部，是 status-menu 的兄弟元素
                     const parent = this.parentElement; // status-icons
                     const dropdown = parent.querySelector('.menu-dropdown');
+                    console.log('找到下拉菜单:', dropdown);
                     if (dropdown) {
                         // 关闭其他下拉菜单
                         closeAllDropdowns();
                         dropdown.classList.toggle('show');
+                        console.log('切换 show class:', dropdown.classList.contains('show'));
                     }
                 });
             });
