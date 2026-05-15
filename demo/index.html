@@ -1171,6 +1171,968 @@
             transition: width 0.3s ease;
         }
         
+        /* ========== 企业版专属样式 ========== */
+        
+        /* 企业版图标颜色 */
+        .enterprise-icon {
+            background: var(--accent-green) !important;
+        }
+        
+        /* 企业版内容区域 */
+        .enterprise-content {
+            padding: 16px;
+        }
+        
+        /* 数据统计区域 */
+        .stats-section {
+            margin-bottom: 20px;
+        }
+        
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .stats-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .stats-period {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 14px;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        
+        .stat-trend svg {
+            width: 14px;
+            height: 14px;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .stat-trend.up {
+            color: var(--accent-green);
+        }
+        
+        .stat-trend.up svg {
+            stroke: var(--accent-green);
+        }
+        
+        .stat-trend.down {
+            color: var(--accent-green);
+        }
+        
+        .stat-trend.down svg {
+            stroke: var(--accent-green);
+            transform: rotate(180deg);
+        }
+        
+        .stats-summary {
+            display: flex;
+            gap: 0;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .summary-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 8px;
+        }
+        
+        .summary-item:not(:last-child) {
+            border-right: 1px solid var(--border-light);
+        }
+        
+        .summary-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .summary-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-secondary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .summary-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .summary-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        
+        /* 快捷操作 */
+        .quick-actions {
+            margin-bottom: 20px;
+        }
+        
+        .action-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: background 0.15s ease;
+        }
+        
+        .action-item:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .action-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .action-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent-blue);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .action-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* 待处理事项 */
+        .pending-section {
+            margin-bottom: 16px;
+        }
+        
+        .pending-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .pending-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .pending-badge {
+            padding: 2px 8px;
+            background: var(--accent-red);
+            border-radius: 10px;
+            font-size: 12px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .pending-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .pending-item {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.15s ease;
+        }
+        
+        .pending-item:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .pending-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pending-icon.urgent {
+            background: var(--accent-red-light);
+        }
+        
+        .pending-icon.urgent svg {
+            stroke: var(--accent-red);
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .pending-icon.info {
+            background: var(--accent-blue-light);
+        }
+        
+        .pending-icon.info svg {
+            stroke: var(--accent-blue);
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .pending-content {
+            flex: 1;
+        }
+        
+        .pending-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .pending-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .pending-arrow {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pending-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* ========== 导入订单样式 ========== */
+        .import-content {
+            padding: 16px;
+        }
+        
+        .import-progress {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .progress-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .progress-status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .progress-status.success {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+        }
+        
+        .progress-bar-wrapper {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-green);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-bar.full {
+            width: 100%;
+        }
+        
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* 比价结果 */
+        .compare-results {
+            margin-bottom: 16px;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .results-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .results-save {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+        
+        .result-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .result-item.highlight {
+            background: var(--accent-green-light);
+            border-color: var(--accent-green);
+        }
+        
+        .result-product {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .product-thumb {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-thumb svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-quantity {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .result-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .price-original-row,
+        .price-compare-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .price-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .price-value.best {
+            color: var(--accent-green);
+            font-size: 16px;
+        }
+        
+        .price-value.good {
+            color: var(--accent-green);
+        }
+        
+        .result-save-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-top: 1px solid var(--border-light);
+            margin-bottom: 12px;
+        }
+        
+        .save-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .save-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        
+        .result-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .result-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            transition: opacity 0.15s ease;
+        }
+        
+        .result-btn.secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .result-btn.primary {
+            background: var(--accent-green);
+            color: white;
+        }
+        
+        .import-tip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--accent-yellow-light);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--accent-yellow);
+        }
+        
+        .import-tip svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent-yellow);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* ========== 补货预测样式 ========== */
+        .replenish-content {
+            padding: 16px;
+        }
+        
+        .replenish-header {
+            margin-bottom: 16px;
+        }
+        
+        .replenish-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .replenish-subtitle {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+        
+        .replenish-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .replenish-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .replenish-item.urgent {
+            border-color: var(--accent-red);
+        }
+        
+        .replenish-item.warning {
+            border-color: var(--accent-yellow);
+        }
+        
+        .replenish-item.safe {
+            border-color: var(--accent-green);
+        }
+        
+        .replenish-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .status-dot.urgent {
+            background: var(--accent-red);
+        }
+        
+        .status-dot.warning {
+            background: var(--accent-yellow);
+        }
+        
+        .status-dot.safe {
+            background: var(--accent-green);
+        }
+        
+        .replenish-product {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .replenish-chart {
+            margin-bottom: 12px;
+        }
+        
+        .chart-bar {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-bottom: 6px;
+        }
+        
+        .chart-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        .chart-fill.urgent {
+            background: var(--accent-red);
+        }
+        
+        .chart-fill.warning {
+            background: var(--accent-yellow);
+        }
+        
+        .chart-fill.safe {
+            background: var(--accent-green);
+        }
+        
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+        
+        .replenish-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .action-info {
+            flex: 1;
+        }
+        
+        .action-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .action-tip {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+        
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .action-btn.urgent {
+            background: var(--accent-red);
+        }
+        
+        .action-btn.warning {
+            background: var(--accent-yellow);
+        }
+        
+        .action-btn.safe {
+            background: var(--accent-green);
+        }
+        
+        /* ========== 数据分析样式 ========== */
+        .analysis-content {
+            padding: 16px;
+        }
+        
+        .time-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .time-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            background: transparent;
+            transition: all 0.15s ease;
+        }
+        
+        .time-btn.active {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .trend-section {
+            margin-bottom: 24px;
+        }
+        
+        .trend-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .trend-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .trend-save {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+        
+        .trend-chart {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .chart-placeholder {
+            height: 80px;
+            position: relative;
+        }
+        
+        .chart-line {
+            position: absolute;
+            inset: 0;
+        }
+        
+        .chart-point {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+        }
+        
+        .chart-grid {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .grid-line {
+            height: 1px;
+            background: var(--border-light);
+        }
+        
+        .chart-labels-bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        
+        .category-section {
+            margin-bottom: 24px;
+        }
+        
+        .category-header {
+            margin-bottom: 12px;
+        }
+        
+        .category-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+        
+        .category-color.blue {
+            background: var(--accent-blue);
+        }
+        
+        .category-color.green {
+            background: var(--accent-green);
+        }
+        
+        .category-color.yellow {
+            background: var(--accent-yellow);
+        }
+        
+        .category-color.purple {
+            background: var(--accent-purple);
+        }
+        
+        .category-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        
+        .category-name {
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+        
+        .category-percent {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .category-bar {
+            width: 80px;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        .bar-fill.blue {
+            background: var(--accent-blue);
+        }
+        
+        .bar-fill.green {
+            background: var(--accent-green);
+        }
+        
+        .bar-fill.yellow {
+            background: var(--accent-yellow);
+        }
+        
+        .bar-fill.purple {
+            background: var(--accent-purple);
+        }
+        
+        .supplier-section {
+            margin-bottom: 16px;
+        }
+        
+        .supplier-header {
+            margin-bottom: 12px;
+        }
+        
+        .supplier-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .supplier-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .supplier-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+        }
+        
+        .supplier-rank {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .supplier-name {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .supplier-score {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .score-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .score-stars svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--accent-yellow);
+            stroke-width: 2;
+            fill: var(--accent-yellow);
+        }
+        
+        .score-stars svg.half {
+            fill: none;
+        }
+        
+        .score-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
         /* ========== 版本对比 ========== */
         .version-compare {
             max-width: 800px;
@@ -1370,7 +2332,7 @@
     <header class="page-header">
         <h1>专业购物小管家</h1>
         <p>小程序界面设计稿 · Notion 风格</p>
-        <span class="badge">6 个核心界面 · 微信小程序规范尺寸</span>
+        <span class="badge">10 个核心界面 · 个人版 + 企业版</span>
     </header>
     
     <!-- 界面画布 -->
@@ -1921,6 +2883,661 @@
                                 <div class="input-field">添加监控商品...</div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 企业版专属界面组 -->
+        <section class="screen-group">
+            <div class="group-header">
+                <h2 class="group-title">企业版专属界面</h2>
+                <p class="group-desc">批量采购、成本优化、数据分析功能</p>
+            </div>
+            
+            <div class="screens-grid">
+                <!-- 7. 企业版首页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 数据概览
+                        <span class="tag">企业管理</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <div class="nav-logo">
+                                        <div class="nav-logo-icon enterprise-icon">
+                                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                        </div>
+                                        <span class="nav-title">采购管家</span>
+                                    </div>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="enterprise-content">
+                                    <!-- 数据统计卡片 -->
+                                    <div class="stats-section">
+                                        <div class="stats-header">
+                                            <span class="stats-title">本月采购概览</span>
+                                            <span class="stats-period">2024年3月</span>
+                                        </div>
+                                        
+                                        <div class="stats-grid">
+                                            <div class="stat-card">
+                                                <div class="stat-value">¥128,450</div>
+                                                <div class="stat-label">采购总额</div>
+                                                <div class="stat-trend down">
+                                                    <svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+                                                    <span>-12.3%</span>
+                                                </div>
+                                            </div>
+                                            <div class="stat-card">
+                                                <div class="stat-value">¥15,680</div>
+                                                <div class="stat-label">节省成本</div>
+                                                <div class="stat-trend up">
+                                                    <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                                                    <span>+23.5%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="stats-summary">
+                                            <div class="summary-item">
+                                                <div class="summary-icon">
+                                                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                                </div>
+                                                <div class="summary-content">
+                                                    <div class="summary-value">156</div>
+                                                    <div class="summary-label">订单数</div>
+                                                </div>
+                                            </div>
+                                            <div class="summary-item">
+                                                <div class="summary-icon">
+                                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                                </div>
+                                                <div class="summary-content">
+                                                    <div class="summary-value">32</div>
+                                                    <div class="summary-label">比价成功</div>
+                                                </div>
+                                            </div>
+                                            <div class="summary-item">
+                                                <div class="summary-icon">
+                                                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                                </div>
+                                                <div class="summary-content">
+                                                    <div class="summary-value">89%</div>
+                                                    <div class="summary-label">履约率</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 快捷操作 -->
+                                    <div class="quick-actions">
+                                        <div class="action-title">快捷操作</div>
+                                        <div class="action-grid">
+                                            <div class="action-item">
+                                                <div class="action-icon">
+                                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                                </div>
+                                                <div class="action-text">导入订单</div>
+                                            </div>
+                                            <div class="action-item">
+                                                <div class="action-icon">
+                                                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                                </div>
+                                                <div class="action-text">比价找同款</div>
+                                            </div>
+                                            <div class="action-item">
+                                                <div class="action-icon">
+                                                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                                </div>
+                                                <div class="action-text">补货预测</div>
+                                            </div>
+                                            <div class="action-item">
+                                                <div class="action-icon">
+                                                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                                </div>
+                                                <div class="action-text">数据分析</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 待处理事项 -->
+                                    <div class="pending-section">
+                                        <div class="pending-header">
+                                            <span class="pending-title">待处理</span>
+                                            <span class="pending-badge">5</span>
+                                        </div>
+                                        <div class="pending-list">
+                                            <div class="pending-item">
+                                                <div class="pending-icon urgent">
+                                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                                </div>
+                                                <div class="pending-content">
+                                                    <div class="pending-text">办公用品库存预警</div>
+                                                    <div class="pending-meta">3项需补货</div>
+                                                </div>
+                                                <div class="pending-arrow">
+                                                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                                </div>
+                                            </div>
+                                            <div class="pending-item">
+                                                <div class="pending-icon info">
+                                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                                </div>
+                                                <div class="pending-content">
+                                                    <div class="pending-text">32个比价结果待确认</div>
+                                                    <div class="pending-meta">可节省 ¥8,520</div>
+                                                </div>
+                                                <div class="pending-arrow">
+                                                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">搜索订单或商品...</div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 8. 订单导入页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        订单 · 批量导入
+                        <span class="tag">成本优化</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">导入订单</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="import-content">
+                                    <!-- 导入进度 -->
+                                    <div class="import-progress">
+                                        <div class="progress-header">
+                                            <span class="progress-title">导入进度</span>
+                                            <span class="progress-status success">已完成</span>
+                                        </div>
+                                        <div class="progress-bar-wrapper">
+                                            <div class="progress-bar full"></div>
+                                        </div>
+                                        <div class="progress-stats">
+                                            <span>已导入 156 条订单</span>
+                                            <span>匹配 142 条</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 比价结果 -->
+                                    <div class="compare-results">
+                                        <div class="results-header">
+                                            <span class="results-title">比价结果</span>
+                                            <span class="results-save">可节省 ¥15,680</span>
+                                        </div>
+                                        
+                                        <div class="result-item highlight">
+                                            <div class="result-product">
+                                                <div class="product-thumb">
+                                                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name">办公显示器 Dell 24寸</div>
+                                                    <div class="product-quantity">采购数量: 20台</div>
+                                                </div>
+                                            </div>
+                                            <div class="result-prices">
+                                                <div class="price-original-row">
+                                                    <span class="price-label">原采购价</span>
+                                                    <span class="price-value">¥1,299/台</span>
+                                                </div>
+                                                <div class="price-compare-row">
+                                                    <span class="price-label">比价找到</span>
+                                                    <span class="price-value best">¥899/台</span>
+                                                </div>
+                                            </div>
+                                            <div class="result-save-row">
+                                                <span class="save-label">可节省</span>
+                                                <span class="save-value">¥8,000</span>
+                                            </div>
+                                            <div class="result-actions">
+                                                <div class="result-btn secondary">查看详情</div>
+                                                <div class="result-btn primary">一键下单</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="result-item">
+                                            <div class="result-product">
+                                                <div class="product-thumb">
+                                                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name">办公椅 人体工学款</div>
+                                                    <div class="product-quantity">采购数量: 15把</div>
+                                                </div>
+                                            </div>
+                                            <div class="result-prices">
+                                                <div class="price-original-row">
+                                                    <span class="price-label">原采购价</span>
+                                                    <span class="price-value">¥680/把</span>
+                                                </div>
+                                                <div class="price-compare-row">
+                                                    <span class="price-label">比价找到</span>
+                                                    <span class="price-value good">¥520/把</span>
+                                                </div>
+                                            </div>
+                                            <div class="result-save-row">
+                                                <span class="save-label">可节省</span>
+                                                <span class="save-value">¥2,400</span>
+                                            </div>
+                                            <div class="result-actions">
+                                                <div class="result-btn secondary">查看详情</div>
+                                                <div class="result-btn primary">一键下单</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 操作提示 -->
+                                    <div class="import-tip">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                        <span>32 个商品找到更低价格，建议尽快下单锁定优惠</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">继续导入订单...</div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 9. 智能补货页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        补货 · 智能预测
+                        <span class="tag">时机优化</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">补货预测</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn">
+                                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="replenish-content">
+                                    <!-- 补货时机分析 -->
+                                    <div class="replenish-header">
+                                        <span class="replenish-title">补货时机分析</span>
+                                        <span class="replenish-subtitle">基于历史消耗预测最优采购时间</span>
+                                    </div>
+                                    
+                                    <!-- 商品列表 -->
+                                    <div class="replenish-list">
+                                        <div class="replenish-item urgent">
+                                            <div class="replenish-status">
+                                                <div class="status-dot urgent"></div>
+                                                <span>紧急补货</span>
+                                            </div>
+                                            <div class="replenish-product">
+                                                <div class="product-thumb">
+                                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name">A4打印纸</div>
+                                                    <div class="product-stock">库存: 15包 | 日均消耗: 8包</div>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-chart">
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill" style="width: 15%;"></div>
+                                                </div>
+                                                <div class="chart-labels">
+                                                    <span>0</span>
+                                                    <span>安全库存: 50包</span>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-action">
+                                                <div class="action-info">
+                                                    <span class="action-text">预计2天后耗尽</span>
+                                                    <span class="action-tip">建议今天下单，3天内到货</span>
+                                                </div>
+                                                <div class="action-btn urgent">立即补货</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="replenish-item warning">
+                                            <div class="replenish-status">
+                                                <div class="status-dot warning"></div>
+                                                <span>建议补货</span>
+                                            </div>
+                                            <div class="replenish-product">
+                                                <div class="product-thumb">
+                                                    <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name">咖啡豆</div>
+                                                    <div class="product-stock">库存: 3kg | 日均消耗: 0.5kg</div>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-chart">
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill warning" style="width: 40%;"></div>
+                                                </div>
+                                                <div class="chart-labels">
+                                                    <span>0</span>
+                                                    <span>安全库存: 8kg</span>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-action">
+                                                <div class="action-info">
+                                                    <span class="action-text">预计6天后低于安全库存</span>
+                                                    <span class="action-tip">下周二下单，周五到货</span>
+                                                </div>
+                                                <div class="action-btn warning">预约下单</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="replenish-item safe">
+                                            <div class="replenish-status">
+                                                <div class="status-dot safe"></div>
+                                                <span>库存充足</span>
+                                            </div>
+                                            <div class="replenish-product">
+                                                <div class="product-thumb">
+                                                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name">笔记本</div>
+                                                    <div class="product-stock">库存: 200本 | 日均消耗: 10本</div>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-chart">
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill safe" style="width: 80%;"></div>
+                                                </div>
+                                                <div class="chart-labels">
+                                                    <span>0</span>
+                                                    <span>安全库存: 100本</span>
+                                                </div>
+                                            </div>
+                                            <div class="replenish-action">
+                                                <div class="action-info">
+                                                    <span class="action-text">预计10天后需补货</span>
+                                                    <span class="action-tip">暂不需要操作</span>
+                                                </div>
+                                                <div class="action-btn safe">设置提醒</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">搜索商品...</div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 10. 数据分析页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        数据 · 采购分析
+                        <span class="tag">决策支持</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">采购分析</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn">
+                                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="analysis-content">
+                                    <!-- 时间选择 -->
+                                    <div class="time-selector">
+                                        <div class="time-btn active">本月</div>
+                                        <div class="time-btn">季度</div>
+                                        <div class="time-btn">年度</div>
+                                    </div>
+                                    
+                                    <!-- 成本趋势 -->
+                                    <div class="trend-section">
+                                        <div class="trend-header">
+                                            <span class="trend-title">采购成本趋势</span>
+                                            <span class="trend-save">累计节省 ¥45,800</span>
+                                        </div>
+                                        <div class="trend-chart">
+                                            <div class="chart-placeholder">
+                                                <div class="chart-line">
+                                                    <div class="chart-point" style="left: 10%; bottom: 60%;"></div>
+                                                    <div class="chart-point" style="left: 25%; bottom: 55%;"></div>
+                                                    <div class="chart-point" style="left: 40%; bottom: 45%;"></div>
+                                                    <div class="chart-point" style="left: 55%; bottom: 40%;"></div>
+                                                    <div class="chart-point" style="left: 70%; bottom: 35%;"></div>
+                                                    <div class="chart-point" style="left: 85%; bottom: 30%;"></div>
+                                                </div>
+                                                <div class="chart-grid">
+                                                    <div class="grid-line"></div>
+                                                    <div class="grid-line"></div>
+                                                    <div class="grid-line"></div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-labels-bottom">
+                                                <span>1周</span>
+                                                <span>2周</span>
+                                                <span>3周</span>
+                                                <span>4周</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 分类统计 -->
+                                    <div class="category-section">
+                                        <div class="category-header">
+                                            <span class="category-title">采购分类占比</span>
+                                        </div>
+                                        <div class="category-list">
+                                            <div class="category-item">
+                                                <div class="category-color blue"></div>
+                                                <div class="category-info">
+                                                    <span class="category-name">办公用品</span>
+                                                    <span class="category-percent">35%</span>
+                                                </div>
+                                                <div class="category-bar">
+                                                    <div class="bar-fill blue" style="width: 35%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="category-item">
+                                                <div class="category-color green"></div>
+                                                <div class="category-info">
+                                                    <span class="category-name">电子设备</span>
+                                                    <span class="category-percent">28%</span>
+                                                </div>
+                                                <div class="category-bar">
+                                                    <div class="bar-fill green" style="width: 28%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="category-item">
+                                                <div class="category-color yellow"></div>
+                                                <div class="category-info">
+                                                    <span class="category-name">生活用品</span>
+                                                    <span class="category-percent">22%</span>
+                                                </div>
+                                                <div class="category-bar">
+                                                    <div class="bar-fill yellow" style="width: 22%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="category-item">
+                                                <div class="category-color purple"></div>
+                                                <div class="category-info">
+                                                    <span class="category-name">其他</span>
+                                                    <span class="category-percent">15%</span>
+                                                </div>
+                                                <div class="category-bar">
+                                                    <div class="bar-fill purple" style="width: 15%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 供应商评分 -->
+                                    <div class="supplier-section">
+                                        <div class="supplier-header">
+                                            <span class="supplier-title">供应商评分</span>
+                                        </div>
+                                        <div class="supplier-list">
+                                            <div class="supplier-item">
+                                                <div class="supplier-rank">1</div>
+                                                <div class="supplier-name">京东企业购</div>
+                                                <div class="supplier-score">
+                                                    <div class="score-stars">
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    </div>
+                                                    <span class="score-text">4.8</span>
+                                                </div>
+                                            </div>
+                                            <div class="supplier-item">
+                                                <div class="supplier-rank">2</div>
+                                                <div class="supplier-name">天猫超市</div>
+                                                <div class="supplier-score">
+                                                    <div class="score-stars">
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                        <svg viewBox="0 0 24 24" class="half"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    </div>
+                                                    <span class="score-text">4.5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">导出报告...</div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                                 </div>
                             </div>
                         </div>
