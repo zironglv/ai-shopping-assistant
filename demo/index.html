@@ -2324,6 +2324,107 @@
             font-weight: 600;
             color: var(--text-primary);
         }
+        
+        /* ========== 供应商评估样式 ========== */
+        .supplier-content {
+            padding: 16px;
+        }
+        
+        .supplier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .supplier-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .supplier-count {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        
+        .supplier-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .supplier-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+        
+        .supplier-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-green-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .supplier-avatar svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-green);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .supplier-info {
+            flex: 1;
+        }
+        
+        .supplier-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .supplier-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .supplier-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .score-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .score-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--accent-yellow);
+            stroke: none;
+        }
+        
+        .score-stars svg.half {
+            fill: url(#half-star);
+        }
+        
+        .score-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
 
         /* ========== 版本对比 ========== */
         .version-compare {
@@ -2803,14 +2904,19 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">说点什么...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="说点什么...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
@@ -2917,14 +3023,19 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">继续问...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="继续问...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
@@ -3025,11 +3136,19 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">搜索关注内容...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="搜索关注内容...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                                 </div>
@@ -3214,11 +3333,19 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">添加家人...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="添加家人...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 </div>
@@ -3302,39 +3429,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                            <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 45%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="monitor-card">
-                                        <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                                        </div>
-                                        <div class="monitor-info">
-                                            <div class="monitor-name">小米电视 75英寸</div>
-                                            <div class="monitor-price-row">
-                                                <span class="monitor-current">¥5,999</span>
-                                                <span class="monitor-target">目标: ¥5,500</span>
-                                            </div>
-                                            <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 62%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">添加监控商品...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="添加监控商品...">
+                                </div>
                                 <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
                             </div>
                         </div>
@@ -3424,11 +3538,14 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
                                 <div class="input-field">
@@ -3657,7 +3774,9 @@
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">搜索订单或商品...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="搜索订单或商品...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                                 </div>
@@ -3665,7 +3784,17 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+        </section>
+        
+        <!-- 企业版功能界面组 -->
+        <section class="screen-group">
+            <div class="group-header">
+                <h2 class="group-title">企业版功能界面</h2>
+                <p class="group-desc">订单管理、智能补货、数据分析</p>
+            </div>
+            
+            <div class="screens-grid">
                 <!-- 8. 订单导入页 -->
                 <div class="screen-card">
                     <div class="screen-label">
@@ -3801,7 +3930,9 @@
                                         <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">继续导入订单...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="继续导入订单...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 </div>
@@ -3961,7 +4092,9 @@
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">搜索商品...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="搜索商品...">
+                                </div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                                 </div>
@@ -3969,7 +4102,17 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+        </section>
+        
+        <!-- 企业版数据分析界面组 -->
+        <section class="screen-group">
+            <div class="group-header">
+                <h2 class="group-title">企业版数据分析</h2>
+                <p class="group-desc">采购洞察、成本趋势、供应商评估</p>
+            </div>
+            
+            <div class="screens-grid">
                 <!-- 10. 数据分析页 -->
                 <div class="screen-card">
                     <div class="screen-label">
@@ -4136,13 +4279,137 @@
                             
                             <div class="input-bar">
                                 <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">导出报告...</div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="导出报告或查询供应商...">
+                                </div>
                                 <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 供应商评估页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        供应商 · 评估
+                        <span class="tag">合作决策</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">供应商评估</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="supplier-content">
+                                    <div class="supplier-header">
+                                        <span class="supplier-title">合作供应商评分</span>
+                                        <span class="supplier-count">共 8 家</span>
+                                    </div>
+                                    
+                                    <div class="supplier-list">
+                                        <div class="supplier-item">
+                                            <div class="supplier-avatar">
+                                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                            </div>
+                                            <div class="supplier-info">
+                                                <div class="supplier-name">京东企业购</div>
+                                                <div class="supplier-tags">
+                                                    <span class="ai-tag good">配送准时率 98%</span>
+                                                    <span class="ai-tag top">价格优势高于同类</span>
+                                                </div>
+                                            </div>
+                                            <div class="supplier-score">
+                                                <div class="score-stars">
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                </div>
+                                                <span class="score-text">5.0</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="supplier-item">
+                                            <div class="supplier-avatar">
+                                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                            </div>
+                                            <div class="supplier-info">
+                                                <div class="supplier-name">1688 批发</div>
+                                                <div class="supplier-tags">
+                                                    <span class="ai-tag safe">货源稳定</span>
+                                                    <span class="ai-tag good">售后响应快</span>
+                                                </div>
+                                            </div>
+                                            <div class="supplier-score">
+                                                <div class="score-stars">
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                    <svg viewBox="0 0 24 24" class="half"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                                </div>
+                                                <span class="score-text">4.5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="语音">
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="搜索供应商...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
                             </div>
                         </div>
