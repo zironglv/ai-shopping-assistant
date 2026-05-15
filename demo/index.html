@@ -491,7 +491,12 @@
         }
         
         .screen-content.full {
-            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px);
+            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px - 60px);
+        }
+        
+        /* 有下拉菜单展开时的特殊处理 */
+        .screen-content.with-dropdown {
+            overflow: visible;
         }
         
         /* ========== 输入区域 ========== */
@@ -4009,5 +4014,79 @@
     <footer class="page-footer">
         <p>专业购物小管家 · <a href="https://github.com/zironglv/ai-shopping-assistant" target="_blank">GitHub</a></p>
     </footer>
+    
+    <!-- 下拉菜单交互脚本 -->
+    <script>
+        // 初始化：隐藏所有下拉菜单
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有下拉菜单
+            const dropdowns = document.querySelectorAll('.version-dropdown, .menu-dropdown');
+            
+            // 默认隐藏所有下拉菜单
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+            
+            // 版本切换按钮点击
+            document.querySelectorAll('.status-version').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.querySelector('.version-dropdown');
+                    if (dropdown) {
+                        // 关闭其他下拉菜单
+                        closeAllDropdowns();
+                        dropdown.classList.toggle('show');
+                    }
+                });
+            });
+            
+            // 菜单按钮点击
+            document.querySelectorAll('.status-menu').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.querySelector('.menu-dropdown');
+                    if (dropdown) {
+                        // 关闭其他下拉菜单
+                        closeAllDropdowns();
+                        dropdown.classList.toggle('show');
+                    }
+                });
+            });
+            
+            // 点击其他区域关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.status-version') && !e.target.closest('.status-menu')) {
+                    closeAllDropdowns();
+                }
+            });
+            
+            // 下拉菜单项点击后关闭
+            document.querySelectorAll('.version-option, .menu-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // 版本选项点击：切换选中状态
+                    if (this.classList.contains('version-option')) {
+                        const dropdown = this.closest('.version-dropdown');
+                        if (dropdown) {
+                            // 移除所有active
+                            dropdown.querySelectorAll('.version-option').forEach(opt => {
+                                opt.classList.remove('active');
+                            });
+                            // 添加active到当前
+                            this.classList.add('active');
+                        }
+                    }
+                    // 关闭下拉菜单
+                    closeAllDropdowns();
+                });
+            });
+            
+            function closeAllDropdowns() {
+                document.querySelectorAll('.version-dropdown, .menu-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
