@@ -1399,6 +1399,159 @@
             padding: 16px;
         }
         
+        /* 节日营销卡片样式 */
+        .reminder-card.festival {
+            background: linear-gradient(135deg, #fff7e6 0%, #ffe4cc 100%);
+            border: 1px solid #f5d4b3;
+        }
+        
+        .reminder-card.festival .reminder-icon.festival-icon {
+            background: #ff9500;
+        }
+        
+        .reminder-card.festival .reminder-title {
+            color: #d48800;
+        }
+        
+        .reminder-card.festival .reminder-sub {
+            color: #b37a00;
+        }
+        
+        /* 端午节福利页面样式 */
+        .festival-page {
+            padding: 16px;
+        }
+        
+        .festival-banner {
+            background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+            border-radius: 12px;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            color: white;
+        }
+        
+        .festival-banner-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .festival-banner-sub {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .festival-banner-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+        
+        .festival-products {
+            margin-bottom: 16px;
+        }
+        
+        .festival-products-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .festival-product-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .festival-product-image {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .festival-product-info {
+            flex: 1;
+        }
+        
+        .festival-product-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .festival-product-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .festival-product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .festival-product-group-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff6b00;
+        }
+        
+        .festival-product-original-price {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .festival-product-discount {
+            font-size: 11px;
+            background: #fff7e6;
+            color: #d48800;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-weight: 500;
+        }
+        
+        .festival-product-badges {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        
+        .festival-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .festival-badge-hot {
+            background: #ffe4e4;
+            color: #e54545;
+        }
+        
+        .festival-badge-official {
+            background: #e6f7ff;
+            color: #1890ff;
+        }
+        
+        .festival-badge-stock {
+            background: #f6ffed;
+            color: #52c41a;
+        }
+        
         /* 数据统计区域 */
         .stats-section {
             margin-bottom: 20px;
@@ -2978,7 +3131,7 @@
     <!-- 页面头部 -->
     <header class="page-header">
         <h1>专业购物小管家</h1>
-        <span class="badge">13 个核心界面 · 个人版 + 企业版</span>
+        <span class="badge">14 个核心界面 · 个人版 + 企业版</span>
     </header>
     
     <!-- 界面画布 -->
@@ -3025,7 +3178,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3742,6 +3895,226 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- 端午节福利页面 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 端午福利
+                        <span class="tag">节日营销</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                        <!-- 企业版版本切换下拉 -->
+                                        <div class="version-dropdown">
+                                            <div class="version-option">
+                                                <div class="version-option-icon personal">
+                                                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">个人版</div>
+                                                    <div class="version-option-desc">省心省钱购物助手</div>
+                                                </div>
+                                            </div>
+                                            <div class="version-option active">
+                                                <div class="version-option-icon enterprise">
+                                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">企业版</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
+                                                </div>
+                                                <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                    <!-- 企业版菜单下拉 -->
+                                    <div class="menu-dropdown">
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                                            <span>导入订单</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            <span>补货预测</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            <span>数据分析</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                                            <span>发票抬头管理</span>
+                                        </div>
+                                        <div class="menu-divider"></div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                            <span>设置</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">端午节员工福利</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn cart-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="festival-page">
+                                    <!-- 节日营销 Banner -->
+                                    <div class="festival-banner">
+                                        <div class="festival-banner-title">端午粽香 · 员工福利专场</div>
+                                        <div class="festival-banner-sub">精选优质礼盒，团购价更低</div>
+                                        <div class="festival-banner-badge">限时特惠 · 团购85折</div>
+                                    </div>
+                                    
+                                    <!-- 福利商品列表 -->
+                                    <div class="festival-products">
+                                        <div class="festival-products-title">精选福利商品</div>
+                                        
+                                        <!-- 商品1：粽子礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff9500;fill:none;stroke-width:1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">五芳斋粽子礼盒 · 12枚装</div>
+                                                <div class="festival-product-desc">嘉兴老字号 · 咸甜搭配 · 适合全员发放</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥168</span>
+                                                    <span class="festival-product-original-price">原价 ¥198</span>
+                                                    <span class="festival-product-discount">85折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">爆款热销</span>
+                                                    <span class="festival-badge festival-badge-official">官方店铺</span>
+                                                    <span class="festival-badge festival-badge-stock">库存充足</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品2：茶叶礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#52c41a;fill:none;stroke-width:1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">西湖龙井茶礼盒 · 250g</div>
+                                                <div class="festival-product-desc">明前特级 · 清香回甘 · 高端礼品首选</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥298</span>
+                                                    <span class="festival-product-original-price">原价 ¥358</span>
+                                                    <span class="festival-product-discount">83折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">精选推荐</span>
+                                                    <span class="festival-badge festival-badge-official">品牌正品</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品3：坚果礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff6b00;fill:none;stroke-width:1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">三只松鼠坚果礼盒 · 1.5kg</div>
+                                                <div class="festival-product-desc">每日坚果 · 科学配比 · 健康零食福利</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥128</span>
+                                                    <span class="festival-product-original-price">原价 ¥158</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">销量TOP3</span>
+                                                    <span class="festival-badge festival-badge-stock">现货直发</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品4：端午定制礼包 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#1890ff;fill:none;stroke-width:1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">端午定制礼包 · 粽子+香囊组合</div>
+                                                <div class="festival-product-desc">传统特色 · 企业定制Logo · 文化传承</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥88</span>
+                                                    <span class="festival-product-original-price">原价 ¥108</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-official">可定制</span>
+                                                    <span class="festival-badge festival-badge-stock">5月起订</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 团购优势说明 -->
+                                    <div class="festival-products-title" style="margin-top:16px">团购优势</div>
+                                    <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;font-size:13px;color:var(--text-secondary)">
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>批量采购享专属折扣，最低可至85折</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>统一开票，发票抬头自动匹配</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>专人对接，配送时间可协商</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>支持企业定制Logo和包装</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="询问福利商品详情或批量下单...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -3785,7 +4158,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -3838,6 +4211,19 @@
                                             <div class="reminder-content">
                                                 <div class="reminder-title">本月节省 ¥45,800</div>
                                                 <div class="reminder-sub">采购成本优化 12%</div>
+                                            </div>
+                                            <div class="reminder-arrow">
+                                                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                            </div>
+                                        </div>
+                                        <!-- 端午节福利营销入口 -->
+                                        <div class="reminder-card festival">
+                                            <div class="reminder-icon festival-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">端午节员工福利</div>
+                                                <div class="reminder-sub">团购价低至 85折 · 限时特惠</div>
                                             </div>
                                             <div class="reminder-arrow">
                                                 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
@@ -3923,7 +4309,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -4123,6 +4509,226 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- 端午节福利页面 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 端午福利
+                        <span class="tag">节日营销</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                        <!-- 企业版版本切换下拉 -->
+                                        <div class="version-dropdown">
+                                            <div class="version-option">
+                                                <div class="version-option-icon personal">
+                                                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">个人版</div>
+                                                    <div class="version-option-desc">省心省钱购物助手</div>
+                                                </div>
+                                            </div>
+                                            <div class="version-option active">
+                                                <div class="version-option-icon enterprise">
+                                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">企业版</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
+                                                </div>
+                                                <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                    <!-- 企业版菜单下拉 -->
+                                    <div class="menu-dropdown">
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                                            <span>导入订单</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            <span>补货预测</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            <span>数据分析</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                                            <span>发票抬头管理</span>
+                                        </div>
+                                        <div class="menu-divider"></div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                            <span>设置</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">端午节员工福利</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn cart-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="festival-page">
+                                    <!-- 节日营销 Banner -->
+                                    <div class="festival-banner">
+                                        <div class="festival-banner-title">端午粽香 · 员工福利专场</div>
+                                        <div class="festival-banner-sub">精选优质礼盒，团购价更低</div>
+                                        <div class="festival-banner-badge">限时特惠 · 团购85折</div>
+                                    </div>
+                                    
+                                    <!-- 福利商品列表 -->
+                                    <div class="festival-products">
+                                        <div class="festival-products-title">精选福利商品</div>
+                                        
+                                        <!-- 商品1：粽子礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff9500;fill:none;stroke-width:1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">五芳斋粽子礼盒 · 12枚装</div>
+                                                <div class="festival-product-desc">嘉兴老字号 · 咸甜搭配 · 适合全员发放</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥168</span>
+                                                    <span class="festival-product-original-price">原价 ¥198</span>
+                                                    <span class="festival-product-discount">85折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">爆款热销</span>
+                                                    <span class="festival-badge festival-badge-official">官方店铺</span>
+                                                    <span class="festival-badge festival-badge-stock">库存充足</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品2：茶叶礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#52c41a;fill:none;stroke-width:1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">西湖龙井茶礼盒 · 250g</div>
+                                                <div class="festival-product-desc">明前特级 · 清香回甘 · 高端礼品首选</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥298</span>
+                                                    <span class="festival-product-original-price">原价 ¥358</span>
+                                                    <span class="festival-product-discount">83折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">精选推荐</span>
+                                                    <span class="festival-badge festival-badge-official">品牌正品</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品3：坚果礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff6b00;fill:none;stroke-width:1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">三只松鼠坚果礼盒 · 1.5kg</div>
+                                                <div class="festival-product-desc">每日坚果 · 科学配比 · 健康零食福利</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥128</span>
+                                                    <span class="festival-product-original-price">原价 ¥158</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">销量TOP3</span>
+                                                    <span class="festival-badge festival-badge-stock">现货直发</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品4：端午定制礼包 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#1890ff;fill:none;stroke-width:1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">端午定制礼包 · 粽子+香囊组合</div>
+                                                <div class="festival-product-desc">传统特色 · 企业定制Logo · 文化传承</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥88</span>
+                                                    <span class="festival-product-original-price">原价 ¥108</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-official">可定制</span>
+                                                    <span class="festival-badge festival-badge-stock">5月起订</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 团购优势说明 -->
+                                    <div class="festival-products-title" style="margin-top:16px">团购优势</div>
+                                    <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;font-size:13px;color:var(--text-secondary)">
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>批量采购享专属折扣，最低可至85折</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>统一开票，发票抬头自动匹配</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>专人对接，配送时间可协商</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>支持企业定制Logo和包装</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="询问福利商品详情或批量下单...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -4130,7 +4736,7 @@
         <section class="screen-group">
             <div class="group-header">
                 <h2 class="group-title">企业版功能界面</h2>
-                <p class="group-desc">订单管理、智能补货、数据分析</p>
+                <p class="group-desc">订单管理、智能补货、数据分析、节日福利</p>
             </div>
             
             <div class="screens-grid">
@@ -4166,7 +4772,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -4361,7 +4967,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -4539,6 +5145,226 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- 端午节福利页面 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 端午福利
+                        <span class="tag">节日营销</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                        <!-- 企业版版本切换下拉 -->
+                                        <div class="version-dropdown">
+                                            <div class="version-option">
+                                                <div class="version-option-icon personal">
+                                                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">个人版</div>
+                                                    <div class="version-option-desc">省心省钱购物助手</div>
+                                                </div>
+                                            </div>
+                                            <div class="version-option active">
+                                                <div class="version-option-icon enterprise">
+                                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">企业版</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
+                                                </div>
+                                                <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                    <!-- 企业版菜单下拉 -->
+                                    <div class="menu-dropdown">
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                                            <span>导入订单</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            <span>补货预测</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            <span>数据分析</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                                            <span>发票抬头管理</span>
+                                        </div>
+                                        <div class="menu-divider"></div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                            <span>设置</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">端午节员工福利</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn cart-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="festival-page">
+                                    <!-- 节日营销 Banner -->
+                                    <div class="festival-banner">
+                                        <div class="festival-banner-title">端午粽香 · 员工福利专场</div>
+                                        <div class="festival-banner-sub">精选优质礼盒，团购价更低</div>
+                                        <div class="festival-banner-badge">限时特惠 · 团购85折</div>
+                                    </div>
+                                    
+                                    <!-- 福利商品列表 -->
+                                    <div class="festival-products">
+                                        <div class="festival-products-title">精选福利商品</div>
+                                        
+                                        <!-- 商品1：粽子礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff9500;fill:none;stroke-width:1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">五芳斋粽子礼盒 · 12枚装</div>
+                                                <div class="festival-product-desc">嘉兴老字号 · 咸甜搭配 · 适合全员发放</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥168</span>
+                                                    <span class="festival-product-original-price">原价 ¥198</span>
+                                                    <span class="festival-product-discount">85折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">爆款热销</span>
+                                                    <span class="festival-badge festival-badge-official">官方店铺</span>
+                                                    <span class="festival-badge festival-badge-stock">库存充足</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品2：茶叶礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#52c41a;fill:none;stroke-width:1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">西湖龙井茶礼盒 · 250g</div>
+                                                <div class="festival-product-desc">明前特级 · 清香回甘 · 高端礼品首选</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥298</span>
+                                                    <span class="festival-product-original-price">原价 ¥358</span>
+                                                    <span class="festival-product-discount">83折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">精选推荐</span>
+                                                    <span class="festival-badge festival-badge-official">品牌正品</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品3：坚果礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff6b00;fill:none;stroke-width:1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">三只松鼠坚果礼盒 · 1.5kg</div>
+                                                <div class="festival-product-desc">每日坚果 · 科学配比 · 健康零食福利</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥128</span>
+                                                    <span class="festival-product-original-price">原价 ¥158</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">销量TOP3</span>
+                                                    <span class="festival-badge festival-badge-stock">现货直发</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品4：端午定制礼包 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#1890ff;fill:none;stroke-width:1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">端午定制礼包 · 粽子+香囊组合</div>
+                                                <div class="festival-product-desc">传统特色 · 企业定制Logo · 文化传承</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥88</span>
+                                                    <span class="festival-product-original-price">原价 ¥108</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-official">可定制</span>
+                                                    <span class="festival-badge festival-badge-stock">5月起订</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 团购优势说明 -->
+                                    <div class="festival-products-title" style="margin-top:16px">团购优势</div>
+                                    <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;font-size:13px;color:var(--text-secondary)">
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>批量采购享专属折扣，最低可至85折</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>统一开票，发票抬头自动匹配</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>专人对接，配送时间可协商</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>支持企业定制Logo和包装</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="询问福利商品详情或批量下单...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -4582,7 +5408,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -4812,7 +5638,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -4971,7 +5797,7 @@
                                                 </div>
                                                 <div class="version-option-text">
                                                     <div class="version-option-name">企业版</div>
-                                                    <div class="version-option-desc">批量成本优化 + 发票管理</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
                                                 </div>
                                                 <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                                             </div>
@@ -5122,6 +5948,226 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- 端午节福利页面 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 端午福利
+                        <span class="tag">节日营销</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                        <!-- 企业版版本切换下拉 -->
+                                        <div class="version-dropdown">
+                                            <div class="version-option">
+                                                <div class="version-option-icon personal">
+                                                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">个人版</div>
+                                                    <div class="version-option-desc">省心省钱购物助手</div>
+                                                </div>
+                                            </div>
+                                            <div class="version-option active">
+                                                <div class="version-option-icon enterprise">
+                                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                                </div>
+                                                <div class="version-option-text">
+                                                    <div class="version-option-name">企业版</div>
+                                                    <div class="version-option-desc">批量成本优化 + 发票管理 + 员工福利</div>
+                                                </div>
+                                                <svg class="version-option-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                    <!-- 企业版菜单下拉 -->
+                                    <div class="menu-dropdown">
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                                            <span>导入订单</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            <span>补货预测</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            <span>数据分析</span>
+                                        </div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                                            <span>发票抬头管理</span>
+                                        </div>
+                                        <div class="menu-divider"></div>
+                                        <div class="menu-item">
+                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                            <span>设置</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-bar">
+                                <div class="nav-left">
+                                    <div class="nav-back">
+                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </div>
+                                    <span class="nav-title">端午节员工福利</span>
+                                </div>
+                                <div class="nav-right">
+                                    <div class="nav-btn cart-btn">
+                                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content">
+                                <div class="festival-page">
+                                    <!-- 节日营销 Banner -->
+                                    <div class="festival-banner">
+                                        <div class="festival-banner-title">端午粽香 · 员工福利专场</div>
+                                        <div class="festival-banner-sub">精选优质礼盒，团购价更低</div>
+                                        <div class="festival-banner-badge">限时特惠 · 团购85折</div>
+                                    </div>
+                                    
+                                    <!-- 福利商品列表 -->
+                                    <div class="festival-products">
+                                        <div class="festival-products-title">精选福利商品</div>
+                                        
+                                        <!-- 商品1：粽子礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff9500;fill:none;stroke-width:1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">五芳斋粽子礼盒 · 12枚装</div>
+                                                <div class="festival-product-desc">嘉兴老字号 · 咸甜搭配 · 适合全员发放</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥168</span>
+                                                    <span class="festival-product-original-price">原价 ¥198</span>
+                                                    <span class="festival-product-discount">85折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">爆款热销</span>
+                                                    <span class="festival-badge festival-badge-official">官方店铺</span>
+                                                    <span class="festival-badge festival-badge-stock">库存充足</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品2：茶叶礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#52c41a;fill:none;stroke-width:1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">西湖龙井茶礼盒 · 250g</div>
+                                                <div class="festival-product-desc">明前特级 · 清香回甘 · 高端礼品首选</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥298</span>
+                                                    <span class="festival-product-original-price">原价 ¥358</span>
+                                                    <span class="festival-product-discount">83折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">精选推荐</span>
+                                                    <span class="festival-badge festival-badge-official">品牌正品</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品3：坚果礼盒 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#ff6b00;fill:none;stroke-width:1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">三只松鼠坚果礼盒 · 1.5kg</div>
+                                                <div class="festival-product-desc">每日坚果 · 科学配比 · 健康零食福利</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥128</span>
+                                                    <span class="festival-product-original-price">原价 ¥158</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-hot">销量TOP3</span>
+                                                    <span class="festival-badge festival-badge-stock">现货直发</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 商品4：端午定制礼包 -->
+                                        <div class="festival-product-card">
+                                            <div class="festival-product-image">
+                                                <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:#1890ff;fill:none;stroke-width:1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            </div>
+                                            <div class="festival-product-info">
+                                                <div class="festival-product-name">端午定制礼包 · 粽子+香囊组合</div>
+                                                <div class="festival-product-desc">传统特色 · 企业定制Logo · 文化传承</div>
+                                                <div class="festival-product-price">
+                                                    <span class="festival-product-group-price">¥88</span>
+                                                    <span class="festival-product-original-price">原价 ¥108</span>
+                                                    <span class="festival-product-discount">81折</span>
+                                                </div>
+                                                <div class="festival-product-badges">
+                                                    <span class="festival-badge festival-badge-official">可定制</span>
+                                                    <span class="festival-badge festival-badge-stock">5月起订</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 团购优势说明 -->
+                                    <div class="festival-products-title" style="margin-top:16px">团购优势</div>
+                                    <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;font-size:13px;color:var(--text-secondary)">
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>批量采购享专属折扣，最低可至85折</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>统一开票，发票抬头自动匹配</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px;margin-bottom:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>专人对接，配送时间可协商</span>
+                                        </div>
+                                        <div style="display:flex;gap:8px">
+                                            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#52c41a;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg>
+                                            <span>支持企业定制Logo和包装</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool" title="图片">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    </div>
+                                    <div class="input-tool" title="附件">
+                                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="询问福利商品详情或批量下单...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -5157,7 +6203,7 @@
                         </div>
                         <h3 class="compare-card-title">企业版</h3>
                     </div>
-                    <p class="compare-card-desc">批量成本优化 + 发票管理，让企业采购更高效</p>
+                    <p class="compare-card-desc">批量成本优化 + 发票管理 + 员工福利，让企业采购更高效</p>
                     <ul class="compare-features">
                         <li><span class="feature-check">✓</span> 个人版全部功能</li>
                         <li><span class="feature-check">✓</span> 订单批量导入 <span class="feature-plus">+</span></li>
@@ -5165,6 +6211,7 @@
                         <li><span class="feature-check">✓</span> 补货时机优化 <span class="feature-plus">+</span></li>
                         <li><span class="feature-check">✓</span> 采购数据分析 <span class="feature-plus">+</span></li>
                         <li><span class="feature-check">✓</span> 发票抬头管理 <span class="feature-plus">+</span></li>
+                        <li><span class="feature-check">✓</span> 员工节日福利 <span class="feature-plus">+</span></li>
                     </ul>
                 </div>
             </div>
