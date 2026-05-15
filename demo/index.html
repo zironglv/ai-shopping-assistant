@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>专业购物小管家 - 小程序界面设计</title>
+    <!-- 精致字体：Playfair Display for headings, DM Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,323 +15,542 @@
             box-sizing: border-box;
         }
         
+        /* 奢华配色系统 - 增强版 */
         :root {
-            /* 科技感配色 */
-            --primary: #6366f1;
-            --primary-light: rgba(99, 102, 241, 0.1);
-            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            --accent: #22c55e;
-            --accent-light: rgba(34, 197, 94, 0.1);
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --bg-dark: #0f0f0f;
-            --bg-card: #1a1a1a;
-            --bg-section: #222222;
-            --bg-phone: #000000;
-            --bg-screen: #ffffff;
-            --bg-chat: #f7f7f8;
-            --bg-input: #f4f4f5;
-            --text-primary: #1a1a1a;
-            --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
-            --text-dark: #e5e5e5;
-            --text-dark-secondary: #a3a3a3;
-            --border: #e5e7eb;
-            --border-dark: rgba(255, 255, 255, 0.1);
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
-            --shadow-phone: 0 25px 50px rgba(0,0,0,0.5);
-            --radius-sm: 6px;
-            --radius: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-phone: 44px;
+            --gold: #b8956e;
+            --gold-light: #d4b896;
+            --gold-glow: rgba(184, 149, 110, 0.4);
+            --cream: #faf8f5;
+            --cream-dark: #f0ece5;
+            --charcoal: #1a1a1a;
+            --charcoal-soft: #3d3d3d;
+            --brown: #5c4d3d;
+            --brown-light: #8a7a68;
+            --white: #ffffff;
+            --black: #0d0d0d;
+            
+            /* 状态色 */
+            --success: #6b8a6b;
+            --warning: #c4935a;
+            --danger: #a85a52;
+            --info: #5a7a8a;
+            
+            /* 阴影系统 - 更精致的分层 */
+            --shadow-xs: 0 1px 2px rgba(92, 77, 61, 0.04);
+            --shadow-sm: 0 2px 8px rgba(92, 77, 61, 0.06), 0 1px 2px rgba(92, 77, 61, 0.04);
+            --shadow: 0 8px 32px rgba(92, 77, 61, 0.08), 0 2px 8px rgba(92, 77, 61, 0.04);
+            --shadow-lg: 0 24px 64px rgba(92, 77, 61, 0.12), 0 8px 16px rgba(92, 77, 61, 0.06);
+            --shadow-xl: 0 48px 96px rgba(92, 77, 61, 0.16), 0 16px 32px rgba(92, 77, 61, 0.08);
+            
+            /* 动画时间 */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'PingFang SC', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-dark);
-            line-height: 1.5;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         
-        /* 页面头部 */
+        /* 精致纹理背景 - 增加深度 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% -20%, rgba(184, 149, 110, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 90% 100%, rgba(184, 149, 110, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-blend-mode: normal, normal, normal, overlay;
+            opacity: 0.015;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* ========== 页面头部 - 戏剧性设计 ========== */
         .page-header {
-            padding: 40px 60px;
+            padding: 120px 60px 80px;
             text-align: center;
-            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
-            border-bottom: 1px solid var(--border-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 装饰性光晕 */
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 70%);
+            opacity: 0.3;
+            filter: blur(60px);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.4; transform: translateX(-50%) scale(1.1); }
         }
         
         .page-header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInUp 1s var(--ease-out) forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .page-header p {
-            font-size: 16px;
-            color: var(--text-dark-secondary);
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--brown-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s var(--ease-out) 0.15s forwards;
+            opacity: 0;
         }
         
         .page-header .badge {
             display: inline-block;
-            margin-top: 16px;
-            padding: 8px 16px;
-            background: var(--primary-light);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: var(--radius);
-            color: var(--primary);
+            margin-top: 36px;
+            padding: 14px 32px;
+            background: transparent;
+            border: 1px solid var(--gold-light);
+            color: var(--brown);
             font-size: 13px;
             font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s var(--ease-out) 0.3s forwards;
+            opacity: 0;
+            position: relative;
         }
         
-        /* 返回链接 */
+        .page-header .badge::before,
+        .page-header .badge::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 1px;
+            background: var(--gold);
+            top: 50%;
+        }
+        
+        .page-header .badge::before { left: -30px; }
+        .page-header .badge::after { right: -30px; }
+        
+        /* 返回链接 - 精致浮动 */
         .back-link {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 12px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-dark);
-            border-radius: var(--radius);
-            color: var(--text-dark-secondary);
-            font-size: 14px;
+            top: 32px;
+            left: 32px;
+            padding: 14px 28px;
+            background: var(--white);
+            border: 1px solid rgba(184, 149, 110, 0.2);
+            color: var(--brown);
+            font-size: 13px;
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.2s;
+            letter-spacing: 0.05em;
             z-index: 100;
+            transition: all 0.4s var(--ease-out);
+            box-shadow: var(--shadow-sm);
         }
         
         .back-link:hover {
-            background: var(--bg-section);
-            color: white;
+            background: var(--charcoal);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
         
-        /* 界面画布容器 */
+        /* ========== 界面画布 ========== */
         .canvas-container {
-            padding: 60px;
+            padding: 40px 80px 120px;
             max-width: 1800px;
             margin: 0 auto;
         }
         
-        /* 界面分组 */
+        /* 界面分组 - 戏剧性标题 */
         .screen-group {
-            margin-bottom: 80px;
+            margin-bottom: 140px;
+            position: relative;
         }
         
         .group-header {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-dark);
+            margin-bottom: 64px;
+            position: relative;
+        }
+        
+        /* 装饰性线条 */
+        .group-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
         }
         
         .group-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            padding-left: 80px;
         }
         
         .group-desc {
-            font-size: 14px;
-            color: var(--text-dark-secondary);
+            font-size: 15px;
+            color: var(--brown-light);
+            letter-spacing: 0.08em;
+            padding-left: 80px;
         }
         
-        /* 界面网格 */
+        /* 界面网格 - 更宽松的布局 */
         .screens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 56px;
         }
         
-        /* 界面卡片 */
+        /* ========== 界面卡片 - 奢华质感 ========== */
         .screen-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-xl);
-            padding: 24px;
-            border: 1px solid var(--border-dark);
-            transition: all 0.3s;
+            background: var(--white);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid rgba(184, 149, 110, 0.15);
+            transition: all 0.5s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 顶部装饰条 */
+        .screen-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-out);
+        }
+        
+        /* 背景光晕 */
+        .screen-card::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-out);
+            filter: blur(40px);
         }
         
         .screen-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(184, 149, 110, 0.3);
+        }
+        
+        .screen-card:hover::before {
+            opacity: 1;
+        }
+        
+        .screen-card:hover::after {
+            opacity: 0.5;
         }
         
         .screen-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark-secondary);
-            margin-bottom: 16px;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 28px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
         }
         
         .screen-label .tag {
-            padding: 4px 8px;
-            background: var(--primary-light);
-            border-radius: var(--radius-sm);
-            color: var(--primary);
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid var(--gold-light);
+            color: var(--brown);
+            font-family: 'DM Sans', sans-serif;
             font-size: 11px;
             font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
         
-        .screen-label .tag.green {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-        
-        .screen-label .tag.orange {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-        }
-        
-        /* 手机框架 - 高保真 */
+        /* ========== 手机框架 - 高端质感 ========== */
         .phone-frame {
-            width: 280px;
-            height: 580px;
-            background: var(--bg-phone);
-            border-radius: var(--radius-phone);
-            padding: 10px;
-            box-shadow: var(--shadow-phone);
-            position: relative;
+            width: 300px;
+            height: 620px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-radius: 48px;
+            padding: 12px;
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,0.05),
+                var(--shadow-xl),
+                inset 0 1px 0 rgba(255,255,255,0.1);
             margin: 0 auto;
+            position: relative;
+            transition: transform 0.6s var(--ease-out);
         }
         
-        /* 手机刘海 */
+        .screen-card:hover .phone-frame {
+            transform: translateY(-4px);
+        }
+        
+        /* 手机高光边缘 */
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+            border-radius: 48px 48px 200px 200px;
+            pointer-events: none;
+        }
+        
+        /* 侧边按钮 */
+        .phone-frame::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: 120px;
+            width: 3px;
+            height: 60px;
+            background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+            border-radius: 0 2px 2px 0;
+        }
+        
+        /* 手机刘海 - 更精致 */
         .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: var(--black);
+            border-radius: 0 0 18px 18px;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        /* 刘海内的摄像头和听筒 */
+        .phone-notch::before {
+            content: '';
             position: absolute;
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 28px;
-            background: var(--bg-phone);
-            border-radius: 0 0 16px 16px;
-            z-index: 10;
-        }
-        
-        .phone-notch::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: #333;
+            background: radial-gradient(circle, #2a3a4a 0%, #1a2a3a 100%);
             border-radius: 50%;
+            box-shadow: 
+                inset 0 1px 2px rgba(255,255,255,0.1),
+                0 0 0 2px rgba(0,0,0,0.3);
+        }
+        
+        /* 刘海听筒 */
+        .phone-notch::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: #1a1a1a;
+            border-radius: 2px;
         }
         
         /* 手机屏幕 */
         .phone-screen {
-            width: 260px;
-            height: 560px;
-            background: var(--bg-screen);
-            border-radius: 36px;
+            width: 276px;
+            height: 596px;
+            background: var(--cream);
+            border-radius: 40px;
             overflow: hidden;
             position: relative;
         }
         
-        /* 状态栏 */
+        /* 屏幕内发光 */
+        .phone-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* ========== 状态栏 - 精致风格 ========== */
         .status-bar {
-            height: 44px;
-            background: var(--bg-screen);
+            height: 50px;
+            background: var(--cream);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-primary);
+            padding: 0 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--charcoal);
+            position: relative;
+            z-index: 50;
         }
         
         .status-time {
             font-weight: 600;
+            letter-spacing: 0.02em;
         }
         
         .status-icons {
             display: flex;
-            gap: 4px;
+            gap: 6px;
             align-items: center;
         }
         
         .status-icons svg {
             width: 16px;
             height: 16px;
-            stroke: var(--text-primary);
+            stroke: var(--charcoal);
             stroke-width: 2;
             fill: none;
         }
         
-        /* 导航栏 */
+        /* ========== 导航栏 - 奢华风格 ========== */
         .nav-bar {
-            height: 48px;
-            background: var(--bg-screen);
+            height: 56px;
+            background: var(--cream);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 16px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(184, 149, 110, 0.15);
+            position: relative;
+        }
+        
+        .nav-bar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3), transparent);
         }
         
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .nav-back {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: var(--radius);
+            border-radius: 14px;
+            background: var(--white);
+            transition: all 0.3s var(--ease-out);
+            box-shadow: var(--shadow-xs);
+        }
+        
+        .nav-back:hover {
+            background: var(--charcoal);
+            transform: scale(1.05);
+        }
+        
+        .nav-back:hover svg {
+            stroke: var(--white);
         }
         
         .nav-back svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-secondary);
+            width: 18px;
+            height: 18px;
+            stroke: var(--charcoal);
             stroke-width: 2;
             fill: none;
+            transition: stroke 0.3s var(--ease-out);
         }
         
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .nav-logo-icon {
-            width: 28px;
-            height: 28px;
-            background: var(--primary-gradient);
-            border-radius: 8px;
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 
+                0 4px 12px rgba(184, 149, 110, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
         }
         
         .nav-logo-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
+            width: 18px;
+            height: 18px;
+            stroke: var(--white);
             stroke-width: 2;
             fill: none;
         }
         
         .nav-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: 0.02em;
         }
         
         .nav-right {
@@ -337,231 +560,346 @@
         }
         
         .nav-btn {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: var(--radius);
-            background: var(--bg-chat);
+            border-radius: 14px;
+            background: var(--white);
+            transition: all 0.3s var(--ease-out);
+            box-shadow: var(--shadow-xs);
+        }
+        
+        .nav-btn:hover {
+            background: var(--charcoal);
+            transform: scale(1.05);
+        }
+        
+        .nav-btn:hover svg {
+            stroke: var(--white);
         }
         
         .nav-btn svg {
             width: 18px;
             height: 18px;
-            stroke: var(--text-secondary);
+            stroke: var(--charcoal);
             stroke-width: 2;
             fill: none;
+            transition: stroke 0.3s var(--ease-out);
         }
         
-        /* 内容区域 */
+        /* ========== 内容区域 ========== */
         .screen-content {
-            height: calc(100% - 44px - 48px - 56px);
+            height: calc(100% - 50px - 56px - 64px);
             overflow-y: auto;
-            background: var(--bg-screen);
+            background: var(--cream);
+            scrollbar-width: none;
+        }
+        
+        .screen-content::-webkit-scrollbar {
+            display: none;
         }
         
         .screen-content.no-nav {
-            height: calc(100% - 44px - 56px);
+            height: calc(100% - 50px - 64px);
         }
         
         .screen-content.full {
-            height: calc(100% - 44px);
+            height: calc(100% - 50px);
         }
         
-        /* 输入区域 */
+        /* ========== 输入区域 - 精致风格 ========== */
         .input-bar {
-            height: 56px;
-            background: var(--bg-screen);
-            border-top: 1px solid var(--border);
+            height: 64px;
+            background: var(--white);
+            border-top: 1px solid rgba(184, 149, 110, 0.15);
             display: flex;
             align-items: center;
-            padding: 0 12px;
-            gap: 8px;
+            padding: 0 14px;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .input-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3), transparent);
         }
         
         .input-tools {
             display: flex;
-            gap: 4px;
+            gap: 6px;
         }
         
         .input-tool {
-            width: 36px;
-            height: 36px;
-            background: var(--bg-chat);
-            border-radius: var(--radius);
+            width: 42px;
+            height: 42px;
+            background: var(--cream);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .input-tool:hover {
+            background: var(--gold-light);
+            transform: scale(1.05);
+        }
+        
+        .input-tool:hover svg {
+            stroke: var(--white);
         }
         
         .input-tool svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--text-secondary);
+            width: 20px;
+            height: 20px;
+            stroke: var(--brown);
             stroke-width: 2;
             fill: none;
+            transition: stroke 0.3s var(--ease-out);
         }
         
         .input-field {
             flex: 1;
-            height: 36px;
-            background: var(--bg-input);
-            border-radius: 18px;
-            padding: 0 16px;
+            height: 42px;
+            background: var(--cream);
+            border-radius: 21px;
+            padding: 0 20px;
             font-size: 14px;
-            color: var(--text-muted);
+            color: var(--brown-light);
             display: flex;
             align-items: center;
+            border: 1px solid transparent;
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .input-field:hover {
+            border-color: var(--gold-light);
         }
         
         .input-send {
-            width: 36px;
-            height: 36px;
-            background: var(--primary-gradient);
-            border-radius: var(--radius);
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s var(--ease-out);
+            box-shadow: 
+                0 4px 12px rgba(184, 149, 110, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        
+        .input-send:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                0 6px 20px rgba(184, 149, 110, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
         }
         
         .input-send svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
+            width: 18px;
+            height: 18px;
+            stroke: var(--white);
             stroke-width: 2;
             fill: none;
         }
         
-        /* 欢迎页面 */
+        /* ========== 欢迎页面 - 奢华设计 ========== */
         .welcome-screen {
-            padding: 24px 16px;
+            padding: 40px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
         .welcome-logo {
-            width: 64px;
-            height: 64px;
-            background: var(--primary-gradient);
-            border-radius: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            border-radius: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            box-shadow: 
+                0 8px 24px rgba(184, 149, 110, 0.35),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+            position: relative;
+        }
+        
+        .welcome-logo::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 100%);
+            border-radius: 26px 26px 100px 100px;
         }
         
         .welcome-logo svg {
-            width: 32px;
-            height: 32px;
-            stroke: white;
-            stroke-width: 2;
+            width: 40px;
+            height: 40px;
+            stroke: var(--white);
+            stroke-width: 1.5;
             fill: none;
+            position: relative;
+            z-index: 1;
         }
         
         .welcome-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
         }
         
         .welcome-subtitle {
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--brown-light);
             text-align: center;
-            margin-bottom: 20px;
+            letter-spacing: 0.12em;
+            margin-bottom: 28px;
         }
         
-        /* 版本切换 */
+        /* 版本切换 - 精致风格 */
         .version-switch {
             display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 14px;
             width: 100%;
+            background: var(--cream-dark);
+            padding: 4px;
+            border-radius: 18px;
         }
         
         .version-btn {
             flex: 1;
-            padding: 12px;
-            background: var(--bg-chat);
-            border-radius: var(--radius);
+            padding: 14px;
+            background: transparent;
+            border-radius: 14px;
             font-size: 14px;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--brown-light);
             text-align: center;
-            border: 2px solid transparent;
+            transition: all 0.3s var(--ease-out);
+            border: none;
         }
         
         .version-btn.active {
-            background: var(--primary-light);
-            border-color: var(--primary);
-            color: var(--primary);
+            background: var(--white);
+            color: var(--charcoal);
+            box-shadow: var(--shadow-sm);
         }
         
         .version-hint {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--brown-light);
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
         
-        /* 提醒卡片 */
+        /* 提醒卡片 - 奢华质感 */
         .reminder-cards {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
             width: 100%;
         }
         
         .reminder-card {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-radius: var(--radius-lg);
-            padding: 14px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 18px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            border: 1px solid rgba(184, 149, 110, 0.12);
+            transition: all 0.3s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reminder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            opacity: 0;
+            transition: opacity 0.3s var(--ease-out);
+        }
+        
+        .reminder-card.warning::before {
+            background: linear-gradient(90deg, var(--warning), transparent);
+            opacity: 1;
+        }
+        
+        .reminder-card.danger::before {
+            background: linear-gradient(90deg, var(--danger), transparent);
+            opacity: 1;
+        }
+        
+        .reminder-card.success::before {
+            background: linear-gradient(90deg, var(--success), transparent);
+            opacity: 1;
+        }
+        
+        .reminder-card:hover {
+            transform: translateX(6px);
+            border-color: var(--gold-light);
+            box-shadow: var(--shadow);
+        }
+        
+        .reminder-card.warning {
+            background: linear-gradient(135deg, rgba(196, 147, 90, 0.08) 0%, var(--white) 100%);
         }
         
         .reminder-card.danger {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            background: linear-gradient(135deg, rgba(168, 90, 82, 0.08) 0%, var(--white) 100%);
         }
         
         .reminder-card.success {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-        }
-        
-        .reminder-card.info {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            background: linear-gradient(135deg, rgba(107, 138, 107, 0.08) 0%, var(--white) 100%);
         }
         
         .reminder-icon {
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             background: var(--warning);
-            border-radius: 10px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(196, 147, 90, 0.3);
         }
         
         .reminder-card.danger .reminder-icon {
             background: var(--danger);
+            box-shadow: 0 4px 12px rgba(168, 90, 82, 0.3);
         }
         
         .reminder-card.success .reminder-icon {
-            background: var(--accent);
-        }
-        
-        .reminder-card.info .reminder-icon {
-            background: var(--primary);
+            background: var(--success);
+            box-shadow: 0 4px 12px rgba(107, 138, 107, 0.3);
         }
         
         .reminder-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke: white;
+            width: 22px;
+            height: 22px;
+            stroke: var(--white);
             stroke-width: 2;
             fill: none;
         }
@@ -571,140 +909,192 @@
         }
         
         .reminder-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--charcoal);
+            margin-bottom: 2px;
         }
         
         .reminder-sub {
             font-size: 12px;
-            color: var(--text-secondary);
+            color: var(--brown-light);
         }
         
         .reminder-arrow {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--cream);
+            border-radius: 10px;
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .reminder-card:hover .reminder-arrow {
+            background: var(--gold-light);
+            transform: translateX(4px);
+        }
+        
+        .reminder-card:hover .reminder-arrow svg {
+            stroke: var(--white);
         }
         
         .reminder-arrow svg {
             width: 16px;
             height: 16px;
-            stroke: var(--text-muted);
+            stroke: var(--brown);
             stroke-width: 2;
             fill: none;
+            transition: stroke 0.3s var(--ease-out);
         }
         
-        /* 聊天界面 */
+        /* ========== 聊天界面 - 精致风格 ========== */
         .chat-content {
-            padding: 16px;
+            padding: 24px 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 18px;
         }
         
         .chat-date {
             text-align: center;
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--brown-light);
             padding: 8px 0;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+        
+        .chat-date::before,
+        .chat-date::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3));
+        }
+        
+        .chat-date::before { right: calc(50% + 50px); }
+        .chat-date::after { 
+            left: calc(50% + 50px); 
+            background: linear-gradient(90deg, rgba(184, 149, 110, 0.3), transparent);
         }
         
         .chat-message {
-            max-width: 80%;
-            padding: 12px 14px;
-            border-radius: var(--radius-lg);
+            max-width: 82%;
+            padding: 14px 18px;
+            border-radius: 20px;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
+            position: relative;
         }
         
         .chat-message.user {
-            background: var(--primary-gradient);
-            color: white;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            color: var(--white);
             align-self: flex-end;
-            border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg);
+            border-radius: 20px 20px 6px 20px;
+            box-shadow: 
+                0 4px 16px rgba(184, 149, 110, 0.25),
+                inset 0 1px 0 rgba(255,255,255,0.15);
         }
         
         .chat-message.assistant {
-            background: var(--bg-chat);
-            color: var(--text-primary);
+            background: var(--white);
+            color: var(--charcoal);
             align-self: flex-start;
-            border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
+            border-radius: 20px 20px 20px 6px;
+            border: 1px solid rgba(184, 149, 110, 0.12);
+            box-shadow: var(--shadow-xs);
         }
         
-        /* 商品推荐卡片 */
+        /* 商品推荐卡片 - 奢华设计 */
         .product-recommend {
-            background: var(--bg-screen);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            background: var(--white);
+            border: 1px solid rgba(184, 149, 110, 0.12);
+            border-radius: 20px;
             overflow: hidden;
-            max-width: 85%;
+            max-width: 88%;
             align-self: flex-start;
+            box-shadow: var(--shadow-sm);
         }
         
         .product-image {
-            height: 80px;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            height: 100px;
+            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%);
         }
         
         .product-image svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--text-muted);
+            width: 36px;
+            height: 36px;
+            stroke: var(--gold);
             stroke-width: 1.5;
             fill: none;
         }
         
         .product-info {
-            padding: 10px 12px;
+            padding: 14px 16px;
+            background: var(--white);
         }
         
         .product-name {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 4px;
+            color: var(--charcoal);
+            margin-bottom: 8px;
         }
         
         .product-price {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
         
         .price-current {
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: var(--danger);
         }
         
         .price-original {
-            font-size: 12px;
-            color: var(--text-muted);
+            font-size: 13px;
+            color: var(--brown-light);
             text-decoration: line-through;
         }
         
-        /* 列表页 */
+        /* ========== 列表页 - 精致设计 ========== */
         .list-content {
-            padding: 16px;
+            padding: 24px 20px;
         }
         
         .list-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
         
         .list-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--charcoal);
         }
         
         .list-filter {
@@ -713,58 +1103,86 @@
         }
         
         .filter-btn {
-            padding: 6px 12px;
-            background: var(--bg-chat);
-            border-radius: var(--radius);
+            padding: 10px 16px;
+            background: var(--white);
+            border-radius: 14px;
             font-size: 12px;
-            color: var(--text-secondary);
+            color: var(--brown-light);
+            border: 1px solid rgba(184, 149, 110, 0.15);
+            transition: all 0.3s var(--ease-out);
         }
         
         .filter-btn.active {
-            background: var(--primary-light);
-            color: var(--primary);
+            background: var(--charcoal);
+            color: var(--white);
+            border-color: var(--charcoal);
         }
         
-        /* 列表项 */
+        /* 列表项 - 奢华质感 */
         .list-item {
-            background: var(--bg-screen);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 14px;
-            margin-bottom: 12px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            border: 1px solid rgba(184, 149, 110, 0.1);
+            transition: all 0.3s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .list-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s var(--ease-out);
+        }
+        
+        .list-item:hover {
+            border-color: var(--gold-light);
+            transform: translateX(6px);
+            box-shadow: var(--shadow);
+        }
+        
+        .list-item:hover::before {
+            opacity: 1;
         }
         
         .item-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            border-radius: var(--radius);
+            width: 48px;
+            height: 48px;
+            background: rgba(184, 149, 110, 0.1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .item-icon.green {
-            background: var(--accent-light);
+            background: rgba(107, 138, 107, 0.12);
         }
         
         .item-icon.orange {
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(196, 147, 90, 0.12);
         }
         
         .item-icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--primary);
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
             stroke-width: 2;
             fill: none;
         }
         
         .item-icon.green svg {
-            stroke: var(--accent);
+            stroke: var(--success);
         }
         
         .item-icon.orange svg {
@@ -776,14 +1194,15 @@
         }
         
         .item-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
-            color: var(--text-primary);
+            color: var(--charcoal);
+            margin-bottom: 2px;
         }
         
         .item-desc {
             font-size: 12px;
-            color: var(--text-secondary);
+            color: var(--brown-light);
         }
         
         .item-meta {
@@ -791,198 +1210,251 @@
         }
         
         .item-count {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--gold);
         }
         
         .item-status {
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--brown-light);
         }
         
-        /* 商品详情页 */
+        /* ========== 商品详情页 - 奢华设计 ========== */
         .detail-content {
             padding: 0;
         }
         
         .detail-gallery {
             height: 200px;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        .detail-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+        }
+        
+        .detail-gallery::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, transparent, var(--cream));
         }
         
         .detail-gallery svg {
-            width: 48px;
-            height: 48px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
+            width: 56px;
+            height: 56px;
+            stroke: var(--gold);
+            stroke-width: 1.2;
             fill: none;
         }
         
         .detail-info {
-            padding: 16px;
+            padding: 24px 20px;
         }
         
         .detail-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 14px;
             line-height: 1.4;
         }
         
         .detail-price-row {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 18px;
         }
         
         .detail-price {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--danger);
         }
         
         .detail-original {
-            font-size: 14px;
-            color: var(--text-muted);
+            font-size: 15px;
+            color: var(--brown-light);
             text-decoration: line-through;
         }
         
         .detail-discount {
-            padding: 4px 8px;
-            background: rgba(239, 68, 68, 0.1);
-            border-radius: var(--radius-sm);
+            padding: 6px 14px;
+            background: rgba(168, 90, 82, 0.1);
+            border-radius: 10px;
             font-size: 12px;
             color: var(--danger);
-            font-weight: 500;
+            font-weight: 600;
         }
         
         .detail-tags {
             display: flex;
-            gap: 6px;
-            margin-bottom: 12px;
+            gap: 8px;
+            margin-bottom: 18px;
         }
         
         .detail-tag {
-            padding: 4px 10px;
-            background: var(--primary-light);
-            border-radius: var(--radius);
+            padding: 8px 14px;
+            background: rgba(184, 149, 110, 0.1);
+            border-radius: 10px;
             font-size: 12px;
-            color: var(--primary);
+            color: var(--brown);
         }
         
         .detail-desc {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.6;
+            font-size: 14px;
+            color: var(--brown-light);
+            line-height: 1.8;
         }
         
-        /* 操作按钮 */
+        /* 操作按钮 - 奢华风格 */
         .action-bar {
             display: flex;
-            gap: 12px;
-            padding: 16px;
+            gap: 14px;
+            padding: 20px;
         }
         
         .action-btn {
             flex: 1;
-            padding: 14px;
-            border-radius: var(--radius-lg);
+            padding: 18px;
+            border-radius: 18px;
             font-size: 14px;
             font-weight: 600;
             text-align: center;
+            transition: all 0.4s var(--ease-out);
+            border: none;
         }
         
         .action-btn.secondary {
-            background: var(--bg-chat);
-            color: var(--text-primary);
+            background: var(--white);
+            color: var(--charcoal);
+            border: 2px solid rgba(184, 149, 110, 0.2);
+        }
+        
+        .action-btn.secondary:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
         
         .action-btn.primary {
-            background: var(--primary-gradient);
-            color: white;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            color: var(--white);
+            box-shadow: 
+                0 4px 16px rgba(184, 149, 110, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.15);
         }
         
-        /* 家人档案页 */
+        .action-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 28px rgba(184, 149, 110, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        
+        /* ========== 家人档案页 - 奢华设计 ========== */
         .family-list {
-            padding: 16px;
+            padding: 24px 20px;
         }
         
         .family-card {
-            background: var(--bg-screen);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 16px;
-            margin-bottom: 12px;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(184, 149, 110, 0.1);
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .family-card:hover {
+            border-color: var(--gold-light);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
         }
         
         .family-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 16px;
+            margin-bottom: 16px;
         }
         
         .family-avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-            border-radius: 14px;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(145deg, #ec4899 0%, #db2777 100%);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
         }
         
         .family-avatar svg {
-            width: 22px;
-            height: 22px;
-            stroke: white;
+            width: 26px;
+            height: 26px;
+            stroke: var(--white);
             stroke-width: 2;
             fill: none;
         }
         
         .family-avatar.blue {
-            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
         
         .family-avatar.orange {
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            background: linear-gradient(145deg, var(--warning) 0%, #c2410c 100%);
+            box-shadow: 0 4px 12px rgba(196, 147, 90, 0.25);
         }
         
         .family-name {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--charcoal);
         }
         
         .family-relation {
-            font-size: 12px;
-            color: var(--text-secondary);
+            font-size: 13px;
+            color: var(--brown-light);
         }
         
         .family-tags {
             display: flex;
-            gap: 6px;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
         
         .family-tag {
-            padding: 4px 8px;
-            background: rgba(236, 72, 153, 0.1);
-            border-radius: var(--radius-sm);
-            font-size: 11px;
-            color: #ec4899;
+            padding: 6px 12px;
+            background: rgba(236, 72, 153, 0.08);
+            border-radius: 10px;
+            font-size: 12px;
+            color: #db2777;
         }
         
         .family-info {
             display: flex;
-            gap: 16px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
+            gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(184, 149, 110, 0.1);
         }
         
         .family-info-item {
@@ -991,45 +1463,53 @@
         
         .family-info-label {
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--brown-light);
             margin-bottom: 4px;
         }
         
         .family-info-value {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--charcoal);
         }
         
-        /* 价格监控页 */
+        /* ========== 价格监控页 - 精致设计 ========== */
         .monitor-list {
-            padding: 16px;
+            padding: 24px 20px;
         }
         
         .monitor-card {
-            background: var(--bg-screen);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 14px;
-            margin-bottom: 12px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 14px;
             display: flex;
-            gap: 12px;
+            gap: 16px;
+            border: 1px solid rgba(184, 149, 110, 0.1);
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .monitor-card:hover {
+            border-color: var(--gold-light);
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
         }
         
         .monitor-image {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            border-radius: var(--radius);
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .monitor-image svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--text-muted);
+            width: 30px;
+            height: 30px;
+            stroke: var(--gold);
             stroke-width: 1.5;
             fill: none;
         }
@@ -1039,130 +1519,193 @@
         }
         
         .monitor-name {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 4px;
+            color: var(--charcoal);
+            margin-bottom: 8px;
         }
         
         .monitor-price-row {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
+            gap: 12px;
+            margin-bottom: 10px;
         }
         
         .monitor-current {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--charcoal);
         }
         
         .monitor-target {
-            font-size: 12px;
-            color: var(--accent);
+            font-size: 13px;
+            color: var(--success);
+            font-weight: 500;
         }
         
         .monitor-progress {
-            height: 4px;
-            background: var(--bg-chat);
-            border-radius: 2px;
+            height: 5px;
+            background: var(--cream-dark);
+            border-radius: 3px;
             overflow: hidden;
         }
         
         .monitor-progress-bar {
             height: 100%;
-            background: var(--accent);
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--success), #8fb88f);
+            border-radius: 3px;
+            transition: width 0.6s var(--ease-out);
         }
         
-        /* 版本对比 */
+        /* ========== 版本对比 - 戏剧性设计 ========== */
         .version-compare {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 40px;
-            background: var(--bg-card);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--border-dark);
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 64px;
+            background: var(--white);
+            border-radius: 32px;
+            border: 1px solid rgba(184, 149, 110, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 背景光晕 */
+        .version-compare::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            opacity: 0.3;
+            filter: blur(60px);
+        }
+        
+        .version-compare::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 138, 107, 0.2) 0%, transparent 70%);
+            opacity: 0.3;
+            filter: blur(60px);
         }
         
         .compare-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
         }
         
         .compare-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: -0.01em;
         }
         
         .compare-subtitle {
-            font-size: 14px;
-            color: var(--text-dark-secondary);
-            margin-top: 8px;
+            font-size: 15px;
+            color: var(--brown-light);
+            margin-top: 12px;
+            letter-spacing: 0.08em;
         }
         
         .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
         }
         
         .compare-card {
-            background: var(--bg-section);
-            border-radius: var(--radius-lg);
-            padding: 24px;
+            background: var(--cream);
+            border-radius: 28px;
+            padding: 36px;
             border: 2px solid transparent;
+            position: relative;
+            transition: all 0.4s var(--ease-out);
         }
         
-        .compare-card.personal {
-            border-color: var(--primary);
+        .compare-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .compare-card.enterprise {
-            border-color: var(--accent);
+        .compare-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 28px;
+            padding: 2px;
+            background: linear-gradient(145deg, var(--gold), var(--brown));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-out);
+        }
+        
+        .compare-card.personal:hover::before {
+            opacity: 1;
+        }
+        
+        .compare-card.enterprise::before {
+            background: linear-gradient(145deg, var(--success), #5a8a56);
+            opacity: 1;
         }
         
         .compare-card-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 16px;
+            margin-bottom: 12px;
         }
         
         .compare-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-gradient);
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 16px rgba(184, 149, 110, 0.3);
         }
         
         .compare-card.enterprise .compare-icon {
-            background: linear-gradient(135deg, var(--accent) 0%, #16a34a 100%);
+            background: linear-gradient(145deg, var(--success) 0%, #5a8a56 100%);
+            box-shadow: 0 4px 16px rgba(107, 138, 107, 0.3);
         }
         
         .compare-icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: white;
+            width: 26px;
+            height: 26px;
+            stroke: var(--white);
             stroke-width: 2;
             fill: none;
         }
         
         .compare-card-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--charcoal);
         }
         
         .compare-card-desc {
-            font-size: 13px;
-            color: var(--text-dark-secondary);
-            margin-bottom: 16px;
+            font-size: 14px;
+            color: var(--brown-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
         }
         
         .compare-features {
@@ -1170,13 +1713,13 @@
         }
         
         .compare-features li {
-            padding: 10px 0;
+            padding: 14px 0;
             font-size: 14px;
-            color: var(--text-dark);
+            color: var(--charcoal);
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid var(--border-dark);
+            gap: 14px;
+            border-bottom: 1px solid rgba(184, 149, 110, 0.1);
         }
         
         .compare-features li:last-child {
@@ -1184,67 +1727,156 @@
         }
         
         .feature-check {
-            width: 20px;
-            height: 20px;
-            background: var(--primary-light);
-            border-radius: 6px;
+            width: 24px;
+            height: 24px;
+            background: rgba(184, 149, 110, 0.1);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            color: var(--gold);
             font-size: 12px;
             font-weight: 700;
         }
         
         .compare-card.enterprise .feature-check {
-            background: var(--accent-light);
-            color: var(--accent);
+            background: rgba(107, 138, 107, 0.1);
+            color: var(--success);
         }
         
         .feature-plus {
-            color: var(--accent);
+            color: var(--success);
             font-weight: 700;
+            margin-left: auto;
+            background: rgba(107, 138, 107, 0.1);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
         }
         
-        /* 页脚 */
+        /* ========== 页脚 - 精致风格 ========== */
         .page-footer {
             text-align: center;
-            padding: 40px;
-            color: var(--text-dark-secondary);
+            padding: 64px 48px;
+            color: var(--brown-light);
             font-size: 14px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .page-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
         }
         
         .page-footer a {
-            color: var(--primary);
+            color: var(--gold);
             text-decoration: none;
+            transition: color 0.3s var(--ease-out);
+            font-weight: 500;
         }
         
-        /* 响应式 */
-        @media (max-width: 1200px) {
+        .page-footer a:hover {
+            color: var(--brown);
+        }
+        
+        /* ========== 响应式 ========== */
+        @media (max-width: 1400px) {
             .canvas-container {
-                padding: 40px;
+                padding: 48px 60px;
             }
             
             .screens-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 48px;
             }
         }
         
         @media (max-width: 768px) {
             .page-header {
-                padding: 24px;
+                padding: 80px 24px 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header .badge::before,
+            .page-header .badge::after {
+                display: none;
+            }
+            
+            .back-link {
+                top: 16px;
+                left: 16px;
+                padding: 10px 20px;
             }
             
             .canvas-container {
-                padding: 24px;
+                padding: 32px 20px 80px;
+            }
+            
+            .group-header::before {
+                display: none;
+            }
+            
+            .group-title {
+                padding-left: 0;
+                font-size: 28px;
+            }
+            
+            .group-desc {
+                padding-left: 0;
             }
             
             .screens-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .compare-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .version-compare {
+                padding: 40px 24px;
+                margin: 60px 20px;
+            }
+        }
+        
+        /* ========== 动画关键帧 ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
             }
         }
     </style>
@@ -1262,7 +1894,7 @@
     <!-- 界面画布 -->
     <div class="canvas-container">
         
-        <!-- ========== 核心界面组 ========== -->
+        <!-- 核心交互界面组 -->
         <section class="screen-group">
             <div class="group-header">
                 <h2 class="group-title">核心交互界面</h2>
@@ -1274,21 +1906,19 @@
                 <div class="screen-card">
                     <div class="screen-label">
                         首页 · 欢迎页
-                        <span class="tag green">核心入口</span>
+                        <span class="tag">核心入口</span>
                     </div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 内容区 -->
                             <div class="screen-content full">
                                 <div class="welcome-screen">
                                     <div class="welcome-logo">
@@ -1297,18 +1927,16 @@
                                     <h1 class="welcome-title">专业购物小管家</h1>
                                     <p class="welcome-subtitle">记住需求 · 主动找货 · 智能决策</p>
                                     
-                                    <!-- 版本切换 -->
                                     <div class="version-switch">
                                         <div class="version-btn active">个人版</div>
                                         <div class="version-btn">企业版</div>
                                     </div>
                                     <p class="version-hint">个人消费者：省心省钱购物助手</p>
                                     
-                                    <!-- 今日提醒 -->
                                     <div class="reminder-cards">
-                                        <div class="reminder-card">
+                                        <div class="reminder-card warning">
                                             <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                                                <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg>
                                             </div>
                                             <div class="reminder-content">
                                                 <div class="reminder-title">老婆生日还有3天</div>
@@ -1332,7 +1960,7 @@
                                         </div>
                                         <div class="reminder-card success">
                                             <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                                                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                                             </div>
                                             <div class="reminder-content">
                                                 <div class="reminder-title">咖啡机降价了</div>
@@ -1346,14 +1974,13 @@
                                 </div>
                             </div>
                             
-                            <!-- 输入栏 -->
                             <div class="input-bar">
                                 <div class="input-tools">
                                     <div class="input-tool">
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
                                     <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
                                     </div>
                                 </div>
                                 <div class="input-field">说点什么...</div>
@@ -1374,16 +2001,14 @@
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 导航栏 -->
                             <div class="nav-bar">
                                 <div class="nav-left">
                                     <div class="nav-back">
@@ -1391,7 +2016,7 @@
                                     </div>
                                     <div class="nav-logo">
                                         <div class="nav-logo-icon">
-                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
                                         </div>
                                         <span class="nav-title">小管家</span>
                                     </div>
@@ -1403,7 +2028,6 @@
                                 </div>
                             </div>
                             
-                            <!-- 聊天内容 -->
                             <div class="screen-content">
                                 <div class="chat-content">
                                     <div class="chat-date">今天 09:30</div>
@@ -1414,10 +2038,9 @@
                                     <div class="chat-date">09:35</div>
                                     <div class="chat-message assistant">找到两款很适合她的：</div>
                                     
-                                    <!-- 商品推荐卡片 -->
                                     <div class="product-recommend">
                                         <div class="product-image">
-                                            <svg viewBox="0 0 24 24"><path d="M12 2c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1s-1-.5-1-1V3c0-.5.5-1 1-1z"/><path d="M8 8c0-2 1.5-4 4-4s4 2 4 4c0 3-4 5-4 8 0-3-4-5-4-8z"/></svg>
+                                            <svg viewBox="0 0 24 24"><path d="M12 2c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1s-1-.5-1-1V3c0-.5.5-1 1-1z"/><path d="M8 8c0-2 1.5-4 4-4s4 2 4 4c0 3-4 5-4 8"/></svg>
                                         </div>
                                         <div class="product-info">
                                             <div class="product-name">祖玛珑礼盒套装</div>
@@ -1432,17 +2055,16 @@
                                 </div>
                             </div>
                             
-                            <!-- 输入栏 -->
                             <div class="input-bar">
                                 <div class="input-tools">
                                     <div class="input-tool">
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
                                     <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
                                     </div>
                                 </div>
-                                <div class="input-field">继续问商品详情...</div>
+                                <div class="input-field">继续问...</div>
                                 <div class="input-send">
                                     <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
@@ -1451,453 +2073,168 @@
                     </div>
                 </div>
                 
-                <!-- 3. 商品详情页 -->
+                <!-- 3. 列表页 -->
                 <div class="screen-card">
                     <div class="screen-label">
-                        商品 · 详情页
-                        <span class="tag orange">决策关键</span>
+                        列表 · 我的关注
+                        <span class="tag">数据管理</span>
                     </div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 导航栏 -->
                             <div class="nav-bar">
                                 <div class="nav-left">
                                     <div class="nav-back">
                                         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                                     </div>
-                                    <span class="nav-title">商品详情</span>
+                                    <span class="nav-title">我的关注</span>
                                 </div>
                                 <div class="nav-right">
                                     <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                                    </div>
-                                    <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- 商品内容 -->
-                            <div class="screen-content">
-                                <div class="detail-content">
-                                    <div class="detail-gallery">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1s-1-.5-1-1V3c0-.5.5-1 1-1z"/><path d="M8 8c0-2 1.5-4 4-4s4 2 4 4c0 3-4 5-4 8 0-3-4-5-4-8z"/></svg>
-                                    </div>
-                                    <div class="detail-info">
-                                        <div class="detail-title">祖玛珑香薰蜡烛礼盒 英国梨与小苍兰系列</div>
-                                        <div class="detail-price-row">
-                                            <span class="detail-price">¥520</span>
-                                            <span class="detail-original">¥680</span>
-                                            <span class="detail-discount">-23%</span>
-                                        </div>
-                                        <div class="detail-tags">
-                                            <div class="detail-tag">品牌直供</div>
-                                            <div class="detail-tag">送礼推荐</div>
-                                            <div class="detail-tag">限时优惠</div>
-                                        </div>
-                                        <div class="detail-desc">经典英伦香调，清新淡雅。礼盒包含英国梨与小苍兰、青柠罗勒与柑橘、蓝风铃三款，每款70g。适合送给注重生活品质的她。</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 操作按钮 -->
-                            <div class="input-bar" style="height: 72px; padding: 12px;">
-                                <div class="action-bar" style="padding: 0;">
-                                    <div class="action-btn secondary">加入关注</div>
-                                    <div class="action-btn primary">立即下单</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 4. 提醒中心 -->
-                <div class="screen-card">
-                    <div class="screen-label">
-                        提醒 · 中心页
-                        <span class="tag green">主动服务</span>
-                    </div>
-                    <div class="phone-frame">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen">
-                            <!-- 状态栏 -->
-                            <div class="status-bar">
-                                <span class="status-time">09:41</span>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
-                                </div>
-                            </div>
-                            
-                            <!-- 导航栏 -->
-                            <div class="nav-bar">
-                                <div class="nav-left">
-                                    <div class="nav-back">
-                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                                    </div>
-                                    <span class="nav-title">提醒中心</span>
-                                </div>
-                                <div class="nav-right">
-                                    <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 提醒列表 -->
                             <div class="screen-content">
                                 <div class="list-content">
                                     <div class="list-header">
-                                        <span class="list-title">今日提醒</span>
+                                        <h2 class="list-title">全部关注</h2>
                                         <div class="list-filter">
                                             <div class="filter-btn active">全部</div>
-                                            <div class="filter-btn">生日</div>
-                                            <div class="filter-btn">补货</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon orange">
-                                            <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">老婆生日提醒</div>
-                                            <div class="item-desc">还有3天，准备礼物</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">3天</div>
-                                            <div class="item-status">待处理</div>
+                                            <div class="filter-btn">降价</div>
                                         </div>
                                     </div>
                                     
                                     <div class="list-item">
                                         <div class="item-icon">
-                                            <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+                                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                                         </div>
                                         <div class="item-content">
-                                            <div class="item-title">牛奶补货提醒</div>
-                                            <div class="item-desc">库存不足，预计今天喝完</div>
+                                            <div class="item-title">家人档案</div>
+                                            <div class="item-desc">老婆、儿子、爸妈</div>
                                         </div>
                                         <div class="item-meta">
-                                            <div class="item-count" style="color: var(--danger);">紧急</div>
-                                            <div class="item-status">待处理</div>
+                                            <div class="item-count">5</div>
+                                            <div class="item-status">成员</div>
                                         </div>
                                     </div>
                                     
                                     <div class="list-item">
                                         <div class="item-icon green">
+                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-title">补货清单</div>
+                                            <div class="item-desc">牛奶、纸巾、洗衣液</div>
+                                        </div>
+                                        <div class="item-meta">
+                                            <div class="item-count">3</div>
+                                            <div class="item-status">待购</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="list-item">
+                                        <div class="item-icon orange">
                                             <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                                         </div>
                                         <div class="item-content">
-                                            <div class="item-title">咖啡机降价提醒</div>
-                                            <div class="item-desc">关注的商品降价了</div>
+                                            <div class="item-title">价格监控</div>
+                                            <div class="item-desc">咖啡机、耳机</div>
                                         </div>
                                         <div class="item-meta">
-                                            <div class="item-count">-33%</div>
-                                            <div class="item-status">已推送</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon">
-                                            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">大侄子生日提醒</div>
-                                            <div class="item-desc">还有18天，准备礼物</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">18天</div>
-                                            <div class="item-status">已提醒</div>
+                                            <div class="item-count">2</div>
+                                            <div class="item-status">监控中</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- 输入栏 -->
                             <div class="input-bar">
                                 <div class="input-tools">
                                     <div class="input-tool">
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                                    </div>
                                 </div>
-                                <div class="input-field">询问提醒详情...</div>
+                                <div class="input-field">搜索关注内容...</div>
                                 <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ========== 功能管理组 ========== -->
-        <section class="screen-group">
-            <div class="group-header">
-                <h2 class="group-title">功能管理界面</h2>
-                <p class="group-desc">用户管理个人购物数据的功能页面</p>
-            </div>
-            
-            <div class="screens-grid">
-                <!-- 5. 囤货清单 -->
-                <div class="screen-card">
-                    <div class="screen-label">
-                        囤货 · 清单页
-                        <span class="tag">周期管理</span>
-                    </div>
-                    <div class="phone-frame">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen">
-                            <!-- 状态栏 -->
-                            <div class="status-bar">
-                                <span class="status-time">09:41</span>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
-                                </div>
-                            </div>
-                            
-                            <!-- 导航栏 -->
-                            <div class="nav-bar">
-                                <div class="nav-left">
-                                    <div class="nav-back">
-                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                                    </div>
-                                    <span class="nav-title">囤货清单</span>
-                                </div>
-                                <div class="nav-right">
-                                    <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 囤货列表 -->
-                            <div class="screen-content">
-                                <div class="list-content">
-                                    <div class="list-header">
-                                        <span class="list-title">我的囤货</span>
-                                        <div class="list-filter">
-                                            <div class="filter-btn active">全部</div>
-                                            <div class="filter-btn">即将补货</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon orange">
-                                            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">伊利纯牛奶</div>
-                                            <div class="item-desc">剩余: 2盒 · 周期: 14天</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count" style="color: var(--danger);">需补货</div>
-                                            <div class="item-status">周期提醒</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon green">
-                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">洗衣液</div>
-                                            <div class="item-desc">剩余: 1瓶 · 周期: 30天</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">15天</div>
-                                            <div class="item-status">充足</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon green">
-                                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">厨房纸巾</div>
-                                            <div class="item-desc">剩余: 3卷 · 周期: 20天</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">10天</div>
-                                            <div class="item-status">充足</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon">
-                                            <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">咖啡豆</div>
-                                            <div class="item-desc">剩余: 500g · 周期: 21天</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">8天</div>
-                                            <div class="item-status">充足</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 输入栏 -->
-                            <div class="input-bar">
-                                <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                    </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                                    </div>
-                                </div>
-                                <div class="input-field">添加囤货物品...</div>
-                                <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 6. 价格监控 -->
+                <!-- 4. 商品详情页 -->
                 <div class="screen-card">
                     <div class="screen-label">
-                        价格 · 监控页
-                        <span class="tag orange">省钱助手</span>
+                        详情 · 商品页
+                        <span class="tag">购买决策</span>
                     </div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 导航栏 -->
-                            <div class="nav-bar">
-                                <div class="nav-left">
-                                    <div class="nav-back">
-                                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                            <div class="screen-content no-nav">
+                                <div class="detail-content">
+                                    <div class="detail-gallery">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                     </div>
-                                    <span class="nav-title">价格监控</span>
-                                </div>
-                                <div class="nav-right">
-                                    <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 监控列表 -->
-                            <div class="screen-content">
-                                <div class="monitor-list">
-                                    <div class="monitor-card">
-                                        <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+                                    <div class="detail-info">
+                                        <h1 class="detail-title">戴森 V15 无线吸尘器</h1>
+                                        <div class="detail-price-row">
+                                            <span class="detail-price">¥4,990</span>
+                                            <span class="detail-original">¥5,990</span>
+                                            <span class="detail-discount">省1000元</span>
                                         </div>
-                                        <div class="monitor-info">
-                                            <div class="monitor-name">德龙咖啡机</div>
-                                            <div class="monitor-price-row">
-                                                <span class="monitor-current">¥1,999</span>
-                                                <span class="monitor-target">目标: ¥1,500</span>
-                                            </div>
-                                            <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 75%;"></div>
-                                            </div>
+                                        <div class="detail-tags">
+                                            <span class="detail-tag">历史低价</span>
+                                            <span class="detail-tag">官方旗舰店</span>
                                         </div>
+                                        <p class="detail-desc">激光探测微尘，整机 HEPA 过滤系统，吸力强劲。适合家庭深度清洁。</p>
                                     </div>
-                                    
-                                    <div class="monitor-card">
-                                        <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                                        </div>
-                                        <div class="monitor-info">
-                                            <div class="monitor-name">iPad Air</div>
-                                            <div class="monitor-price-row">
-                                                <span class="monitor-current">¥4,799</span>
-                                                <span class="monitor-target">目标: ¥4,000</span>
-                                            </div>
-                                            <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 15%;"></div>
-                                            </div>
-                                        </div>
+                                    <div class="action-bar">
+                                        <button class="action-btn secondary">加入关注</button>
+                                        <button class="action-btn primary">立即购买</button>
                                     </div>
-                                    
-                                    <div class="monitor-card">
-                                        <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-                                        </div>
-                                        <div class="monitor-info">
-                                            <div class="monitor-name">索尼降噪耳机</div>
-                                            <div class="monitor-price-row">
-                                                <span class="monitor-current">¥2,299</span>
-                                                <span class="monitor-target">目标: ¥2,000</span>
-                                            </div>
-                                            <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 30%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 输入栏 -->
-                            <div class="input-bar">
-                                <div class="input-tools">
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                    </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                                    </div>
-                                </div>
-                                <div class="input-field">添加监控商品...</div>
-                                <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 7. 家人档案 -->
+                <!-- 5. 家人档案页 -->
                 <div class="screen-card">
                     <div class="screen-label">
-                        家人 · 档案页
-                        <span class="tag green">记忆系统</span>
+                        档案 · 家人页
+                        <span class="tag">记忆中心</span>
                     </div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 导航栏 -->
                             <div class="nav-bar">
                                 <div class="nav-left">
                                     <div class="nav-back">
@@ -1912,7 +2249,6 @@
                                 </div>
                             </div>
                             
-                            <!-- 家人列表 -->
                             <div class="screen-content">
                                 <div class="family-list">
                                     <div class="family-card">
@@ -1926,9 +2262,9 @@
                                             </div>
                                         </div>
                                         <div class="family-tags">
-                                            <div class="family-tag">护肤品类</div>
-                                            <div class="family-tag">香薰蜡烛</div>
-                                            <div class="family-tag">巧克力</div>
+                                            <span class="family-tag">护肤品</span>
+                                            <span class="family-tag">香水</span>
+                                            <span class="family-tag">瑜伽</span>
                                         </div>
                                         <div class="family-info">
                                             <div class="family-info-item">
@@ -1936,8 +2272,8 @@
                                                 <div class="family-info-value">3月17日</div>
                                             </div>
                                             <div class="family-info-item">
-                                                <div class="family-info-label">偏好风格</div>
-                                                <div class="family-info-value">简约优雅</div>
+                                                <div class="family-info-label">尺码</div>
+                                                <div class="family-info-value">S / 37码</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1945,26 +2281,25 @@
                                     <div class="family-card">
                                         <div class="family-header">
                                             <div class="family-avatar blue">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                                                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                             </div>
                                             <div>
-                                                <div class="family-name">大侄子</div>
-                                                <div class="family-relation">侄子 · 小学1年级</div>
+                                                <div class="family-name">儿子</div>
+                                                <div class="family-relation">孩子</div>
                                             </div>
                                         </div>
-                                        <div class="family-tags" style="gap: 6px;">
-                                            <div class="family-tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">奥特曼</div>
-                                            <div class="family-tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">乐高</div>
-                                            <div class="family-tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">恐龙</div>
+                                        <div class="family-tags">
+                                            <span class="family-tag">奥特曼</span>
+                                            <span class="family-tag">乐高</span>
                                         </div>
                                         <div class="family-info">
                                             <div class="family-info-item">
                                                 <div class="family-info-label">生日</div>
-                                                <div class="family-info-value">3月18日</div>
+                                                <div class="family-info-value">8月8日</div>
                                             </div>
                                             <div class="family-info-item">
-                                                <div class="family-info-label">年龄段</div>
-                                                <div class="family-info-value">6-8岁</div>
+                                                <div class="family-info-label">年龄</div>
+                                                <div class="family-info-value">6岁</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1972,162 +2307,138 @@
                                     <div class="family-card">
                                         <div class="family-header">
                                             <div class="family-avatar orange">
-                                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                             </div>
                                             <div>
-                                                <div class="family-name">大姑丈</div>
-                                                <div class="family-relation">长辈</div>
+                                                <div class="family-name">大侄子</div>
+                                                <div class="family-relation">亲戚</div>
                                             </div>
+                                        </div>
+                                        <div class="family-tags">
+                                            <span class="family-tag">奥特曼</span>
+                                            <span class="family-tag">小学1年级</span>
                                         </div>
                                         <div class="family-info">
                                             <div class="family-info-item">
                                                 <div class="family-info-label">生日</div>
-                                                <div class="family-info-value">3月26日</div>
+                                                <div class="family-info-value">3月18日</div>
                                             </div>
                                             <div class="family-info-item">
-                                                <div class="family-info-label">偏好</div>
-                                                <div class="family-info-value">待补充</div>
+                                                <div class="family-info-label">礼物</div>
+                                                <div class="family-info-value">待准备</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- 输入栏 -->
                             <div class="input-bar">
                                 <div class="input-tools">
                                     <div class="input-tool">
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                                    </div>
                                 </div>
-                                <div class="input-field">添加家人档案...</div>
+                                <div class="input-field">添加家人...</div>
                                 <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 8. 我的订单 -->
+                <!-- 6. 价格监控页 -->
                 <div class="screen-card">
                     <div class="screen-label">
-                        订单 · 历史页
-                        <span class="tag">购物记录</span>
+                        监控 · 降价提醒
+                        <span class="tag">价格追踪</span>
                     </div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <!-- 状态栏 -->
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
                                 </div>
                             </div>
                             
-                            <!-- 导航栏 -->
                             <div class="nav-bar">
                                 <div class="nav-left">
                                     <div class="nav-back">
                                         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                                     </div>
-                                    <span class="nav-title">我的订单</span>
+                                    <span class="nav-title">价格监控</span>
                                 </div>
                                 <div class="nav-right">
                                     <div class="nav-btn">
-                                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- 订单列表 -->
                             <div class="screen-content">
-                                <div class="list-content">
-                                    <div class="list-header">
-                                        <span class="list-title">最近订单</span>
-                                        <div class="list-filter">
-                                            <div class="filter-btn active">全部</div>
-                                            <div class="filter-btn">待发货</div>
-                                            <div class="filter-btn">已完成</div>
+                                <div class="monitor-list">
+                                    <div class="monitor-card">
+                                        <div class="monitor-image">
+                                            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                        </div>
+                                        <div class="monitor-info">
+                                            <div class="monitor-name">戴森 V15 吸尘器</div>
+                                            <div class="monitor-price-row">
+                                                <span class="monitor-current">¥4,990</span>
+                                                <span class="monitor-target">目标: ¥4,500</span>
+                                            </div>
+                                            <div class="monitor-progress">
+                                                <div class="monitor-progress-bar" style="width: 78%;"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="list-item">
-                                        <div class="item-icon green">
-                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>
+                                    <div class="monitor-card">
+                                        <div class="monitor-image">
+                                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                                         </div>
-                                        <div class="item-content">
-                                            <div class="item-title">祖玛珑礼盒套装</div>
-                                            <div class="item-desc">2026-05-10下单</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">¥520</div>
-                                            <div class="item-status" style="color: var(--accent);">已签收</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon orange">
-                                            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">伊利纯牛奶 x10</div>
-                                            <div class="item-desc">2026-05-08下单</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">¥150</div>
-                                            <div class="item-status" style="color: var(--warning);">配送中</div>
+                                        <div class="monitor-info">
+                                            <div class="monitor-name">索尼 WH-1000XM5 耳机</div>
+                                            <div class="monitor-price-row">
+                                                <span class="monitor-current">¥2,299</span>
+                                                <span class="monitor-target">目标: ¥2,000</span>
+                                            </div>
+                                            <div class="monitor-progress">
+                                                <div class="monitor-progress-bar" style="width: 45%;"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="list-item">
-                                        <div class="item-icon green">
-                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>
+                                    <div class="monitor-card">
+                                        <div class="monitor-image">
+                                            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                                         </div>
-                                        <div class="item-content">
-                                            <div class="item-title">乐高恐龙套装</div>
-                                            <div class="item-desc">2026-03-15下单</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">¥199</div>
-                                            <div class="item-status" style="color: var(--accent);">已签收</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="list-item">
-                                        <div class="item-icon green">
-                                            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>
-                                        </div>
-                                        <div class="item-content">
-                                            <div class="item-title">洗衣液 x2</div>
-                                            <div class="item-desc">2026-04-20下单</div>
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="item-count">¥89</div>
-                                            <div class="item-status" style="color: var(--accent);">已签收</div>
+                                        <div class="monitor-info">
+                                            <div class="monitor-name">小米电视 75英寸</div>
+                                            <div class="monitor-price-row">
+                                                <span class="monitor-current">¥5,999</span>
+                                                <span class="monitor-target">目标: ¥5,500</span>
+                                            </div>
+                                            <div class="monitor-progress">
+                                                <div class="monitor-progress-bar" style="width: 62%;"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- 输入栏 -->
                             <div class="input-bar">
                                 <div class="input-tools">
                                     <div class="input-tool">
                                         <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                                     </div>
-                                    <div class="input-tool">
-                                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                                    </div>
                                 </div>
-                                <div class="input-field">查询订单详情...</div>
+                                <div class="input-field">添加监控商品...</div>
                                 <div class="input-send">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 </div>
                             </div>
                         </div>
@@ -2136,15 +2447,14 @@
             </div>
         </section>
         
-        <!-- ========== 版本对比 ========== -->
-        <section class="version-compare">
+        <!-- 版本对比 -->
+        <div class="version-compare">
             <div class="compare-header">
                 <h2 class="compare-title">个人版 vs 企业版</h2>
-                <p class="compare-subtitle">选择适合您的版本，获得最佳购物体验</p>
+                <p class="compare-subtitle">选择适合您的服务方案</p>
             </div>
             
             <div class="compare-grid">
-                <!-- 个人版 -->
                 <div class="compare-card personal">
                     <div class="compare-card-header">
                         <div class="compare-icon">
@@ -2152,43 +2462,39 @@
                         </div>
                         <h3 class="compare-card-title">个人版</h3>
                     </div>
-                    <p class="compare-card-desc">面向个人消费者，省心省钱购物助手</p>
+                    <p class="compare-card-desc">省心省钱购物助手，让每一次消费都明智</p>
                     <ul class="compare-features">
-                        <li><span class="feature-check">✓</span>智能对话购物</li>
-                        <li><span class="feature-check">✓</span>记忆系统（偏好/家人/囤货）</li>
-                        <li><span class="feature-check">✓</span>主动提醒（生日/补货/降价）</li>
-                        <li><span class="feature-check">✓</span>商品图谱分析</li>
-                        <li><span class="feature-check">✓</span>一键导入淘宝/京东订单</li>
-                        <li><span class="feature-check">✓</span>比价找同款省钱</li>
+                        <li><span class="feature-check">✓</span> 家人档案管理</li>
+                        <li><span class="feature-check">✓</span> 智能补货提醒</li>
+                        <li><span class="feature-check">✓</span> 价格监控追踪</li>
+                        <li><span class="feature-check">✓</span> 生日礼物推荐</li>
+                        <li><span class="feature-check">✓</span> 聊天记忆推荐</li>
                     </ul>
                 </div>
                 
-                <!-- 企业版 -->
                 <div class="compare-card enterprise">
                     <div class="compare-card-header">
                         <div class="compare-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
                         <h3 class="compare-card-title">企业版</h3>
                     </div>
-                    <p class="compare-card-desc">面向企业采购，批量成本优化管家</p>
+                    <p class="compare-card-desc">批量成本优化管家，让企业采购更高效</p>
                     <ul class="compare-features">
-                        <li><span class="feature-check">✓</span>包含个人版全部功能</li>
-                        <li><span class="feature-plus">+</span>多平台 + ERP订单导入</li>
-                        <li><span class="feature-plus">+</span>批量采购成本优化</li>
-                        <li><span class="feature-plus">+</span>供应商管理对比</li>
-                        <li><span class="feature-plus">+</span>智能补货时机优化</li>
-                        <li><span class="feature-plus">+</span>团队协作审批流程</li>
+                        <li><span class="feature-check">✓</span> 个人版全部功能</li>
+                        <li><span class="feature-check">✓</span> 订单批量导入 <span class="feature-plus">+</span></li>
+                        <li><span class="feature-check">✓</span> 智能比价找同款 <span class="feature-plus">+</span></li>
+                        <li><span class="feature-check">✓</span> 补货时机优化 <span class="feature-plus">+</span></li>
+                        <li><span class="feature-check">✓</span> 采购数据分析 <span class="feature-plus">+</span></li>
                     </ul>
                 </div>
             </div>
-        </section>
-        
+        </div>
     </div>
     
     <!-- 页脚 -->
     <footer class="page-footer">
-        <p>查看 <a href="cases.html">用户场景案例</a> 了解完整交互流程</p>
+        <p>专业购物小管家 · <a href="https://github.com/zironglv/ai-shopping-assistant" target="_blank">GitHub</a></p>
     </footer>
 </body>
 </html>
