@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>专业购物小管家 - 小程序界面设计</title>
-    <!-- 精致字体：Playfair Display for headings, DM Sans for body -->
+    <!-- Notion 风格字体：Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,336 +15,201 @@
             box-sizing: border-box;
         }
         
-        /* 奢华配色系统 - 增强版 */
+        /* Notion 简约配色系统 */
         :root {
-            --gold: #b8956e;
-            --gold-light: #d4b896;
-            --gold-glow: rgba(184, 149, 110, 0.4);
-            --cream: #faf8f5;
-            --cream-dark: #f0ece5;
-            --charcoal: #1a1a1a;
-            --charcoal-soft: #3d3d3d;
-            --brown: #5c4d3d;
-            --brown-light: #8a7a68;
-            --white: #ffffff;
-            --black: #0d0d0d;
+            /* 主色调 - Notion 风格 */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7f6f3;
+            --bg-tertiary: #f1f1ef;
+            --bg-hover: #e8e7e4;
             
-            /* 状态色 */
-            --success: #6b8a6b;
-            --warning: #c4935a;
-            --danger: #a85a52;
-            --info: #5a7a8a;
+            /* 文字颜色 */
+            --text-primary: #37352f;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #9b9a97;
+            --text-placeholder: #787774;
             
-            /* 阴影系统 - 更精致的分层 */
-            --shadow-xs: 0 1px 2px rgba(92, 77, 61, 0.04);
-            --shadow-sm: 0 2px 8px rgba(92, 77, 61, 0.06), 0 1px 2px rgba(92, 77, 61, 0.04);
-            --shadow: 0 8px 32px rgba(92, 77, 61, 0.08), 0 2px 8px rgba(92, 77, 61, 0.04);
-            --shadow-lg: 0 24px 64px rgba(92, 77, 61, 0.12), 0 8px 16px rgba(92, 77, 61, 0.06);
-            --shadow-xl: 0 48px 96px rgba(92, 77, 61, 0.16), 0 16px 32px rgba(92, 77, 61, 0.08);
+            /* 强调色 - 适度使用 */
+            --accent-blue: #2383e2;
+            --accent-blue-light: #e8f4fc;
+            --accent-green: #0f7b6c;
+            --accent-green-light: #e3f2e9;
+            --accent-yellow: #dfab01;
+            --accent-yellow-light: #fbf3db;
+            --accent-red: #e03e3e;
+            --accent-red-light: #fbe4e4;
+            --accent-purple: #9065b0;
+            --accent-purple-light: #f3e8f9;
             
-            /* 动画时间 */
-            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* 边框和分割线 */
+            --border-color: #e9e9e7;
+            --border-light: #f0f0ee;
+            
+            /* 阴影 - Notion 风格轻微阴影 */
+            --shadow-xs: 0 1px 2px rgba(55, 53, 47, 0.04);
+            --shadow-sm: 0 1px 3px rgba(55, 53, 47, 0.08);
+            --shadow-md: 0 4px 6px rgba(55, 53, 47, 0.08);
+            --shadow-lg: 0 8px 16px rgba(55, 53, 47, 0.12);
+            
+            /* 手机框架 */
+            --phone-width: 375px;
+            --phone-height: 812px;
+            --phone-radius: 40px;
+            --phone-padding: 8px;
         }
         
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.5;
             min-height: 100vh;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* 精致纹理背景 - 增加深度 */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse 80% 50% at 20% -20%, rgba(184, 149, 110, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 40% at 90% 100%, rgba(184, 149, 110, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            background-blend-mode: normal, normal, normal, overlay;
-            opacity: 0.015;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        /* ========== 页面头部 - 戏剧性设计 ========== */
+        /* ========== 页面头部 - Notion 简约风格 ========== */
         .page-header {
-            padding: 120px 60px 80px;
+            padding: 80px 48px 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* 装饰性光晕 */
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 400px;
-            background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 70%);
-            opacity: 0.3;
-            filter: blur(60px);
-            animation: pulse 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.4; transform: translateX(-50%) scale(1.1); }
         }
         
         .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 64px;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-            position: relative;
-            animation: fadeInUp 1s var(--ease-out) forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
         }
         
         .page-header p {
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--brown-light);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            animation: fadeInUp 1s var(--ease-out) 0.15s forwards;
-            opacity: 0;
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
         
         .page-header .badge {
             display: inline-block;
-            margin-top: 36px;
-            padding: 14px 32px;
-            background: transparent;
-            border: 1px solid var(--gold-light);
-            color: var(--brown);
-            font-size: 13px;
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
             font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            animation: fadeInUp 1s var(--ease-out) 0.3s forwards;
-            opacity: 0;
-            position: relative;
         }
         
-        .page-header .badge::before,
-        .page-header .badge::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 1px;
-            background: var(--gold);
-            top: 50%;
-        }
-        
-        .page-header .badge::before { left: -30px; }
-        .page-header .badge::after { right: -30px; }
-        
-        /* 返回链接 - 精致浮动 */
+        /* 返回链接 */
         .back-link {
             position: fixed;
-            top: 32px;
-            left: 32px;
-            padding: 14px 28px;
-            background: var(--white);
-            border: 1px solid rgba(184, 149, 110, 0.2);
-            color: var(--brown);
-            font-size: 13px;
+            top: 24px;
+            left: 24px;
+            padding: 10px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 14px;
             font-weight: 500;
             text-decoration: none;
-            letter-spacing: 0.05em;
             z-index: 100;
-            transition: all 0.4s var(--ease-out);
-            box-shadow: var(--shadow-sm);
+            transition: all 0.15s ease;
         }
         
         .back-link:hover {
-            background: var(--charcoal);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
+            background: var(--bg-hover);
+            color: var(--text-primary);
         }
         
         /* ========== 界面画布 ========== */
         .canvas-container {
-            padding: 40px 80px 120px;
-            max-width: 1800px;
+            padding: 48px;
+            max-width: 1600px;
             margin: 0 auto;
         }
         
-        /* 界面分组 - 戏剧性标题 */
+        /* 界面分组 */
         .screen-group {
-            margin-bottom: 140px;
-            position: relative;
+            margin-bottom: 96px;
         }
         
         .group-header {
-            margin-bottom: 64px;
-            position: relative;
-        }
-        
-        /* 装饰性线条 */
-        .group-header::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, var(--gold), transparent);
+            margin-bottom: 48px;
         }
         
         .group-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: -0.01em;
-            margin-bottom: 12px;
-            padding-left: 80px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
         }
         
         .group-desc {
-            font-size: 15px;
-            color: var(--brown-light);
-            letter-spacing: 0.08em;
-            padding-left: 80px;
+            font-size: 14px;
+            color: var(--text-tertiary);
         }
         
-        /* 界面网格 - 更宽松的布局 */
+        /* 界面网格 */
         .screens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 56px;
+            grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+            gap: 48px;
         }
         
-        /* ========== 界面卡片 - 奢华质感 ========== */
+        /* ========== 界面卡片 ========== */
         .screen-card {
-            background: var(--white);
-            border-radius: 32px;
-            padding: 40px;
-            border: 1px solid rgba(184, 149, 110, 0.15);
-            transition: all 0.5s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* 顶部装饰条 */
-        .screen-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.4s var(--ease-out);
-        }
-        
-        /* 背景光晕 */
-        .screen-card::after {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s var(--ease-out);
-            filter: blur(40px);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            transition: all 0.15s ease;
         }
         
         .screen-card:hover {
-            transform: translateY(-12px) scale(1.01);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(184, 149, 110, 0.3);
-        }
-        
-        .screen-card:hover::before {
-            opacity: 1;
-        }
-        
-        .screen-card:hover::after {
-            opacity: 0.5;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
         }
         
         .screen-label {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 28px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            position: relative;
-            z-index: 1;
+            gap: 12px;
         }
         
         .screen-label .tag {
-            padding: 6px 14px;
-            background: transparent;
-            border: 1px solid var(--gold-light);
-            color: var(--brown);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 11px;
+            padding: 4px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-tertiary);
             font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
         }
         
-        /* ========== 手机框架 - 高端质感 ========== */
+        /* ========== 手机框架 - 微信小程序规范尺寸 ========== */
         .phone-frame {
-            width: 300px;
-            height: 620px;
-            background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
-            border-radius: 48px;
-            padding: 12px;
-            box-shadow: 
-                0 0 0 1px rgba(255,255,255,0.05),
-                var(--shadow-xl),
-                inset 0 1px 0 rgba(255,255,255,0.1);
+            width: var(--phone-width);
+            height: var(--phone-height);
+            background: #1a1a1a;
+            border-radius: var(--phone-radius);
+            padding: var(--phone-padding);
+            box-shadow: var(--shadow-lg);
             margin: 0 auto;
             position: relative;
-            transition: transform 0.6s var(--ease-out);
         }
         
-        .screen-card:hover .phone-frame {
-            transform: translateY(-4px);
-        }
-        
-        /* 手机高光边缘 */
+        /* 手机高光 */
         .phone-frame::before {
             content: '';
             position: absolute;
-            top: 1px;
-            left: 1px;
-            right: 1px;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
-            border-radius: 48px 48px 200px 200px;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            border-radius: 36px 36px 200px 200px;
             pointer-events: none;
         }
         
@@ -352,29 +217,28 @@
         .phone-frame::after {
             content: '';
             position: absolute;
-            right: -2px;
-            top: 120px;
-            width: 3px;
-            height: 60px;
-            background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
-            border-radius: 0 2px 2px 0;
+            right: -1px;
+            top: 140px;
+            width: 2px;
+            height: 40px;
+            background: #2a2a2a;
+            border-radius: 0 1px 1px 0;
         }
         
-        /* 手机刘海 - 更精致 */
+        /* 刘海 */
         .phone-notch {
             position: absolute;
-            top: 12px;
+            top: 8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 30px;
-            background: var(--black);
-            border-radius: 0 0 18px 18px;
+            width: 150px;
+            height: 32px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
             z-index: 10;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
-        /* 刘海内的摄像头和听筒 */
+        /* 刘海内组件 */
         .phone-notch::before {
             content: '';
             position: absolute;
@@ -383,217 +247,169 @@
             transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: radial-gradient(circle, #2a3a4a 0%, #1a2a3a 100%);
+            background: #2a3a4a;
             border-radius: 50%;
-            box-shadow: 
-                inset 0 1px 2px rgba(255,255,255,0.1),
-                0 0 0 2px rgba(0,0,0,0.3);
         }
         
-        /* 刘海听筒 */
         .phone-notch::after {
             content: '';
             position: absolute;
             top: 6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 4px;
+            width: 60px;
+            height: 6px;
             background: #1a1a1a;
-            border-radius: 2px;
+            border-radius: 3px;
         }
         
         /* 手机屏幕 */
         .phone-screen {
-            width: 276px;
-            height: 596px;
-            background: var(--cream);
-            border-radius: 40px;
+            width: calc(var(--phone-width) - 2 * var(--phone-padding));
+            height: calc(var(--phone-height) - 2 * var(--phone-padding));
+            background: var(--bg-primary);
+            border-radius: calc(var(--phone-radius) - var(--phone-padding));
             overflow: hidden;
             position: relative;
         }
         
-        /* 屏幕内发光 */
-        .phone-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, transparent 100%);
-            pointer-events: none;
-            z-index: 100;
-        }
-        
-        /* ========== 状态栏 - 精致风格 ========== */
+        /* ========== 状态栏 ========== */
         .status-bar {
-            height: 50px;
-            background: var(--cream);
+            height: 44px;
+            background: var(--bg-primary);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 24px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--charcoal);
+            color: var(--text-primary);
             position: relative;
             z-index: 50;
         }
         
         .status-time {
             font-weight: 600;
-            letter-spacing: 0.02em;
         }
         
         .status-icons {
             display: flex;
-            gap: 6px;
+            gap: 4px;
             align-items: center;
         }
         
         .status-icons svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--charcoal);
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-primary);
             stroke-width: 2;
             fill: none;
         }
         
-        /* ========== 导航栏 - 奢华风格 ========== */
+        /* ========== 导航栏 ========== */
         .nav-bar {
-            height: 56px;
-            background: var(--cream);
+            height: 44px;
+            background: var(--bg-primary);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 16px;
-            border-bottom: 1px solid rgba(184, 149, 110, 0.15);
-            position: relative;
-        }
-        
-        .nav-bar::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3), transparent);
+            border-bottom: 1px solid var(--border-light);
         }
         
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
         
         .nav-back {
-            width: 38px;
-            height: 38px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            background: var(--white);
-            transition: all 0.3s var(--ease-out);
-            box-shadow: var(--shadow-xs);
+            border-radius: 6px;
+            background: transparent;
+            transition: background 0.15s ease;
         }
         
         .nav-back:hover {
-            background: var(--charcoal);
-            transform: scale(1.05);
-        }
-        
-        .nav-back:hover svg {
-            stroke: var(--white);
+            background: var(--bg-hover);
         }
         
         .nav-back svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--charcoal);
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-primary);
             stroke-width: 2;
             fill: none;
-            transition: stroke 0.3s var(--ease-out);
         }
         
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .nav-logo-icon {
-            width: 34px;
-            height: 34px;
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            border-radius: 12px;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-blue);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 
-                0 4px 12px rgba(184, 149, 110, 0.3),
-                inset 0 1px 0 rgba(255,255,255,0.2);
         }
         
         .nav-logo-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--white);
+            width: 16px;
+            height: 16px;
+            stroke: white;
             stroke-width: 2;
             fill: none;
         }
         
         .nav-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: 0.02em;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
         
         .nav-btn {
-            width: 38px;
-            height: 38px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            background: var(--white);
-            transition: all 0.3s var(--ease-out);
-            box-shadow: var(--shadow-xs);
+            border-radius: 6px;
+            background: transparent;
+            transition: background 0.15s ease;
         }
         
         .nav-btn:hover {
-            background: var(--charcoal);
-            transform: scale(1.05);
-        }
-        
-        .nav-btn:hover svg {
-            stroke: var(--white);
+            background: var(--bg-hover);
         }
         
         .nav-btn svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--charcoal);
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
-            transition: stroke 0.3s var(--ease-out);
         }
         
         /* ========== 内容区域 ========== */
         .screen-content {
-            height: calc(100% - 50px - 56px - 64px);
+            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px - 44px - 60px);
             overflow-y: auto;
-            background: var(--cream);
+            background: var(--bg-primary);
             scrollbar-width: none;
         }
         
@@ -602,304 +418,230 @@
         }
         
         .screen-content.no-nav {
-            height: calc(100% - 50px - 64px);
+            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px - 60px);
         }
         
         .screen-content.full {
-            height: calc(100% - 50px);
+            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px);
         }
         
-        /* ========== 输入区域 - 精致风格 ========== */
+        /* ========== 输入区域 ========== */
         .input-bar {
-            height: 64px;
-            background: var(--white);
-            border-top: 1px solid rgba(184, 149, 110, 0.15);
+            height: 60px;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-light);
             display: flex;
             align-items: center;
-            padding: 0 14px;
-            gap: 10px;
-            position: relative;
-        }
-        
-        .input-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3), transparent);
+            padding: 0 16px;
+            gap: 8px;
         }
         
         .input-tools {
             display: flex;
-            gap: 6px;
+            gap: 4px;
         }
         
         .input-tool {
-            width: 42px;
-            height: 42px;
-            background: var(--cream);
-            border-radius: 14px;
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s var(--ease-out);
+            transition: background 0.15s ease;
         }
         
         .input-tool:hover {
-            background: var(--gold-light);
-            transform: scale(1.05);
-        }
-        
-        .input-tool:hover svg {
-            stroke: var(--white);
+            background: var(--bg-hover);
         }
         
         .input-tool svg {
             width: 20px;
             height: 20px;
-            stroke: var(--brown);
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
-            transition: stroke 0.3s var(--ease-out);
         }
         
         .input-field {
             flex: 1;
-            height: 42px;
-            background: var(--cream);
-            border-radius: 21px;
-            padding: 0 20px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 0 12px;
             font-size: 14px;
-            color: var(--brown-light);
+            color: var(--text-placeholder);
             display: flex;
             align-items: center;
             border: 1px solid transparent;
-            transition: all 0.3s var(--ease-out);
+            transition: border-color 0.15s ease;
         }
         
         .input-field:hover {
-            border-color: var(--gold-light);
+            border-color: var(--border-color);
         }
         
         .input-send {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            border-radius: 14px;
+            width: 36px;
+            height: 36px;
+            background: var(--accent-blue);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s var(--ease-out);
-            box-shadow: 
-                0 4px 12px rgba(184, 149, 110, 0.3),
-                inset 0 1px 0 rgba(255,255,255,0.2);
+            transition: opacity 0.15s ease;
         }
         
         .input-send:hover {
-            transform: scale(1.1);
-            box-shadow: 
-                0 6px 20px rgba(184, 149, 110, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
+            opacity: 0.85;
         }
         
         .input-send svg {
             width: 18px;
             height: 18px;
-            stroke: var(--white);
+            stroke: white;
             stroke-width: 2;
             fill: none;
         }
         
-        /* ========== 欢迎页面 - 奢华设计 ========== */
+        /* ========== 欢迎页面 ========== */
         .welcome-screen {
-            padding: 40px 24px;
+            padding: 48px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
         .welcome-logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            border-radius: 28px;
+            width: 64px;
+            height: 64px;
+            background: var(--accent-blue);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 
-                0 8px 24px rgba(184, 149, 110, 0.35),
-                inset 0 2px 0 rgba(255,255,255,0.2);
-            position: relative;
-        }
-        
-        .welcome-logo::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 100%);
-            border-radius: 26px 26px 100px 100px;
+            margin-bottom: 20px;
         }
         
         .welcome-logo svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--white);
-            stroke-width: 1.5;
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 2;
             fill: none;
-            position: relative;
-            z-index: 1;
         }
         
         .welcome-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: 0.02em;
-            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
         
         .welcome-subtitle {
-            font-size: 13px;
-            color: var(--brown-light);
+            font-size: 14px;
+            color: var(--text-secondary);
             text-align: center;
-            letter-spacing: 0.12em;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         
-        /* 版本切换 - 精致风格 */
+        /* 版本切换 */
         .version-switch {
             display: flex;
-            gap: 12px;
-            margin-bottom: 14px;
+            gap: 0;
+            margin-bottom: 12px;
             width: 100%;
-            background: var(--cream-dark);
+            background: var(--bg-secondary);
             padding: 4px;
-            border-radius: 18px;
+            border-radius: 6px;
         }
         
         .version-btn {
             flex: 1;
-            padding: 14px;
+            padding: 10px;
             background: transparent;
-            border-radius: 14px;
+            border-radius: 4px;
             font-size: 14px;
             font-weight: 500;
-            color: var(--brown-light);
+            color: var(--text-secondary);
             text-align: center;
-            transition: all 0.3s var(--ease-out);
+            transition: all 0.15s ease;
             border: none;
         }
         
         .version-btn.active {
-            background: var(--white);
-            color: var(--charcoal);
-            box-shadow: var(--shadow-sm);
+            background: var(--bg-primary);
+            color: var(--text-primary);
         }
         
         .version-hint {
             font-size: 12px;
-            color: var(--brown-light);
+            color: var(--text-tertiary);
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         
-        /* 提醒卡片 - 奢华质感 */
+        /* 提醒卡片 */
         .reminder-cards {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 8px;
             width: 100%;
         }
         
         .reminder-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 18px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            border: 1px solid rgba(184, 149, 110, 0.12);
-            transition: all 0.3s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .reminder-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            opacity: 0;
-            transition: opacity 0.3s var(--ease-out);
-        }
-        
-        .reminder-card.warning::before {
-            background: linear-gradient(90deg, var(--warning), transparent);
-            opacity: 1;
-        }
-        
-        .reminder-card.danger::before {
-            background: linear-gradient(90deg, var(--danger), transparent);
-            opacity: 1;
-        }
-        
-        .reminder-card.success::before {
-            background: linear-gradient(90deg, var(--success), transparent);
-            opacity: 1;
+            gap: 12px;
+            border: 1px solid var(--border-light);
+            transition: background 0.15s ease;
         }
         
         .reminder-card:hover {
-            transform: translateX(6px);
-            border-color: var(--gold-light);
-            box-shadow: var(--shadow);
+            background: var(--bg-secondary);
         }
         
         .reminder-card.warning {
-            background: linear-gradient(135deg, rgba(196, 147, 90, 0.08) 0%, var(--white) 100%);
+            background: var(--accent-yellow-light);
+            border-color: transparent;
         }
         
         .reminder-card.danger {
-            background: linear-gradient(135deg, rgba(168, 90, 82, 0.08) 0%, var(--white) 100%);
+            background: var(--accent-red-light);
+            border-color: transparent;
         }
         
         .reminder-card.success {
-            background: linear-gradient(135deg, rgba(107, 138, 107, 0.08) 0%, var(--white) 100%);
+            background: var(--accent-green-light);
+            border-color: transparent;
         }
         
         .reminder-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--warning);
-            border-radius: 14px;
+            width: 36px;
+            height: 36px;
+            background: var(--accent-yellow);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(196, 147, 90, 0.3);
         }
         
         .reminder-card.danger .reminder-icon {
-            background: var(--danger);
-            box-shadow: 0 4px 12px rgba(168, 90, 82, 0.3);
+            background: var(--accent-red);
         }
         
         .reminder-card.success .reminder-icon {
-            background: var(--success);
-            box-shadow: 0 4px 12px rgba(107, 138, 107, 0.3);
+            background: var(--accent-green);
         }
         
         .reminder-icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--white);
+            width: 18px;
+            height: 18px;
+            stroke: white;
             stroke-width: 2;
             fill: none;
         }
@@ -909,284 +651,194 @@
         }
         
         .reminder-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 2px;
+            color: var(--text-primary);
         }
         
         .reminder-sub {
             font-size: 12px;
-            color: var(--brown-light);
+            color: var(--text-secondary);
         }
         
         .reminder-arrow {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--cream);
-            border-radius: 10px;
-            transition: all 0.3s var(--ease-out);
-        }
-        
-        .reminder-card:hover .reminder-arrow {
-            background: var(--gold-light);
-            transform: translateX(4px);
-        }
-        
-        .reminder-card:hover .reminder-arrow svg {
-            stroke: var(--white);
+            background: var(--bg-secondary);
+            border-radius: 4px;
         }
         
         .reminder-arrow svg {
             width: 16px;
             height: 16px;
-            stroke: var(--brown);
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
-            transition: stroke 0.3s var(--ease-out);
         }
         
-        /* ========== 聊天界面 - 精致风格 ========== */
+        /* ========== 聊天界面 ========== */
         .chat-content {
-            padding: 24px 20px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 12px;
         }
         
         .chat-date {
             text-align: center;
-            font-size: 11px;
-            color: var(--brown-light);
+            font-size: 12px;
+            color: var(--text-tertiary);
             padding: 8px 0;
-            letter-spacing: 0.1em;
-            position: relative;
-        }
-        
-        .chat-date::before,
-        .chat-date::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(184, 149, 110, 0.3));
-        }
-        
-        .chat-date::before { right: calc(50% + 50px); }
-        .chat-date::after { 
-            left: calc(50% + 50px); 
-            background: linear-gradient(90deg, rgba(184, 149, 110, 0.3), transparent);
         }
         
         .chat-message {
-            max-width: 82%;
-            padding: 14px 18px;
-            border-radius: 20px;
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 8px;
             font-size: 14px;
-            line-height: 1.6;
-            position: relative;
+            line-height: 1.5;
         }
         
         .chat-message.user {
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            color: var(--white);
+            background: var(--accent-blue);
+            color: white;
             align-self: flex-end;
-            border-radius: 20px 20px 6px 20px;
-            box-shadow: 
-                0 4px 16px rgba(184, 149, 110, 0.25),
-                inset 0 1px 0 rgba(255,255,255,0.15);
         }
         
         .chat-message.assistant {
-            background: var(--white);
-            color: var(--charcoal);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             align-self: flex-start;
-            border-radius: 20px 20px 20px 6px;
-            border: 1px solid rgba(184, 149, 110, 0.12);
-            box-shadow: var(--shadow-xs);
         }
         
-        /* 商品推荐卡片 - 奢华设计 */
+        /* 商品推荐卡片 */
         .product-recommend {
-            background: var(--white);
-            border: 1px solid rgba(184, 149, 110, 0.12);
-            border-radius: 20px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-            max-width: 88%;
+            max-width: 85%;
             align-self: flex-start;
-            box-shadow: var(--shadow-sm);
         }
         
         .product-image {
-            height: 100px;
-            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
+            height: 80px;
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-        
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%);
         }
         
         .product-image svg {
-            width: 36px;
-            height: 36px;
-            stroke: var(--gold);
-            stroke-width: 1.5;
+            width: 28px;
+            height: 28px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
             fill: none;
         }
         
         .product-info {
-            padding: 14px 16px;
-            background: var(--white);
+            padding: 12px;
         }
         
         .product-name {
             font-size: 14px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
         
         .product-price {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .price-current {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
-            color: var(--danger);
+            color: var(--accent-red);
         }
         
         .price-original {
-            font-size: 13px;
-            color: var(--brown-light);
+            font-size: 12px;
+            color: var(--text-tertiary);
             text-decoration: line-through;
         }
         
-        /* ========== 列表页 - 精致设计 ========== */
+        /* ========== 列表页 ========== */
         .list-content {
-            padding: 24px 20px;
+            padding: 16px;
         }
         
         .list-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
         
         .list-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--charcoal);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
         }
         
         .list-filter {
             display: flex;
-            gap: 8px;
+            gap: 4px;
         }
         
         .filter-btn {
-            padding: 10px 16px;
-            background: var(--white);
-            border-radius: 14px;
+            padding: 6px 10px;
+            background: transparent;
+            border-radius: 4px;
             font-size: 12px;
-            color: var(--brown-light);
-            border: 1px solid rgba(184, 149, 110, 0.15);
-            transition: all 0.3s var(--ease-out);
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
         }
         
         .filter-btn.active {
-            background: var(--charcoal);
-            color: var(--white);
-            border-color: var(--charcoal);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
         }
         
-        /* 列表项 - 奢华质感 */
+        /* 列表项 */
         .list-item {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 18px;
-            margin-bottom: 14px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            border: 1px solid rgba(184, 149, 110, 0.1);
-            transition: all 0.3s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .list-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--gold);
-            opacity: 0;
-            transition: opacity 0.3s var(--ease-out);
+            gap: 12px;
+            border: 1px solid var(--border-light);
+            transition: background 0.15s ease;
         }
         
         .list-item:hover {
-            border-color: var(--gold-light);
-            transform: translateX(6px);
-            box-shadow: var(--shadow);
-        }
-        
-        .list-item:hover::before {
-            opacity: 1;
+            background: var(--bg-secondary);
         }
         
         .item-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(184, 149, 110, 0.1);
-            border-radius: 16px;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .item-icon.green {
-            background: rgba(107, 138, 107, 0.12);
-        }
-        
-        .item-icon.orange {
-            background: rgba(196, 147, 90, 0.12);
-        }
-        
         .item-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--gold);
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
-        }
-        
-        .item-icon.green svg {
-            stroke: var(--success);
-        }
-        
-        .item-icon.orange svg {
-            stroke: var(--warning);
         }
         
         .item-content {
@@ -1194,15 +846,14 @@
         }
         
         .item-title {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 2px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         
         .item-desc {
             font-size: 12px;
-            color: var(--brown-light);
+            color: var(--text-secondary);
         }
         
         .item-meta {
@@ -1210,251 +861,215 @@
         }
         
         .item-count {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--accent-blue);
         }
         
         .item-status {
-            font-size: 11px;
-            color: var(--brown-light);
+            font-size: 12px;
+            color: var(--text-tertiary);
         }
         
-        /* ========== 商品详情页 - 奢华设计 ========== */
+        /* ========== 商品详情页 ========== */
         .detail-content {
             padding: 0;
         }
         
         .detail-gallery {
-            height: 200px;
-            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
+            height: 180px;
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-        
-        .detail-gallery::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
-        }
-        
-        .detail-gallery::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(180deg, transparent, var(--cream));
         }
         
         .detail-gallery svg {
-            width: 56px;
-            height: 56px;
-            stroke: var(--gold);
-            stroke-width: 1.2;
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-tertiary);
+            stroke-width: 1.5;
             fill: none;
         }
         
         .detail-info {
-            padding: 24px 20px;
+            padding: 20px 16px;
         }
         
         .detail-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 14px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
             line-height: 1.4;
         }
         
         .detail-price-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
         
         .detail-price {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--danger);
+            color: var(--accent-red);
         }
         
         .detail-original {
-            font-size: 15px;
-            color: var(--brown-light);
+            font-size: 14px;
+            color: var(--text-tertiary);
             text-decoration: line-through;
         }
         
         .detail-discount {
-            padding: 6px 14px;
-            background: rgba(168, 90, 82, 0.1);
-            border-radius: 10px;
+            padding: 4px 8px;
+            background: var(--accent-red-light);
+            border-radius: 4px;
             font-size: 12px;
-            color: var(--danger);
+            color: var(--accent-red);
             font-weight: 600;
         }
         
         .detail-tags {
             display: flex;
-            gap: 8px;
-            margin-bottom: 18px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
         
         .detail-tag {
-            padding: 8px 14px;
-            background: rgba(184, 149, 110, 0.1);
-            border-radius: 10px;
+            padding: 4px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
             font-size: 12px;
-            color: var(--brown);
+            color: var(--text-secondary);
         }
         
         .detail-desc {
             font-size: 14px;
-            color: var(--brown-light);
-            line-height: 1.8;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
         
-        /* 操作按钮 - 奢华风格 */
+        /* 操作按钮 */
         .action-bar {
             display: flex;
-            gap: 14px;
-            padding: 20px;
+            gap: 12px;
+            padding: 16px;
         }
         
         .action-btn {
             flex: 1;
-            padding: 18px;
-            border-radius: 18px;
+            padding: 12px;
+            border-radius: 6px;
             font-size: 14px;
             font-weight: 600;
             text-align: center;
-            transition: all 0.4s var(--ease-out);
+            transition: opacity 0.15s ease;
             border: none;
         }
         
         .action-btn.secondary {
-            background: var(--white);
-            color: var(--charcoal);
-            border: 2px solid rgba(184, 149, 110, 0.2);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
         }
         
         .action-btn.secondary:hover {
-            border-color: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
+            background: var(--bg-hover);
         }
         
         .action-btn.primary {
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            color: var(--white);
-            box-shadow: 
-                0 4px 16px rgba(184, 149, 110, 0.3),
-                inset 0 1px 0 rgba(255,255,255,0.15);
+            background: var(--accent-blue);
+            color: white;
         }
         
         .action-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 
-                0 8px 28px rgba(184, 149, 110, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.15);
+            opacity: 0.85;
         }
         
-        /* ========== 家人档案页 - 奢华设计 ========== */
+        /* ========== 家人档案页 ========== */
         .family-list {
-            padding: 24px 20px;
+            padding: 16px;
         }
         
         .family-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 20px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(184, 149, 110, 0.1);
-            transition: all 0.3s var(--ease-out);
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-light);
+            transition: background 0.15s ease;
         }
         
         .family-card:hover {
-            border-color: var(--gold-light);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
+            background: var(--bg-secondary);
         }
         
         .family-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
         .family-avatar {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, #ec4899 0%, #db2777 100%);
-            border-radius: 18px;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-purple);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
         }
         
         .family-avatar svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--white);
+            width: 22px;
+            height: 22px;
+            stroke: white;
             stroke-width: 2;
             fill: none;
         }
         
         .family-avatar.blue {
-            background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+            background: var(--accent-blue);
         }
         
         .family-avatar.orange {
-            background: linear-gradient(145deg, var(--warning) 0%, #c2410c 100%);
-            box-shadow: 0 4px 12px rgba(196, 147, 90, 0.25);
+            background: var(--accent-yellow);
         }
         
         .family-name {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 600;
-            color: var(--charcoal);
+            color: var(--text-primary);
         }
         
         .family-relation {
-            font-size: 13px;
-            color: var(--brown-light);
+            font-size: 12px;
+            color: var(--text-secondary);
         }
         
         .family-tags {
             display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
+            gap: 6px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
         }
         
         .family-tag {
-            padding: 6px 12px;
-            background: rgba(236, 72, 153, 0.08);
-            border-radius: 10px;
+            padding: 4px 8px;
+            background: var(--accent-purple-light);
+            border-radius: 4px;
             font-size: 12px;
-            color: #db2777;
+            color: var(--accent-purple);
         }
         
         .family-info {
             display: flex;
             gap: 24px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(184, 149, 110, 0.1);
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
         }
         
         .family-info-item {
@@ -1462,44 +1077,42 @@
         }
         
         .family-info-label {
-            font-size: 11px;
-            color: var(--brown-light);
-            margin-bottom: 4px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 2px;
         }
         
         .family-info-value {
             font-size: 14px;
             font-weight: 600;
-            color: var(--charcoal);
+            color: var(--text-primary);
         }
         
-        /* ========== 价格监控页 - 精致设计 ========== */
+        /* ========== 价格监控页 ========== */
         .monitor-list {
-            padding: 24px 20px;
+            padding: 16px;
         }
         
         .monitor-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 18px;
-            margin-bottom: 14px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 10px;
             display: flex;
-            gap: 16px;
-            border: 1px solid rgba(184, 149, 110, 0.1);
-            transition: all 0.3s var(--ease-out);
+            gap: 12px;
+            border: 1px solid var(--border-light);
+            transition: background 0.15s ease;
         }
         
         .monitor-card:hover {
-            border-color: var(--gold-light);
-            transform: translateX(4px);
-            box-shadow: var(--shadow);
+            background: var(--bg-secondary);
         }
         
         .monitor-image {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(145deg, var(--cream) 0%, var(--cream-dark) 100%);
-            border-radius: 18px;
+            width: 56px;
+            height: 56px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1507,10 +1120,10 @@
         }
         
         .monitor-image svg {
-            width: 30px;
-            height: 30px;
-            stroke: var(--gold);
-            stroke-width: 1.5;
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
             fill: none;
         }
         
@@ -1519,193 +1132,135 @@
         }
         
         .monitor-name {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
         
         .monitor-price-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin-bottom: 8px;
         }
         
         .monitor-current {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 600;
-            color: var(--charcoal);
+            color: var(--text-primary);
         }
         
         .monitor-target {
-            font-size: 13px;
-            color: var(--success);
+            font-size: 12px;
+            color: var(--accent-green);
             font-weight: 500;
         }
         
         .monitor-progress {
-            height: 5px;
-            background: var(--cream-dark);
-            border-radius: 3px;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
             overflow: hidden;
         }
         
         .monitor-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--success), #8fb88f);
-            border-radius: 3px;
-            transition: width 0.6s var(--ease-out);
+            background: var(--accent-green);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
         
-        /* ========== 版本对比 - 戏剧性设计 ========== */
+        /* ========== 版本对比 ========== */
         .version-compare {
-            max-width: 900px;
-            margin: 100px auto;
-            padding: 64px;
-            background: var(--white);
-            border-radius: 32px;
-            border: 1px solid rgba(184, 149, 110, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* 背景光晕 */
-        .version-compare::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-            opacity: 0.3;
-            filter: blur(60px);
-        }
-        
-        .version-compare::after {
-            content: '';
-            position: absolute;
-            bottom: -200px;
-            left: -200px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(107, 138, 107, 0.2) 0%, transparent 70%);
-            opacity: 0.3;
-            filter: blur(60px);
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px 32px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
         }
         
         .compare-header {
             text-align: center;
-            margin-bottom: 48px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 32px;
         }
         
         .compare-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: -0.01em;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
         
         .compare-subtitle {
-            font-size: 15px;
-            color: var(--brown-light);
-            margin-top: 12px;
-            letter-spacing: 0.08em;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
         }
         
         .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            position: relative;
-            z-index: 1;
+            gap: 24px;
         }
         
         .compare-card {
-            background: var(--cream);
-            border-radius: 28px;
-            padding: 36px;
-            border: 2px solid transparent;
-            position: relative;
-            transition: all 0.4s var(--ease-out);
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 24px;
+            border: 1px solid transparent;
+            transition: border-color 0.15s ease;
         }
         
         .compare-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
         }
         
-        .compare-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 28px;
-            padding: 2px;
-            background: linear-gradient(145deg, var(--gold), var(--brown));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s var(--ease-out);
-        }
-        
-        .compare-card.personal:hover::before {
-            opacity: 1;
-        }
-        
-        .compare-card.enterprise::before {
-            background: linear-gradient(145deg, var(--success), #5a8a56);
-            opacity: 1;
+        .compare-card.enterprise {
+            border-color: var(--accent-green);
         }
         
         .compare-card-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
         
         .compare-icon {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, var(--gold) 0%, var(--brown) 100%);
-            border-radius: 16px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-blue);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(184, 149, 110, 0.3);
         }
         
         .compare-card.enterprise .compare-icon {
-            background: linear-gradient(145deg, var(--success) 0%, #5a8a56 100%);
-            box-shadow: 0 4px 16px rgba(107, 138, 107, 0.3);
+            background: var(--accent-green);
         }
         
         .compare-icon svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--white);
+            width: 20px;
+            height: 20px;
+            stroke: white;
             stroke-width: 2;
             fill: none;
         }
         
         .compare-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--charcoal);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
         }
         
         .compare-card-desc {
             font-size: 14px;
-            color: var(--brown-light);
-            margin-bottom: 24px;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
         
         .compare-features {
@@ -1713,13 +1268,13 @@
         }
         
         .compare-features li {
-            padding: 14px 0;
+            padding: 10px 0;
             font-size: 14px;
-            color: var(--charcoal);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 14px;
-            border-bottom: 1px solid rgba(184, 149, 110, 0.1);
+            gap: 10px;
+            border-bottom: 1px solid var(--border-light);
         }
         
         .compare-features li:last-child {
@@ -1727,117 +1282,74 @@
         }
         
         .feature-check {
-            width: 24px;
-            height: 24px;
-            background: rgba(184, 149, 110, 0.1);
-            border-radius: 10px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-green-light);
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gold);
+            color: var(--accent-green);
             font-size: 12px;
             font-weight: 700;
-        }
-        
-        .compare-card.enterprise .feature-check {
-            background: rgba(107, 138, 107, 0.1);
-            color: var(--success);
         }
         
         .feature-plus {
-            color: var(--success);
+            color: var(--accent-green);
             font-weight: 700;
             margin-left: auto;
-            background: rgba(107, 138, 107, 0.1);
-            padding: 4px 10px;
-            border-radius: 8px;
+            background: var(--accent-green-light);
+            padding: 2px 6px;
+            border-radius: 4px;
             font-size: 12px;
         }
         
-        /* ========== 页脚 - 精致风格 ========== */
+        /* ========== 页脚 ========== */
         .page-footer {
             text-align: center;
-            padding: 64px 48px;
-            color: var(--brown-light);
+            padding: 48px;
+            color: var(--text-tertiary);
             font-size: 14px;
-            letter-spacing: 0.05em;
-            position: relative;
-        }
-        
-        .page-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
         }
         
         .page-footer a {
-            color: var(--gold);
+            color: var(--accent-blue);
             text-decoration: none;
-            transition: color 0.3s var(--ease-out);
-            font-weight: 500;
         }
         
         .page-footer a:hover {
-            color: var(--brown);
+            opacity: 0.8;
         }
         
         /* ========== 响应式 ========== */
         @media (max-width: 1400px) {
-            .canvas-container {
-                padding: 48px 60px;
-            }
-            
             .screens-grid {
-                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-                gap: 48px;
+                grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+                gap: 32px;
             }
         }
         
         @media (max-width: 768px) {
             .page-header {
-                padding: 80px 24px 60px;
+                padding: 48px 24px 40px;
             }
             
             .page-header h1 {
-                font-size: 40px;
-            }
-            
-            .page-header .badge::before,
-            .page-header .badge::after {
-                display: none;
+                font-size: 32px;
             }
             
             .back-link {
                 top: 16px;
                 left: 16px;
-                padding: 10px 20px;
             }
             
             .canvas-container {
-                padding: 32px 20px 80px;
-            }
-            
-            .group-header::before {
-                display: none;
-            }
-            
-            .group-title {
-                padding-left: 0;
-                font-size: 28px;
-            }
-            
-            .group-desc {
-                padding-left: 0;
+                padding: 24px 16px;
             }
             
             .screens-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 24px;
             }
             
             .compare-grid {
@@ -1845,38 +1357,8 @@
             }
             
             .version-compare {
-                padding: 40px 24px;
-                margin: 60px 20px;
-            }
-        }
-        
-        /* ========== 动画关键帧 ========== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
+                padding: 24px 16px;
+                margin: 48px 16px;
             }
         }
     </style>
@@ -1887,8 +1369,8 @@
     <!-- 页面头部 -->
     <header class="page-header">
         <h1>专业购物小管家</h1>
-        <p>小程序界面设计稿 · 高保真交互原型</p>
-        <span class="badge">8个核心界面 · 完整交互细节</span>
+        <p>小程序界面设计稿 · Notion 风格</p>
+        <span class="badge">6 个核心界面 · 微信小程序规范尺寸</span>
     </header>
     
     <!-- 界面画布 -->
@@ -1939,7 +1421,7 @@
                                                 <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg>
                                             </div>
                                             <div class="reminder-content">
-                                                <div class="reminder-title">老婆生日还有3天</div>
+                                                <div class="reminder-title">老婆生日还有 3 天</div>
                                                 <div class="reminder-sub">礼物准备好了吗？</div>
                                             </div>
                                             <div class="reminder-arrow">
@@ -2033,14 +1515,14 @@
                                     <div class="chat-date">今天 09:30</div>
                                     <div class="chat-message user">我想给老婆买个生日礼物</div>
                                     <div class="chat-message assistant">好的！老婆生日快到了，我帮你推荐几个适合她的礼物吧~</div>
-                                    <div class="chat-message user">她喜欢护肤品类，预算500左右</div>
-                                    <div class="chat-message assistant">明白了！护肤品、500元预算，我找找看...</div>
+                                    <div class="chat-message user">她喜欢护肤品类，预算 500 左右</div>
+                                    <div class="chat-message assistant">明白了！护肤品、500 元预算，我找找看...</div>
                                     <div class="chat-date">09:35</div>
                                     <div class="chat-message assistant">找到两款很适合她的：</div>
                                     
                                     <div class="product-recommend">
                                         <div class="product-image">
-                                            <svg viewBox="0 0 24 24"><path d="M12 2c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1s-1-.5-1-1V3c0-.5.5-1 1-1z"/><path d="M8 8c0-2 1.5-4 4-4s4 2 4 4c0 3-4 5-4 8"/></svg>
+                                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                         </div>
                                         <div class="product-info">
                                             <div class="product-name">祖玛珑礼盒套装</div>
@@ -2116,7 +1598,7 @@
                                     
                                     <div class="list-item">
                                         <div class="item-icon">
-                                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                         </div>
                                         <div class="item-content">
                                             <div class="item-title">家人档案</div>
@@ -2129,7 +1611,7 @@
                                     </div>
                                     
                                     <div class="list-item">
-                                        <div class="item-icon green">
+                                        <div class="item-icon">
                                             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
                                         </div>
                                         <div class="item-content">
@@ -2143,7 +1625,7 @@
                                     </div>
                                     
                                     <div class="list-item">
-                                        <div class="item-icon orange">
+                                        <div class="item-icon">
                                             <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                                         </div>
                                         <div class="item-content">
@@ -2200,7 +1682,7 @@
                                         <div class="detail-price-row">
                                             <span class="detail-price">¥4,990</span>
                                             <span class="detail-original">¥5,990</span>
-                                            <span class="detail-discount">省1000元</span>
+                                            <span class="detail-discount">省 1000 元</span>
                                         </div>
                                         <div class="detail-tags">
                                             <span class="detail-tag">历史低价</span>
