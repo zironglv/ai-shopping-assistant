@@ -269,8 +269,26 @@
             height: calc(var(--phone-height) - 2 * var(--phone-padding));
             background: var(--bg-primary);
             border-radius: calc(var(--phone-radius) - var(--phone-padding));
-            overflow: hidden;
+            overflow: visible;
             position: relative;
+        }
+        
+        /* 内容区域需要隐藏溢出 */
+        .screen-content {
+            height: calc(var(--phone-height) - 2 * var(--phone-padding) - 44px - 44px - 60px);
+            overflow-y: auto;
+            background: var(--bg-primary);
+            scrollbar-width: none;
+            border-radius: 0 0 calc(var(--phone-radius) - var(--phone-padding)) calc(var(--phone-radius) - var(--phone-padding));
+        }
+        
+        /* 状态栏和输入栏圆角 */
+        .status-bar {
+            border-radius: calc(var(--phone-radius) - var(--phone-padding)) calc(var(--phone-radius) - var(--phone-padding)) 0 0;
+        }
+        
+        .input-bar {
+            border-radius: 0 0 calc(var(--phone-radius) - var(--phone-padding)) calc(var(--phone-radius) - var(--phone-padding));
         }
         
         /* ========== 状态栏 ========== */
