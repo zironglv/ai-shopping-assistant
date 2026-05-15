@@ -733,6 +733,11 @@
             border-color: transparent;
         }
         
+        .reminder-card.info {
+            background: var(--accent-blue-light);
+            border-color: transparent;
+        }
+        
         .reminder-icon {
             width: 36px;
             height: 36px;
@@ -749,6 +754,10 @@
         
         .reminder-card.success .reminder-icon {
             background: var(--accent-green);
+        }
+        
+        .reminder-card.info .reminder-icon {
+            background: var(--accent-blue);
         }
         
         .reminder-icon svg {
@@ -3342,6 +3351,97 @@
             </div>
             
             <div class="screens-grid">
+                <!-- 企业版欢迎页 -->
+                <div class="screen-card">
+                    <div class="screen-label">
+                        企业版 · 欢迎页
+                        <span class="tag">核心入口</span>
+                    </div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <span class="status-time">09:41</span>
+                                <div class="status-icons">
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content full">
+                                <div class="welcome-screen enterprise-welcome">
+                                    <div class="welcome-logo enterprise">
+                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                    </div>
+                                    <h1 class="welcome-title">企业采购管家</h1>
+                                    <p class="welcome-subtitle">批量采购 · 成本优化 · 智能补货</p>
+                                    
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card success">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">本月节省 ¥45,800</div>
+                                                <div class="reminder-sub">采购成本优化 12%</div>
+                                            </div>
+                                            <div class="reminder-arrow">
+                                                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                            </div>
+                                        </div>
+                                        <div class="reminder-card warning">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">办公用品需补货</div>
+                                                <div class="reminder-sub">A4纸库存不足</div>
+                                            </div>
+                                            <div class="reminder-arrow">
+                                                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                            </div>
+                                        </div>
+                                        <div class="reminder-card info">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">采购分析报告</div>
+                                                <div class="reminder-sub">本周生成报告</div>
+                                            </div>
+                                            <div class="reminder-arrow">
+                                                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-bar">
+                                <div class="input-tools">
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                    </div>
+                                    <div class="input-tool">
+                                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" placeholder="导入订单或询问采购建议...">
+                                </div>
+                                <div class="input-send">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 7. 企业版首页 -->
                 <div class="screen-card">
                     <div class="screen-label">
@@ -3397,10 +3497,6 @@
                                                 <span>数据分析</span>
                                             </div>
                                             <div class="menu-divider"></div>
-                                            <div class="menu-item">
-                                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                                <span>团队管理</span>
-                                            </div>
                                             <div class="menu-item">
                                                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                                                 <span>设置</span>
