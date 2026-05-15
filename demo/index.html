@@ -4793,6 +4793,7 @@
             document.querySelectorAll('.status-version').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    // version-dropdown 在 status-version 内部
                     const dropdown = this.querySelector('.version-dropdown');
                     if (dropdown) {
                         // 关闭其他下拉菜单
@@ -4802,11 +4803,13 @@
                 });
             });
             
-            // 菜单按钮点击
+            // 菜单按钮点击 - menu-dropdown 是 status-menu 的兄弟元素
             document.querySelectorAll('.status-menu').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    const dropdown = this.querySelector('.menu-dropdown');
+                    // menu-dropdown 在 status-icons 内部，是 status-menu 的兄弟元素
+                    const parent = this.parentElement; // status-icons
+                    const dropdown = parent.querySelector('.menu-dropdown');
                     if (dropdown) {
                         // 关闭其他下拉菜单
                         closeAllDropdowns();
