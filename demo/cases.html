@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户场景案例 - 专业购物小管家</title>
+    <!-- Notion 风格字体：Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,22 +15,47 @@
             box-sizing: border-box;
         }
         
+        /* Notion 简约配色系统 - 与 demo/index.html 一致 */
         :root {
+            /* 主色调 - Notion 风格 */
             --bg-primary: #ffffff;
             --bg-secondary: #f7f6f3;
+            --bg-tertiary: #f1f1ef;
             --bg-hover: #e8e7e4;
+            
+            /* 文字颜色 */
             --text-primary: #37352f;
             --text-secondary: #6b6b6b;
-            --text-muted: #9b9a97;
+            --text-tertiary: #9b9a97;
+            --text-placeholder: #787774;
+            
+            /* 强调色 - 适度使用 */
             --accent-blue: #2383e2;
+            --accent-blue-light: #e8f4fc;
             --accent-green: #0f7b6c;
+            --accent-green-light: #e3f2e9;
             --accent-yellow: #dfab01;
+            --accent-yellow-light: #fbf3db;
             --accent-red: #e03e3e;
+            --accent-red-light: #fbe4e4;
             --accent-purple: #9065b0;
+            --accent-purple-light: #f3e8f9;
+            
+            /* 边框和分割线 */
             --border-color: #e9e9e7;
             --border-light: #f0f0ee;
+            
+            /* 阴影 - Notion 风格轻微阴影 */
+            --shadow-xs: 0 1px 2px rgba(55, 53, 47, 0.04);
             --shadow-sm: 0 1px 3px rgba(55, 53, 47, 0.08);
             --shadow-md: 0 4px 6px rgba(55, 53, 47, 0.08);
+            --shadow-lg: 0 8px 16px rgba(55, 53, 47, 0.12);
+            
+            /* 手机框架 - 微信小程序标准 */
+            --phone-width: 375px;
+            --phone-height: 812px;
+            --phone-radius: 40px;
+            --phone-padding: 8px;
         }
         
         body {
@@ -37,9 +63,11 @@
             background: var(--bg-secondary);
             color: var(--text-primary);
             line-height: 1.5;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
         
+        /* ========== 返回按钮 ========== */
         .back-link {
             position: fixed;
             top: 20px;
@@ -54,45 +82,50 @@
             border: 1px solid var(--border-light);
             z-index: 100;
             box-shadow: var(--shadow-sm);
+            transition: background 0.15s ease;
         }
         
         .back-link:hover {
             background: var(--bg-hover);
         }
         
+        /* ========== 页面头部 - Notion 简约风格 ========== */
         .page-header {
-            padding: 80px 48px 48px;
+            padding: 80px 48px 60px;
             text-align: center;
         }
         
         .page-header h1 {
-            font-size: 36px;
+            font-size: 48px;
             font-weight: 700;
+            color: var(--text-primary);
             letter-spacing: -0.03em;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         
         .page-header p {
             font-size: 16px;
             color: var(--text-secondary);
+            margin-bottom: 24px;
         }
         
+        /* ========== 容器 ========== */
         .case-container {
-            max-width: 1800px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 48px 80px;
         }
         
-        /* 场景区块 */
+        /* ========== 场景卡片 ========== */
         .case-section {
             background: var(--bg-primary);
-            padding: 40px;
-            margin-bottom: 32px;
             border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 32px;
             border: 1px solid var(--border-light);
         }
         
-        .case-section-header {
+        .case-header {
             display: flex;
             align-items: center;
             gap: 16px;
@@ -100,89 +133,109 @@
         }
         
         .case-number {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
         }
         
         .case-number.personal {
-            background: rgba(35, 131, 226, 0.1);
+            background: var(--accent-blue-light);
             color: var(--accent-blue);
         }
         
         .case-number.enterprise {
-            background: rgba(15, 123, 108, 0.1);
+            background: var(--accent-green-light);
             color: var(--accent-green);
         }
         
-        .case-section-title {
+        .case-title {
             font-size: 24px;
             font-weight: 700;
+            color: var(--text-primary);
             letter-spacing: -0.02em;
         }
         
-        .case-section-subtitle {
+        .case-subtitle {
             font-size: 14px;
             color: var(--text-secondary);
-            margin-bottom: 24px;
-            margin-left: 52px;
+            margin-bottom: 32px;
+            margin-left: 48px;
         }
         
-        /* 步骤流程 */
+        /* ========== 步骤流程 ========== */
         .steps-flow {
             display: flex;
-            gap: 12px;
+            gap: 24px;
             overflow-x: auto;
-            padding-bottom: 16px;
+            padding: 8px 0 16px;
+            align-items: flex-start;
         }
         
         .step-card {
             flex-shrink: 0;
-            width: 300px;
         }
         
         .step-label {
             font-size: 12px;
             font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         
         .step-label .step-num {
-            background: var(--bg-secondary);
-            padding: 2px 8px;
+            background: var(--bg-tertiary);
+            padding: 3px 10px;
             border-radius: 4px;
             font-size: 11px;
+            letter-spacing: 0.05em;
         }
         
-        /* 手机框架 */
+        /* ========== 流程箭头 ========== */
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+        
+        .flow-arrow svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* ========== 手机框架 - 微信小程序标准 ========== */
         .phone-frame {
-            width: 300px;
-            height: 600px;
-            background: #000;
-            border-radius: 36px;
-            padding: 10px;
+            width: var(--phone-width);
+            height: var(--phone-height);
+            background: #1a1a1a;
+            border-radius: var(--phone-radius);
+            padding: var(--phone-padding);
             position: relative;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
         }
         
         .phone-notch {
             position: absolute;
-            top: 10px;
+            top: var(--phone-padding);
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 28px;
-            background: #000;
-            border-radius: 0 0 16px 16px;
+            width: 150px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
             z-index: 10;
         }
         
@@ -190,12 +243,12 @@
             width: 100%;
             height: 100%;
             background: var(--bg-secondary);
-            border-radius: 28px;
+            border-radius: 32px;
             overflow: hidden;
             position: relative;
         }
         
-        /* 状态栏 */
+        /* ========== 状态栏 ========== */
         .status-bar {
             height: 44px;
             background: var(--bg-primary);
@@ -210,33 +263,46 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        
+        .status-time {
             font-size: 14px;
             font-weight: 600;
+            color: var(--text-primary);
         }
         
         .status-version {
             font-size: 11px;
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 4px;
             font-weight: 600;
         }
         
         .status-version.personal {
-            background: rgba(35, 131, 226, 0.1);
+            background: var(--accent-blue-light);
             color: var(--accent-blue);
         }
         
         .status-version.enterprise {
-            background: rgba(15, 123, 108, 0.1);
+            background: var(--accent-green-light);
             color: var(--accent-green);
         }
         
-        .status-icons {
+        .status-right {
             display: flex;
+            align-items: center;
             gap: 6px;
         }
         
-        .status-icons svg {
+        .status-icon {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .status-icon svg {
             width: 16px;
             height: 16px;
             stroke: var(--text-primary);
@@ -244,32 +310,176 @@
             fill: none;
         }
         
-        /* 内容区域 */
+        /* ========== 内容区域 ========== */
         .content-area {
-            padding: 12px;
+            padding: 16px;
             height: calc(100% - 104px);
             overflow-y: auto;
         }
         
-        /* 聊天头部 */
+        /* ========== 欢迎页 ========== */
+        .welcome-screen {
+            padding: 48px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .welcome-logo {
+            width: 64px;
+            height: 64px;
+            background: var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .welcome-logo.enterprise {
+            background: var(--accent-green);
+        }
+        
+        .welcome-logo svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .welcome-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        
+        .welcome-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        /* ========== 提醒卡片 ========== */
+        .reminder-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+        
+        .reminder-card {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--border-light);
+            transition: background 0.15s ease;
+        }
+        
+        .reminder-card:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .reminder-card.warning {
+            background: var(--accent-yellow-light);
+            border-color: transparent;
+        }
+        
+        .reminder-card.danger {
+            background: var(--accent-red-light);
+            border-color: transparent;
+        }
+        
+        .reminder-card.success {
+            background: var(--accent-green-light);
+            border-color: transparent;
+        }
+        
+        .reminder-card.info {
+            background: var(--accent-blue-light);
+            border-color: transparent;
+        }
+        
+        .reminder-card.gift {
+            background: var(--accent-purple-light);
+            border-color: transparent;
+        }
+        
+        .reminder-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-yellow);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .reminder-card.danger .reminder-icon {
+            background: var(--accent-red);
+        }
+        
+        .reminder-card.success .reminder-icon {
+            background: var(--accent-green);
+        }
+        
+        .reminder-card.info .reminder-icon {
+            background: var(--accent-blue);
+        }
+        
+        .reminder-card.gift .reminder-icon {
+            background: var(--accent-purple);
+        }
+        
+        .reminder-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .reminder-content {
+            flex: 1;
+        }
+        
+        .reminder-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .reminder-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* ========== 聊天界面 ========== */
         .chat-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 12px;
-            background: var(--bg-primary);
-            border-radius: 10px;
+            padding: 8px 0;
             margin-bottom: 12px;
         }
         
         .chat-avatar {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            background: var(--accent-blue);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .chat-avatar.enterprise {
+            background: var(--accent-green);
         }
         
         .chat-avatar svg {
@@ -283,93 +493,98 @@
         .chat-name {
             font-size: 14px;
             font-weight: 600;
+            color: var(--text-primary);
         }
         
-        /* 消息气泡 */
         .chat-messages {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         
-        .message {
-            max-width: 90%;
+        .chat-date {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            padding: 8px 0;
+        }
+        
+        .chat-message {
+            max-width: 80%;
             padding: 10px 14px;
-            border-radius: 16px;
-            font-size: 13px;
+            border-radius: 8px;
+            font-size: 14px;
             line-height: 1.5;
         }
         
-        .message.user {
+        .chat-message.user {
             background: var(--accent-blue);
             color: white;
             align-self: flex-end;
-            border-bottom-right-radius: 4px;
         }
         
-        .message.assistant {
-            background: var(--bg-primary);
+        .chat-message.assistant {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             align-self: flex-start;
-            border-bottom-left-radius: 4px;
         }
         
-        .message.thinking {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-        
-        .message .typing-indicator {
+        /* 打字指示器 */
+        .typing-indicator {
             display: inline-flex;
             gap: 4px;
+            padding: 4px 0;
         }
         
-        .message .typing-indicator span {
+        .typing-indicator span {
             width: 6px;
             height: 6px;
-            background: var(--text-muted);
+            background: var(--text-tertiary);
             border-radius: 50%;
             animation: typing 1.4s infinite ease-in-out both;
         }
         
-        .message .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-        .message .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
         
         @keyframes typing {
             0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
             40% { transform: scale(1); opacity: 1; }
         }
         
-        /* 商品推荐卡片 */
+        /* ========== 商品推荐卡片 ========== */
         .product-recommend {
             background: var(--bg-primary);
-            border-radius: 12px;
-            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 85%;
+            align-self: flex-start;
             margin: 8px 0;
-            border: 1px solid var(--border-light);
         }
         
         .product-row {
             display: flex;
             gap: 12px;
-            margin-bottom: 10px;
+            padding: 12px;
         }
         
-        .product-img {
-            width: 64px;
-            height: 64px;
+        .product-image {
+            width: 72px;
+            height: 72px;
             background: var(--bg-secondary);
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
         
-        .product-img svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
+        .product-image svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
             fill: none;
         }
         
@@ -379,95 +594,106 @@
         }
         
         .product-brand {
-            font-size: 11px;
-            color: var(--text-muted);
+            font-size: 12px;
+            color: var(--text-tertiary);
             margin-bottom: 2px;
         }
         
         .product-name {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 4px;
             line-height: 1.3;
         }
         
         .product-price {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--accent-red);
         }
         
         .product-price-old {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--text-tertiary);
             text-decoration: line-through;
-            font-weight: 400;
+            margin-left: 6px;
         }
         
         /* AI 标签 */
-        .ai-tags {
+        .product-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 10px;
+            padding: 0 12px 12px;
         }
         
         .ai-tag {
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 4px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
             font-weight: 500;
-        }
-        
-        .ai-tag svg {
-            width: 12px;
-            height: 12px;
-            stroke-width: 2.5;
+            white-space: nowrap;
         }
         
         .ai-tag.good {
-            background: rgba(15, 123, 108, 0.1);
-            color: var(--accent-green);
+            background: #E8F5E9;
+            color: #2E7D32;
         }
         
-        .ai-tag.good svg { stroke: var(--accent-green); }
+        .ai-tag.good::before {
+            content: '✓';
+            font-weight: 700;
+        }
         
         .ai-tag.top {
-            background: rgba(223, 171, 1, 0.1);
-            color: var(--accent-yellow);
+            background: #FFF3E0;
+            color: #E65100;
         }
         
-        .ai-tag.top svg { stroke: var(--accent-yellow); }
+        .ai-tag.top::before {
+            content: '↑';
+            font-weight: 700;
+        }
         
         .ai-tag.safe {
-            background: rgba(35, 131, 226, 0.1);
-            color: var(--accent-blue);
+            background: #E3F2FD;
+            color: #1565C0;
         }
         
-        .ai-tag.safe svg { stroke: var(--accent-blue); }
+        .ai-tag.safe::before {
+            content: '★';
+        }
         
         /* 操作按钮 */
-        .action-row {
+        .product-actions {
             display: flex;
             gap: 8px;
+            padding: 12px;
+            border-top: 1px solid var(--border-light);
         }
         
         .action-btn {
             flex: 1;
-            padding: 8px 12px;
+            padding: 10px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
+            transition: all 0.15s ease;
         }
         
         .action-btn.primary {
-            background: var(--accent-green);
+            background: var(--accent-blue);
             color: white;
+        }
+        
+        .action-btn.primary:hover {
+            opacity: 0.85;
         }
         
         .action-btn.secondary {
@@ -475,94 +701,29 @@
             color: var(--text-primary);
         }
         
-        .action-btn.outline {
-            border: 1px solid var(--border-color);
-            background: transparent;
+        .action-btn.secondary:hover {
+            background: var(--bg-tertiary);
         }
         
-        /* 提醒卡片 */
-        .reminder-card {
-            background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-left: 3px solid;
+        .action-btn.success {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
         }
         
-        .reminder-card.info { border-color: var(--accent-blue); }
-        .reminder-card.warning { border-color: var(--accent-yellow); }
-        .reminder-card.success { border-color: var(--accent-green); }
-        .reminder-card.gift { border-color: var(--accent-purple); }
-        
-        .reminder-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        
-        .reminder-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .reminder-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        .reminder-icon.info {
-            background: rgba(35, 131, 226, 0.1);
-        }
-        
-        .reminder-icon.info svg { stroke: var(--accent-blue); }
-        
-        .reminder-icon.warning {
-            background: rgba(223, 171, 1, 0.1);
-        }
-        
-        .reminder-icon.warning svg { stroke: var(--accent-yellow); }
-        
-        .reminder-icon.success {
-            background: rgba(15, 123, 108, 0.1);
-        }
-        
-        .reminder-icon.success svg { stroke: var(--accent-green); }
-        
-        .reminder-icon.gift {
-            background: rgba(144, 101, 176, 0.1);
-        }
-        
-        .reminder-icon.gift svg { stroke: var(--accent-purple); }
-        
-        .reminder-content {
-            flex: 1;
-        }
-        
-        .reminder-title {
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .reminder-sub {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-        
-        /* 详情页 */
+        /* ========== 详情页头部 ========== */
         .detail-header {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 0;
-            margin-bottom: 12px;
+            padding: 0 0 12px;
+        }
+        
+        .detail-back {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .detail-back svg {
@@ -576,31 +737,34 @@
         .detail-title {
             font-size: 16px;
             font-weight: 600;
+            color: var(--text-primary);
         }
         
+        /* ========== 商品详情 ========== */
         .detail-product {
             background: var(--bg-primary);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             margin-bottom: 12px;
+            border: 1px solid var(--border-light);
         }
         
-        .detail-img {
+        .detail-image {
             width: 100%;
-            height: 140px;
+            height: 160px;
             background: var(--bg-secondary);
-            border-radius: 10px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
         }
         
-        .detail-img svg {
-            width: 60px;
-            height: 60px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
+        .detail-image svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
             fill: none;
         }
         
@@ -610,13 +774,14 @@
         
         .detail-brand {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--text-tertiary);
             margin-bottom: 4px;
         }
         
         .detail-name {
             font-size: 16px;
             font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 6px;
         }
         
@@ -629,7 +794,7 @@
         .detail-price-row {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
         
         .detail-price {
@@ -640,20 +805,23 @@
         
         .detail-price-label {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
         }
         
+        /* 详情参数区块 */
         .detail-section {
             background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
+            border-radius: 8px;
+            padding: 14px;
             margin-bottom: 10px;
+            border: 1px solid var(--border-light);
         }
         
         .detail-section-title {
             font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
         }
         
         .detail-features {
@@ -663,11 +831,11 @@
         }
         
         .feature-item {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         
         .feature-item svg {
@@ -678,316 +846,37 @@
             fill: none;
         }
         
-        /* 数据卡片 */
-        .data-card {
-            background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .data-title {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-        
-        .data-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        
-        .data-item {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 10px;
-        }
-        
-        .data-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-        
-        .data-value {
-            font-size: 16px;
-            font-weight: 600;
-        }
-        
-        .data-value.green { color: var(--accent-green); }
-        .data-value.red { color: var(--accent-red); }
-        .data-value.blue { color: var(--accent-blue); }
-        
-        /* 供应商卡片 */
-        .supplier-card {
-            background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .supplier-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        
-        .supplier-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .supplier-logo svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
-            fill: none;
-        }
-        
-        .supplier-info {
-            flex: 1;
-        }
-        
-        .supplier-name {
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .supplier-score {
-            font-size: 12px;
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-        
-        /* 输入框 */
-        .input-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            padding: 10px 12px;
-            background: var(--bg-primary);
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .input-tools {
-            display: flex;
-            gap: 4px;
-        }
-        
-        .input-tool {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .input-tool svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--text-secondary);
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        .input-field {
-            flex: 1;
-            height: 32px;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            padding: 0 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .input-field input {
-            width: 100%;
-            border: none;
-            background: transparent;
-            font-size: 13px;
-            color: var(--text-secondary);
-            outline: none;
-        }
-        
-        .input-field input::placeholder {
-            color: var(--text-muted);
-        }
-        
-        .input-send {
-            width: 32px;
-            height: 32px;
-            background: var(--accent-green);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .input-send svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        /* 流程箭头 */
-        .flow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            flex-shrink: 0;
-            color: var(--text-muted);
-        }
-        
-        .flow-arrow svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-muted);
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        /* 欢迎页卡片 */
-        .welcome-card {
-            background: var(--bg-primary);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-        
-        .welcome-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .welcome-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .welcome-logo svg {
-            width: 28px;
-            height: 28px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        .welcome-title {
-            font-size: 16px;
-            font-weight: 700;
-        }
-        
-        .welcome-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        
-        /* 列表项 */
-        .list-item {
-            background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .list-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .list-icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
-            fill: none;
-        }
-        
-        .list-content {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        .list-title {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 2px;
-        }
-        
-        .list-subtitle {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        
-        .list-action {
-            font-size: 12px;
-            color: var(--accent-blue);
-            font-weight: 500;
-        }
-        
-        /* 比价表格 */
+        /* ========== 比价表格 ========== */
         .price-table {
             background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-light);
         }
         
         .price-table-header {
             display: flex;
             justify-content: space-between;
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            padding-bottom: 8px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--border-light);
         }
         
         .price-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            font-size: 13px;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 14px;
         }
         
         .price-row.highlight {
-            background: rgba(15, 123, 108, 0.05);
-            margin: 0 -12px;
-            padding: 8px 12px;
+            background: var(--accent-green-light);
+            margin: 0 -14px;
+            padding: 10px 14px;
             border-radius: 6px;
         }
         
@@ -1006,53 +895,58 @@
         
         .price-value {
             font-weight: 600;
+            color: var(--text-primary);
         }
         
         .price-value.low {
             color: var(--accent-green);
         }
         
-        /* 订单导入 */
-        .import-area {
+        /* ========== 数据卡片 ========== */
+        .data-card {
             background: var(--bg-primary);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .data-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 12px;
         }
         
-        .import-icon {
-            width: 48px;
-            height: 48px;
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .data-item {
             background: var(--bg-secondary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
+            border-radius: 6px;
+            padding: 12px;
         }
         
-        .import-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--text-muted);
-            stroke-width: 1.5;
-            fill: none;
-        }
-        
-        .import-text {
-            font-size: 14px;
-            color: var(--text-secondary);
+        .data-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
             margin-bottom: 4px;
         }
         
-        .import-hint {
-            font-size: 12px;
-            color: var(--text-muted);
+        .data-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         
-        /* 图表 */
+        .data-value.green { color: var(--accent-green); }
+        .data-value.red { color: var(--accent-red); }
+        .data-value.blue { color: var(--accent-blue); }
+        
+        /* ========== 图表占位 ========== */
         .chart-placeholder {
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -1065,23 +959,240 @@
         }
         
         .chart-bar {
-            width: 20px;
+            width: 24px;
             background: linear-gradient(to top, var(--accent-blue), var(--accent-green));
             border-radius: 4px 4px 0 0;
         }
         
-        /* 响应式 */
+        /* ========== 供应商卡片 ========== */
+        .supplier-card {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .supplier-card.highlight {
+            border-color: var(--accent-green);
+        }
+        
+        .supplier-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .supplier-logo {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .supplier-logo svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .supplier-info {
+            flex: 1;
+        }
+        
+        .supplier-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .supplier-score {
+            font-size: 12px;
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+        
+        /* ========== 列表页 ========== */
+        .list-item {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .list-item.highlight {
+            border-left: 3px solid var(--accent-purple);
+        }
+        
+        .list-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .list-icon.purple {
+            background: var(--accent-purple-light);
+        }
+        
+        .list-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .list-icon.purple svg {
+            stroke: var(--accent-purple);
+        }
+        
+        .list-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .list-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        
+        .list-subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .list-action {
+            font-size: 12px;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+        
+        /* ========== 输入区域 ========== */
+        .input-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 8px;
+        }
+        
+        .input-tools {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .input-tool {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s ease;
+        }
+        
+        .input-tool:hover {
+            background: var(--bg-hover);
+        }
+        
+        .input-tool svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .input-field {
+            flex: 1;
+            height: 36px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 0 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: border-color 0.15s ease;
+        }
+        
+        .input-field:hover {
+            border-color: var(--border-color);
+        }
+        
+        .input-field input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--text-secondary);
+            outline: none;
+        }
+        
+        .input-field input::placeholder {
+            color: var(--text-tertiary);
+        }
+        
+        .input-send {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-blue);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.15s ease;
+        }
+        
+        .input-send:hover {
+            opacity: 0.85;
+        }
+        
+        .input-send svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* ========== 响应式 ========== */
         @media (max-width: 768px) {
-            .page-header { padding: 48px 24px 32px; }
-            .case-container { padding: 0 16px 48px; }
-            .case-section { padding: 24px; }
-            .phone-frame { width: 280px; height: 560px; }
+            .page-header { padding: 48px 24px 40px; }
+            .page-header h1 { font-size: 32px; }
+            .case-container { padding: 0 24px 48px; }
+            .case-section { padding: 32px 24px; }
             .back-link { top: 12px; left: 12px; }
+            .steps-flow { gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back-link">← 返回文档</a>
+    <a href="index.html" class="back-link">← 返回 Demo</a>
     
     <header class="page-header">
         <h1>用户场景案例</h1>
@@ -1092,26 +1203,26 @@
         
         <!-- Case 1: 个人版 - 降噪耳机推荐 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number personal">1</div>
-                <div class="case-section-title">通勤降噪耳机推荐</div>
+                <div class="case-title">通勤降噪耳机推荐</div>
             </div>
-            <p class="case-section-subtitle">场景：用户需要一款通勤用的降噪耳机，预算 1000 元左右</p>
+            <p class="case-subtitle">场景：用户需要一款通勤用的降噪耳机，预算 1000 元左右</p>
             
             <div class="steps-flow">
-                <!-- Step 1: 用户提问 -->
+                <!-- Step 1: 用户输入 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 用户输入需求</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 用户输入需求</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:41</span>
+                                    <span class="status-time">09:41</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -1122,7 +1233,7 @@
                                     <div class="chat-name">购物小管家</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
+                                    <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -1135,25 +1246,25 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: AI 分析 -->
+                <!-- Step 2: AI 分析中 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> AI 分析场景</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 分析场景</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:41</span>
+                                    <span class="status-time">09:41</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
-                                    <div class="message assistant">
+                                    <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
+                                    <div class="chat-message assistant">
                                         <span class="typing-indicator"><span></span><span></span><span></span></span>
                                     </div>
                                 </div>
@@ -1168,25 +1279,25 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 推理 -->
+                <!-- Step 3: AI 分析完成 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 给出推荐理由</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 推荐理由</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:42</span>
+                                    <span class="status-time">09:42</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
-                                    <div class="message assistant">通勤场景建议关注：
+                                    <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
+                                    <div class="chat-message assistant">通勤场景建议关注：
 <br><br>✓ 降噪效果（地铁噪音大）<br>✓ 佩戴舒适（通勤时间长）<br>✓ 续航持久（全天使用）<br>✓ 性价比高（预算 1000）
 <br><br>为您找到 2 款符合条件的商品，首选推荐：</div>
                                 </div>
@@ -1201,26 +1312,26 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 4: 商品卡片 -->
+                <!-- Step 4: 商品推荐卡片 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> 商品推荐卡片</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 商品推荐卡片</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:42</span>
+                                    <span class="status-time">09:42</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-img">
+                                            <div class="product-image">
                                                 <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
                                             </div>
                                             <div class="product-info">
@@ -1229,12 +1340,12 @@
                                                 <div class="product-price">¥999 <span class="product-price-old">¥1,299</span></div>
                                             </div>
                                         </div>
-                                        <div class="ai-tags">
-                                            <span class="ai-tag good"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>全网2.8万好评</span>
-                                            <span class="ai-tag top"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>性价比TOP 5%</span>
-                                            <span class="ai-tag safe"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>官方店铺</span>
+                                        <div class="product-tags">
+                                            <span class="ai-tag good">全网2.8万好评</span>
+                                            <span class="ai-tag top">性价比TOP 5%</span>
+                                            <span class="ai-tag safe">官方店铺</span>
                                         </div>
-                                        <div class="action-row">
+                                        <div class="product-actions">
                                             <div class="action-btn primary">查看详情</div>
                                             <div class="action-btn secondary">加入关注</div>
                                         </div>
@@ -1253,7 +1364,7 @@
                 
                 <!-- Step 5: 商品详情 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 5</span> 查看商品详情</div>
+                    <div class="step-label"><span class="step-num">STEP 5</span> 商品详情页</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -1262,13 +1373,13 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">商品详情</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="detail-product">
-                                    <div class="detail-img">
+                                    <div class="detail-image">
                                         <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
                                     </div>
                                     <div class="detail-info">
@@ -1305,26 +1416,26 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 6: 加入关注 -->
+                <!-- Step 6: 加入关注成功 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 6</span> 加入关注成功</div>
+                    <div class="step-label"><span class="step-num">STEP 6</span> 加入关注成功</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:43</span>
+                                    <span class="status-time">09:43</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-img">
+                                            <div class="product-image">
                                                 <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
                                             </div>
                                             <div class="product-info">
@@ -1333,12 +1444,12 @@
                                                 <div class="product-price">¥999</div>
                                             </div>
                                         </div>
-                                        <div class="action-row" style="margin-top: 8px;">
-                                            <div class="action-btn outline" style="border-color: var(--accent-green); color: var(--accent-green);">✓ 已加入关注</div>
+                                        <div class="product-actions">
+                                            <div class="action-btn success">✓ 已加入关注</div>
                                         </div>
                                     </div>
-                                    <div class="message assistant">已加入关注列表！<br><br>当价格低于 ¥999 时会第一时间通知您。您也可以随时在「我的关注」中查看。</div>
-                                    <div class="message user">好的，谢谢！</div>
+                                    <div class="chat-message assistant">已加入关注列表！<br><br>当价格低于 ¥999 时会第一时间通知您。您也可以随时在「我的关注」中查看。</div>
+                                    <div class="chat-message user">好的，谢谢！</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -1353,48 +1464,48 @@
         
         <!-- Case 2: 个人版 - 家人生日礼物 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number personal">2</div>
-                <div class="case-section-title">家人生日礼物推荐</div>
+                <div class="case-title">家人生日礼物推荐</div>
             </div>
-            <p class="case-section-subtitle">场景：老婆生日快到了，需要挑选一份合适的礼物</p>
+            <p class="case-subtitle">场景：老婆生日快到了，需要挑选一份合适的礼物</p>
             
             <div class="steps-flow">
-                <!-- Step 1: 提醒推送 -->
+                <!-- Step 1: 生日提醒 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 生日提醒推送</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 生日提醒推送</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>08:00</span>
+                                    <span class="status-time">08:00</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="reminder-card gift">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon gift">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                                <div class="welcome-screen">
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card gift">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">🎂 老婆生日快到了</div>
+                                                <div class="reminder-sub">还有 7 天 · 3月17日</div>
+                                            </div>
                                         </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">🎂 老婆生日快到了</div>
-                                            <div class="reminder-sub">还有 7 天 · 3月17日</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="reminder-card info">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon info">
-                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">准备礼物建议</div>
-                                            <div class="reminder-sub">根据喜好智能推荐</div>
+                                        <div class="reminder-card info">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">准备礼物建议</div>
+                                                <div class="reminder-sub">根据喜好智能推荐</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1411,7 +1522,7 @@
                 
                 <!-- Step 2: 家人档案 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> 查看家人档案</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 家人档案列表</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -1420,14 +1531,14 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">家人档案</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="list-item" style="border-left: 3px solid var(--accent-purple);">
-                                    <div class="list-icon" style="background: rgba(144, 101, 176, 0.1);">
-                                        <svg viewBox="0 0 24 24" style="stroke: var(--accent-purple);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <div class="list-item highlight">
+                                    <div class="list-icon purple">
+                                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                     </div>
                                     <div class="list-content">
                                         <div class="list-title">老婆</div>
@@ -1468,17 +1579,17 @@
                 
                 <!-- Step 3: AI 分析喜好 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 分析喜好</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 分析喜好</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>08:02</span>
+                                    <span class="status-time">08:02</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -1489,7 +1600,7 @@
                                     <div class="chat-name">购物小管家</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message assistant">老婆的生日礼物建议：
+                                    <div class="chat-message assistant">老婆的生日礼物建议：
 <br><br>📋 根据档案分析：
 <br>• 喜好：护肤、香氛
 <br>• 最近关注：高端护肤品
@@ -1509,24 +1620,24 @@
                 
                 <!-- Step 4: 礼物推荐 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> 礼物推荐列表</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 礼物推荐列表</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>08:02</span>
+                                    <span class="status-time">08:02</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-img">
+                                            <div class="product-image">
                                                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                                             </div>
                                             <div class="product-info">
@@ -1535,18 +1646,18 @@
                                                 <div class="product-price">¥890</div>
                                             </div>
                                         </div>
-                                        <div class="ai-tags">
-                                            <span class="ai-tag good"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>高端护肤首选</span>
-                                            <span class="ai-tag safe"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>官方授权</span>
+                                        <div class="product-tags">
+                                            <span class="ai-tag good">高端护肤首选</span>
+                                            <span class="ai-tag safe">官方授权</span>
                                         </div>
-                                        <div class="action-row">
+                                        <div class="product-actions">
                                             <div class="action-btn primary">立即购买</div>
                                             <div class="action-btn secondary">加入关注</div>
                                         </div>
                                     </div>
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-img">
+                                            <div class="product-image">
                                                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
                                             </div>
                                             <div class="product-info">
@@ -1555,8 +1666,8 @@
                                                 <div class="product-price">¥520</div>
                                             </div>
                                         </div>
-                                        <div class="ai-tags">
-                                            <span class="ai-tag top"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>生日礼物热门</span>
+                                        <div class="product-tags">
+                                            <span class="ai-tag top">生日礼物热门</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1573,34 +1684,32 @@
                 
                 <!-- Step 5: 购买确认 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 5</span> 确认购买</div>
+                    <div class="step-label"><span class="step-num">STEP 5</span> 购买确认成功</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>08:05</span>
+                                    <span class="status-time">08:05</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">选第一个，直接买</div>
-                                    <div class="message assistant">好的，正在为您准备订单...
+                                    <div class="chat-message user">选第一个，直接买</div>
+                                    <div class="chat-message assistant">好的，正在为您准备订单...
 <br><br>📦 La Mer 精粹修护面霜 30ml<br>💰 ¥890<br>🏪 官方旗舰店
 <br><br>已为您跳转到淘宝完成购买，3天内送达。礼物已自动添加到「送礼记录」。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 购买成功</div>
-                                                <div class="reminder-sub">预计 3月14日 送达</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 购买成功</div>
+                                            <div class="reminder-sub">预计 3月14日 送达</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1615,50 +1724,50 @@
             </div>
         </section>
         
-        <!-- Case 3: 个人版 - 价格监控降价通知 -->
+        <!-- Case 3: 个人版 - 价格监控降价 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number personal">3</div>
-                <div class="case-section-title">价格监控降价通知</div>
+                <div class="case-title">价格监控降价通知</div>
             </div>
-            <p class="case-section-subtitle">场景：关注的商品降价了，AI 及时通知并推荐购买</p>
+            <p class="case-subtitle">场景：关注的商品降价了，AI 及时通知并推荐购买</p>
             
             <div class="steps-flow">
                 <!-- Step 1: 降价推送 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 降价通知推送</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 降价通知推送</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>14:30</span>
+                                    <span class="status-time">14:30</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="reminder-card success">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon success">
-                                            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                                <div class="welcome-screen">
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card success">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">📉 索尼 WH-CH720N 已降价！</div>
+                                                <div class="reminder-sub">¥999 → ¥850 · 达到目标价</div>
+                                            </div>
                                         </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">📉 索尼 WH-CH720N 已降价！</div>
-                                            <div class="reminder-sub">¥999 → ¥850 · 达到目标价</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="reminder-card info">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon info">
-                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">比价详情</div>
-                                            <div class="reminder-sub">当前最低价 ¥850 · 点击查看</div>
+                                        <div class="reminder-card info">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">比价详情</div>
+                                                <div class="reminder-sub">当前最低价 ¥850 · 点击查看</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1675,7 +1784,7 @@
                 
                 <!-- Step 2: 比价详情 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> 查看比价详情</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 比价详情页</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -1684,13 +1793,13 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">比价详情</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="detail-product">
-                                    <div class="detail-img">
+                                    <div class="detail-image">
                                         <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
                                     </div>
                                     <div class="detail-info">
@@ -1740,19 +1849,19 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 建议 -->
+                <!-- Step 3: AI 购买建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 购买建议</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 购买建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>14:32</span>
+                                    <span class="status-time">14:32</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -1763,7 +1872,7 @@
                                     <div class="chat-name">购物小管家</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message assistant">价格分析建议：
+                                    <div class="chat-message assistant">价格分析建议：
 <br><br>📉 当前 ¥850 是历史最低价
 <br>📈 30天均价 ¥978
 <br>⏰ 降价趋势明显
@@ -1783,36 +1892,34 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 4: 确认购买 -->
+                <!-- Step 4: 购买确认 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> 确认购买</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 购买成功确认</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>14:33</span>
+                                    <span class="status-time">14:33</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">好的，直接买</div>
-                                    <div class="message assistant">已为您跳转到淘宝下单页面 🛒
+                                    <div class="chat-message user">好的，直接买</div>
+                                    <div class="chat-message assistant">已为您跳转到淘宝下单页面 🛒
 <br><br>📦 商品：索尼 WH-CH720N<br>💰 价格：¥850<br>🏪 店铺：索尼官方旗舰店
 <br><br>下单后我会自动更新您的订单状态~</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 已从关注列表移除</div>
-                                                <div class="reminder-sub">商品已购买，不再监控价格</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 已从关注列表移除</div>
+                                            <div class="reminder-sub">商品已购买，不再监控价格</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1829,59 +1936,53 @@
         
         <!-- Case 4: 企业版 - 批量采购 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number enterprise">4</div>
-                <div class="case-section-title">企业批量采购</div>
+                <div class="case-title">企业批量采购</div>
             </div>
-            <p class="case-section-subtitle">场景：公司需要批量采购办公用品，AI 分析历史订单并推荐最优采购方案</p>
+            <p class="case-subtitle">场景：公司需要批量采购办公用品，AI 分析历史订单并推荐最优采购方案</p>
             
             <div class="steps-flow">
-                <!-- Step 1: 企业欢迎页 -->
+                <!-- Step 1: 企业首页 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 企业版首页</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 企业版首页</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:00</span>
+                                    <span class="status-time">09:00</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="welcome-card">
-                                    <div class="welcome-header">
-                                        <div class="welcome-logo" style="background: linear-gradient(135deg, #0f7b6c, #2383e2);">
-                                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                                        </div>
-                                        <div>
-                                            <div class="welcome-title">企业采购助手</div>
-                                            <div class="welcome-subtitle">智能采购 · 降本增效</div>
-                                        </div>
+                                <div class="welcome-screen">
+                                    <div class="welcome-logo enterprise">
+                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     </div>
-                                </div>
-                                <div class="reminder-card warning">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon warning">
-                                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <div class="welcome-title">企业采购助手</div>
+                                    <div class="welcome-subtitle">智能采购 · 降本增效</div>
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card warning">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">📄 月度采购待处理</div>
+                                                <div class="reminder-sub">3 个采购单等待审批</div>
+                                            </div>
                                         </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">📄 月度采购待处理</div>
-                                            <div class="reminder-sub">3 个采购单等待审批</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="reminder-card info">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon info">
-                                            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">💰 本月节省 ¥12,580</div>
-                                            <div class="reminder-sub">较上月降低 15%</div>
+                                        <div class="reminder-card success">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">💰 本月节省 ¥12,580</div>
+                                                <div class="reminder-sub">较上月降低 15%</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1896,30 +1997,30 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 输入采购需求 -->
+                <!-- Step 2: 输入需求 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> 输入采购需求</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 输入采购需求</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:01</span>
+                                    <span class="status-time">09:01</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar" style="background: linear-gradient(135deg, #0f7b6c, #2383e2);">
+                                    <div class="chat-avatar enterprise">
                                         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     </div>
                                     <div class="chat-name">采购助手</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
+                                    <div class="chat-message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -1932,25 +2033,25 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 分析历史订单 -->
+                <!-- Step 3: AI 分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 分析历史数据</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 分析历史数据</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:02</span>
+                                    <span class="status-time">09:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
-                                    <div class="message assistant">
+                                    <div class="chat-message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
+                                    <div class="chat-message assistant">
                                         <span class="typing-indicator"><span></span><span></span><span></span></span>
                                     </div>
                                 </div>
@@ -1967,22 +2068,22 @@
                 
                 <!-- Step 4: 采购建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> AI 采购建议</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> AI 采购建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:03</span>
+                                    <span class="status-time">09:03</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message assistant">📊 已分析历史采购数据：
+                                    <div class="chat-message assistant">📊 已分析历史采购数据：
 <br><br>• 上月采购量：A4纸 50包、文件夹 30个
 <br>• 当前库存：A4纸 8包（偏低）
 <br>• 建议采购：A4纸 60包、文件夹 40个
@@ -2004,22 +2105,22 @@
                 
                 <!-- Step 5: 供应商推荐 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 5</span> 供应商推荐</div>
+                    <div class="step-label"><span class="step-num">STEP 5</span> 供应商推荐</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:04</span>
+                                    <span class="status-time">09:04</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="supplier-card" style="border-color: var(--accent-green);">
+                                    <div class="supplier-card highlight">
                                         <div class="supplier-header">
                                             <div class="supplier-logo">
                                                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -2029,11 +2130,11 @@
                                                 <div class="supplier-score">评分 4.9 · 合作3年</div>
                                             </div>
                                         </div>
-                                        <div class="ai-tags">
-                                            <span class="ai-tag good"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>推荐首选</span>
-                                            <span class="ai-tag top"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>价格最优</span>
+                                        <div class="product-tags">
+                                            <span class="ai-tag good">推荐首选</span>
+                                            <span class="ai-tag top">价格最优</span>
                                         </div>
-                                        <div class="action-row" style="margin-top: 8px;">
+                                        <div class="product-actions" style="margin-top: 8px;">
                                             <div class="action-btn primary">立即下单</div>
                                             <div class="action-btn secondary">对比报价</div>
                                         </div>
@@ -2063,35 +2164,33 @@
                 
                 <!-- Step 6: 下单确认 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 6</span> 下单确认</div>
+                    <div class="step-label"><span class="step-num">STEP 6</span> 下单确认成功</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>09:06</span>
+                                    <span class="status-time">09:06</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">就选得力，直接下单</div>
-                                    <div class="message assistant">✅ 已为您生成采购订单
+                                    <div class="chat-message user">就选得力，直接下单</div>
+                                    <div class="chat-message assistant">✅ 已为您生成采购订单
 <br><br>📦 商品清单：<br>• A4打印纸 60包<br>• 文件夹 40个<br>• 订书机 10个
 <br><br>💰 总金额：¥3,280<br>💳 预算余额：¥6,720
 <br><br>订单已提交审批，财务审核通过后自动下单。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 采购单已提交</div>
-                                                <div class="reminder-sub">等待财务审批</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 采购单已提交</div>
+                                            <div class="reminder-sub">等待财务审批</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2108,48 +2207,48 @@
         
         <!-- Case 5: 企业版 - 补货预测 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number enterprise">5</div>
-                <div class="case-section-title">库存补货预测</div>
+                <div class="case-title">库存补货预测</div>
             </div>
-            <p class="case-section-subtitle">场景：AI 根据历史数据预测库存需求，提前提醒补货</p>
+            <p class="case-subtitle">场景：AI 根据历史数据预测库存需求，提前提醒补货</p>
             
             <div class="steps-flow">
                 <!-- Step 1: 库存预警 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 库存预警推送</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 库存预警推送</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>10:00</span>
+                                    <span class="status-time">10:00</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="reminder-card warning">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon warning">
-                                            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                <div class="welcome-screen">
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card danger">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">📦 库存预警</div>
+                                                <div class="reminder-sub">A4打印纸库存不足，预计7天后缺货</div>
+                                            </div>
                                         </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">📦 库存预警</div>
-                                            <div class="reminder-sub">A4打印纸库存不足，预计7天后缺货</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="reminder-card info">
-                                    <div class="reminder-row">
-                                        <div class="reminder-icon info">
-                                            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">📈 AI 预测建议</div>
-                                            <div class="reminder-sub">建议补货 50 包，点击查看详情</div>
+                                        <div class="reminder-card info">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">📈 AI 预测建议</div>
+                                                <div class="reminder-sub">建议补货 50 包，点击查看详情</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2164,9 +2263,9 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 数据概览 -->
+                <!-- Step 2: 库存数据 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> 库存数据概览</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 库存数据概览</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -2175,8 +2274,8 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">库存预测</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -2220,30 +2319,30 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 补货建议 -->
+                <!-- Step 3: 补货建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 补货建议</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 补货建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>10:02</span>
+                                    <span class="status-time">10:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar" style="background: linear-gradient(135deg, #0f7b6c, #2383e2);">
+                                    <div class="chat-avatar enterprise">
                                         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     </div>
                                     <div class="chat-name">采购助手</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message assistant">📊 库存预测分析：
+                                    <div class="chat-message assistant">📊 库存预测分析：
 <br><br>基于过去 30 天消耗数据：
 <br>• 日均消耗：2.3 包
 <br>• 当前库存：12 包
@@ -2264,32 +2363,32 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 4: 快速下单 -->
+                <!-- Step 4: 下单确认 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> 一键补货下单</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 一键补货下单</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>10:03</span>
+                                    <span class="status-time">10:03</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">好的，下单50包</div>
-                                    <div class="message assistant">已为您准备采购单：
+                                    <div class="chat-message user">好的，下单50包</div>
+                                    <div class="chat-message assistant">已为您准备采购单：
 <br><br>📦 商品：A4打印纸
 <br>📊 数量：50 包
 <br>💰 单价：¥28/包
 <br>💵 总价：¥1,400
 <br>🏪 供应商：得力官方旗舰店
 <br><br>确认下单吗？</div>
-                                    <div class="action-row" style="margin-top: 12px;">
+                                    <div class="product-actions" style="margin-top: 12px;">
                                         <div class="action-btn primary">确认下单</div>
                                         <div class="action-btn secondary">修改数量</div>
                                     </div>
@@ -2305,36 +2404,34 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 5: 订单确认 -->
+                <!-- Step 5: 下单成功 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 5</span> 订单确认成功</div>
+                    <div class="step-label"><span class="step-num">STEP 5</span> 补货订单成功</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>10:04</span>
+                                    <span class="status-time">10:04</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message assistant">✅ 补货订单已提交
+                                    <div class="chat-message assistant">✅ 补货订单已提交
 <br><br>订单号：#PO-20260315-001
 <br>预计 3月18日 送达
 <br><br>我会持续跟踪物流状态，到货后自动更新库存记录。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 库存预警已关闭</div>
-                                                <div class="reminder-sub">补货中，预计3天后到货</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 库存预警已关闭</div>
+                                            <div class="reminder-sub">补货中，预计3天后到货</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2351,16 +2448,16 @@
         
         <!-- Case 6: 企业版 - 供应商评估 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number enterprise">6</div>
-                <div class="case-section-title">供应商评估对比</div>
+                <div class="case-title">供应商评估对比</div>
             </div>
-            <p class="case-section-subtitle">场景：企业需要评估供应商，AI 分析历史数据提供决策建议</p>
+            <p class="case-subtitle">场景：企业需要评估供应商，AI 分析历史数据提供决策建议</p>
             
             <div class="steps-flow">
                 <!-- Step 1: 供应商列表 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 供应商列表</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 供应商列表</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -2369,12 +2466,12 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">供应商管理</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="supplier-card" style="border-color: var(--accent-green);">
+                                <div class="supplier-card highlight">
                                     <div class="supplier-header">
                                         <div class="supplier-logo">
                                             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -2384,8 +2481,8 @@
                                             <div class="supplier-score">⭐ 4.9 · 合作 3 年</div>
                                         </div>
                                     </div>
-                                    <div class="ai-tags">
-                                        <span class="ai-tag good"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>优质供应商</span>
+                                    <div class="product-tags">
+                                        <span class="ai-tag good">优质供应商</span>
                                     </div>
                                 </div>
                                 <div class="supplier-card">
@@ -2421,9 +2518,9 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: AI 评估报告 -->
+                <!-- Step 2: 评估报告 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> AI 评估报告</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 评估报告</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -2432,8 +2529,8 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">供应商评估</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -2480,28 +2577,28 @@
                 
                 <!-- Step 3: 对比分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> 供应商对比</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> 供应商对比</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>11:02</span>
+                                    <span class="status-time">11:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar" style="background: linear-gradient(135deg, #0f7b6c, #2383e2);">
+                                    <div class="chat-avatar enterprise">
                                         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     </div>
                                     <div class="chat-name">采购助手</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message assistant">📊 供应商对比分析：
+                                    <div class="chat-message assistant">📊 供应商对比分析：
 <br><br>🏆 推荐排序：
 <br>1️⃣ 得力官方旗舰店
 <br>• 价格优势：5-10%
@@ -2527,22 +2624,22 @@
                 
                 <!-- Step 4: 决策建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> AI 决策建议</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> AI 决策建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>11:03</span>
+                                    <span class="status-time">11:03</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message assistant">💡 采购建议：
+                                    <div class="chat-message assistant">💡 采购建议：
 <br><br>基于综合评估，建议：
 <br><br>✅ 主供应商：得力官方旗舰店
 <br>• 理由：价格优势、配送快、合作稳定
@@ -2550,7 +2647,7 @@
 <br><br>🔄 备选供应商：晨光文具
 <br>• 用途：得力缺货时应急
 <br><br>是否将得力设为首选供应商？</div>
-                                    <div class="action-row" style="margin-top: 12px;">
+                                    <div class="product-actions" style="margin-top: 12px;">
                                         <div class="action-btn primary">设为首选</div>
                                         <div class="action-btn secondary">稍后决定</div>
                                     </div>
@@ -2568,35 +2665,33 @@
                 
                 <!-- Step 5: 设置成功 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 5</span> 设置成功</div>
+                    <div class="step-label"><span class="step-num">STEP 5</span> 设置成功</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>11:04</span>
+                                    <span class="status-time">11:04</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">好的，设为首选</div>
-                                    <div class="message assistant">✅ 已设置完成！
+                                    <div class="chat-message user">好的，设为首选</div>
+                                    <div class="chat-message assistant">✅ 已设置完成！
 <br><br>得力官方旗舰店已成为您的首选供应商。
 <br><br>未来采购会优先推荐得力的商品，并在价格变动时及时通知您。
 <br><br>您也可以随时在「供应商管理」中调整设置。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 首选供应商已更新</div>
-                                                <div class="reminder-sub">得力官方旗舰店</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 首选供应商已更新</div>
+                                            <div class="reminder-sub">得力官方旗舰店</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2613,16 +2708,16 @@
         
         <!-- Case 7: 企业版 - 数据分析 -->
         <section class="case-section">
-            <div class="case-section-header">
+            <div class="case-header">
                 <div class="case-number enterprise">7</div>
-                <div class="case-section-title">采购数据分析</div>
+                <div class="case-title">采购数据分析</div>
             </div>
-            <p class="case-section-subtitle">场景：企业查看采购数据，AI 提供降本增效建议</p>
+            <p class="case-subtitle">场景：企业查看采购数据，AI 提供降本增效建议</p>
             
             <div class="steps-flow">
                 <!-- Step 1: 数据概览 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 1</span> 数据概览首页</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 数据概览首页</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -2631,8 +2726,8 @@
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">数据分析</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -2678,28 +2773,28 @@
                 
                 <!-- Step 2: AI 分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 2</span> AI 分析数据</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 分析数据</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>15:00</span>
+                                    <span class="status-time">15:00</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar" style="background: linear-gradient(135deg, #0f7b6c, #2383e2);">
+                                    <div class="chat-avatar enterprise">
                                         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     </div>
                                     <div class="chat-name">采购助手</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="message assistant">📊 3月采购数据分析：
+                                    <div class="chat-message assistant">📊 3月采购数据分析：
 <br><br>💰 总支出：¥28,560
 <br>📈 较上月：+8%
 <br>📉 节省金额：¥4,280
@@ -2721,22 +2816,22 @@
                 
                 <!-- Step 3: 优化建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 3</span> AI 优化建议</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> AI 优化建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>15:01</span>
+                                    <span class="status-time">15:01</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message assistant">💡 降本增效建议：
+                                    <div class="chat-message assistant">💡 降本增效建议：
 <br><br>1️⃣ 集中采购
 <br>• 办公用品合并采购
 <br>• 预计节省 ¥800/月
@@ -2761,36 +2856,34 @@
                 
                 <!-- Step 4: 应用建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">Step 4</span> 应用优化建议</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 应用优化建议</div>
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span>15:02</span>
+                                    <span class="status-time">15:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
-                                <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                                <div class="status-right">
+                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="message user">应用这些建议</div>
-                                    <div class="message assistant">好的，为您应用以下优化：
+                                    <div class="chat-message user">应用这些建议</div>
+                                    <div class="chat-message assistant">好的，为您应用以下优化：
 <br><br>✅ 已开启集中采购模式
 <br>✅ 已切换IT设备供应商
 <br>✅ 已开启库存自动预警
 <br><br>预计下月可节省 ¥2,000+，我会在月底给您发送效果报告。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-row">
-                                            <div class="reminder-icon success">
-                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">✓ 优化方案已生效</div>
-                                                <div class="reminder-sub">预计年节省 ¥24,000+</div>
-                                            </div>
+                                        <div class="reminder-icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 优化方案已生效</div>
+                                            <div class="reminder-sub">预计年节省 ¥24,000+</div>
                                         </div>
                                     </div>
                                 </div>
