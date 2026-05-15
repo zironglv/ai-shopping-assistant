@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户场景案例 - 专业购物小管家</title>
-    <!-- Notion 风格字体：Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,21 +14,14 @@
             box-sizing: border-box;
         }
         
-        /* Notion 简约配色系统 - 与 demo/index.html 一致 */
         :root {
-            /* 主色调 - Notion 风格 */
             --bg-primary: #ffffff;
             --bg-secondary: #f7f6f3;
             --bg-tertiary: #f1f1ef;
             --bg-hover: #e8e7e4;
-            
-            /* 文字颜色 */
             --text-primary: #37352f;
             --text-secondary: #6b6b6b;
             --text-tertiary: #9b9a97;
-            --text-placeholder: #787774;
-            
-            /* 强调色 - 适度使用 */
             --accent-blue: #2383e2;
             --accent-blue-light: #e8f4fc;
             --accent-green: #0f7b6c;
@@ -40,22 +32,18 @@
             --accent-red-light: #fbe4e4;
             --accent-purple: #9065b0;
             --accent-purple-light: #f3e8f9;
-            
-            /* 边框和分割线 */
+            --accent-orange: #d9730d;
+            --accent-orange-light: #fae3c6;
             --border-color: #e9e9e7;
             --border-light: #f0f0ee;
-            
-            /* 阴影 - Notion 风格轻微阴影 */
             --shadow-xs: 0 1px 2px rgba(55, 53, 47, 0.04);
             --shadow-sm: 0 1px 3px rgba(55, 53, 47, 0.08);
             --shadow-md: 0 4px 6px rgba(55, 53, 47, 0.08);
             --shadow-lg: 0 8px 16px rgba(55, 53, 47, 0.12);
-            
-            /* 手机框架 - 微信小程序标准 */
             --phone-width: 375px;
             --phone-height: 812px;
             --phone-radius: 40px;
-            --phone-padding: 8px;
+            --phone-padding: 12px;
         }
         
         body {
@@ -70,9 +58,9 @@
         /* ========== 返回按钮 ========== */
         .back-link {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 16px;
+            top: 24px;
+            left: 24px;
+            padding: 12px 20px;
             background: var(--bg-primary);
             color: var(--text-secondary);
             border-radius: 8px;
@@ -89,9 +77,9 @@
             background: var(--bg-hover);
         }
         
-        /* ========== 页面头部 - Notion 简约风格 ========== */
+        /* ========== 页面头部 ========== */
         .page-header {
-            padding: 80px 48px 60px;
+            padding: 80px 48px 40px;
             text-align: center;
         }
         
@@ -109,6 +97,136 @@
             margin-bottom: 24px;
         }
         
+        /* ========== 版本切换导航 ========== */
+        .version-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+        
+        .version-btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+        }
+        
+        .version-btn:hover {
+            background: var(--bg-hover);
+        }
+        
+        .version-btn.active {
+            background: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+        
+        .version-btn.personal.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+        
+        .version-btn.enterprise.active {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+        
+        /* ========== 场景概览卡片 ========== */
+        .overview-section {
+            max-width: 1400px;
+            margin: 0 auto 48px;
+            padding: 0 48px;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        
+        .overview-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .overview-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-color);
+        }
+        
+        .overview-card.personal {
+            border-left: 3px solid var(--accent-blue);
+        }
+        
+        .overview-card.enterprise {
+            border-left: 3px solid var(--accent-green);
+        }
+        
+        .overview-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .overview-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        
+        .overview-number.personal {
+            background: var(--accent-blue-light);
+            color: var(--accent-blue);
+        }
+        
+        .overview-number.enterprise {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+        }
+        
+        .overview-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .overview-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .overview-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .overview-tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+        }
+        
         /* ========== 容器 ========== */
         .case-container {
             max-width: 1400px;
@@ -116,11 +234,63 @@
             padding: 0 48px 80px;
         }
         
+        /* ========== 分类标题 ========== */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-top: 32px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-icon.personal {
+            background: var(--accent-blue-light);
+        }
+        
+        .category-icon.personal svg {
+            stroke: var(--accent-blue);
+        }
+        
+        .category-icon.enterprise {
+            background: var(--accent-green-light);
+        }
+        
+        .category-icon.enterprise svg {
+            stroke: var(--accent-green);
+        }
+        
+        .category-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .category-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
         /* ========== 场景卡片 ========== */
         .case-section {
             background: var(--bg-primary);
             border-radius: 16px;
-            padding: 48px;
+            padding: 40px;
             margin-bottom: 32px;
             border: 1px solid var(--border-light);
         }
@@ -154,7 +324,7 @@
         }
         
         .case-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.02em;
@@ -167,10 +337,32 @@
             margin-left: 48px;
         }
         
+        /* ========== 用户故事标签 ========== */
+        .story-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            margin-left: 48px;
+        }
+        
+        .story-badge svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
         /* ========== 步骤流程 ========== */
         .steps-flow {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             overflow-x: auto;
             padding: 8px 0 16px;
             align-items: flex-start;
@@ -216,22 +408,22 @@
             fill: none;
         }
         
-        /* ========== 手机框架 - 微信小程序标准 ========== */
+        /* ========== 手机框架 ========== */
         .phone-frame {
             width: var(--phone-width);
             height: var(--phone-height);
             background: #1a1a1a;
             border-radius: var(--phone-radius);
             padding: var(--phone-padding);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,0.1);
             position: relative;
-            box-shadow: var(--shadow-lg);
         }
         
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: var(--bg-secondary);
-            border-radius: 32px;
+            background: var(--bg-primary);
+            border-radius: calc(var(--phone-radius) - var(--phone-padding));
             overflow: hidden;
             position: relative;
         }
@@ -239,12 +431,11 @@
         /* ========== 状态栏 ========== */
         .status-bar {
             height: 44px;
-            background: var(--bg-primary);
+            padding: 12px 20px 0;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 16px;
-            padding-top: 12px;
+            align-items: flex-start;
+            background: var(--bg-primary);
         }
         
         .status-left {
@@ -260,10 +451,10 @@
         }
         
         .status-version {
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 4px;
+            font-size: 10px;
             font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
         
         .status-version.personal {
@@ -279,23 +470,63 @@
         .status-right {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
         
-        .status-icon {
-            width: 18px;
-            height: 18px;
+        .status-signal {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 1px;
         }
         
-        .status-icon svg {
-            width: 16px;
-            height: 16px;
+        .status-signal span {
+            width: 3px;
+            background: var(--text-primary);
+            border-radius: 1px;
+        }
+        
+        .status-signal span:nth-child(1) { height: 4px; }
+        .status-signal span:nth-child(2) { height: 6px; }
+        .status-signal span:nth-child(3) { height: 8px; }
+        .status-signal span:nth-child(4) { height: 10px; }
+        
+        .status-wifi svg {
+            width: 14px;
+            height: 14px;
             stroke: var(--text-primary);
             stroke-width: 2;
             fill: none;
+        }
+        
+        .status-battery {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+        
+        .status-battery-body {
+            width: 20px;
+            height: 10px;
+            border: 1.5px solid var(--text-primary);
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .status-battery-body::after {
+            content: '';
+            position: absolute;
+            left: 1.5px;
+            top: 1.5px;
+            width: 12px;
+            height: 5px;
+            background: var(--text-primary);
+            border-radius: 1px;
+        }
+        
+        .status-battery-tip {
+            width: 2px;
+            height: 5px;
+            background: var(--text-primary);
+            border-radius: 0 1px 1px 0;
         }
         
         /* ========== 内容区域 ========== */
@@ -305,32 +536,33 @@
             overflow-y: auto;
         }
         
-        /* ========== 欢迎页 ========== */
+        /* ========== 欢迎屏幕 ========== */
         .welcome-screen {
-            padding: 48px 20px;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            padding: 0 8px;
         }
         
         .welcome-logo {
             width: 64px;
             height: 64px;
-            background: var(--accent-blue);
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: 16px;
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
         }
         
         .welcome-logo.enterprise {
-            background: var(--accent-green);
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
         }
         
         .welcome-logo svg {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             stroke: white;
             stroke-width: 2;
             fill: none;
@@ -339,97 +571,77 @@
         .welcome-title {
             font-size: 20px;
             font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
             color: var(--text-primary);
-            margin-bottom: 6px;
         }
         
         .welcome-subtitle {
             font-size: 14px;
-            color: var(--text-secondary);
             text-align: center;
-            margin-bottom: 32px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
         
         /* ========== 提醒卡片 ========== */
         .reminder-cards {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            width: 100%;
+            gap: 10px;
         }
         
         .reminder-card {
-            background: var(--bg-primary);
-            border-radius: 8px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
             padding: 14px;
             display: flex;
-            align-items: center;
             gap: 12px;
             border: 1px solid var(--border-light);
-            transition: background 0.15s ease;
-        }
-        
-        .reminder-card:hover {
-            background: var(--bg-secondary);
-        }
-        
-        .reminder-card.warning {
-            background: var(--accent-yellow-light);
-            border-color: transparent;
-        }
-        
-        .reminder-card.danger {
-            background: var(--accent-red-light);
-            border-color: transparent;
-        }
-        
-        .reminder-card.success {
-            background: var(--accent-green-light);
-            border-color: transparent;
-        }
-        
-        .reminder-card.info {
-            background: var(--accent-blue-light);
-            border-color: transparent;
         }
         
         .reminder-card.gift {
-            background: var(--accent-purple-light);
-            border-color: transparent;
+            border-left: 3px solid var(--accent-red);
+        }
+        
+        .reminder-card.info {
+            border-left: 3px solid var(--accent-blue);
+        }
+        
+        .reminder-card.success {
+            border-left: 3px solid var(--accent-green);
+            background: var(--accent-green-light);
+        }
+        
+        .reminder-card.warning {
+            border-left: 3px solid var(--accent-yellow);
+            background: var(--accent-yellow-light);
         }
         
         .reminder-icon {
             width: 36px;
             height: 36px;
-            background: var(--accent-yellow);
-            border-radius: 6px;
+            background: var(--bg-primary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .reminder-card.danger .reminder-icon {
-            background: var(--accent-red);
-        }
-        
-        .reminder-card.success .reminder-icon {
-            background: var(--accent-green);
-        }
-        
-        .reminder-card.info .reminder-icon {
-            background: var(--accent-blue);
-        }
-        
-        .reminder-card.gift .reminder-icon {
-            background: var(--accent-purple);
+            flex-shrink: 0;
         }
         
         .reminder-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke: white;
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
+        }
+        
+        .reminder-card.gift .reminder-icon svg {
+            stroke: var(--accent-red);
+        }
+        
+        .reminder-card.success .reminder-icon svg {
+            stroke: var(--accent-green);
         }
         
         .reminder-content {
@@ -440,6 +652,7 @@
             font-size: 14px;
             font-weight: 600;
             color: var(--text-primary);
+            margin-bottom: 2px;
         }
         
         .reminder-sub {
@@ -452,28 +665,25 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
             margin-bottom: 12px;
         }
         
         .chat-avatar {
             width: 32px;
             height: 32px;
-            background: var(--accent-blue);
-            border-radius: 8px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .chat-avatar.enterprise {
-            background: var(--accent-green);
-        }
-        
         .chat-avatar svg {
             width: 18px;
             height: 18px;
-            stroke: white;
+            stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
         }
@@ -484,93 +694,75 @@
             color: var(--text-primary);
         }
         
+        .chat-status {
+            font-size: 11px;
+            color: var(--accent-green);
+            margin-left: auto;
+        }
+        
         .chat-messages {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
         
-        .chat-date {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-tertiary);
-            padding: 8px 0;
-        }
-        
         .chat-message {
-            max-width: 80%;
-            padding: 10px 14px;
-            border-radius: 8px;
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 12px;
             font-size: 14px;
             line-height: 1.5;
+            position: relative;
         }
         
         .chat-message.user {
             background: var(--accent-blue);
             color: white;
             align-self: flex-end;
+            border-bottom-right-radius: 4px;
         }
         
         .chat-message.assistant {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             color: var(--text-primary);
             align-self: flex-start;
-        }
-        
-        /* 打字指示器 */
-        .typing-indicator {
-            display: inline-flex;
-            gap: 4px;
-            padding: 4px 0;
-        }
-        
-        .typing-indicator span {
-            width: 6px;
-            height: 6px;
-            background: var(--text-tertiary);
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out both;
-        }
-        
-        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
-        
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-            40% { transform: scale(1); opacity: 1; }
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--border-light);
         }
         
         /* ========== 商品推荐卡片 ========== */
         .product-recommend {
             background: var(--bg-primary);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            max-width: 85%;
-            align-self: flex-start;
-            margin: 8px 0;
+            max-width: 100%;
+            margin: 4px 0;
+            box-shadow: var(--shadow-xs);
         }
         
         .product-row {
             display: flex;
             gap: 12px;
             padding: 12px;
+            border-bottom: 1px solid var(--border-light);
         }
         
         .product-image {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             background: var(--bg-secondary);
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            border: 1px solid var(--border-light);
         }
         
         .product-image svg {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             stroke: var(--text-tertiary);
             stroke-width: 2;
             fill: none;
@@ -582,13 +774,13 @@
         }
         
         .product-brand {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-tertiary);
             margin-bottom: 2px;
         }
         
         .product-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 4px;
@@ -596,7 +788,7 @@
         }
         
         .product-price {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--accent-red);
         }
@@ -605,74 +797,53 @@
             font-size: 12px;
             color: var(--text-tertiary);
             text-decoration: line-through;
-            margin-left: 6px;
+            font-weight: 400;
+            margin-left: 4px;
         }
         
-        /* AI 标签 */
         .product-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 6px;
-            padding: 0 12px 12px;
+            padding: 8px 12px;
+            flex-wrap: wrap;
         }
         
         .ai-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 10px;
             padding: 3px 8px;
             border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            white-space: nowrap;
+            font-weight: 600;
         }
         
         .ai-tag.good {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-        
-        .ai-tag.good::before {
-            content: '✓';
-            font-weight: 700;
+            background: var(--accent-blue-light);
+            color: var(--accent-blue);
         }
         
         .ai-tag.top {
-            background: #FFF3E0;
-            color: #E65100;
-        }
-        
-        .ai-tag.top::before {
-            content: '↑';
-            font-weight: 700;
+            background: var(--accent-yellow-light);
+            color: var(--accent-orange);
         }
         
         .ai-tag.safe {
-            background: #E3F2FD;
-            color: #1565C0;
+            background: var(--accent-green-light);
+            color: var(--accent-green);
         }
         
-        .ai-tag.safe::before {
-            content: '★';
-        }
-        
-        /* 操作按钮 */
         .product-actions {
             display: flex;
             gap: 8px;
-            padding: 12px;
-            border-top: 1px solid var(--border-light);
+            padding: 8px 12px 12px;
         }
         
         .action-btn {
             flex: 1;
             padding: 10px;
-            border-radius: 6px;
-            font-size: 14px;
+            border-radius: 8px;
+            font-size: 13px;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
-            transition: all 0.15s ease;
         }
         
         .action-btn.primary {
@@ -680,17 +851,10 @@
             color: white;
         }
         
-        .action-btn.primary:hover {
-            opacity: 0.85;
-        }
-        
         .action-btn.secondary {
             background: var(--bg-secondary);
             color: var(--text-primary);
-        }
-        
-        .action-btn.secondary:hover {
-            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
         }
         
         .action-btn.success {
@@ -698,25 +862,27 @@
             color: var(--accent-green);
         }
         
-        /* ========== 详情页头部 ========== */
+        /* ========== 详情页 ========== */
         .detail-header {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 0 0 12px;
+            gap: 12px;
+            margin-bottom: 16px;
         }
         
         .detail-back {
             width: 32px;
             height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .detail-back svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             stroke: var(--text-primary);
             stroke-width: 2;
             fill: none;
@@ -728,31 +894,30 @@
             color: var(--text-primary);
         }
         
-        /* ========== 商品详情 ========== */
         .detail-product {
-            background: var(--bg-primary);
-            border-radius: 8px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
             padding: 16px;
-            margin-bottom: 12px;
-            border: 1px solid var(--border-light);
+            margin-bottom: 16px;
         }
         
         .detail-image {
             width: 100%;
-            height: 160px;
-            background: var(--bg-secondary);
-            border-radius: 6px;
+            height: 120px;
+            background: var(--bg-primary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
+            border: 1px solid var(--border-light);
         }
         
         .detail-image svg {
             width: 48px;
             height: 48px;
             stroke: var(--text-tertiary);
-            stroke-width: 2;
+            stroke-width: 1.5;
             fill: none;
         }
         
@@ -776,7 +941,7 @@
         .detail-desc {
             font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.4;
         }
         
         .detail-price-row {
@@ -786,254 +951,92 @@
         }
         
         .detail-price {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--accent-red);
         }
         
         .detail-price-label {
-            font-size: 12px;
-            color: var(--text-secondary);
+            font-size: 11px;
+            color: var(--accent-green);
+            background: var(--accent-green-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
         }
         
-        /* 详情参数区块 */
         .detail-section {
-            background: var(--bg-primary);
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 10px;
-            border: 1px solid var(--border-light);
+            margin-bottom: 16px;
         }
         
         .detail-section-title {
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             margin-bottom: 10px;
         }
         
         .detail-features {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
         
         .feature-item {
-            font-size: 13px;
-            color: var(--text-secondary);
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 13px;
+            color: var(--text-primary);
         }
         
         .feature-item svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             stroke: var(--accent-green);
-            stroke-width: 2;
+            stroke-width: 2.5;
             fill: none;
-        }
-        
-        /* ========== 比价表格 ========== */
-        .price-table {
-            background: var(--bg-primary);
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 12px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .price-table-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-tertiary);
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-        
-        .price-row.highlight {
-            background: var(--accent-green-light);
-            margin: 0 -14px;
-            padding: 10px 14px;
-            border-radius: 6px;
-        }
-        
-        .price-platform {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .price-platform-logo {
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-radius: 4px;
-        }
-        
-        .price-value {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .price-value.low {
-            color: var(--accent-green);
-        }
-        
-        /* ========== 数据卡片 ========== */
-        .data-card {
-            background: var(--bg-primary);
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 12px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .data-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        
-        .data-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        
-        .data-item {
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            padding: 12px;
-        }
-        
-        .data-label {
-            font-size: 12px;
-            color: var(--text-tertiary);
-            margin-bottom: 4px;
-        }
-        
-        .data-value {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .data-value.green { color: var(--accent-green); }
-        .data-value.red { color: var(--accent-red); }
-        .data-value.blue { color: var(--accent-blue); }
-        
-        /* ========== 图表占位 ========== */
-        .chart-placeholder {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            height: 100px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-        
-        .chart-bar {
-            width: 24px;
-            background: linear-gradient(to top, var(--accent-blue), var(--accent-green));
-            border-radius: 4px 4px 0 0;
-        }
-        
-        /* ========== 供应商卡片 ========== */
-        .supplier-card {
-            background: var(--bg-primary);
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 10px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .supplier-card.highlight {
-            border-color: var(--accent-green);
-        }
-        
-        .supplier-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .supplier-logo {
-            width: 44px;
-            height: 44px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .supplier-logo svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--text-tertiary);
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        .supplier-info {
-            flex: 1;
-        }
-        
-        .supplier-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .supplier-score {
-            font-size: 12px;
-            color: var(--accent-green);
-            font-weight: 500;
         }
         
         /* ========== 列表页 ========== */
         .list-item {
             background: var(--bg-primary);
-            border-radius: 8px;
-            padding: 14px;
+            border-radius: 12px;
+            padding: 12px;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 12px;
             border: 1px solid var(--border-light);
+            position: relative;
         }
         
-        .list-item.highlight {
-            border-left: 3px solid var(--accent-purple);
+        .list-item.highlight::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background: var(--accent-purple);
+            border-radius: 0 2px 2px 0;
         }
         
         .list-icon {
             width: 40px;
             height: 40px;
             background: var(--bg-secondary);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--border-light);
         }
         
         .list-icon.purple {
             background: var(--accent-purple-light);
+            border-color: var(--accent-purple);
         }
         
         .list-icon svg {
@@ -1068,7 +1071,42 @@
         .list-action {
             font-size: 12px;
             color: var(--accent-blue);
-            font-weight: 500;
+            font-weight: 600;
+        }
+        
+        /* ========== 数据卡片 ========== */
+        .data-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        
+        .data-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .data-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .data-value.up {
+            color: var(--accent-green);
+        }
+        
+        .data-value.down {
+            color: var(--accent-red);
+        }
+        
+        .data-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
         }
         
         /* ========== 输入区域 ========== */
@@ -1079,7 +1117,7 @@
             right: 0;
             height: 60px;
             background: var(--bg-primary);
-            border-top: 1px solid var(--border-light);
+            border-top: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             padding: 0 16px;
@@ -1094,21 +1132,16 @@
         .input-tool {
             width: 36px;
             height: 36px;
-            background: transparent;
-            border-radius: 6px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.15s ease;
-        }
-        
-        .input-tool:hover {
-            background: var(--bg-hover);
         }
         
         .input-tool svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             stroke: var(--text-secondary);
             stroke-width: 2;
             fill: none;
@@ -1118,26 +1151,17 @@
             flex: 1;
             height: 36px;
             background: var(--bg-secondary);
-            border-radius: 6px;
-            padding: 0 12px;
-            font-size: 14px;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            border: 1px solid transparent;
-            transition: border-color 0.15s ease;
-        }
-        
-        .input-field:hover {
-            border-color: var(--border-color);
+            border-radius: 8px;
+            padding: 0 14px;
         }
         
         .input-field input {
             width: 100%;
+            height: 100%;
             border: none;
             background: transparent;
             font-size: 14px;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             outline: none;
         }
         
@@ -1149,15 +1173,10 @@
             width: 36px;
             height: 36px;
             background: var(--accent-blue);
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.15s ease;
-        }
-        
-        .input-send:hover {
-            opacity: 0.85;
         }
         
         .input-send svg {
@@ -1168,39 +1187,210 @@
             fill: none;
         }
         
+        /* ========== 供应商评估卡片 ========== */
+        .supplier-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .supplier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .supplier-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .supplier-score {
+            font-size: 12px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+        
+        .supplier-metrics {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .supplier-metric {
+            flex: 1;
+        }
+        
+        .supplier-metric-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+        
+        .supplier-metric-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
         /* ========== 响应式 ========== */
         @media (max-width: 768px) {
-            .page-header { padding: 48px 24px 40px; }
-            .page-header h1 { font-size: 32px; }
-            .case-container { padding: 0 24px 48px; }
-            .case-section { padding: 32px 24px; }
-            .back-link { top: 12px; left: 12px; }
-            .steps-flow { gap: 16px; }
+            .page-header {
+                padding: 60px 24px 32px;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .case-container,
+            .overview-section {
+                padding: 0 24px 60px;
+            }
+            
+            .case-section {
+                padding: 24px;
+            }
+            
+            .steps-flow {
+                gap: 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← 返回 Demo</a>
+    <a href="index.html" class="back-link">← 返回首页</a>
     
     <header class="page-header">
         <h1>用户场景案例</h1>
-        <p>7 个完整交互流程 · Step by Step 详细展示</p>
+        <p>专业购物小管家 · 个人版 & 企业版核心场景展示</p>
+        
+        <!-- 版本切换导航 -->
+        <div class="version-nav">
+            <button class="version-btn personal active" onclick="scrollToCategory('personal')">📱 个人版 (4个)</button>
+            <button class="version-btn enterprise" onclick="scrollToCategory('enterprise')">🏢 企业版 (3个)</button>
+        </div>
     </header>
     
-    <div class="case-container">
+    <!-- 场景概览 -->
+    <section class="overview-section">
+        <div class="overview-grid">
+            <div class="overview-card personal" onclick="scrollToCase('case1')">
+                <div class="overview-header">
+                    <div class="overview-number personal">1</div>
+                    <div class="overview-title">降噪耳机推荐</div>
+                </div>
+                <div class="overview-desc">通勤场景降噪耳机选购，AI 分析需求并推荐高性价比产品</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">智能推荐</span>
+                    <span class="overview-tag">价格监控</span>
+                </div>
+            </div>
+            
+            <div class="overview-card personal" onclick="scrollToCase('case2')">
+                <div class="overview-header">
+                    <div class="overview-number personal">2</div>
+                    <div class="overview-title">家人生日礼物</div>
+                </div>
+                <div class="overview-desc">生日提醒 + 家人档案 + AI 分析喜好，智能推荐礼物</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">节日提醒</span>
+                    <span class="overview-tag">礼物推荐</span>
+                </div>
+            </div>
+            
+            <div class="overview-card personal" onclick="scrollToCase('case3')">
+                <div class="overview-header">
+                    <div class="overview-number personal">3</div>
+                    <div class="overview-title">价格降价通知</div>
+                </div>
+                <div class="overview-desc">关注商品降价实时推送，不错过任何优惠机会</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">价格追踪</span>
+                    <span class="overview-tag">主动提醒</span>
+                </div>
+            </div>
+            
+            <div class="overview-card personal" onclick="scrollToCase('case4')">
+                <div class="overview-header">
+                    <div class="overview-number personal">4</div>
+                    <div class="overview-title">日用品补货提醒</div>
+                </div>
+                <div class="overview-desc">根据使用周期智能提醒补货，一键加入购物清单</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">周期预测</span>
+                    <span class="overview-tag">自动提醒</span>
+                </div>
+            </div>
+            
+            <div class="overview-card enterprise" onclick="scrollToCase('case5')">
+                <div class="overview-header">
+                    <div class="overview-number enterprise">5</div>
+                    <div class="overview-title">企业批量采购</div>
+                </div>
+                <div class="overview-desc">多供应商比价、批量议价、一键生成采购单</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">批量采购</span>
+                    <span class="overview-tag">供应商比价</span>
+                </div>
+            </div>
+            
+            <div class="overview-card enterprise" onclick="scrollToCase('case6')">
+                <div class="overview-header">
+                    <div class="overview-number enterprise">6</div>
+                    <div class="overview-title">库存补货预测</div>
+                </div>
+                <div class="overview-desc">AI 分析销售数据，预测补货时机和数量</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">销量预测</span>
+                    <span class="overview-tag">智能补货</span>
+                </div>
+            </div>
+            
+            <div class="overview-card enterprise" onclick="scrollToCase('case7')">
+                <div class="overview-header">
+                    <div class="overview-number enterprise">7</div>
+                    <div class="overview-title">供应商评估</div>
+                </div>
+                <div class="overview-desc">多维度供应商评分，优化供应链决策</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">供应商管理</span>
+                    <span class="overview-tag">风险评估</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <main class="case-container">
         
-        <!-- Case 1: 个人版 - 降噪耳机推荐 -->
-        <section class="case-section">
+        <!-- ========== 个人版分类标题 ========== -->
+        <div class="category-header" id="personal">
+            <div class="category-icon personal">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+                <div class="category-title">个人版场景</div>
+                <div class="category-subtitle">智能购物助手，让生活更轻松</div>
+            </div>
+        </div>
+        
+        <!-- ========== Case 1: 个人版 - 降噪耳机推荐 ========== -->
+        <section class="case-section" id="case1">
             <div class="case-header">
                 <div class="case-number personal">1</div>
                 <div class="case-title">通勤降噪耳机推荐</div>
             </div>
-            <p class="case-subtitle">场景：用户需要一款通勤用的降噪耳机，预算 1000 元左右</p>
+            <p class="case-subtitle">场景：用户想买一款通勤用的降噪耳机，预算 1000 元左右</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "每天地铁通勤，想买个降噪耳机，预算1000左右，有什么推荐？"
+            </div>
             
             <div class="steps-flow">
-                <!-- Step 1: 用户输入 -->
+                <!-- Step 1: 用户提问 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 1</span> 用户输入需求</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 用户发起需求</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
@@ -1209,22 +1399,23 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar">
-                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                                    </div>
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
                                     <div class="chat-name">购物小管家</div>
+                                    <div class="chat-status">在线</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
+                                    <div class="chat-message user">每天地铁通勤，想买个降噪耳机，预算1000左右，有什么推荐？</div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="输入需求..."></div>
+                                <div class="input-field"><input placeholder="输入消息..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -1235,7 +1426,7 @@
                 
                 <!-- Step 2: AI 分析中 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> AI 分析场景</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 智能分析</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
@@ -1244,12 +1435,19 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
+                                <div class="chat-header">
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                                    <div class="chat-name">购物小管家</div>
+                                    <div class="chat-status">分析中...</div>
+                                </div>
                                 <div class="chat-messages">
-                                    <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
+                                    <div class="chat-message user">每天地铁通勤，想买个降噪耳机，预算1000左右</div>
                                     <div class="chat-message assistant">
                                         <span class="typing-indicator"><span></span><span></span><span></span></span>
                                     </div>
@@ -1265,7 +1463,7 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 分析完成 -->
+                <!-- Step 3: AI 推荐理由 -->
                 <div class="step-card">
                     <div class="step-label"><span class="step-num">STEP 3</span> AI 推荐理由</div>
                     <div class="phone-frame">
@@ -1276,15 +1474,15 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="chat-message user">推荐一款通勤用的降噪耳机，预算1000左右</div>
-                                    <div class="chat-message assistant">通勤场景建议关注：
-<br><br>✓ 降噪效果（地铁噪音大）<br>✓ 佩戴舒适（通勤时间长）<br>✓ 续航持久（全天使用）<br>✓ 性价比高（预算 1000）
-<br><br>为您找到 2 款符合条件的商品，首选推荐：</div>
+                                    <div class="chat-message assistant">通勤场景建议关注：<br><br>✓ 降噪效果（地铁噪音大）<br>✓ 佩戴舒适（通勤时间长）<br>✓ 续航持久（全天使用）<br>✓ 性价比高（预算 1000）<br><br>为您找到 2 款符合条件的商品，首选推荐：</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -1308,16 +1506,16 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-image">
-                                                <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
-                                            </div>
+                                            <div class="product-image"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg></div>
                                             <div class="product-info">
                                                 <div class="product-brand">Sony 索尼</div>
                                                 <div class="product-name">WH-CH720N 无线降噪耳机</div>
@@ -1353,18 +1551,21 @@
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">商品详情</div>
+                                    <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">商品详情</div>
+                                </div>
                                 <div class="detail-product">
-                                    <div class="detail-image">
-                                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
-                                    </div>
+                                    <div class="detail-image"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg></div>
                                     <div class="detail-info">
                                         <div class="detail-brand">Sony 索尼</div>
                                         <div class="detail-name">WH-CH720N 无线降噪耳机</div>
@@ -1410,16 +1611,16 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-image">
-                                                <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
-                                            </div>
+                                            <div class="product-image"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg></div>
                                             <div class="product-info">
                                                 <div class="product-brand">Sony 索尼</div>
                                                 <div class="product-name">WH-CH720N 无线降噪耳机</div>
@@ -1444,13 +1645,17 @@
             </div>
         </section>
         
-        <!-- Case 2: 个人版 - 家人生日礼物 -->
-        <section class="case-section">
+        <!-- ========== Case 2: 个人版 - 家人生日礼物 ========== -->
+        <section class="case-section" id="case2">
             <div class="case-header">
                 <div class="case-number personal">2</div>
                 <div class="case-title">家人生日礼物推荐</div>
             </div>
             <p class="case-subtitle">场景：老婆生日快到了，需要挑选一份合适的礼物</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "老婆3月17日生日，想送她一份礼物，有什么推荐？"
+            </div>
             
             <div class="steps-flow">
                 <!-- Step 1: 生日提醒 -->
@@ -1464,11 +1669,18 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="welcome-screen">
+                                    <div class="welcome-logo">
+                                        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    </div>
+                                    <div class="welcome-title">早上好，靑枫</div>
+                                    <div class="welcome-subtitle">今天有 1 条重要提醒</div>
                                     <div class="reminder-cards">
                                         <div class="reminder-card gift">
                                             <div class="reminder-icon">
@@ -1477,15 +1689,6 @@
                                             <div class="reminder-content">
                                                 <div class="reminder-title">🎂 老婆生日快到了</div>
                                                 <div class="reminder-sub">还有 7 天 · 3月17日</div>
-                                            </div>
-                                        </div>
-                                        <div class="reminder-card info">
-                                            <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">准备礼物建议</div>
-                                                <div class="reminder-sub">根据喜好智能推荐</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1508,14 +1711,20 @@
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">家人档案</div>
+                                    <span class="status-time">08:01</span>
+                                    <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">家人档案</div>
+                                </div>
                                 <div class="list-item highlight">
                                     <div class="list-icon purple">
                                         <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -1568,23 +1777,19 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar">
-                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                                    </div>
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
                                     <div class="chat-name">购物小管家</div>
+                                    <div class="chat-status">在线</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="chat-message assistant">老婆的生日礼物建议：
-<br><br>📋 根据档案分析：
-<br>• 喜好：护肤、香氛
-<br>• 最近关注：高端护肤品
-<br>• 预算参考：¥500-800
-<br><br>为您精选 3 款热门礼物：</div>
+                                    <div class="chat-message assistant">老婆的生日礼物建议：<br><br>📋 根据档案分析：<br>• 喜好：护肤、香氛<br>• 最近关注：高端护肤品<br>• 预算参考：¥500-800<br><br>为您精选 3 款热门礼物：</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -1608,16 +1813,16 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="product-recommend">
                                         <div class="product-row">
-                                            <div class="product-image">
-                                                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                                            </div>
+                                            <div class="product-image"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                                             <div class="product-info">
                                                 <div class="product-brand">La Mer</div>
                                                 <div class="product-name">精粹修护面霜 30ml</div>
@@ -1631,21 +1836,6 @@
                                         <div class="product-actions">
                                             <div class="action-btn primary">立即购买</div>
                                             <div class="action-btn secondary">加入关注</div>
-                                        </div>
-                                    </div>
-                                    <div class="product-recommend">
-                                        <div class="product-row">
-                                            <div class="product-image">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-brand">Diptyque</div>
-                                                <div class="product-name">玫瑰之水香氛蜡烛</div>
-                                                <div class="product-price">¥520</div>
-                                            </div>
-                                        </div>
-                                        <div class="product-tags">
-                                            <span class="ai-tag top">生日礼物热门</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1671,19 +1861,17 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
                                     <div class="chat-message user">选第一个，直接买</div>
-                                    <div class="chat-message assistant">好的，正在为您准备订单...
-<br><br>📦 La Mer 精粹修护面霜 30ml<br>💰 ¥890<br>🏪 官方旗舰店
-<br><br>已为您跳转到淘宝完成购买，3天内送达。礼物已自动添加到「送礼记录」。</div>
+                                    <div class="chat-message assistant">好的，正在为您准备订单...<br><br>📦 La Mer 精粹修护面霜 30ml<br>💰 ¥890<br>🏪 官方旗舰店<br><br>已为您跳转到淘宝完成购买，3天内送达。礼物已自动添加到「送礼记录」。</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
+                                        <div class="reminder-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
                                         <div class="reminder-content">
                                             <div class="reminder-title">✓ 购买成功</div>
                                             <div class="reminder-sub">预计 3月14日 送达</div>
@@ -1701,18 +1889,22 @@
             </div>
         </section>
         
-        <!-- Case 3: 个人版 - 价格监控降价 -->
-        <section class="case-section">
+        <!-- ========== Case 3: 个人版 - 价格降价通知 ========== -->
+        <section class="case-section" id="case3">
             <div class="case-header">
                 <div class="case-number personal">3</div>
-                <div class="case-title">价格监控降价通知</div>
+                <div class="case-title">价格降价通知</div>
             </div>
-            <p class="case-subtitle">场景：关注的商品降价了，AI 及时通知并推荐购买</p>
+            <p class="case-subtitle">场景：关注商品降价时主动推送通知，不错过优惠</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "关注列表里的商品降价了，及时提醒用户"
+            </div>
             
             <div class="steps-flow">
-                <!-- Step 1: 降价推送 -->
+                <!-- Step 1: 价格变动提醒 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 1</span> 降价通知推送</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 价格变动提醒</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
@@ -1721,35 +1913,33 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="welcome-screen">
+                                    <div class="welcome-logo">
+                                        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                    </div>
+                                    <div class="welcome-title">价格提醒</div>
+                                    <div class="welcome-subtitle">您关注的商品有新动态</div>
                                     <div class="reminder-cards">
-                                        <div class="reminder-card success">
+                                        <div class="reminder-card warning">
                                             <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                                                <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
                                             </div>
                                             <div class="reminder-content">
-                                                <div class="reminder-title">📉 索尼 WH-CH720N 已降价！</div>
-                                                <div class="reminder-sub">¥999 → ¥850 · 达到目标价</div>
-                                            </div>
-                                        </div>
-                                        <div class="reminder-card info">
-                                            <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">比价详情</div>
-                                                <div class="reminder-sub">当前最低价 ¥850 · 点击查看</div>
+                                                <div class="reminder-title">📉 Sony 降噪耳机降价</div>
+                                                <div class="reminder-sub">¥999 → ¥899 · 降幅 10%</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看比价详情..."></div>
+                                <div class="input-field"><input placeholder="查看详情..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -1758,64 +1948,48 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 比价详情 -->
+                <!-- Step 2: 价格详情 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> 比价详情页</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 价格走势详情</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">比价详情</div>
+                                    <span class="status-time">14:31</span>
+                                    <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">价格详情</div>
+                                </div>
                                 <div class="detail-product">
-                                    <div class="detail-image">
-                                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg>
-                                    </div>
+                                    <div class="detail-image"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><circle cx="12" cy="13" r="2"/></svg></div>
                                     <div class="detail-info">
                                         <div class="detail-brand">Sony 索尼</div>
                                         <div class="detail-name">WH-CH720N 无线降噪耳机</div>
                                     </div>
                                     <div class="detail-price-row">
-                                        <div class="detail-price">¥850</div>
-                                        <div class="detail-price-label" style="color: var(--accent-green);">历史最低</div>
+                                        <div class="detail-price">¥899</div>
+                                        <div class="detail-price-label">新低价</div>
                                     </div>
                                 </div>
-                                <div class="price-table">
-                                    <div class="price-table-header">
-                                        <span>平台</span>
-                                        <span>价格</span>
-                                    </div>
-                                    <div class="price-row highlight">
-                                        <div class="price-platform">
-                                            <div class="price-platform-logo"></div>
-                                            <span>淘宝官方</span>
-                                        </div>
-                                        <div class="price-value low">¥850 ↓</div>
-                                    </div>
-                                    <div class="price-row">
-                                        <div class="price-platform">
-                                            <div class="price-platform-logo"></div>
-                                            <span>京东自营</span>
-                                        </div>
-                                        <div class="price-value">¥899</div>
-                                    </div>
-                                    <div class="price-row">
-                                        <div class="price-platform">
-                                            <div class="price-platform-logo"></div>
-                                            <span>拼多多</span>
-                                        </div>
-                                        <div class="price-value">¥828</div>
-                                    </div>
+                                <div class="detail-section">
+                                    <div class="detail-section-title">价格走势</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>原价：¥1,299</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>关注价：¥999</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>当前价：¥899（↓10%）</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>历史最低：¥849</div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="立即购买..."></div>
+                                <div class="input-field"><input placeholder="立即购买或继续观察..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -1824,9 +1998,9 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 购买建议 -->
+                <!-- Step 3: 快捷操作 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 3</span> AI 购买建议</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> 快捷操作</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
@@ -1835,29 +2009,24 @@
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="chat-header">
-                                    <div class="chat-avatar">
-                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                                    </div>
-                                    <div class="chat-name">购物小管家</div>
-                                </div>
                                 <div class="chat-messages">
-                                    <div class="chat-message assistant">价格分析建议：
-<br><br>📉 当前 ¥850 是历史最低价
-<br>📈 30天均价 ¥978
-<br>⏰ 降价趋势明显
-<br><br>✅ 推荐购买：淘宝官方店
-<br>• 官方正品保障
-<br>• 7天无理由退换
-<br>• 预计 2天内送达</div>
+                                    <div class="chat-message assistant">检测到您关注的商品降价：<br><br>🎧 Sony WH-CH720N<br>💰 ¥999 → ¥899（↓10%）<br><br>这是近30天的最低价，建议入手！</div>
+                                    <div class="product-recommend">
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">立即购买</div>
+                                            <div class="action-btn secondary">继续观察</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="好的，直接买..."></div>
+                                <div class="input-field"><input placeholder="说点什么..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -1866,33 +2035,31 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 4: 购买确认 -->
+                <!-- Step 4: 购买完成 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 4</span> 购买成功确认</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 购买完成</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">14:33</span>
+                                    <span class="status-time">14:35</span>
                                     <div class="status-version personal">个人版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="chat-message user">好的，直接买</div>
-                                    <div class="chat-message assistant">已为您跳转到淘宝下单页面 🛒
-<br><br>📦 商品：索尼 WH-CH720N<br>💰 价格：¥850<br>🏪 店铺：索尼官方旗舰店
-<br><br>下单后我会自动更新您的订单状态~</div>
+                                    <div class="chat-message user">好的，买！</div>
+                                    <div class="chat-message assistant">正在跳转到淘宝...<br><br>✓ 已成功创建订单<br>📦 商品将在2天内发货<br>💰 实际支付：¥899<br><br>已为您节省 ¥100，比历史最低价仅高 ¥50！</div>
                                     <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
+                                        <div class="reminder-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
                                         <div class="reminder-content">
-                                            <div class="reminder-title">✓ 已从关注列表移除</div>
-                                            <div class="reminder-sub">商品已购买，不再监控价格</div>
+                                            <div class="reminder-title">✓ 订单已创建</div>
+                                            <div class="reminder-sub">预计 3天内送达</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1907,53 +2074,253 @@
             </div>
         </section>
         
-        <!-- Case 4: 企业版 - 批量采购 -->
-        <section class="case-section">
+        <!-- ========== Case 4: 个人版 - 日用品补货提醒 ========== -->
+        <section class="case-section" id="case4">
             <div class="case-header">
-                <div class="case-number enterprise">4</div>
-                <div class="case-title">企业批量采购</div>
+                <div class="case-number personal">4</div>
+                <div class="case-title">日用品补货提醒</div>
             </div>
-            <p class="case-subtitle">场景：公司需要批量采购办公用品，AI 分析历史订单并推荐最优采购方案</p>
+            <p class="case-subtitle">场景：根据使用周期智能提醒补货，避免断货尴尬</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "智能预测日用品消耗，在需要时主动提醒补货"
+            </div>
             
             <div class="steps-flow">
-                <!-- Step 1: 企业首页 -->
+                <!-- Step 1: 补货提醒 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 1</span> 企业版首页</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 补货提醒</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
                                     <span class="status-time">09:00</span>
+                                    <div class="status-version personal">个人版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="welcome-screen">
+                                    <div class="welcome-logo">
+                                        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                    </div>
+                                    <div class="welcome-title">补货提醒</div>
+                                    <div class="welcome-subtitle">根据您的使用习惯</div>
+                                    <div class="reminder-cards">
+                                        <div class="reminder-card warning">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">🧴 洗衣液预计用尽</div>
+                                                <div class="reminder-sub">还剩约 3 天用量</div>
+                                            </div>
+                                        </div>
+                                        <div class="reminder-card info">
+                                            <div class="reminder-icon">
+                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                            </div>
+                                            <div class="reminder-content">
+                                                <div class="reminder-title">📦 其他待补货</div>
+                                                <div class="reminder-sub">纸巾、洗衣液</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="查看详情..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 2: 消耗分析 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 2</span> 消耗分析</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">09:01</span>
+                                    <div class="status-version personal">个人版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-header">
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                                    <div class="chat-name">购物小管家</div>
+                                    <div class="chat-status">在线</div>
+                                </div>
+                                <div class="chat-messages">
+                                    <div class="chat-message assistant">根据您的购买记录分析：<br><br>🧴 洗衣液消耗分析<br>• 上次购买：30天前<br>• 平均用量：约10天/瓶<br>• 当前剩余：约3天用量<br><br>建议现在下单，避免断货。</div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="查看推荐..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 3: 一键补货 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 3</span> 一键补货</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">09:02</span>
+                                    <div class="status-version personal">个人版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-messages">
+                                    <div class="chat-message assistant">为您推荐常购清单：</div>
+                                    <div class="product-recommend">
+                                        <div class="product-row">
+                                            <div class="product-image"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                                            <div class="product-info">
+                                                <div class="product-brand">蓝月亮</div>
+                                                <div class="product-name">深层洁净洗衣液 3kg</div>
+                                                <div class="product-price">¥39.9</div>
+                                            </div>
+                                        </div>
+                                        <div class="product-tags">
+                                            <span class="ai-tag good">常购商品</span>
+                                            <span class="ai-tag safe">官方店铺</span>
+                                        </div>
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">一键补货</div>
+                                            <div class="action-btn secondary">修改数量</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="说点什么..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 4: 下单成功 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 4</span> 下单成功</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">09:03</span>
+                                    <div class="status-version personal">个人版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-messages">
+                                    <div class="chat-message user">好的，一键补货</div>
+                                    <div class="chat-message assistant">✓ 已加入购物车<br><br>🛒 蓝月亮深层洁净洗衣液 x1<br>💰 ¥39.9<br>🏪 天猫旗舰店<br><br>已为您跳转到淘宝结算页面。</div>
+                                    <div class="reminder-card success">
+                                        <div class="reminder-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 补货成功</div>
+                                            <div class="reminder-sub">预计 3天内送达</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="说点什么..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== 企业版分类标题 ========== -->
+        <div class="category-header" id="enterprise">
+            <div class="category-icon enterprise">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+                <div class="category-title">企业版场景</div>
+                <div class="category-subtitle">智能采购管理，降本增效</div>
+            </div>
+        </div>
+        
+        <!-- ========== Case 5: 企业版 - 批量采购 ========== -->
+        <section class="case-section" id="case5">
+            <div class="case-header">
+                <div class="case-number enterprise">5</div>
+                <div class="case-title">企业批量采购</div>
+            </div>
+            <p class="case-subtitle">场景：企业需要批量采购办公用品，AI 助手协助比价和生成采购单</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "需要采购50套办公桌椅，帮我对比几家供应商"
+            </div>
+            
+            <div class="steps-flow">
+                <!-- Step 1: 采购需求 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 1</span> 采购需求提出</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">10:00</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="welcome-screen">
                                     <div class="welcome-logo enterprise">
-                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                                     </div>
-                                    <div class="welcome-title">企业采购助手</div>
-                                    <div class="welcome-subtitle">智能采购 · 降本增效</div>
+                                    <div class="welcome-title">采购小管家</div>
+                                    <div class="welcome-subtitle">企业智能采购助手</div>
                                     <div class="reminder-cards">
-                                        <div class="reminder-card warning">
+                                        <div class="reminder-card info">
                                             <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                                             </div>
                                             <div class="reminder-content">
-                                                <div class="reminder-title">📄 月度采购待处理</div>
-                                                <div class="reminder-sub">3 个采购单等待审批</div>
-                                            </div>
-                                        </div>
-                                        <div class="reminder-card success">
-                                            <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">💰 本月节省 ¥12,580</div>
-                                                <div class="reminder-sub">较上月降低 15%</div>
+                                                <div class="reminder-title">📊 本月采购概览</div>
+                                                <div class="reminder-sub">已完成 12 单 · 节省 ¥8,500</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1969,33 +2336,35 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 输入需求 -->
+                <!-- Step 2: 需求分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> 输入采购需求</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 分析需求</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">09:01</span>
+                                    <span class="status-time">10:01</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-header">
-                                    <div class="chat-avatar enterprise">
-                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                                    </div>
-                                    <div class="chat-name">采购助手</div>
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                    <div class="chat-name">采购小管家</div>
+                                    <div class="chat-status">在线</div>
                                 </div>
                                 <div class="chat-messages">
-                                    <div class="chat-message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
+                                    <div class="chat-message user">需要采购50套办公桌椅</div>
+                                    <div class="chat-message assistant">收到需求，正在分析：<br><br>📋 采购清单分析<br>• 办公桌 x50<br>• 办公椅 x50<br>• 预算估算：¥75,000-100,000<br><br>正在对比 5 家供应商...</div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="输入需求..."></div>
+                                <div class="input-field"><input placeholder="AI 分析中..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -2004,30 +2373,70 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: AI 分析 -->
+                <!-- Step 3: 供应商对比 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 3</span> AI 分析历史数据</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> 供应商对比</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">09:02</span>
+                                    <span class="status-time">10:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message user">这个月需要采购一批办公用品，打印纸、订书机、文件夹这些</div>
-                                    <div class="chat-message assistant">
-                                        <span class="typing-indicator"><span></span><span></span><span></span></span>
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">供应商对比</div>
+                                </div>
+                                <div class="supplier-card">
+                                    <div class="supplier-header">
+                                        <div class="supplier-name">震旦家具旗舰店</div>
+                                        <div class="supplier-score">推荐 ⭐</div>
+                                    </div>
+                                    <div class="supplier-metrics">
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">单价</div>
+                                            <div class="supplier-metric-value">¥1,580/套</div>
+                                        </div>
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">评分</div>
+                                            <div class="supplier-metric-value">4.9分</div>
+                                        </div>
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">交期</div>
+                                            <div class="supplier-metric-value">7天</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="supplier-card">
+                                    <div class="supplier-header">
+                                        <div class="supplier-name">圣奥办公家具</div>
+                                        <div class="supplier-score">性价比</div>
+                                    </div>
+                                    <div class="supplier-metrics">
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">单价</div>
+                                            <div class="supplier-metric-value">¥1,380/套</div>
+                                        </div>
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">评分</div>
+                                            <div class="supplier-metric-value">4.7分</div>
+                                        </div>
+                                        <div class="supplier-metric">
+                                            <div class="supplier-metric-label">交期</div>
+                                            <div class="supplier-metric-value">10天</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="AI 正在分析..."></div>
+                                <div class="input-field"><input placeholder="选择供应商..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -2036,128 +2445,30 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 4: 采购建议 -->
+                <!-- Step 4: 生成采购单 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 4</span> AI 采购建议</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 生成采购单</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">09:03</span>
+                                    <span class="status-time">10:05</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="chat-message assistant">📊 已分析历史采购数据：
-<br><br>• 上月采购量：A4纸 50包、文件夹 30个
-<br>• 当前库存：A4纸 8包（偏低）
-<br>• 建议采购：A4纸 60包、文件夹 40个
-<br><br>💡 优化建议：
-<br>• 集中采购可享 9 折
-<br>• 推荐 A4纸品牌：得力（性价比高）
-<br>• 预计节省 ¥680</div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看供应商..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 5: 供应商推荐 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 5</span> 供应商推荐</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">09:04</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="supplier-card highlight">
-                                        <div class="supplier-header">
-                                            <div class="supplier-logo">
-                                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                                            </div>
-                                            <div class="supplier-info">
-                                                <div class="supplier-name">得力官方旗舰店</div>
-                                                <div class="supplier-score">评分 4.9 · 合作3年</div>
-                                            </div>
-                                        </div>
-                                        <div class="product-tags">
-                                            <span class="ai-tag good">推荐首选</span>
-                                            <span class="ai-tag top">价格最优</span>
-                                        </div>
-                                        <div class="product-actions" style="margin-top: 8px;">
-                                            <div class="action-btn primary">立即下单</div>
-                                            <div class="action-btn secondary">对比报价</div>
-                                        </div>
-                                    </div>
-                                    <div class="supplier-card">
-                                        <div class="supplier-header">
-                                            <div class="supplier-logo">
-                                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                                            </div>
-                                            <div class="supplier-info">
-                                                <div class="supplier-name">晨光文具旗舰店</div>
-                                                <div class="supplier-score">评分 4.8 · 合作1年</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="继续对话..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 6: 下单确认 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 6</span> 下单确认成功</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">09:06</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message user">就选得力，直接下单</div>
-                                    <div class="chat-message assistant">✅ 已为您生成采购订单
-<br><br>📦 商品清单：<br>• A4打印纸 60包<br>• 文件夹 40个<br>• 订书机 10个
-<br><br>💰 总金额：¥3,280<br>💳 预算余额：¥6,720
-<br><br>订单已提交审批，财务审核通过后自动下单。</div>
-                                    <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">✓ 采购单已提交</div>
-                                            <div class="reminder-sub">等待财务审批</div>
+                                    <div class="chat-message user">选震旦，帮我生成采购单</div>
+                                    <div class="chat-message assistant">✓ 已生成采购单<br><br>📄 采购单 #PO-20240315-001<br><br>📦 商品明细<br>• 办公桌 x50<br>• 办公椅 x50<br><br>💰 合计：¥79,000<br>🏪 供应商：震旦家具旗舰店<br>📅 预计交期：7个工作日</div>
+                                    <div class="product-recommend">
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">提交审批</div>
+                                            <div class="action-btn secondary">修改</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2172,55 +2483,57 @@
             </div>
         </section>
         
-        <!-- Case 5: 企业版 - 补货预测 -->
-        <section class="case-section">
+        <!-- ========== Case 6: 企业版 - 库存补货预测 ========== -->
+        <section class="case-section" id="case6">
             <div class="case-header">
-                <div class="case-number enterprise">5</div>
+                <div class="case-number enterprise">6</div>
                 <div class="case-title">库存补货预测</div>
             </div>
-            <p class="case-subtitle">场景：AI 根据历史数据预测库存需求，提前提醒补货</p>
+            <p class="case-subtitle">场景：AI 分析销售数据，预测补货时机和数量</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "智能预测库存消耗，在缺货前主动提醒补货"
+            </div>
             
             <div class="steps-flow">
                 <!-- Step 1: 库存预警 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 1</span> 库存预警推送</div>
+                    <div class="step-label"><span class="step-num">STEP 1</span> 库存预警</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">10:00</span>
+                                    <span class="status-time">09:00</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="welcome-screen">
+                                    <div class="welcome-logo enterprise">
+                                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                    </div>
+                                    <div class="welcome-title">库存预警</div>
+                                    <div class="welcome-subtitle">AI 预测补货时机</div>
                                     <div class="reminder-cards">
-                                        <div class="reminder-card danger">
+                                        <div class="reminder-card warning">
                                             <div class="reminder-icon">
                                                 <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                                             </div>
                                             <div class="reminder-content">
-                                                <div class="reminder-title">📦 库存预警</div>
-                                                <div class="reminder-sub">A4打印纸库存不足，预计7天后缺货</div>
-                                            </div>
-                                        </div>
-                                        <div class="reminder-card info">
-                                            <div class="reminder-icon">
-                                                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                                            </div>
-                                            <div class="reminder-content">
-                                                <div class="reminder-title">📈 AI 预测建议</div>
-                                                <div class="reminder-sub">建议补货 50 包，点击查看详情</div>
+                                                <div class="reminder-title">⚠️ 热销商品库存不足</div>
+                                                <div class="reminder-sub">3款商品需要补货</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看预测详情..."></div>
+                                <div class="input-field"><input placeholder="查看详情..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -2229,53 +2542,54 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 库存数据 -->
+                <!-- Step 2: 销量分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> 库存数据概览</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> 销量数据分析</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">库存预测</div>
+                                    <span class="status-time">09:01</span>
+                                    <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="data-card">
-                                    <div class="data-title">A4打印纸 · 库存分析</div>
-                                    <div class="data-grid">
-                                        <div class="data-item">
-                                            <div class="data-label">当前库存</div>
-                                            <div class="data-value red">12 包</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">安全库存</div>
-                                            <div class="data-value">20 包</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">日均消耗</div>
-                                            <div class="data-value">2.3 包</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">预计缺货</div>
-                                            <div class="data-value red">7 天后</div>
-                                        </div>
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">库存预测</div>
+                                </div>
+                                <div class="data-overview">
+                                    <div class="data-card">
+                                        <div class="data-value">156</div>
+                                        <div class="data-label">当前库存</div>
+                                    </div>
+                                    <div class="data-card">
+                                        <div class="data-value">23</div>
+                                        <div class="data-label">日均销量</div>
+                                    </div>
+                                    <div class="data-card">
+                                        <div class="data-value down">7天</div>
+                                        <div class="data-label">可售天数</div>
+                                    </div>
+                                    <div class="data-card">
+                                        <div class="data-value up">200</div>
+                                        <div class="data-label">建议补货</div>
                                     </div>
                                 </div>
-                                <div class="chart-placeholder">
-                                    <div class="chart-bar" style="height: 40%;"></div>
-                                    <div class="chart-bar" style="height: 55%;"></div>
-                                    <div class="chart-bar" style="height: 70%;"></div>
-                                    <div class="chart-bar" style="height: 45%;"></div>
-                                    <div class="chart-bar" style="height: 60%;"></div>
-                                    <div class="chart-bar" style="height: 30%;"></div>
+                                <div class="detail-section">
+                                    <div class="detail-section-title">预测分析</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>近7天销量：161件</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>销量趋势：↑ 15%</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>预计断货：7天后</div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看补货建议..."></div>
+                                <div class="input-field"><input placeholder="查看详情..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -2286,114 +2600,66 @@
                 
                 <!-- Step 3: 补货建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 3</span> AI 补货建议</div>
+                    <div class="step-label"><span class="step-num">STEP 3</span> 智能补货建议</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">10:02</span>
+                                    <span class="status-time">09:02</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-header">
-                                    <div class="chat-avatar enterprise">
-                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                                    </div>
-                                    <div class="chat-name">采购助手</div>
-                                </div>
-                                <div class="chat-messages">
-                                    <div class="chat-message assistant">📊 库存预测分析：
-<br><br>基于过去 30 天消耗数据：
-<br>• 日均消耗：2.3 包
-<br>• 当前库存：12 包
-<br>• 预计 7 天后缺货
-<br><br>💡 建议补货方案：
-<br>• 补货量：50 包
-<br>• 预计可用：22 天
-<br>• 推荐下单时间：3天内</div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="好的，下单..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 4: 下单确认 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 4</span> 一键补货下单</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">10:03</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="chat-message user">好的，下单50包</div>
-                                    <div class="chat-message assistant">已为您准备采购单：
-<br><br>📦 商品：A4打印纸
-<br>📊 数量：50 包
-<br>💰 单价：¥28/包
-<br>💵 总价：¥1,400
-<br>🏪 供应商：得力官方旗舰店
-<br><br>确认下单吗？</div>
-                                    <div class="product-actions" style="margin-top: 12px;">
-                                        <div class="action-btn primary">确认下单</div>
-                                        <div class="action-btn secondary">修改数量</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="确认或修改..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 5: 下单成功 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 5</span> 补货订单成功</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">10:04</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message assistant">✅ 补货订单已提交
-<br><br>订单号：#PO-20260315-001
-<br>预计 3月18日 送达
-<br><br>我会持续跟踪物流状态，到货后自动更新库存记录。</div>
-                                    <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <div class="chat-message assistant">📊 AI 补货建议<br><br>根据销量预测，建议立即补货：<br><br>📦 商品：无线鼠标<br>🔢 建议数量：200件<br>💰 预计成本：¥6,000<br>🏪 推荐供应商：3家可选<br><br>是否生成采购单？</div>
+                                    <div class="product-recommend">
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">生成采购单</div>
+                                            <div class="action-btn secondary">调整数量</div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="说点什么..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 4: 完成采购 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 4</span> 完成补货</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">09:05</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-messages">
+                                    <div class="chat-message user">生成采购单</div>
+                                    <div class="chat-message assistant">✓ 采购单已创建<br><br>📄 PO-20240315-002<br>📦 无线鼠标 x200<br>💰 ¥6,000<br>🏪 已选择最优供应商<br>📅 预计5天内到货<br><br>已发送审批通知给采购主管。</div>
+                                    <div class="reminder-card success">
+                                        <div class="reminder-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
                                         <div class="reminder-content">
-                                            <div class="reminder-title">✓ 库存预警已关闭</div>
-                                            <div class="reminder-sub">补货中，预计3天后到货</div>
+                                            <div class="reminder-title">✓ 采购单已提交</div>
+                                            <div class="reminder-sub">等待审批</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2408,13 +2674,17 @@
             </div>
         </section>
         
-        <!-- Case 6: 企业版 - 供应商评估 -->
-        <section class="case-section">
+        <!-- ========== Case 7: 企业版 - 供应商评估 ========== -->
+        <section class="case-section" id="case7">
             <div class="case-header">
-                <div class="case-number enterprise">6</div>
-                <div class="case-title">供应商评估对比</div>
+                <div class="case-number enterprise">7</div>
+                <div class="case-title">供应商评估</div>
             </div>
-            <p class="case-subtitle">场景：企业需要评估供应商，AI 分析历史数据提供决策建议</p>
+            <p class="case-subtitle">场景：多维度供应商评分，优化供应链决策</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "帮我评估这几个供应商的综合表现"
+            </div>
             
             <div class="steps-flow">
                 <!-- Step 1: 供应商列表 -->
@@ -2424,49 +2694,49 @@
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">供应商管理</div>
+                                    <span class="status-time">14:00</span>
+                                    <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
-                                <div class="supplier-card highlight">
-                                    <div class="supplier-header">
-                                        <div class="supplier-logo">
-                                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                                        </div>
-                                        <div class="supplier-info">
-                                            <div class="supplier-name">得力官方旗舰店</div>
-                                            <div class="supplier-score">⭐ 4.9 · 合作 3 年</div>
-                                        </div>
-                                    </div>
-                                    <div class="product-tags">
-                                        <span class="ai-tag good">优质供应商</span>
-                                    </div>
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">供应商管理</div>
                                 </div>
-                                <div class="supplier-card">
-                                    <div class="supplier-header">
-                                        <div class="supplier-logo">
-                                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                                        </div>
-                                        <div class="supplier-info">
-                                            <div class="supplier-name">晨光文具旗舰店</div>
-                                            <div class="supplier-score">⭐ 4.8 · 合作 1 年</div>
-                                        </div>
+                                <div class="list-item">
+                                    <div class="list-icon purple">
+                                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
                                     </div>
+                                    <div class="list-content">
+                                        <div class="list-title">震旦家具旗舰店</div>
+                                        <div class="list-subtitle">评分 4.9 · 合作12次</div>
+                                    </div>
+                                    <div class="list-action">评估 →</div>
                                 </div>
-                                <div class="supplier-card">
-                                    <div class="supplier-header">
-                                        <div class="supplier-logo">
-                                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                                        </div>
-                                        <div class="supplier-info">
-                                            <div class="supplier-name">齐心办公专营店</div>
-                                            <div class="supplier-score">⭐ 4.6 · 合作 2 年</div>
-                                        </div>
+                                <div class="list-item">
+                                    <div class="list-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
                                     </div>
+                                    <div class="list-content">
+                                        <div class="list-title">圣奥办公家具</div>
+                                        <div class="list-subtitle">评分 4.7 · 合作8次</div>
+                                    </div>
+                                    <div class="list-action">评估 →</div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                                    </div>
+                                    <div class="list-content">
+                                        <div class="list-title">欧林办公家具</div>
+                                        <div class="list-subtitle">评分 4.5 · 合作3次</div>
+                                    </div>
+                                    <div class="list-action">评估 →</div>
                                 </div>
                             </div>
                             <div class="input-bar">
@@ -2479,54 +2749,84 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 2: 评估报告 -->
+                <!-- Step 2: AI 评估分析 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> AI 评估报告</div>
+                    <div class="step-label"><span class="step-num">STEP 2</span> AI 评估分析</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
+                                    <span class="status-time">14:01</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-header">
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                    <div class="chat-name">采购小管家</div>
+                                    <div class="chat-status">在线</div>
+                                </div>
+                                <div class="chat-messages">
+                                    <div class="chat-message user">帮我评估这几个供应商</div>
+                                    <div class="chat-message assistant">正在分析 3 家供应商...<br><br>📊 评估维度：<br>• 价格竞争力<br>• 交付准时率<br>• 商品质量<br>• 售后服务<br>• 历史合作<br><br>分析完成，请查看详情。</div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="查看详情..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 3: 评估详情 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 3</span> 评估详情</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">14:02</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="detail-header">
                                     <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
                                     <div class="detail-title">供应商评估</div>
                                 </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="data-card">
-                                    <div class="data-title">得力官方旗舰店 · 评估报告</div>
-                                    <div class="data-grid">
-                                        <div class="data-item">
-                                            <div class="data-label">综合评分</div>
-                                            <div class="data-value green">4.9 / 5.0</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">价格竞争力</div>
-                                            <div class="data-value blue">优秀</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">配送时效</div>
-                                            <div class="data-value green">2.1 天</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">售后服务</div>
-                                            <div class="data-value blue">4.8 / 5.0</div>
-                                        </div>
+                                <div class="data-overview">
+                                    <div class="data-card">
+                                        <div class="data-value up">98%</div>
+                                        <div class="data-label">准时交付率</div>
+                                    </div>
+                                    <div class="data-card">
+                                        <div class="data-value">4.9</div>
+                                        <div class="data-label">综合评分</div>
                                     </div>
                                 </div>
                                 <div class="detail-section">
-                                    <div class="detail-section-title">历史合作数据</div>
-                                    <div class="detail-features">
-                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>合作订单：156 笔</div>
-                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>准时交付率：98.7%</div>
-                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>退货率：0.6%</div>
-                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>累计节省：¥28,500</div>
-                                    </div>
+                                    <div class="detail-section-title">多维度评分</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>价格竞争力：★★★★★</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>交付准时率：98%</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>售后服务：4.8分</div>
+                                    <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>合作次数：12次</div>
                                 </div>
                             </div>
                             <div class="input-bar">
-                                <div class="input-field"><input placeholder="对比其他供应商..."></div>
+                                <div class="input-field"><input placeholder="查看对比..."></div>
                                 <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
                             </div>
                         </div>
@@ -2535,120 +2835,29 @@
                 
                 <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
                 
-                <!-- Step 3: 对比分析 -->
+                <!-- Step 4: 优化建议 -->
                 <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 3</span> 供应商对比</div>
+                    <div class="step-label"><span class="step-num">STEP 4</span> 优化建议</div>
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <div class="status-bar">
                                 <div class="status-left">
-                                    <span class="status-time">11:02</span>
+                                    <span class="status-time">14:05</span>
                                     <div class="status-version enterprise">企业版</div>
                                 </div>
                                 <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-header">
-                                    <div class="chat-avatar enterprise">
-                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                                    </div>
-                                    <div class="chat-name">采购助手</div>
-                                </div>
-                                <div class="chat-messages">
-                                    <div class="chat-message assistant">📊 供应商对比分析：
-<br><br>🏆 推荐排序：
-<br>1️⃣ 得力官方旗舰店
-<br>• 价格优势：5-10%
-<br>• 配送：2.1天（最快）
-<br>• 合作稳定：3年
-<br><br>2️⃣ 晨光文具旗舰店
-<br>• 价格相近
-<br>• 配送：2.8天
-<br><br>3️⃣ 齐心办公专营店
-<br>• 价格略高 3%
-<br>• 配送：3.2天</div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看详细报告..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 4: 决策建议 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 4</span> AI 决策建议</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">11:03</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
                                 </div>
                             </div>
                             <div class="content-area">
                                 <div class="chat-messages">
-                                    <div class="chat-message assistant">💡 采购建议：
-<br><br>基于综合评估，建议：
-<br><br>✅ 主供应商：得力官方旗舰店
-<br>• 理由：价格优势、配送快、合作稳定
-<br>• 预计年节省：¥15,000+
-<br><br>🔄 备选供应商：晨光文具
-<br>• 用途：得力缺货时应急
-<br><br>是否将得力设为首选供应商？</div>
-                                    <div class="product-actions" style="margin-top: 12px;">
-                                        <div class="action-btn primary">设为首选</div>
-                                        <div class="action-btn secondary">稍后决定</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="确认或继续..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 5: 设置成功 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 5</span> 设置成功</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">11:04</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message user">好的，设为首选</div>
-                                    <div class="chat-message assistant">✅ 已设置完成！
-<br><br>得力官方旗舰店已成为您的首选供应商。
-<br><br>未来采购会优先推荐得力的商品，并在价格变动时及时通知您。
-<br><br>您也可以随时在「供应商管理」中调整设置。</div>
-                                    <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">✓ 首选供应商已更新</div>
-                                            <div class="reminder-sub">得力官方旗舰店</div>
+                                    <div class="chat-message assistant">📋 供应商评估报告<br><br>🏆 推荐供应商：震旦家具旗舰店<br><br>✓ 综合评分最高：4.9分<br>✓ 交付准时率：98%<br>✓ 价格竞争力强<br>✓ 合作历史稳定<br><br>💡 优化建议：<br>建议将震旦设为首选供应商，可享批量折扣。</div>
+                                    <div class="product-recommend">
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">设为首选</div>
+                                            <div class="action-btn secondary">查看报告</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2663,195 +2872,28 @@
             </div>
         </section>
         
-        <!-- Case 7: 企业版 - 数据分析 -->
-        <section class="case-section">
-            <div class="case-header">
-                <div class="case-number enterprise">7</div>
-                <div class="case-title">采购数据分析</div>
-            </div>
-            <p class="case-subtitle">场景：企业查看采购数据，AI 提供降本增效建议</p>
-            
-            <div class="steps-flow">
-                <!-- Step 1: 数据概览 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 1</span> 数据概览首页</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
-                                    <div class="detail-title">数据分析</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="data-card">
-                                    <div class="data-title">本月采购概览</div>
-                                    <div class="data-grid">
-                                        <div class="data-item">
-                                            <div class="data-label">总采购额</div>
-                                            <div class="data-value">¥28,560</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">节省金额</div>
-                                            <div class="data-value green">¥4,280</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">订单数</div>
-                                            <div class="data-value">23 笔</div>
-                                        </div>
-                                        <div class="data-item">
-                                            <div class="data-label">节省率</div>
-                                            <div class="data-value green">15%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chart-placeholder">
-                                    <div class="chart-bar" style="height: 40%;"></div>
-                                    <div class="chart-bar" style="height: 55%;"></div>
-                                    <div class="chart-bar" style="height: 70%;"></div>
-                                    <div class="chart-bar" style="height: 45%;"></div>
-                                    <div class="chart-bar" style="height: 60%;"></div>
-                                    <div class="chart-bar" style="height: 50%;"></div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看详细分析..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 2: AI 分析 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 2</span> AI 分析数据</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">15:00</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-header">
-                                    <div class="chat-avatar enterprise">
-                                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                                    </div>
-                                    <div class="chat-name">采购助手</div>
-                                </div>
-                                <div class="chat-messages">
-                                    <div class="chat-message assistant">📊 3月采购数据分析：
-<br><br>💰 总支出：¥28,560
-<br>📈 较上月：+8%
-<br>📉 节省金额：¥4,280
-<br><br>主要采购品类：
-<br>• 办公用品：¥12,800 (45%)
-<br>• IT设备：¥8,500 (30%)
-<br>• 其他：¥7,260 (25%)</div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="查看优化建议..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 3: 优化建议 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 3</span> AI 优化建议</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">15:01</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message assistant">💡 降本增效建议：
-<br><br>1️⃣ 集中采购
-<br>• 办公用品合并采购
-<br>• 预计节省 ¥800/月
-<br><br>2️⃣ 优化供应商
-<br>• IT设备切换到首选供应商
-<br>• 预计节省 ¥1,200/月
-<br><br>3️⃣ 库存预警
-<br>• 开启自动补货
-<br>• 减少紧急采购溢价
-<br><br>预计全年可节省 ¥24,000+</div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="应用这些建议..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                
-                <!-- Step 4: 应用建议 -->
-                <div class="step-card">
-                    <div class="step-label"><span class="step-num">STEP 4</span> 应用优化建议</div>
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <div class="status-bar">
-                                <div class="status-left">
-                                    <span class="status-time">15:02</span>
-                                    <div class="status-version enterprise">企业版</div>
-                                </div>
-                                <div class="status-right">
-                                    <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <div class="chat-messages">
-                                    <div class="chat-message user">应用这些建议</div>
-                                    <div class="chat-message assistant">好的，为您应用以下优化：
-<br><br>✅ 已开启集中采购模式
-<br>✅ 已切换IT设备供应商
-<br>✅ 已开启库存自动预警
-<br><br>预计下月可节省 ¥2,000+，我会在月底给您发送效果报告。</div>
-                                    <div class="reminder-card success">
-                                        <div class="reminder-icon">
-                                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
-                                        <div class="reminder-content">
-                                            <div class="reminder-title">✓ 优化方案已生效</div>
-                                            <div class="reminder-sub">预计年节省 ¥24,000+</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-bar">
-                                <div class="input-field"><input placeholder="说点什么..."></div>
-                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </div>
+    </main>
     
+    <script>
+        function scrollToCategory(type) {
+            const element = document.getElementById(type);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // 更新按钮状态
+            document.querySelectorAll('.version-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.version-btn.${type}`).classList.add('active');
+        }
+        
+        function scrollToCase(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
 </body>
 </html>
