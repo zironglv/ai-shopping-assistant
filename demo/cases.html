@@ -1269,7 +1269,7 @@
         <!-- 版本切换导航 -->
         <div class="version-nav">
             <button class="version-btn personal active" onclick="scrollToCategory('personal')">📱 个人版 (4个)</button>
-            <button class="version-btn enterprise" onclick="scrollToCategory('enterprise')">🏢 企业版 (3个)</button>
+            <button class="version-btn enterprise" onclick="scrollToCategory('enterprise')">🏢 企业版 (4个)</button>
         </div>
     </header>
     
@@ -1357,6 +1357,18 @@
                 <div class="overview-tags">
                     <span class="overview-tag">供应商管理</span>
                     <span class="overview-tag">风险评估</span>
+                </div>
+            </div>
+            
+            <div class="overview-card enterprise" onclick="scrollToCase('case8')">
+                <div class="overview-header">
+                    <div class="overview-number enterprise">8</div>
+                    <div class="overview-title">发票抬头管理</div>
+                </div>
+                <div class="overview-desc">管理多个发票抬头，一键申请开票</div>
+                <div class="overview-tags">
+                    <span class="overview-tag">发票管理</span>
+                    <span class="overview-tag">开票需求</span>
                 </div>
             </div>
         </div>
@@ -2858,6 +2870,215 @@
                                         <div class="product-actions">
                                             <div class="action-btn primary">设为首选</div>
                                             <div class="action-btn secondary">查看报告</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="说点什么..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== Case 8: 企业版 - 发票抬头管理 ========== -->
+        <section class="case-section" id="case8">
+            <div class="case-header">
+                <div class="case-number enterprise">8</div>
+                <div class="case-title">发票抬头管理</div>
+            </div>
+            <p class="case-subtitle">场景：企业用户需要管理多个发票抬头，采购时一键申请开票</p>
+            <div class="story-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                "采购完成，帮我申请开票，使用默认发票抬头"
+            </div>
+            
+            <div class="steps-flow">
+                <!-- Step 1: 发票抬头列表 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 1</span> 发票抬头列表</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">15:00</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">发票抬头管理</div>
+                                </div>
+                                <div class="list-item highlight">
+                                    <div class="list-icon purple">
+                                        <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/></svg>
+                                    </div>
+                                    <div class="list-content">
+                                        <div class="list-title">增值税专用发票（默认）</div>
+                                        <div class="list-subtitle">XX科技有限公司</div>
+                                    </div>
+                                    <div class="list-action">查看 →</div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-icon">
+                                        <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/></svg>
+                                    </div>
+                                    <div class="list-content">
+                                        <div class="list-title">增值税普通发票</div>
+                                        <div class="list-subtitle">XX科技有限公司</div>
+                                    </div>
+                                    <div class="list-action">查看 →</div>
+                                </div>
+                                <div class="reminder-card info">
+                                    <div class="reminder-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                                    <div class="reminder-content">
+                                        <div class="reminder-title">+ 添加新的发票抬头</div>
+                                        <div class="reminder-sub">支持增值税专用/普通发票</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="搜索发票抬头..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 2: 发票抬头详情 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 2</span> 发票抬头详情</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">15:01</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="detail-header">
+                                    <div class="detail-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                                    <div class="detail-title">增值税专用发票</div>
+                                </div>
+                                <div class="detail-section">
+                                    <div class="detail-section-title">发票抬头信息</div>
+                                    <div class="detail-features">
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>公司名称：XX科技有限公司</div>
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>纳税人识别号：91350100XXXXXXXXXX</div>
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>注册地址：福建省福州市XX区XX路XX号</div>
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>联系电话：0591-XXXXXXXX</div>
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>开户银行：中国工商银行XX支行</div>
+                                        <div class="feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>银行账号：XXXX XXXX XXXX XXXX</div>
+                                    </div>
+                                </div>
+                                <div class="product-recommend">
+                                    <div class="product-actions">
+                                        <div class="action-btn primary">编辑信息</div>
+                                        <div class="action-btn secondary">复制抬头</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="说点什么..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 3: 申请开票 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 3</span> 申请开票</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">15:02</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-header">
+                                    <div class="chat-avatar"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                    <div class="chat-name">采购小管家</div>
+                                    <div class="chat-status">在线</div>
+                                </div>
+                                <div class="chat-messages">
+                                    <div class="chat-message user">采购完成，帮我申请开票</div>
+                                    <div class="chat-message assistant">好的，为您申请开票：<br><br>📄 订单：PO-20240315-001<br>💰 金额：¥79,000<br><br>请选择发票抬头：</div>
+                                    <div class="product-recommend">
+                                        <div class="product-row">
+                                            <div class="product-image"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" ry="2"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="2" x2="9" y2="6"/></svg></div>
+                                            <div class="product-info">
+                                                <div class="product-brand">增值税专用发票</div>
+                                                <div class="product-name">XX科技有限公司（默认）</div>
+                                            </div>
+                                        </div>
+                                        <div class="product-actions">
+                                            <div class="action-btn primary">使用此抬头</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-bar">
+                                <div class="input-field"><input placeholder="选择发票抬头..."></div>
+                                <div class="input-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+                
+                <!-- Step 4: 开票申请成功 -->
+                <div class="step-card">
+                    <div class="step-label"><span class="step-num">STEP 4</span> 开票申请成功</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span class="status-time">15:05</span>
+                                    <div class="status-version enterprise">企业版</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-signal"><span></span><span></span><span></span><span></span></div>
+                                    <div class="status-wifi"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg></div>
+                                    <div class="status-battery"><div class="status-battery-body"></div><div class="status-battery-tip"></div></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="chat-messages">
+                                    <div class="chat-message user">使用默认发票抬头开票</div>
+                                    <div class="chat-message assistant">✓ 开票申请已提交<br><br>📄 发票信息：<br>• 类型：增值税专用发票<br>• 抬头：XX科技有限公司<br>• 金额：¥79,000<br>• 订单：PO-20240315-001<br><br>发票将在 3-5 个工作日内开出，届时会短信通知您。</div>
+                                    <div class="reminder-card success">
+                                        <div class="reminder-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                        <div class="reminder-content">
+                                            <div class="reminder-title">✓ 开票申请成功</div>
+                                            <div class="reminder-sub">预计 3-5 工作日开出</div>
                                         </div>
                                     </div>
                                 </div>
