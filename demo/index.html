@@ -864,6 +864,62 @@
             margin-bottom: 6px;
         }
         
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        
+        .ai-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .ai-tag.good {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        
+        .ai-tag.good::before {
+            content: '✓';
+            font-weight: 700;
+        }
+        
+        .ai-tag.top {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+        
+        .ai-tag.top::before {
+            content: '↑';
+            font-weight: 700;
+        }
+        
+        .ai-tag.hot {
+            background: #FCE4EC;
+            color: #C2185B;
+        }
+        
+        .ai-tag.hot::before {
+            content: '🔥';
+        }
+        
+        .ai-tag.safe {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+        
+        .ai-tag.safe::before {
+            content: '★';
+        }
+        
         .product-price {
             display: flex;
             align-items: center;
@@ -1015,6 +1071,13 @@
             color: var(--text-primary);
             margin-bottom: 12px;
             line-height: 1.4;
+        }
+        
+        .detail-ai-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
         }
         
         .detail-price-row {
@@ -1249,6 +1312,13 @@
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 6px;
+        }
+        
+        .monitor-ai-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
         }
         
         .monitor-price-row {
@@ -2808,27 +2878,31 @@
                             <div class="screen-content">
                                 <div class="chat-content">
                                     <div class="chat-date">今天 09:30</div>
-                                    <div class="chat-message user">我想给老婆买个生日礼物</div>
-                                    <div class="chat-message assistant">好的！老婆生日快到了，我帮你推荐几个适合她的礼物吧~</div>
-                                    <div class="chat-message user">她喜欢护肤品类，预算 500 左右</div>
-                                    <div class="chat-message assistant">明白了！护肤品、500 元预算，我找找看...</div>
+                                    <div class="chat-message user">我想买个降噪耳机，通勤用</div>
+                                    <div class="chat-message assistant">好的！通勤用降噪耳机，帮你找几款性价比高的~</div>
+                                    <div class="chat-message user">预算 1000 左右，要佩戴舒服</div>
+                                    <div class="chat-message assistant">明白了！1000元预算、通勤降噪、佩戴舒适，我帮你筛选...</div>
                                     <div class="chat-date">09:35</div>
-                                    <div class="chat-message assistant">找到两款很适合她的：</div>
+                                    <div class="chat-message assistant">找到两款很适合你的：</div>
                                     
                                     <div class="product-recommend">
                                         <div class="product-image">
-                                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                                         </div>
                                         <div class="product-info">
-                                            <div class="product-name">祖玛珑礼盒套装</div>
+                                            <div class="product-name">索尼 WH-CH720N</div>
+                                            <div class="product-tags">
+                                                <span class="ai-tag good">全网 2.8万人说降噪效果好</span>
+                                                <span class="ai-tag top">舒适度高于同类 95%</span>
+                                            </div>
                                             <div class="product-price">
-                                                <span class="price-current">¥520</span>
-                                                <span class="price-original">¥680</span>
+                                                <span class="price-current">¥999</span>
+                                                <span class="price-original">¥1299</span>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="chat-message assistant">第二款是护肤礼盒，评价很好~</div>
+                                    <div class="chat-message assistant">第二款是国产口碑款，续航更强~</div>
                                 </div>
                             </div>
                             
@@ -2930,7 +3004,7 @@
                                         </div>
                                         <div class="item-content">
                                             <div class="item-title">价格监控</div>
-                                            <div class="item-desc">咖啡机、耳机</div>
+                                            <div class="item-desc">降噪耳机、咖啡机</div>
                                         </div>
                                         <div class="item-meta">
                                             <div class="item-count">2</div>
@@ -2980,20 +3054,25 @@
                             <div class="screen-content no-nav">
                                 <div class="detail-content">
                                     <div class="detail-gallery">
-                                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                                     </div>
                                     <div class="detail-info">
-                                        <h1 class="detail-title">戴森 V15 无线吸尘器</h1>
+                                        <h1 class="detail-title">索尼 WH-CH720N 无线降噪耳机</h1>
+                                        <div class="detail-ai-tags">
+                                            <span class="ai-tag good">全网 2.8万人说降噪效果好</span>
+                                            <span class="ai-tag top">舒适度高于同类 95%</span>
+                                            <span class="ai-tag safe">索尼官方旗舰店</span>
+                                        </div>
                                         <div class="detail-price-row">
-                                            <span class="detail-price">¥4,990</span>
-                                            <span class="detail-original">¥5,990</span>
-                                            <span class="detail-discount">省 1000 元</span>
+                                            <span class="detail-price">¥999</span>
+                                            <span class="detail-original">¥1299</span>
+                                            <span class="detail-discount">省 300 元</span>
                                         </div>
                                         <div class="detail-tags">
                                             <span class="detail-tag">历史低价</span>
-                                            <span class="detail-tag">官方旗舰店</span>
+                                            <span class="detail-tag">30天价保</span>
                                         </div>
-                                        <p class="detail-desc">激光探测微尘，整机 HEPA 过滤系统，吸力强劲。适合家庭深度清洁。</p>
+                                        <p class="detail-desc">轻量化设计仅192g，20级环境声可控降噪，35小时续航。适合通勤、办公使用。</p>
                                     </div>
                                     <div class="action-bar">
                                         <button class="action-btn secondary">加入关注</button>
@@ -3179,30 +3258,41 @@
                                 <div class="monitor-list">
                                     <div class="monitor-card">
                                         <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                                         </div>
                                         <div class="monitor-info">
-                                            <div class="monitor-name">戴森 V15 吸尘器</div>
+                                            <div class="monitor-name">索尼 WH-CH720N 耳机</div>
+                                            <div class="monitor-ai-tags">
+                                                <span class="ai-tag good">全网 2.8万人说降噪效果好</span>
+                                            </div>
                                             <div class="monitor-price-row">
-                                                <span class="monitor-current">¥4,990</span>
-                                                <span class="monitor-target">目标: ¥4,500</span>
+                                                <span class="monitor-current">¥999</span>
+                                                <span class="monitor-target">目标: ¥850</span>
                                             </div>
                                             <div class="monitor-progress">
-                                                <div class="monitor-progress-bar" style="width: 78%;"></div>
+                                                <div class="monitor-progress-bar" style="width: 85%;"></div>
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="monitor-card">
                                         <div class="monitor-image">
-                                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                                         </div>
                                         <div class="monitor-info">
-                                            <div class="monitor-name">索尼 WH-1000XM5 耳机</div>
-                                            <div class="monitor-price-row">
-                                                <span class="monitor-current">¥2,299</span>
-                                                <span class="monitor-target">目标: ¥2,000</span>
+                                            <div class="monitor-name">德龙 EC685 咖啡机</div>
+                                            <div class="monitor-ai-tags">
+                                                <span class="ai-tag top">性价比高于同类 89%</span>
                                             </div>
+                                            <div class="monitor-price-row">
+                                                <span class="monitor-current">¥1,680</span>
+                                                <span class="monitor-target">目标: ¥1,500</span>
+                                            </div>
+                                            <div class="monitor-progress">
+                                                <div class="monitor-progress-bar" style="width: 72%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                             <div class="monitor-progress">
                                                 <div class="monitor-progress-bar" style="width: 45%;"></div>
                                             </div>
