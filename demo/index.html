@@ -294,11 +294,60 @@
         
         .status-icons {
             display: flex;
-            gap: 4px;
+            gap: 6px;
             align-items: center;
         }
         
         .status-icons svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-primary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* 版本切换入口 */
+        .status-version {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: var(--accent-blue-light);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        
+        .status-version.enterprise {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+        }
+        
+        .status-version svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* 菜单入口 */
+        .status-menu {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: background 0.15s ease;
+        }
+        
+        .status-menu:hover {
+            background: var(--bg-hover);
+        }
+        
+        .status-menu svg {
             width: 18px;
             height: 18px;
             stroke: var(--text-primary);
@@ -524,6 +573,10 @@
             margin-bottom: 20px;
         }
         
+        .welcome-logo.enterprise {
+            background: var(--accent-green);
+        }
+        
         .welcome-logo svg {
             width: 32px;
             height: 32px;
@@ -543,43 +596,78 @@
             font-size: 14px;
             color: var(--text-secondary);
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
         
-        /* 版本切换 */
-        .version-switch {
-            display: flex;
-            gap: 0;
-            margin-bottom: 12px;
-            width: 100%;
-            background: var(--bg-secondary);
-            padding: 4px;
-            border-radius: 6px;
-        }
-        
-        .version-btn {
-            flex: 1;
-            padding: 10px;
-            background: transparent;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-align: center;
-            transition: all 0.15s ease;
-            border: none;
-        }
-        
-        .version-btn.active {
+        /* ========== 菜单弹出层 ========== */
+        .menu-popup {
+            position: absolute;
+            top: 44px;
+            right: 8px;
+            width: 200px;
             background: var(--bg-primary);
-            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            pointer-events: none;
         }
         
-        .version-hint {
-            font-size: 12px;
+        .menu-popup.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .menu-section {
+            padding: 8px 0;
+        }
+        
+        .menu-section-title {
+            padding: 8px 12px;
+            font-size: 11px;
             color: var(--text-tertiary);
-            text-align: center;
-            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: background 0.15s ease;
+        }
+        
+        .menu-item:hover {
+            background: var(--bg-hover);
+        }
+        
+        .menu-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-secondary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .menu-divider {
+            height: 1px;
+            background: var(--border-light);
+            margin: 4px 12px;
+        }
+        
+        .menu-item.active {
+            color: var(--accent-blue);
+        }
+        
+        .menu-item.active svg {
+            stroke: var(--accent-blue);
         }
         
         /* 提醒卡片 */
@@ -2358,8 +2446,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2370,12 +2463,6 @@
                                     </div>
                                     <h1 class="welcome-title">专业购物小管家</h1>
                                     <p class="welcome-subtitle">记住需求 · 主动找货 · 智能决策</p>
-                                    
-                                    <div class="version-switch">
-                                        <div class="version-btn active">个人版</div>
-                                        <div class="version-btn">企业版</div>
-                                    </div>
-                                    <p class="version-hint">个人消费者：省心省钱购物助手</p>
                                     
                                     <div class="reminder-cards">
                                         <div class="reminder-card warning">
@@ -2448,8 +2535,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2529,8 +2621,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2629,8 +2726,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2674,8 +2776,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2803,8 +2910,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version">
+                                        <span>个人版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -2911,8 +3023,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -3088,8 +3205,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -3227,8 +3349,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -3382,8 +3509,13 @@
                             <div class="status-bar">
                                 <span class="status-time">09:41</span>
                                 <div class="status-icons">
-                                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
-                                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/></svg>
+                                    <div class="status-version enterprise">
+                                        <span>企业版</span>
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                    <div class="status-menu">
+                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                    </div>
                                 </div>
                             </div>
                             
